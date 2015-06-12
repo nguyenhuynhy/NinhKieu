@@ -1,0 +1,1760 @@
+<html>
+<head>
+
+<script>
+window.expAllowStatic = true;
+</script>
+
+<title>MeadCo's ScriptX: Scripting Programming Manual</title>
+
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" media="print" type="text/css" href="print.css">
+<style>
+pre          { background-color: #EEEEEE }
+.samp        { background-color: #EEEEEE }
+.args        { background-color: #EEEEEE; width: 70% }
+.comm        { color: #505050 }
+.ext         { background-color: #EEEEEE; color: #FF0000 }
+.menu        { height: 25; width: 100%; background-color: gray; color: white; font-weight: 
+               bold; text-align: center; margin-top: 0; padding: 2pt }
+.samplink    { font-weight: bold }
+h5           { font-size: 8pt }
+</style>
+
+<script>
+function openWindow(url) {
+  window.open(url, "sample", "width=600 height=450 left=10 top=10 toolbar=0 statusbar=0 scrollbars=1 resizable=1")
+}
+</script>
+
+</head>
+
+<body>
+
+<h1><a target="_new" href="http://www.meadroid.com/scriptx/index.asp">ScriptX</a> scripting: technical manual</h1>
+
+<p>October 2003</p>
+
+<hr size="1"/>
+
+<h2>Contents</h2>
+<dl>
+  <dt><a href="#intro">Overview</a></dt>
+  <dl>
+    <dt><a href="#html_object">How to reference ScriptX on an HTML page</a></dt>
+    <dt><a href="#general">General scripting extensions</a></dt>
+    <dl>
+      <dt><a href="#DEB">Dynamic Event Binding (DEB)</a></dt>
+      <dt><a href="#dialog">DHTML dialogs</a></dt>
+      <dt><a href="#jscript">JScript: SafeArrays, Invoke 'ByRef', Formatting</a></dt>
+    </dl>
+    <dt><a href="#explorer">Internet Explorer specific functionality</a></dt>
+  </dl>
+  <dt><a href="#refs">Reference</a></dt>
+  <dt>&nbsp;</dt>
+  <dt>Summary of examples</dt>
+  <dl>
+    <dt>Dynamic Event Binding with <a href="gen_samples/wshie.js" class="samplink">JScript</a> and <a
+      href="gen_samples/wshie.vbs" class="samplink">VBScript</a> (<a target="_blank" 
+      href="http://msdn.microsoft.com/scripting/windowshost/default.htm">Windows Scripting Host</a><span
+      class="ext">»</span>)</dt>
+    <dt><a href="javascript:openWindow('gen_samples/ModalDialog.htm')" class="samplink">Modal HTML Dialog</a></dt>
+    <dt><a href="javascript:openWindow('gen_samples/SafeArray.htm')" class="samplink">SafeArrays with JScript</a></dt>
+    <dt><a href="javascript:openWindow('gen_samples/InvokeByRefResult.htm')" class="samplink">Invoke 'By Ref' with
+      JScript</a></dt>
+    <dt><a href="javascript:openWindow('gen_samples/Format.htm')" class="samplink">Formatting with JScript</a></dt>
+    <dt><a href="javascript:openWindow('gen_samples/OleView.htm')" class="samplink">OleView-based Object Viewer</a></dt>
+  </dl>
+</dl>
+<h2><a name="intro"></a>Overview</h2>
+<p>MeadCo ScriptX is a non-visual ActiveX control, originally designed to extend the scripting capabilities of
+the standard Microsoft Scripting Languages <a target="_blank" 
+href="http://msdn.microsoft.com/scripting/jscript/techinfo/jsdocs.htm">JScript</a><span class="ext">»</span>
+and <a target="_blank" href="http://msdn.microsoft.com/scripting/vbscript/techinfo/vbsdocs.htm">VBScript</a><span class="ext">»</span>
+and to add more resemblance between the two. Currently the functionality provided by ScriptX can be conditionally
+grouped under the following headings:
+<ul>
+  <li><a href="printdoc.htm">HTML Printing</a></li>
+  <li><a href="#general">General scripting extensions</a></li>
+  <li><a href="#explorer">Internet Explorer specific functionality</a></li>
+</ul>
+<p>All ScriptX functionality is licensed free of charge, with the exception of the control's <a
+href="printdoc.htm#extprint">advanced printing</a> features which are only accessible in the presence of a
+paid-for publishing license. HTML Printing facilities are described in the <a href="printdoc.htm">printing manual</a>.</p>
+
+<h3><a name="html_object"></a>How to reference ScriptX on an HTML page</h3>
+
+<p>ScriptX comes in two signed CABs: <em>ScriptX.cab</em> or <em>smsx.cab</em>, both of which are part of a
+download package obtainable from the <a target="_blank" href="http://www.meadroid.com/scriptx/">ScriptX site</a>.  All free-of-charge functionality is available in <em>ScriptX.cab</em>:</p>
+<pre class="clsCode">&lt;object id=factory style=&quot;display:none&quot; classid=&quot;clsid:1663ed61-23eb-11d2-b92f-008048fdd814&quot;
+  <font color="#0000FF">viewastext </font>codebase=&quot;ScriptX.cab#Version=6,1,432,1&quot;&gt;
+&lt;/object&gt;</pre>
+
+<p>The <font color="#0000FF"><i>viewastext </i></font>parameter prevents an authoring tool like FrontPage or
+Visual Interdev from instantiating the object at design time.</p>
+
+<h3><a name="general"></a>General scripting extensions</h3>
+
+<p>General scripting extensions are independent of a particular scripting host. They are used as extensions to
+the default scripting runtime environment.</p>
+
+<p><a name="DEB"></a><b>Dynamic Event Binding (DEB)</b></p>
+
+<p>As its name may indicate, DEB enables the binding/unbinding of a script handler to any ActiveX object event
+on the fly. It works well for all Active Scripting hosts: WSH, HTML or custom.</p>
+
+<p>Another useful DEB feature is <a href="#Wait">Wait</a>, the ability to 'sleep' script execution (with
+an optional timeout) without 'eating' any CPU cycles until an event occurs. 'Sleep' is conceptually close to
+VB's <a target="_blank" href="http://msdn.microsoft.com/library/devprods/vs6/vbasic/vbenlr98/vafctdoevents.htm">DoEvents</a><span
+class="ext">»</span> statement in that it serves the application message loop.</p>
+
+<p>The best way to illustrate DEB is by example. Here is a Windows Scripting Host (<a target="_blank" 
+href="http://msdn.microsoft.com/scripting/windowshost/default.htm">WSH</a><span class="ext">»</span>) example
+in both <a href="gen_samples/wshie.js" class="samplink">JScript</a> and <a href="gen_samples/wshie.vbs"
+class="samplink">VBScript</a> that creates and navigates an instance of the <a target="_blank" 
+href="http://msdn.microsoft.com/workshop/browser/WebBrowser/reference/Objects/InternetExplorer.asp">InternetExplorer</a><span
+class="ext">»</span> object and hooks up to its events.</p>
+
+<p>See also: <a href="#eventSink">eventSink</a>, <a href="#NewEventSink">NewEventSink</a>, <a href="#Wait">Wait</a>,
+<a href="#CancelWait">CancelWait</a>.</p>
+
+<p><a name="dialog"></a><b>DHTML dialogs</b></p>
+
+<p>Here is an <a href="javascript:openWindow('gen_samples/ModalDialog.htm')" class="samplink">example</a> of a
+native look &amp; feel HTML dialog.</p>
+<p>See also: <a href="#ShowHtmlDialog">ShowHtmlDialog</a>.</p>
+
+<p><a name="jscript"></a><b>JScript: SafeArrays, Invoke 'ByRef', Formatting</b></p>
+
+<p>These extensions were designed to provide JScript with more resemblance to VBScript.</p>
+<p><a name="SafeArrays"></a>Jscript has limited read-only support for <a target="_blank" 
+href="http://msdn.microsoft.com/scripting/vbscript/doc/vsfctArray.htm">VB Arrays</a><span class="ext">»</span>
+(also known as <strong>SafeArrays</strong>) with a <a target="_blank" 
+href="http://msdn.microsoft.com/scripting/jscript/doc/jsobjVBArray.htm">VBArray</a><span class="ext">»</span>
+object. ScriptX allows the creation of -- and direct access to -- a SafeArray with JScript. It's now possible
+to convert a <a target="_blank" href="http://msdn.microsoft.com/scripting/jscript/doc/jsobjArray.htm">JScript Array</a><span
+class="ext">»</span> to a SafeArray. Note that only single dimension SafeArrays are supported. Here is an <a
+href="javascript:openWindow('gen_samples/SafeArray.htm')" class="samplink">example</a> illustrating SafeArrays
+with JScript.</p>
+
+<p>See also: <a href="#Vec">Vec</a>, <a href="#VecFill">VecFill</a>, <a href="#VecCopy">VecCopy</a>, <a
+href="#VecFromArray">VecFromArray</a>, <a href="#VecGetSize">VecGetSize</a>, <a href="#VecResize">VecResize</a>,
+<a href="#VecPut">VecPut</a>, <a href="#VecGet">VecGet</a></p>
+
+<p><a name="byref"></a><strong>Invoke 'ByRef' </strong>was developed to allow JScript to call ActiveX controls
+that take byref arguments. It also allows OLE errors that the calling method may return to be handled, and any
+corresponding script exceptions to be avoided. Here is an <a
+href="javascript:openWindow('gen_samples/InvokeByRefResult.htm')" class="samplink">example</a> illustrating how to
+use <a href="#InvokeByRefResult">InvokeByRefResult</a> with JScript.</p>
+<p>See also: <a href="#InvokeByRef">InvokeByRef</a>, <a href="#InvokeByRefResult">InvokeByRefResult</a>.</p>
+<p><a name="formatting"></a><strong>Formatting </strong>functions match those of VBScript. They require the
+newer OLE Automation binaries to be available (they're part of Windows 98, come with Internet Explorer 5, or
+can be downloaded as part of free <a target="_blank" href="http://support.microsoft.com/download/support/mslfiles/Vbrun60.exe">Visual
+Basic 6.0 Run-Time</a><span class="ext">»</span>, see MSKB <a target="_blank" 
+href="http://support.microsoft.com/support/kb/articles/Q192/4/61.ASP">Q192461</a><span class="ext">»</span>).
+Here is an <a href="javascript:openWindow('gen_samples/Format.htm')" class="samplink">example</a> of JScript
+formatting.</p>
+<p>See also: <a href="#Format">Format</a>, <a target="_blank" 
+href="http://msdn.microsoft.com/scripting/vbscript/doc/vsfcFormatCurrency.htm">FormatCurrency</a><span
+class="ext">»</span>, <a target="_blank" href="http://msdn.microsoft.com/scripting/vbscript/doc/vsfctFormatDateTime.htm">FormatDateTime</a><span
+class="ext">»</span>, <a target="_blank" href="http://msdn.microsoft.com/scripting/vbscript/doc/vsfctFormatNumber.htm">FormatNumber</a><span
+class="ext">»</span>, <a target="_blank" href="http://msdn.microsoft.com/scripting/vbscript/doc/vsfctFormatPercent.htm">FormatPercent</a><span
+class="ext">»</span>.</p>
+
+<p><a name="objview"></a><b>Object Viewer</b></p>
+
+<p>It's possible to learn on the fly what methods and properties an object supports. Microsoft's <a target="_blank"
+href="http://www.microsoft.com/com/resources/oleview.asp">OleViewer</a><span class="ext">»</span> is required
+and is available for free <a href="http://www.microsoft.com/com/resources/OVI386.EXE">download</a><span
+class="ext">»</span>. Here is an <a href="javascript:openWindow('gen_samples/OleView.htm')" class="samplink">example</a>
+of how to use the object viewer which shows the object model of an HTML <a target="_blank"
+href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/obj_window.asp">window</a><span
+class="ext">»</span> and the ScriptX <a href="#factory">factory</a> object itself.</p>
+
+<p><b>Other</b></p>
+
+<p>See also: <a href="#Shutdown">Shutdown</a>, <a href="#IsClosed">IsClosed</a>, <a
+href="#GetComponentVersion">GetComponentVersion</a>, <a href="#MessageBeep">MessageBeep</a>, <a
+href="#MessageBox">MessageBox</a>.</p>
+<h3><a name="explorer"></a>Internet Explorer specific functionality</h3>
+<p>When ScriptX is hosted as an <i>&lt;OBJECT&gt; </i>on an HTML page, it provides the following Internet
+Explorer specific functionality:
+<ul>
+  <li>get the full HTML source of the hosting page page (<a href="#sourceText">sourceText</a>)</li>
+  <li>handle the download completetion of a child frame or window (<a href="#OnDocumentComplete">OnDocumentComplete</a>)</li>
+  <li>obtain a full (<a href="#baseURL">baseURL</a>) or relative (<a href="#relativeURL">relativeURL</a>) URL
+    based on the hosting page URL</li>
+</ul>
+<hr>
+<h2><a name="refs"></a>Reference</h2>
+
+<h3>Objects</h3>
+
+<p><a href="#factory">factory</a>, <a href="#js">js</a>, <a href="printdoc.htm">printing</a>, <a
+href="#eventSink">eventSink</a></p>
+<h3>Properties</h3>
+<p><a href="#baseURL">baseURL</a>, <a href="#ctx">ctx</a>, <a href="#js">js</a>, <a href="#handler">handler</a>,
+<a href="#relativeURL">relativeURL</a>, <a href="#script">script</a>, <a href="#src">src</a></p>
+<h3>Methods</h3>
+<p><a href="#CancelWait">CancelWait</a>, <a href="#InvokeByRef">InvokeByRef</a>, <a href="#InvokeByRefResult">InvokeByRefResult</a>,
+<a href="#IsClosed">IsClosed</a>, <a href="#Format">Format</a>, <a href="#FormatCurrency">FormatCurrency</a>, <a
+href="#FormatDateTime">FormatDateTime</a>, <a href="#FormatNumber">FormatNumber</a>, <a href="#FormatPercent">FormatPercent</a>,
+<a href="#GetComponentVersion">GetComponentVersion</a>,  <a href="#MessageBeep">MessageBeep</a>, <a href="#MessageBox">MessageBox</a>,
+<a href="#NewEventSink">NewEventSink</a>, <a href="#OnDocumentComplete">OnDocumentComplete</a>, <a
+href="#ShowHtmlDialog">ShowHtmlDialog</a>, <a href="#Shutdown">Shutdown</a>, <a
+href="#Unadvise">Unadvise</a>, <a href="#Vec">Vec</a>, <a href="#VecCopy">VecCopy</a>, <a href="#VecFill">VecFill</a>,
+<a href="#VecFromArray">VecFromArray</a>, <a href="#VecGet">VecGet</a>, <a href="#VecGetSize">VecGetSize</a>, <a
+href="#VecResize">VecResize</a>, <a href="#VecPut">VecPut</a>, <a href="#Wait">Wait</a> </p>
+<h2><a name="factory"></a>Objects</h2>
+<h3>factory</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Represents the ScriptX object itself as it is named on an <a href="#html_object">HTML page</a>.</p>
+  <p>For WSH or ASP (i.e. server-side) use <b>only</b> it's
+  possible to create a ScriptX instance dynamically with the JScript <a target="_blank"
+  href="http://msdn.microsoft.com/scripting/jscript/doc/jsobjActiveXObject.htm">new ActiveXObject</a><span
+  class="ext">»</span> or the VBScript <a target="_blank"
+  href="http://msdn.microsoft.com/scripting/vbscript/doc/vsfctCreateObject.htm">CreateObject</a><span
+  class="ext">»</span>. In such cases the <a href="#Shutdown">Shutdown</a> method should be called when
+  ScriptX is no longer being used.</p>
+</blockquote>
+
+<h4>Properties</h4>
+<blockquote>
+  <p><a href="#script">script</a>, <a href="#baseURL">baseURL</a>, <a href="#relativeURL">relativeURL</a>, <a
+  href="printdoc.htm">printing</a>, <a href="#js">js</a>, <a href="#sourceText">sourceText</a></p>
+</blockquote>
+
+<h4>Methods</h4>
+<blockquote>
+  <p><a href="#NewEventSink">NewEventSink</a>, <a href="#IsClosed">IsClosed</a>, <a href="#Shutdown">Shutdown</a>,
+  <a href="#ShowHtmlDialog">ShowHtmlDialog</a>, <a href="#MessageBeep">MessageBeep</a>, <a href="#MessageBox">MessageBox</a>, <a href="#Wait">Wait</a>, <a href="#CancelWait">CancelWait</a>, <a
+  href="#OnDocumentComplete">OnDocumentComplete</a>, <a href="#GetComponentVersion">GetComponentVersion</a></p>
+</blockquote>
+<h3><a name="js"></a>js</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Represents ScriptX helper facilities for JScript. See <a href="#jscript">JScript: SafeArrays, Invoke
+  'ByRef', Formatting</a> for more information and examples.</p>
+</blockquote>
+
+<h4>Methods</h4>
+<blockquote>
+  <p><a href="#Vec">Vec</a>, <a href="#VecFill">VecFill</a>, <a href="#VecCopy">VecCopy</a>, <a
+  href="#VecFromArray">VecFromArray</a>, <a href="#VecGetSize">VecGetSize</a>, <a href="#VecResize">VecResize</a>,
+  <a href="#VecPut">VecPut</a>, <a href="#VecGet">VecGet</a>, <a href="#Format">Format</a>, <a
+  href="#FormatCurrency">FormatCurrency</a>, <a href="#FormatDateTime">FormatDateTime</a>, <a
+  href="#FormatNumber">FormatNumber</a>, <a href="#FormatPercent">FormatPercent</a>, <a href="#InvokeByRef">InvokeByRef</a>,
+  <a href="#InvokeByRefResult">InvokeByRefResult</a></p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a></p>
+</blockquote>
+<h3><a name="eventSink"></a>eventSink</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>An object used to connect script handlers to, or disconnect them from, events of an ActiveX control. The
+  object is created dynamically with the <a href="#NewEventSink">NewEventSink</a> method. See <a href="#DEB">Dynamic
+  Event Binding (DEB)</a> for more information.</p>
+</blockquote>
+
+<h4>Properties</h4>
+<blockquote>
+  <p><a href="#handler">handler</a>, <a href="#src">src</a>, <a href="#ctx">ctx</a></p>
+</blockquote>
+
+<h4>Methods</h4>
+<blockquote>
+  <p><a href="#Wait">Wait</a>, <a href="#CancelWait">CancelWait</a>, <a href="#Unadvise">Unadvise</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#NewEventSink">NewEventSink</a></p>
+</blockquote>
+<h2>Properties</h2>
+<h3><a name="script"></a>script</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>This property is for use with <a href="#DEB">dynamic event binding</a>, when a ScriptX object is created
+  dynamically with VBscript. In this case the script namespace object should be assigned to this property,
+  because ScriptX looks for an event handler by name. See the example below.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>factory.script</i> <b>=</b> <em>object</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This read/write property takes an <em>object </em>that has all the event handlers defined within.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <pre class="clsCode">' Handle events from browser
+Set Browser = CreateObject(&quot;InternetExplorer.Application&quot;)
+Browser.Visible = true
+
+Set Factory = CreateObject(&quot;ScriptX.Factory&quot;)
+Factory.script = me
+Set Sink = Factory.NewEventSink(Browser)
+Sink(&quot;BeforeNavigate2&quot;)=&quot;BeforeNavigate2&quot;
+Sink(&quot;DocumentComplete&quot;)=&quot;DocumentComplete&quot;
+Sink(&quot;OnQuit&quot;)=&quot;OnQuit&quot;
+
+Sub BeforeNavigate2(ByVal pDisp, URL, Flags, TargetFrameName, PostData, Headers, Cancel)
+' handling code
+End Sub
+
+Sub DocumentComplete(ByVal pDisp, URL)
+' handling code
+End Sub
+
+Sub OnQuit
+' handling code
+End Sub</pre>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#NewEventSink">NewEventSink</a></p>
+</blockquote>
+<h3><a name="baseURL"></a>baseURL</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>This property is for use in an HTML script. It returns a full URL based upon the URL of the hosting
+  document.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>fullUrl = factory.</i><strong>baseURL</strong>[(<em>url</em>)]</p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read-only property which returns either the full URL of the hosting document or the base <em>url</em>
+  of the document's URL.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <pre class="clsCode">&lt;script&gt;
+function window.onload() {
+  childWindow.navigate(factory.baseURL(&quot;loaded.htm&quot;))
+}
+&lt;/script&gt;</pre>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#relativeURL">relativeURL</a></p>
+</blockquote>
+<h3><a name="relativeURL"></a>relativeURL</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>This property is for use in an HTML script. It returns the URL relative to the hosting document's URL.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>relUrl = factory.</i><strong>relativeURL</strong>[(<em>url</em>)]</p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read-only property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#baseURL">baseURL</a></p>
+</blockquote>
+<h3><a name="sourceText"></a>sourceText</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>This property is for use in an HTML script. It retrieves the raw HTML source of the hosting document.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>htmlText = factory.</i><strong>sourceText</strong></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read-only property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a></p>
+</blockquote>
+<h3><a name="handler"></a>handler</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>This is the default property of the <a href="#eventSink">eventSink</a> object. It is used to connect or
+  disconnect a script event handler to or from a specified event. See <a href="#DEB">dynamic event binding</a>
+  for more information.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>eventSink.</i><strong>handler</strong>(<em>sEventName</em>) = <em>EventHandler</em></p>
+  <p>or</p>
+  <p><i>eventSink</i>(<em>sEventName</em>) = <em>EventHandler</em></p>
+  <p>or</p>
+  <p><i>eventSink</i>(<em>sEventName</em>) = <em>null</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property. <em>EventHandler </em>can be either the string name of a script function
+  or a direct function reference. <em>null</em> is used to disconnect the event handler.</p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <pre class="clsCode">sink(&quot;StatusTextChange&quot;) = onStatusTextChange
+function onStatusTextChange(Text) { /* handling code */ }</pre>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#eventSink">eventSink</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#eventSink">eventSink</a>, <a href="#src">src</a>, <a href="#ctx">ctx</a>, <a
+  href="#NewEventSink">NewEventSink</a></p>
+</blockquote>
+<h3><a name="src"></a>src</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Specifies the event source object passed to <a href="#NewEventSink">NewEventSink</a>. See <a href="#DEB">dynamic
+  event binding</a> for more information.</p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read-only property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#eventSink">eventSink</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#handler">handler</a>, <a href="#ctx">ctx</a>, <a href="#NewEventSink">NewEventSink</a></p>
+</blockquote>
+<h3><a name="ctx"></a>ctx</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Specifies the context value assigned to the <a href="#eventSink">eventSink</a> object with <a
+  href="#NewEventSink">NewEventSink</a>. See <a href="#DEB">dynamic event binding</a> for more information.</p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read-only property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#eventSink">eventSink</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#handler">handler</a>, <a href="#src">src</a>, <a href="#NewEventSink">NewEventSink</a></p>
+</blockquote>
+<h2>Methods</h2>
+<h3><a name="NewEventSink"></a>NewEventSink</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Creates a new event sink for a given object for <a href="#DEB">dynamic event binding</a>. To handle an
+  event, a script handler must be assigned to the sink with the <a href="#handler">handler</a> property. An
+  optional context value can be passed to be available at the event handler when the event occurs.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>eventSink</i> <b>=</b> <i>factory</i><b>.</b><strong>NewEventSink</strong><b>(</b><i>src</i>[<i>, ctx</i>]<b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><i>src</i></td>
+        <td>(Object) the object to handle events from</td>
+      </tr>
+      <tr>
+        <td><em>ctx</em></td>
+        <td>(Any type) optional context value</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns a new <a href="#eventSink">eventSink</a> object. At event time the object is available to the
+  script handler via implicit <em>this</em> (JScript) or <em>me </em>(VBScript) reference.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <pre class="clsCode">var browser = new ActiveXObject(&quot;InternetExplorer.Application&quot;)
+var sink = factory.NewEventSink(browser)
+sink(&quot;StatusTextChange&quot;) = onStatusTextChange
+sink(&quot;NavigateComplete2&quot;) = onNavigateComplete2
+sink(&quot;DocumentComplete&quot;) = onDocumentComplete
+sink(&quot;OnQuit&quot;) = onQuit
+browser.Navigate2(&quot;http://www.meadroid.com&quot;)
+sink.Wait()
+// ...
+factory.Shutdown()
+
+// handlers
+function onStatusTextChange(Text) { /* handling code */ }
+function onNavigateComplete2(pDisp, URL) { /* handling code */ }
+function onDocumentComplete(pDisp, URL) { this.CancelWait() }
+function onQuit() { this.Unadvise() }</pre>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#eventSink">eventSink</a>, <a href="#handler">handler</a>, <a href="#src">src</a>, <a
+  href="#ctx">ctx</a>, <a href="#Wait">Wait</a>, <a href="#CancelWait">CancelWait</a>, <a href="#Unadvise">Unadvise</a>,
+  <a href="#Shutdown">Shutdown</a></p>
+</blockquote>
+<h3><a name="Wait"></a>Wait</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Suspends (sleeps) the script execution for a specified timeout or until <a href="#CancelWait">CancelWait</a>
+  is called. Events are serviced during sleep.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>object</em>.<strong>Wait</strong><b>(</b>[<i>timeout</i>]<b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><i>timeout</i></td>
+        <td>(Number) the optional timeout in milliseconds, <em>-1</em> by default means to sleep until <a
+          href="#CancelWait">CancelWait</a> is called.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns <em>true</em> if the sleep was timed out.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a>, <a href="#eventSink">eventSink</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <pre class="clsCode">var browser = new ActiveXObject(&quot;InternetExplorer.Application&quot;)
+var sink = factory.NewEventSink(browser)
+sink(&quot;DocumentComplete&quot;) = onDocumentComplete
+sink(&quot;OnQuit&quot;) = onQuit
+browser.Navigate2(&quot;http://www.meadroid.com&quot;)
+sink.Wait()
+// ...
+factory.Shutdown()
+
+// handlers
+function onDocumentComplete(pDisp, URL) { this.CancelWait() }
+function onQuit() { this.Unadvise() }</pre>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#CancelWait">CancelWait</a></p>
+</blockquote>
+<h3><a name="CancelWait"></a>CancelWait</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Cancels the pending sleep (that is, the active <a href="#Wait">Wait</a> call).</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>object</em>.<strong>CancelWait</strong><b>()</b></p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a>, <a href="#eventSink">eventSink</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <pre class="clsCode">var browser = new ActiveXObject(&quot;InternetExplorer.Application&quot;)
+var sink = factory.NewEventSink(browser)
+sink(&quot;StatusTextChange&quot;) = onStatusTextChange
+sink(&quot;NavigateComplete2&quot;) = onNavigateComplete2
+sink(&quot;DocumentComplete&quot;) = onDocumentComplete
+sink(&quot;OnQuit&quot;) = onQuit
+browser.Navigate2(&quot;http://www.meadroid.com&quot;)
+sink.Wait()
+// ...
+factory.Shutdown()
+
+// handlers
+function onStatusTextChange(Text) { /* handling code */ }
+function onNavigateComplete2(pDisp, URL) { /* handling code */ }
+function onDocumentComplete(pDisp, URL) { this.CancelWait() }
+function onQuit() { this.Unadvise() }</pre>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#Wait">Wait</a></p>
+</blockquote>
+<h3><a name="Unadvise"></a>Unadvise</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Disconnects (unadvises) the <a href="#eventSink">eventSink</a> object from its event source.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>eventSink</em>.<strong>Unadvise</strong><b>()</b></p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#eventSink">eventSink</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <pre class="clsCode">var browser = new ActiveXObject(&quot;InternetExplorer.Application&quot;)
+var sink = factory.NewEventSink(browser)
+sink(&quot;OnQuit&quot;) = onQuit
+browser.Navigate2(&quot;http://www.meadroid.com&quot;)
+sink.Wait()
+
+// handlers
+function onQuit() { this.Unadvise() }</pre>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#NewEventSink">NewEventSink</a></p>
+</blockquote>
+<h3><a name="Shutdown"></a>Shutdown</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>The clean-up method for ScriptX. Should be called in cases where a dynamically created ScriptX object is
+  no longer being used. All active event sinks get disconnected.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>factory</em>.<strong>Shutdown</strong><b>()</b></p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a></p>
+</blockquote>
+<h3><a name="IsClosed"></a>IsClosed</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Checks whether or not the remote object is shut down. E.g. this can be a pop-up HTML window.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>closed = factory</em>.<strong>IsClosed</strong><b>(</b><em>obj</em><b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>obj</em></td>
+        <td>(Object) the remote object to check.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <pre class="clsCode">function IsWindowClosed(popup) {
+  return !popup || factory.IsClosed(popup) || popup.closed;
+}</pre>
+</blockquote>
+<h3><a name="ShowHtmlDialog"></a>ShowHtmlDialog</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Invokes a native look &amp; feel modal HTML dialog. See <a href="#dialog">DHTML dialogs</a> for more
+  information and an <a href="javascript:openWindow('gen_samples/ModalDialog.htm')" class="samplink">example</a>.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>result = factory</em>.ShowHtmlDialog<b>(</b><em>url</em>, <em>argIn</em>[, <em>options</em>]<b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>url</em></td>
+        <td>(String) the URL of HTML page to be a dialog</td>
+      </tr>
+      <tr>
+        <td><em>argIn</em></td>
+        <td>(Any type) input parameter to reference within dialog</td>
+      </tr>
+      <tr>
+        <td><em>options</em></td>
+        <td>(String) optional features. See <a target="_blank"
+          href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/showModalDialog.asp#showModalDialog">showModalDialog</a><span
+          class="ext">»</span> on MSDN.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a target="_blank"
+  href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/showModalDialog.asp#showModalDialog">showModalDialog</a><span
+  class="ext">»</span></p>
+</blockquote>
+<h3><a name="GetComponentVersion"></a>GetComponentVersion</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Retrieves the versioning information of a specified component.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>factory</em>.<strong>GetComponentVersion</strong><b>(</b><em>class</em>, <em>a</em>, <em>b</em>, <em>c</em>,
+  <em>d</em><b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>class</em></td>
+        <td>(String) either class name or GUID</td>
+      </tr>
+      <tr>
+        <td><em>a</em>, <em>b</em>, <em>c</em>, <em>d</em></td>
+        <td>(Number) variables to receive four digits version info</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Examples</h4>
+<blockquote>
+  <pre class="clsCode">' VBScript
+dim a, b, c, d
+on error resume next
+factory.GetComponentVersion &quot;msxml&quot;, a, b, c, d
+error = Err.Number
+on error goto 0
+if error = 0 then alert &quot;msxml version: &quot; &amp; a &amp; &quot;.&quot; &amp; b &amp; &quot;.&quot; &amp; c &amp; &quot;.&quot; &amp; d</pre>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a></p>
+</blockquote>
+<h3><a name="Vec"></a>Vec</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Creates a single-dimensional SafeArray (vector) of a specified size. See <a href="#SafeArrays">SafeArrays</a>
+  for more information and an example.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>vec = js</em>.<strong>Vec</strong><b>(</b>size<b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>size</em></td>
+        <td>(Number) number of elements in new vector</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns the value of a SafeArray type.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#js">js</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#VecFill">VecFill</a>, <a href="#VecCopy">VecCopy</a>, <a href="#VecFromArray">VecFromArray</a>,
+  <a href="#VecGetSize">VecGetSize</a>, <a href="#VecResize">VecResize</a>, <a href="#VecPut">VecPut</a>, <a
+  href="#VecGet">VecGet</a></p>
+</blockquote>
+<h3><a name="VecFill"></a>VecFill</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Creates a one-dimensional SafeArray (vector) containing the specified elements. See <a href="#SafeArrays">SafeArrays</a>
+  for more information and an example.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>vec = js</em>.<strong>Vec</strong><b>Fill(</b>elem1[, elem2[, ...]]<b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>elem1...elemN</em></td>
+        <td>(Any type) elements to fill the vector with</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns the value of a SafeArray type.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#js">js</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#Vec">Vec</a>, <a href="#VecCopy">VecCopy</a>, <a href="#VecFromArray">VecFromArray</a>, <a
+  href="#VecGetSize">VecGetSize</a>, <a href="#VecResize">VecResize</a>, <a href="#VecPut">VecPut</a>, <a
+  href="#VecGet">VecGet</a></p>
+</blockquote>
+<h3><a name="VecCopy"></a>VecCopy</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Creates a copy of a specified one-dimensional SafeArray (vector). See <a href="#SafeArrays">SafeArrays</a>
+  for more information and an example.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>vec = js</em>.<strong>VecCopy</strong><b>(</b><em>srcVec</em><b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>srcVec</em></td>
+        <td>(SafeArray) source vector to make a copy of</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns the value of a SafeArray type.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#js">js</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#Vec">Vec</a>, <a href="#VecFill">VecFill</a>, <a href="#VecFromArray">VecFromArray</a>, <a
+  href="#VecGetSize">VecGetSize</a>, <a href="#VecResize">VecResize</a>, <a href="#VecPut">VecPut</a>, <a
+  href="#VecGet">VecGet</a></p>
+</blockquote>
+<h3><a name="VecFromArray"></a>VecFromArray</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Creates a one-dimensional SafeArray (vector) from a JScript array. See <a href="#SafeArrays">SafeArrays</a>
+  for more information and an example.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>vec = js</em>.<strong>VecFromArray</strong><b>(</b><em>array</em><b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>array</em></td>
+        <td>(Array) a source JScript array</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns the value of a SafeArray type.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#js">js</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#Vec">Vec</a>, <a href="#VecFill">VecFill</a>, <a href="#VecCopy">VecCopy</a>, <a
+  href="#VecGetSize">VecGetSize</a>, <a href="#VecResize">VecResize</a>, <a href="#VecPut">VecPut</a>, <a
+  href="#VecGet">VecGet</a></p>
+</blockquote>
+<h3><a name="VecGetSize"></a>VecGetSize</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Retrieves the size of specified one-dimensional SafeArray (vector). See <a href="#SafeArrays">SafeArrays</a>
+  for more information and example.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>size = js</em>.<strong>VecGetSize</strong><b>(</b><em>vec</em><b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>vec</em></td>
+        <td>(SafeArray) vector</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns the size of the vector.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#js">js</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#Vec">Vec</a>, <a href="#VecFill">VecFill</a>, <a href="#VecCopy">VecCopy</a>, <a
+  href="#VecFromArray">VecFromArray</a>, <a href="#VecResize">VecResize</a>, <a href="#VecPut">VecPut</a>, <a
+  href="#VecGet">VecGet</a></p>
+</blockquote>
+<h3><a name="VecResize"></a>VecResize</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Changes the size of a specified one-dimensional SafeArray (vector). See <a href="#SafeArrays">SafeArrays</a>
+  for more information and an example.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>js</em>.<strong>VecResize</strong><b>(</b><em>vec, newSize</em><b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>vec</em></td>
+        <td>(SafeArray) vector</td>
+      </tr>
+      <tr>
+        <td><em>newSize</em></td>
+        <td>(Number) new size of the vector</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#js">js</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#Vec">Vec</a>, <a href="#VecFill">VecFill</a>, <a href="#VecCopy">VecCopy</a>, <a
+  href="#VecFromArray">VecFromArray</a>, <a href="#VecGetSize">VecGetSize</a>, <a href="#VecPut">VecPut</a>, <a
+  href="#VecGet">VecGet</a></p>
+</blockquote>
+<h3><a name="VecPut"></a>VecPut</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Puts the element at the specified position of a one-dimensional SafeArray (vector). See <a
+  href="#SafeArrays">SafeArrays</a> for more information and an example.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>js</em>.<strong>VecPut</strong><b>(</b><em>vec, pos, elem</em><b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>vec</em></td>
+        <td>(SafeArray) vector</td>
+      </tr>
+      <tr>
+        <td><em>pos</em></td>
+        <td>(Number) position</td>
+      </tr>
+      <tr>
+        <td><em>elem</em></td>
+        <td>(Any type) element to put at the position</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#js">js</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#Vec">Vec</a>, <a href="#VecFill">VecFill</a>, <a href="#VecCopy">VecCopy</a>, <a
+  href="#VecFromArray">VecFromArray</a>, <a href="#VecGetSize">VecGetSize</a>, <a href="#VecGet">VecGet</a></p>
+</blockquote>
+<h3><a name="VecGet"></a>VecGet</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Retrieves the element at the specified position of a one-dimensional SafeArray (vector). See <a
+  href="#SafeArrays">SafeArrays</a> for more information and example.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>elem = js</em>.<strong>VecGet</strong><b>(</b><em>vec, pos</em><b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>vec</em></td>
+        <td>(SafeArray) vector</td>
+      </tr>
+      <tr>
+        <td><em>pos</em></td>
+        <td>(Number) position</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns the element at the specified position.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#js">js</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#Vec">Vec</a>, <a href="#VecFill">VecFill</a>, <a href="#VecCopy">VecCopy</a>, <a
+  href="#VecFromArray">VecFromArray</a>, <a href="#VecGetSize">VecGetSize</a>, <a href="#VecPut">VecPut</a></p>
+</blockquote>
+<h3><a name="Format"></a>Format</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Formats the data according to the corresponding format specification. See <a href="#formatting">Formatting</a>
+  for more information and an example.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>string = js</em>.<strong>Format</strong><b>(</b><em>strFormat</em>[, <em>param1</em>[, <em>param2</em>[,
+  ...]]]<b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>strFromat</em></td>
+        <td>(String) the format-control specification. See remarks below</td>
+      </tr>
+      <tr>
+        <td><em>param1...param2</em></td>
+        <td>(Type as specifed at <em>strFromat</em>) paramters to format</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Remarks</h4>
+<blockquote>
+  <p>The format-control string contains format specifications that determines the output format for the
+  arguments following the <em>strFromat</em> parameter. Format specifications, discussed below, always begin
+  with a percent sign (%). If a percent sign is followed by a character that has no meaning as a format field,
+  the character is not formatted (for example, %% produces a single percent-sign character).</p>
+  <p>The format-control string is read from left to right. When the first format specification (if any) is
+  encountered, it causes the value of the first argument after the format-control string to be converted and
+  copied to the output buffer according to the format specification. If there are more arguments than format
+  specifications, the extra arguments are ignored. If there are not enough arguments for all of the format
+  specifications, the results are undefined.</p>
+  <p>A format specification has the following form:</p>
+  <p><b>%</b>[<b>-</b>][<b>#</b>][<b>0</b>][<i>width</i>][<b>.</b><i>precision</i>]<i>type</i></p>
+  <p>Each field is a single character or a number signifying a particular format option. The <i>type</i>
+  characters that appear after the last optional format field determine whether the associated argument is
+  interpreted as a character, a string, or a number. The simplest format specification contains only the
+  percent sign and a type character (for example, <b>%s</b>). The optional fields control other aspects of the
+  formatting. The following lists the optional and required fields and their meanings:</p>
+  <table cellspacing="4" cols="2">
+    <tbody>
+      <tr valign="top">
+        <th align="left" width="17%">Field</th>
+        <th align="left" width="83%">Meaning</th>
+      </tr>
+      <tr valign="top">
+        <td width="17%"><b>–</b></td>
+        <td width="83%">Pad the output with blanks or zeros to the right to fill the field width, justifying
+          output to the left. If this field is omitted, the output is padded to the left, justifying it to the
+          right.</td>
+      </tr>
+      <tr valign="top">
+        <td width="17%"><b>#</b></td>
+        <td width="83%">Prefix hexadecimal values with 0x (lowercase) or 0X (uppercase).</td>
+      </tr>
+      <tr valign="top">
+        <td width="17%"><b>0</b></td>
+        <td width="83%">Pad the output value with zeros to fill the field width. If this field is omitted, the
+          output value is padded with blank spaces.</td>
+      </tr>
+      <tr valign="top">
+        <td width="17%"><i>width</i></td>
+        <td width="83%">Copy the specified minimum number of characters to the output buffer. The <i>width</i>
+          field is a nonnegative integer. The width specification never causes a value to be truncated; if the
+          number of characters in the output value is greater than the specified width, or if the <i>width</i>
+          field is not present, all characters of the value are printed, subject to the precision
+          specification.</td>
+      </tr>
+      <tr valign="top">
+        <td width="17%"><b>.</b><i>precision</i></td>
+        <td width="83%">For numbers, copy the specified minimum number of digits to the output buffer. If the
+          number of digits in the argument is less than the specified precision, the output value is padded on
+          the left with zeros. The value is not truncated when the number of digits exceeds the specified
+          precision. If the specified precision is 0 or omitted entirely, or if the period (<b>.</b>) appears
+          without a number following it, the precision is set to 1.</td>
+      </tr>
+      <tr valign="top">
+        <td width="17%"></td>
+        <td width="83%">For strings, copy the specified maximum number of characters to the output buffer.</td>
+      </tr>
+      <tr valign="top">
+        <td width="17%"><i>type</i></td>
+        <td width="83%">Output the corresponding argument as a character, a string, or a number. This field
+          can be any of the following character sequences:</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><br>
+  </p>
+  <table cellspacing="4" cols="2">
+    <tbody>
+      <tr valign="top">
+        <th align="left" width="19%">Sequence</th>
+        <th align="left" width="81%">Insert</th>
+      </tr>
+      <tr valign="top">
+        <td width="19%"><b>C</b></td>
+        <td width="81%">A single character.</td>
+      </tr>
+      <tr valign="top">
+        <td width="19%"><b>d</b></td>
+        <td width="81%">A signed decimal integer argument. This sequence is equivalent to the <b>i</b>
+          sequence.</td>
+      </tr>
+      <tr valign="top">
+        <td width="19%"><b>i</b></td>
+        <td width="81%">A signed decimal integer. This sequence is equivalent to the <b>d</b> sequence.</td>
+      </tr>
+      <tr valign="top">
+        <td width="19%"><b>ls</b>, <b>lS</b></td>
+        <td width="81%">A string.</td>
+      </tr>
+      <tr valign="top">
+        <td width="19%"><b>u</b></td>
+        <td width="81%">An unsigned integer argument.</td>
+      </tr>
+      <tr valign="top">
+        <td width="19%"><b>x</b>, <b>X</b></td>
+        <td width="81%">An unsigned hexadecimal integer in lowercase or uppercase.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns the formatted string.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#js">js</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#FormatCurrency">FormatCurrency</a>, <a href="#FormatDateTime">FormatDateTime</a>, <a
+  href="#FormatNumber">FormatNumber</a>, <a href="#FormatPercent">FormatPercent</a></p>
+</blockquote>
+<h3><a name="FormatCurrency"></a>FormatCurrency, <a name="FormatDateTime"></a>FormatDateTime, <a
+name="FormatNumber"></a>FormatNumber, <a name="FormatPercent"></a>FormatPercent</h3>
+<hr>
+
+<h4>Description</h4>
+<p>Formatting functions which match those of VBScript: <a href="#Format">Format</a>, <a target="_blank"
+href="http://msdn.microsoft.com/scripting/vbscript/doc/vsfcFormatCurrency.htm">FormatCurrency</a><span
+class="ext">»</span>, <a target="_blank" href="http://msdn.microsoft.com/scripting/vbscript/doc/vsfctFormatDateTime.htm">FormatDateTime</a><span
+class="ext">»</span>, <a target="_blank" href="http://msdn.microsoft.com/scripting/vbscript/doc/vsfctFormatNumber.htm">FormatNumber</a><span
+class="ext">»</span>, <a target="_blank" href="http://msdn.microsoft.com/scripting/vbscript/doc/vsfctFormatPercent.htm">FormatPercent</a><span
+class="ext">»</span>. They require the newer OLE Automation binaries to be available. See <a
+href="#formatting">Formatting</a> for more information and example.</p>
+<h3><a name="InvokeByRef"></a>InvokeByRef</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Allows JScript to call a method of an ActiveX object that takes a parameter by reference. See <a
+  href="#byref">Invoke 'ByRef'</a> for more information.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>value = js</em>.<strong>InvokeByRef</strong><b>(</b><em>object, method, argArray</em><b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>object</em></td>
+        <td>(Object) object on which to call the method</td>
+      </tr>
+      <tr>
+        <td><em>method</em></td>
+        <td>(String) method to call</td>
+      </tr>
+      <tr>
+        <td><em>argArray</em></td>
+        <td>(Array) JScript array of arguments</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns the same result as a direct <em>object</em>.<em>method</em>(...) call.</p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <pre class="clsCode">  // pack params to &quot;args&quot; array
+  args = new Array(&quot;msxml&quot;, 0, 0, 0, 0)
+
+  // call the &quot;GetComponentVersion&quot; method on &quot;factory&quot; object
+  factory.js.InvokeByRef(factory, &quot;GetComponentVersion&quot;, args)
+
+  alert(&quot;MSXML Version: &quot;+args[1]+&quot;.&quot;+args[2]+&quot;.&quot;+args[3]+&quot;.&quot;+args[4])</pre>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#js">js</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#InvokeByRefResult">InvokeByRefResult</a></p>
+</blockquote>
+<h3><a name="InvokeByRefResult"></a>InvokeByRefResult</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Allows JScript to call a method of an ActiveX object that takes a parameter by reference, and handle a
+  possible failure case. See <a href="#byref">Invoke 'ByRef'</a> for more information.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>error = js</em>.<strong>InvokeByRefResult</strong><b>(</b><em>object, method, argArray</em><b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>object</em></td>
+        <td>(Object) object on which to call the method</td>
+      </tr>
+      <tr>
+        <td><em>method</em></td>
+        <td>(String) method to call</td>
+      </tr>
+      <tr>
+        <td><em>argArray</em></td>
+        <td>(Array) JScript array of arguments</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns the error code number of an <em>object</em>.<em>method</em>(...) call. Zero means the call has
+  succeeded. The invocation result value (if applicable) is available as <em>argArray.value</em>.</p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <pre class="clsCode">  // pack params to &quot;args&quot; array
+  args = new Array(&quot;msxml&quot;, 0, 0, 0, 0)
+
+  // call the &quot;GetComponentVersion&quot; method on &quot;factory&quot; object
+  error = factory.js.InvokeByRefResult(factory, &quot;GetComponentVersion&quot;, args)
+
+  if ( error == 0 )
+    alert(&quot;MSXML Version: &quot;+args[1]+&quot;.&quot;+args[2]+&quot;.&quot;+args[3]+&quot;.&quot;+args[4])
+  else
+    alert(&quot;Error: &quot;+error)</pre>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#js">js</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#InvokeByRef">InvokeByRef</a></p>
+</blockquote>
+<h3><a name="MessageBeep"></a>MessageBeep</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Plays a waveform sound. The waveform sound for each sound type is identified by an entry in the [sounds]
+  section of the registry.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>factory</em>.<strong>MessageBeep</strong><b>(</b>[<em>type</em>]<b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>type</em></td>
+        <td>(Number) Specifies the sound type, as identified by an entry in the [sounds] section of the
+          registry. This parameter can be one of the following values:
+          <table>
+            <tbody>
+              <tr valign="top">
+                <th align="left" width="39%">Value</th>
+                <th align="left" width="61%">Sound</th>
+              </tr>
+              <tr valign="top">
+                <td width="39%">-1</td>
+                <td width="61%">Standard beep using the computer speaker</td>
+              </tr>
+              <tr valign="top">
+                <td width="39%">0x00000040</td>
+                <td width="61%">SystemAsterisk</td>
+              </tr>
+              <tr valign="top">
+                <td width="39%">0x00000030</td>
+                <td width="61%">SystemExclamation</td>
+              </tr>
+              <tr valign="top">
+                <td width="39%">0x00000010</td>
+                <td width="61%">SystemHand</td>
+              </tr>
+              <tr valign="top">
+                <td width="39%">0x00000020</td>
+                <td width="61%">SystemQuestion</td>
+              </tr>
+              <tr valign="top">
+                <td width="39%">0x00000000</td>
+                <td width="61%">SystemDefault</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#MessageBox">MessageBox</a></p>
+</blockquote>
+<h3><a name="MessageBox"></a>MessageBox</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Creates, displays, and operates a message box. The message box contains an application-defined message
+  and title, plus any combination of predefined icons and push buttons.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>result = factory</em>.<strong>MessageBox</strong><b>(</b><em>text</em>[, <em>caption</em>[, <em>type</em>]]<strong>)</strong></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>text</em></td>
+        <td>(String) the message to display</td>
+      </tr>
+      <tr>
+        <td><em>caption</em></td>
+        <td>(String) message box caption</td>
+      </tr>
+      <tr>
+        <td><em>type</em></td>
+        <td>(Number) Specifies a set of bit flags that determine the contents and behavior of the dialog box.
+          This parameter can be a combination of flags from the following groups of flags. Specify one of the
+          following flags to indicate the buttons contained in the message box:
+          <table width="663">
+            <tbody>
+              <tr valign="top">
+                <th align="left" width="110">Value</th>
+                <th align="left" width="545">Sound</th>
+              </tr>
+              <tr valign="top">
+                <td width="110">0x00000000</td>
+                <td width="545">The message box contains one push button: <b>OK</b>. This is the default</td>
+              </tr>
+              <tr valign="top">
+                <td width="110">0x00000001</td>
+                <td width="545">The message box contains two push buttons: <b>OK</b> and <b>Cancel</b></td>
+              </tr>
+              <tr valign="top">
+                <td width="110">0x00000004</td>
+                <td width="545">The message box contains two push buttons: <b>Yes</b> and <b>No</b></td>
+              </tr>
+              <tr valign="top">
+                <td width="110">0x00000003</td>
+                <td width="545">The message box contains three push buttons: <b>Yes</b>, <b>No</b>, and <b>Cancel</b></td>
+              </tr>
+              <tr valign="top">
+                <td width="110">0x00000030</td>
+                <td width="545">An exclamation-point icon appears in the message box</td>
+              </tr>
+              <tr valign="top">
+                <td width="110">0x00000040</td>
+                <td width="545">An icon consisting of a lowercase letter <i>i</i> in a circle appears in the
+                  message box</td>
+              </tr>
+              <tr>
+                <td width="110">0x00000010</td>
+                <td width="545">A stop-sign icon appears in the message box</td>
+              </tr>
+              <tr>
+                <td width="110">0x00010000</td>
+                <td width="545">The message box becomes the foreground window</td>
+              </tr>
+              <tr>
+                <td width="110">0x00040000</td>
+                <td width="545">The message box is created as topmost window</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>The return value is one of the following menu-item values:</p>
+  <table class="samp" cellspacing="5" cellpadding="0">
+    <tbody>
+      <tr valign="top">
+        <th align="left" width="22%">Value</th>
+        <th align="left" width="78%">Meaning</th>
+      </tr>
+      <tr valign="top">
+        <td width="22%">3</td>
+        <td width="78%"><b>Abort</b> button was selected.</td>
+      </tr>
+      <tr valign="top">
+        <td width="22%">2</td>
+        <td width="78%"><b>Cancel</b> button was selected.</td>
+      </tr>
+      <tr valign="top">
+        <td width="22%">7</td>
+        <td width="78%"><b>No</b> button was selected.</td>
+      </tr>
+      <tr valign="top">
+        <td width="22%">1</td>
+        <td width="78%"><b>OK</b> button was selected.</td>
+      </tr>
+      <tr valign="top">
+        <td width="22%">6</td>
+        <td width="78%"><b>Yes</b> button was selected.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#MessageBeep">MessageBeep</a></p>
+</blockquote>
+<h3><a name="OnDocumentComplete"></a>OnDocumentComplete</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Notifies the caller about the HTML frame or window download completition.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>factory</em>.<strong>OnDocumentComplete</strong><b>(</b><em>frameOrWindow</em>, <em>callback</em><strong>)</strong></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>frameOrWindow</em></td>
+        <td>(Object) frame or window object loading HTML content</td>
+      </tr>
+      <tr>
+        <td><em>callback</em></td>
+        <td>(Object) refrences to JScript function object to be called upon download completition</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Examples</h4>
+<blockquote>
+  <pre class="clsCode">var child = open(&quot;child.htm&quot;)
+function onChildLoad() {
+  alert(&quot;Window loaded: &quot;+child.document.title)
+}
+factory.<strong>OnDocumentComplete</strong>(child, onChildLoad)</pre>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a></p>
+</blockquote>
+
+</body>
+
+</html>

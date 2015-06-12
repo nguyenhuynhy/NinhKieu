@@ -1,0 +1,25 @@
+<head>
+<title>ScriptX HTML Dialog</title>
+</head>
+
+<body style="border:1pt solid gray" scroll=no bgcolor="gainsboro">
+
+<object id=factory style="display:none" classid="clsid:1663ed61-23eb-11d2-b92f-008048fdd814"
+  viewastext codebase="http://www.meadroid.com/scriptx/ScriptX.cab#Version=6,1,432,1">
+</object>
+
+<script defer>
+function window.onload() {
+  if (!factory.object) {
+  return
+  } else {
+  srcText.innerText = factory.sourceText;
+
+  var input = factory.ShowHtmlDialog("dialog.htm", "Hello, World!");
+  if ( input != null ) factory.MessageBox(input, "You entered");
+  }
+}
+</script>
+
+<textarea wrap=off style="overflow: auto; font-size: 8pt; width: 100%; height: 100%" id=srcText></textarea>
+</body>

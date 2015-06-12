@@ -1,0 +1,28 @@
+A:visited
+{
+    COLOR: #003366
+}
+A:hover
+{
+    COLOR: red
+}
+A.link:unknown
+{
+    COLOR: #ffffff
+}
+A.active:unknown
+{
+    COLOR: #ffffff
+}
+A.hover:unknown
+{
+    COLOR: #ff6600
+}
+A:active
+{
+    COLOR: #003366
+}
+A:link
+{
+    COLOR: #003366
+}

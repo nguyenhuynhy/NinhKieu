@@ -1,0 +1,34 @@
+<portal>
+  <tabs>
+    <tab>
+      <name></name>
+      <title></title>
+      <description></description>
+      <keywords></keywords>
+      <visible></visible>
+      <disabled></disabled>
+      <iconfile></iconfile>
+      <parent></parent>
+      <authorizedroles></authorizedroles>
+      <panes>
+        <pane>
+          <name></name>
+          <modules>
+            <module>
+              <title></title>
+              <definition></definition>
+              <alignment></alignment>
+              <showtitle></showtitle>
+              <alltabs></alltabs>
+              <cachetime></cachetime>
+              <personalize></personalize>
+              <iconfile></iconfile>
+              <authorizedviewroles></authorizedviewroles>
+            </module>
+          </modules>
+        </pane>
+      </panes>
+    </tab>
+   </tabs>
+</portal>
+

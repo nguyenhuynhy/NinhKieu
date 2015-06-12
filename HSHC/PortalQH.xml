@@ -1,0 +1,1615 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>PortalQH</name>
+    <version>2.0.3.29529</version>
+    <fullname>PortalQH, Version=2.0.3.29529, Culture=neutral, PublicKeyToken=null</fullname>
+  </assembly>
+  <members>
+    <member name="T:PortalQH.Containers.Icon">
+      <summary>
+ Contains the attributes of an Icon. 
+ These are read into the portalmodulecontrol collection as attributes for the icons within the module controls. 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[sun1]	2/1/2004	Created 
+ </history></member>
+    <member name="T:PortalQH.Containers.PrintModule">
+      <summary>
+ Contains the attributes of an Icon. 
+ These are read into the portalmodulecontrol collection as attributes for the icons within the module controls. 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[sun1]	2/1/2004	Created 
+ </history></member>
+    <member name="M:PortalQH.Containers.Title.Page_Load(System.Object,System.EventArgs)">
+      <summary>
+ Assign the CssClass and Text Attributes for the Title label. 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[sun1]	2/1/2004	Created 
+ </history></member>
+    <member name="T:PortalQH.Containers.Visibility">
+      <summary>
+ Handles the events for collapsing and expanding modules, 
+ Showing or hiding admin controls when preview is checked 
+ if personalization of the module container and title is allowed for that module. 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[sun1]	2/1/2004	Created 
+ </history></member>
+    <member name="T:PortalQH.FileManager">
+      <summary>
+ Supplies the functionality for uploading files to the Portal 
+ Synchronizing Files within the folder and the database 
+ and Provides status of available disk space for the portal 
+ as well as limiting uploads to the restricted allocated file space 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[DYNST]	2/1/2004	Created 
+ </history></member>
+    <member name="M:PortalQH.FileManager.Page_Load(System.Object,System.EventArgs)">
+      <summary>
+ The Page_Load server event handler on this user control is used 
+ to populate the current files from the appropriate PortalUpload Directory or the HostFolder 
+ and binds this list to the Datagrid 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[DYNST]	2/1/2004	Created 
+ </history></member>
+    <member name="M:PortalQH.FileManager.BindData">
+      <summary>
+ The BindData helper method is used to bind the list of 
+ files for this portal or for the hostfolder, to an asp:DATAGRID server control 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[DYNST]	2/1/2004	Created 
+ </history></member>
+    <member name="M:PortalQH.FileManager.grdFiles_ItemCreated(System.Object,System.Web.UI.WebControls.DataGridItemEventArgs)">
+      <summary>
+ This event happens during the ItemCreated event of the Datagrid of files 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ add a onClick event attribute to the Delete link to return a Javascript confirmation prompting before deletion of files. 
+ </remarks>
+ <history>
+ 	[DYNST]	2/1/2004	Created 
+ </history></member>
+    <member name="M:PortalQH.FileManager.cmdSynchronize_Click(System.Object,System.EventArgs)">
+      <summary>
+ This event happens on click of Synchronzise Files 
+ Cycles through the file folder and compares the files to the existing records in the database. 
+ if there are differences it updates, removes or adds the file information to the database. 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+if the parent of the active tab is the host tab then allow file deletion, 
+and set the current working folder to the HostPath folder 
+if the parent of the active tab is not the host tab, then restrict deletion to the portal upload folder 
+and set the current working folder to the Portal Upload directory for the portal 
+do a check to make sure the folder exists and 
+if so loop through the selected folder and list the files within the folder 
+using a extension filter to only allow files that match the extensions as listed in the site settings for that portal 
+try to determine if this is an image file type by looking to the blgImageFileTypes Construct 
+if so, retain the image properties and save it as an image 
+otherwise save it as one of the other accepted file types 
+ </remarks>
+ <history>
+ 	[DYNST]	2/1/2004	Created 
+ </history></member>
+    <member name="M:PortalQH.FileManager.grdFiles_DeleteCommand(System.Object,System.Web.UI.WebControls.DataGridCommandEventArgs)">
+      <summary>
+ The DeleteCommand subroutine handles the functions to delete a file within the datalist, 
+ from the database and from the physical folder. 
+ This gets its working parameter, the FileID, from the datagrid itemindex datakey of the selected row 
+ A determination is made to direct the user to the correct path. 
+ If the user is the Host then the path is set by the HostPath Property of the Global Class 
+ If the User is the Administrator or is an accepted role to access files then the path is set to the UploadDirectory Property of the PortalSetting Collection 
+ Catches if the file is read only and stop handles the event gracefully with a message 
+ </summary>
+ <param name="source" />
+ <param name="e" />
+ <remarks>
+ The FileID of the selected file is passed using the Datakey of the selected row of the datagrid 
+ </remarks>
+ <history>
+ 	[DYNST]	2/1/2004	Created 
+ </history></member>
+    <member name="M:PortalQH.FileManager.grdFiles_EditCommand(System.Object,System.Web.UI.WebControls.DataGridCommandEventArgs)">
+      <summary>
+ The EditCommand subroutine handles the functions to download a file within the datalist 
+ that is stored within the database as a ID value to the path for that file. 
+ This gets its working parameter, the FileID, from the datagrid itemindex datakey of the selected row 
+ A determination is made to direct the user to the correct path. 
+ If the user is the Host then the path is set by the HostPath Property of the Global Class 
+ If the User is the Administrator or is an accepted role to access files then the path is set to the UploadDirectory Property of the PortalSetting Collection 
+ </summary>
+ <param name="source" />
+ <param name="e" />
+ <remarks>
+ The FileID of the selected file is passed using the Datakey of the selected row of the datagrid 
+ </remarks>
+ <history>
+ 	[DYNST]	2/1/2004	Created 
+ </history>
+         '''</member>
+    <member name="M:PortalQH.FileManager.FormatSize(System.Int32)">
+      <summary>
+ This Helper Method formats the source integer into a valid bytesize representation 
+ </summary>
+ <param name="intSize">This parameter is input and represents the value collected for the filesize of the current file</param>
+ <returns>a cleanly formatted integer representing the bytes within that file</returns>
+ <remarks>
+ </remarks>
+ <history>
+ 	[DYNST]	2/1/2004	Created 
+ </history></member>
+    <member name="M:PortalQH.FileManager.cmdUpdate_Click(System.Object,System.EventArgs)">
+      <summary>
+ The Update Click subroutine is called upon the Update click event, and is used to save the changed data. 
+ In this case it save the modules settings as well as the roles that can utilise this module within that portal / module 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[DYNST]	2/1/2004	Created 
+ </history></member>
+    <member name="T:PortalQH.FileInfo">
+      <summary>
+ Represents the File object and holds the Properties of that object 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[DYNST]	2/1/2004	Created 
+ </history></member>
+    <member name="F:PortalQH.FileInfo._FileId">
+      <summary>
+ The Primary Key ID of the current File, as represented within the Database table named "Files" 
+ </summary>
+ <remarks>
+ This Integer Property is passed to the FileInfo Collection 
+ </remarks>
+ <history>
+ 	[DYNST]	2/1/2004	Created 
+ </history></member>
+    <member name="T:PortalQH.FileController">
+      <summary>
+ Business Class that provides access to the Database for the functions within the calling classes 
+ Instantiates the instance of the DataProvider and returns the object, if any 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[DYNST]	2/1/2004	Created 
+ </history></member>
+    <member name="T:PortalQH.Installer.PaFolderCollection">
+      <summary>
+ Represents a collection of <see cref="T:PortalQH.Installer.PaFolder">PaFolder</see> objects. 
+ </summary>
+    </member>
+    <member name="M:PortalQH.Installer.PaFolderCollection.#ctor">
+      <summary>
+ Initializes a new instance of the <see cref="T:PortalQH.Installer.PaFolderCollection">PaFolderCollection</see> class. 
+ </summary>
+    </member>
+    <member name="M:PortalQH.Installer.PaFolderCollection.#ctor(PortalQH.Installer.PaFolderCollection)">
+      <summary>
+ Initializes a new instance of the <see cref="T:PortalQH.Installer.PaFolderCollection">PaFolderCollection</see> class containing the elements of the specified source collection. 
+ </summary>
+ <param name="value">A <see cref="T:PortalQH.Installer.PaFolderCollection">PaFolderCollection</see> with which to initialize the collection.</param></member>
+    <member name="M:PortalQH.Installer.PaFolderCollection.#ctor(PortalQH.Installer.PaFolder())">
+      <summary>
+ Initializes a new instance of the <see cref="T:PortalQH.Installer.PaFolderCollection">PaFolderCollection</see> class containing the specified array of <see cref="T:PortalQH.Installer.PaFolder">PaFolder</see> objects. 
+ </summary>
+ <param name="value">An array of <see cref="T:PortalQH.Installer.PaFolder">PaFolder</see> objects with which to initialize the collection. </param></member>
+    <member name="P:PortalQH.Installer.PaFolderCollection.Item(System.Int32)">
+      <summary>
+ Gets the <see cref="T:PortalQH.Installer.PaFolderCollection">PaFolderCollection</see> at the specified index in the collection. 
+ <para>
+ In VB.Net, this property is the indexer for the <see cref="T:PortalQH.Installer.PaFolderCollection">PaFolderCollection</see> class. 
+ </para>
+ </summary>
+    </member>
+    <member name="M:PortalQH.Installer.PaFolderCollection.Add(PortalQH.Installer.PaFolder)">
+      <summary>
+ Add an element of the specified <see cref="T:PortalQH.Installer.PaFolder">PaFolder</see> to the end of the collection. 
+ </summary>
+ <param name="value">An object of type <see cref="T:PortalQH.Installer.PaFolder">PaFolder</see> to add to the collection.</param></member>
+    <member name="M:PortalQH.Installer.PaFolderCollection.IndexOf(PortalQH.Installer.PaFolder)">
+      <summary>
+ Gets the index in the collection of the specified <see cref="T:PortalQH.Installer.PaFolderCollection">PaFolderCollection</see>, if it exists in the collection. 
+ </summary>
+ <param name="value">The <see cref="T:PortalQH.Installer.PaFolderCollection">PaFolderCollection</see> to locate in the collection.</param>
+ <returns>The index in the collection of the specified object, if found; otherwise, -1.</returns></member>
+    <member name="M:PortalQH.Installer.PaFolderCollection.Insert(System.Int32,PortalQH.Installer.PaFolder)">
+      <summary>
+ Add an element of the specified <see cref="T:PortalQH.Installer.PaFolder">PaFolder</see> to the collection at the designated index. 
+ </summary>
+ <param name="index">An <see cref="system.int32">Integer</see> to indicate the location to add the object to the collection.</param>
+ <param name="value">An object of type <see cref="T:PortalQH.Installer.PaFolder">PaFolder</see> to add to the collection.</param></member>
+    <member name="M:PortalQH.Installer.PaFolderCollection.Remove(PortalQH.Installer.PaFolder)">
+      <summary>
+ Remove the specified object of type <see cref="T:PortalQH.Installer.PaFolder">PaFolder</see> from the collection. 
+ </summary>
+ <param name="value">An object of type <see cref="T:PortalQH.Installer.PaFolder">PaFolder</see> to remove to the collection.</param></member>
+    <member name="M:PortalQH.Installer.PaFolderCollection.Contains(PortalQH.Installer.PaFolder)">
+      <summary>
+ Gets a value indicating whether the collection contains the specified <see cref="T:PortalQH.Installer.PaFolderCollection">PaFolderCollection</see>. 
+ </summary>
+ <param name="value">The <see cref="T:PortalQH.Installer.PaFolderCollection">PaFolderCollection</see> to search for in the collection.</param>
+ <returns><b>true</b> if the collection contains the specified object; otherwise, <b>false</b>.</returns></member>
+    <member name="M:PortalQH.Installer.PaFolderCollection.AddRange(PortalQH.Installer.PaFolder())">
+      <summary>
+ Copies the elements of the specified <see cref="T:PortalQH.Installer.PaFolder">PaFolder</see> array to the end of the collection. 
+ </summary>
+ <param name="value">An array of type <see cref="T:PortalQH.Installer.PaFolder">PaFolder</see> containing the objects to add to the collection.</param></member>
+    <member name="M:PortalQH.Installer.PaFolderCollection.AddRange(PortalQH.Installer.PaFolderCollection)">
+      <summary>
+ Adds the contents of another <see cref="T:PortalQH.Installer.PaFolderCollection">PaFolderCollection</see> to the end of the collection. 
+ </summary>
+ <param name="value">A <see cref="T:PortalQH.Installer.PaFolderCollection">PaFolderCollection</see> containing the objects to add to the collection. </param></member>
+    <member name="M:PortalQH.Installer.PaFolderCollection.CopyTo(PortalQH.Installer.PaFolder[],System.Int32)">
+      <summary>
+ Copies the collection objects to a one-dimensional <see cref="T:System.Array">Array</see> instance beginning at the specified index. 
+ </summary>
+ <param name="array">The one-dimensional <see cref="T:System.Array">Array</see> that is the destination of the values copied from the collection.</param>
+ <param name="index">The index of the array at which to begin inserting.</param></member>
+    <member name="M:PortalQH.Installer.PaFolderCollection.ToArray">
+      <summary>
+ Creates a one-dimensional <see cref="T:System.Array">Array</see> instance containing the collection items. 
+ </summary>
+ <returns>Array of type PaFolder</returns></member>
+    <member name="T:PortalQH.SkinFileProcessor">
+      <summary>
+     Handles processing of a list of uploaded skin files into a working skin. 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history></member>
+    <member name="M:PortalQH.SkinFileProcessor.#ctor(System.String,System.String,System.String)">
+      <summary>
+     SkinFileProcessor class constructor. 
+ </summary>
+ <param name="SkinPath">File path to the portals upload directory.</param>
+ <param name="SkinRoot">Specifies type of skin (Skins or Containers)</param>
+ <param name="SkinFolderName">Name of folder in which skin will reside (Zip file name)</param>
+ <remarks>
+     The constructor primes the file processor with path information and 
+     control data that should only be retrieved once.  It checks for the 
+     existentce of a skin level attribute file and read it in, if found. 
+     It also sorts through the complete list of controls and creates 
+     a hashtable which contains only the skin objects and their source paths. 
+     These are recognized by their ControlKey's which are formatted like 
+     tokens ("[TOKEN]").  The hashtable is required for speed as it will be 
+     processed for each token found in the source file by the Control Parser. 
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history></member>
+    <member name="M:PortalQH.SkinFileProcessor.ProcessList(System.Collections.ArrayList)">
+      <summary>
+     Perform processing on list of files to generate skin. 
+ </summary>
+ <param name="FileList">ArrayList of files to be processed.</param>
+ <returns>HTML formatted string of informational messages.</returns>
+ <remarks>
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history></member>
+    <member name="T:PortalQH.SkinFileProcessor.SkinFile">
+      <summary>
+     Utility class for processing of skin files. 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history></member>
+    <member name="M:PortalQH.SkinFileProcessor.SkinFile.#ctor(System.String,System.String,System.Xml.XmlDocument)">
+      <summary>
+     SkinFile class constructor. 
+ </summary>
+ <param name="SkinRoot" />
+ <param name="FileName" />
+ <param name="SkinAttributes" />
+ <remarks>
+     The constructor primes the utility class with basic file information. 
+     It also checks for the existentce of a skinfile level attribute file 
+     and read it in, if found. 
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history></member>
+    <member name="M:PortalQH.SkinFileProcessor.SkinFile.PrependASCXDirectives(System.Collections.ArrayList)">
+      <summary>
+     Prepend ascx control directives to file contents. 
+ </summary>
+ <param name="Registrations">ArrayList of registration directives.</param>
+ <remarks>
+     This procedure formats the @Control directive and prepends it and all 
+     registration directives to the file contents. 
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history></member>
+    <member name="T:PortalQH.SkinFileProcessor.PathParser">
+      <summary>
+     Parsing functionality for path replacement in new skin files. 
+ </summary>
+ <remarks>
+     This class encapsulates the data and methods necessary to appropriately 
+     handle all the path replacement parsing needs for new skin files. Parsing 
+     supported for CSS syntax and HTML syntax (which covers ASCX files also). 
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history></member>
+    <member name="P:PortalQH.SkinFileProcessor.PathParser.HTMLList">
+      <summary>
+     List of regular expressions for processing HTML syntax. 
+ </summary>
+ <returns>ArrayList of Regex objects formatted for the Parser method.</returns>
+ <remarks>
+     Additional patterns can be added to this list (if necessary) if properly 
+     formatted to return <tag>, <content> and <endtag> groups.  For future 
+     consideration, this list could be imported from a configuration file to 
+     provide for greater flexibility. 
+ <member name="P:PortalQH.SkinFileProcessor.PathParser.CSSList"><summary>
+     List of regular expressions for processing CSS syntax. 
+ </summary>
+ <returns>ArrayList of Regex objects formatted for the Parser method.</returns>
+ <remarks>
+     Additional patterns can be added to this list (if necessary) if properly 
+     formatted to return <tag>, <content> and <endtag> groups.  For future 
+     consideration, this list could be imported from a configuration file to 
+     provide for greater flexibility. 
+ <member name="M:PortalQH.SkinFileProcessor.PathParser.Parse(System.String@,System.Collections.ArrayList@,System.String)"><summary>
+     Perform parsing on the specified source file. 
+ </summary>
+ <param name="Source">Pointer to Source string to be parsed.</param>
+ <param name="RegexList">ArrayList of properly formatted regular expression objects.</param>
+ <param name="SkinPath">Path to use in replacement operation.</param>
+ <remarks>
+     This procedure iterates through the list of regular expression objects 
+     and invokes a handler for each match which uses the specified path. 
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history></member><member name="M:PortalQH.SkinFileProcessor.PathParser.MatchHandler(System.Text.RegularExpressions.Match)"><summary>
+     Process regular expression matches. 
+ </summary>
+ <param name="m">Regular expression match for path information which requires processing.</param>
+ <returns>Properly formatted path information.</returns>
+ <remarks>
+     The handler is invoked by the Regex.Replace method once for each match that 
+     it encounters.  The returned value of the handler is substituted for the 
+     original match.  So the handler properly formats the path information and 
+     returns it in favor of the improperly formatted match. 
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history></member><member name="T:PortalQH.SkinFileProcessor.ControlParser"><summary>
+     Parsing functionality for token replacement in new skin files. 
+ </summary>
+ <remarks>
+     This class encapsulates the data and methods necessary to appropriately 
+     handle all the token parsing needs for new skin files (which is appropriate 
+     only for HTML files).  The parser accomodates some ill formatting of tokens 
+     (ignoring whitespace and casing) and allows for naming of token instances 
+     if more than one instance of a particular control is desired on a skin.  The 
+     proper syntax for an instance is: "[TOKEN_INSTANCE]" where the instance can 
+     be any alphanumeric string.  Generated control ID's all take the 
+     form of "TOKENINSTANCE". 
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history></member><member name="P:PortalQH.SkinFileProcessor.ControlParser.Registrations"><summary>
+     Registration directives generated as a result of the Parse method. 
+ </summary>
+ <returns>ArrayList of formatted registration directives.</returns>
+ <remarks>
+     In addition to the updated file contents, the Parse method also 
+     creates this list of formatted registration directives which can 
+     be processed later.  They are not performed in place during the 
+     Parse method in order to preserve the formatting of the input file 
+     in case additional parsing might not anticipate the formatting of 
+     those directives.  Since they are properly formatted, it is better 
+     to exclude them from being subject to parsing. 
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history></member><member name="M:PortalQH.SkinFileProcessor.ControlParser.#ctor(System.Collections.Hashtable)"><summary>
+     ControlParser class constructor. 
+ </summary>
+ <param name="SkinObjects">ArrayList of ModuleControlInfo objects known to DNN.</param>
+ <remarks>
+     The constructor processes accepts a hashtable of skin objects to process against. 
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history></member><member name="M:PortalQH.SkinFileProcessor.ControlParser.Parse(System.String@,System.Xml.XmlDocument)"><summary>
+     Perform parsing on the specified source file using the specified attributes. 
+ </summary>
+ <param name="Source">Pointer to Source string to be parsed.</param>
+ <param name="Attributes">XML document containing token attribute information (can be empty).</param>
+ <remarks>
+     This procedure invokes a handler for each match of a formatted token. 
+     The attributes are first set because they will be referenced by the 
+     match handler. 
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history></member><member name="M:PortalQH.SkinFileProcessor.ControlParser.TokenMatchHandler(System.Text.RegularExpressions.Match)"><summary>
+     Process regular expression matches. 
+ </summary>
+ <param name="m">Regular expression match for token which requires processing.</param>
+ <returns>Properly formatted token.</returns>
+ <remarks>
+     The handler is invoked by the Regex.Replace method once for each match that 
+     it encounters.  The returned value of the handler is substituted for the 
+     original match.  So the handler properly formats the replacement for the 
+     token and returns it instead.  If an unknown token is encountered, the token 
+     is unmodified.  This can happen if a token is used for a skin object which 
+     has not yet been installed. 
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history></member><member name="T:PortalQH.DuongDiTinhTrangInfo"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]   3/29/2007   Updated 
+     Desc    :Them thong tin so ngay giai quyet, MaLoaiHoSo 
+ </history></member><member name="M:PortalQH.DuongDiTinhTrangController.AddDuongDiTinhTrang(PortalQH.DuongDiTinhTrangInfo)"><summary>
+ 
+ </summary>
+ <param name="obj" />
+ <remarks>
+ </remarks>
+ <history>
+ 
+ </history></member><member name="M:PortalQH.DuongDiTinhTrangController.DelDuongDiTinhTrang(PortalQH.DuongDiTinhTrangInfo)"><summary>
+ 
+ </summary>
+ <param name="obj" />
+ <remarks>
+ </remarks>
+ <history>
+ 
+ </history></member><member name="M:PortalQH.DuongDiTinhTrangController.updSoNgayGiaiQuyet(PortalQH.DuongDiTinhTrangInfo)"><summary>
+ 
+ </summary>
+ <param name="obj" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	3/30/2007	Created 
+ </history></member><member name="M:PortalQH.DuongDiTinhTrangController.getSoNgayGiaiQuyet(PortalQH.DuongDiTinhTrangInfo)"><summary>
+ 
+ </summary>
+ <param name="obj" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	3/30/2007	Created 
+ </history></member><member name="M:PortalQH.Globals.FindSetControlValues(System.String,System.String,System.Object)"><summary>
+ 
+ </summary>
+ <param name="strControlID" />
+ <param name="strValue" />
+ <param name="objControl" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	6/4/2007	Updated, sua lai set value for dropdownlist 
+ </history></member><member name="M:PortalQH.Globals.GetLinhVuc"><summary>
+ Lay ma linh vuc ho so 
+ </summary>
+ <returns />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	6/11/2007	Created 
+ </history></member><member name="M:PortalQH.Globals.genRandomKey"><summary>
+ Generate a random string 
+ </summary>
+ <returns />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	1/19/2007	Created 
+ </history></member><member name="M:PortalQH.Globals.f_ExportWordFile(System.Web.HttpRequest,System.Data.DataSet,System.String,System.String,System.String)"><summary>
+ 'Mục đích: tạo ra file Word từ file template 
+Giá trị in: 
+     - request: sử dụng để lấy đường dẫn đến source chương trình 
+     - ds: dataset chứa giá trị cần đưa vào file Tempalte 
+     - strItemCode: mã lĩnh vực (CPKT, CPXD, ....) 
+     - TemplateFileName: tên của file template 
+     - ExportFileName: tên của file output 
+ </summary>
+ <param name="request" />
+ <param name="ds" />
+ <param name="strItemCode" />
+ <param name="TemplateFileName" />
+ <param name="ExportFileName" />
+ <returns>đoạn script cho phép người dùng xem file hoặc download file về</returns>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	1/19/2007	Updated, fix loi open file readonly 
+ </history></member><member name="T:PortalQH.ModuleAction"><summary>
+ Each Module Action represents a separate functional action as defined by the 
+ associated module. 
+ </summary>
+ <remarks>A module action is used to define a specific function for a given module. 
+ Each module can define one or more actions which the portal will present to the 
+ user.  These actions may be presented as a menu, a dropdown list or even a group 
+ of linkbuttons. 
+ <seealso cref="T:PortalQH.ModuleActionCollection" /></remarks>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="M:PortalQH.ModuleAction.#ctor(System.Int32,System.String,System.String,System.String,System.String,System.String,System.Boolean,PortalQH.SecurityAccessLevel,System.Boolean,System.Boolean)"><summary>
+ Initializes a new instance of the <see cref="T:PortalQH.ModuleAction" /> class 
+ using the specified parameters 
+ </summary>
+ <param name="ID">This is the identifier to use for this action.</param>
+ <param name="Title">This is the title that will be displayed for this action</param>
+ <param name="CmdName">The command name passed to the client when this action is 
+ clicked.</param>
+ <param name="CmdArg">The command argument passed to the client when this action is 
+ clicked.</param>
+ <param name="Icon">The URL of the Icon to place next to this action</param>
+ <param name="Url">The destination URL to redirect the client browser when this 
+ action is clicked.</param>
+ <param name="UseActionEvent">Determines whether client will receive an event 
+ notification</param>
+ <param name="Secure">The security access level required for access to this action</param>
+ <param name="Visible">Whether this action will be displayed</param>
+ <remarks>The moduleaction constructor is used to set the various properties of 
+ the <see cref="T:PortalQH.ModuleAction" /> class at the time the instance is created. 
+ </remarks>
+ <history>
+ 	[Joe] 	10/26/2003	Created 
+ </history></member><member name="M:PortalQH.ModuleAction.HasChildren"><summary>
+ Determines whether the action node contains any child actions. 
+ </summary>
+ <returns>True if child actions exist, false if child actions do not exist.</returns>
+ <remarks>Each action may contain one or more child actions in the 
+ <see cref="P:PortalQH.ModuleAction.Actions" /> property.  When displayed via 
+ the <see cref="T:PortalQH.Containers.Actions" /> control, these subactions are 
+ shown as sub-menus.</remarks>
+ <history>
+ 	[Joe] 	10/26/2003	Created 
+ </history></member><member name="P:PortalQH.ModuleAction.Actions"><summary>
+ The Actions property allows the user to create a heirarchy of actions, with 
+ each action having sub-actions. 
+ </summary>
+ <value>Returns a collection of ModuleActions.</value>
+ <remarks>Each action may contain one or more child actions.  When displayed via 
+ the <see cref="T:PortalQH.Containers.Actions" /> control, these subactions are 
+ shown as sub-menus.  If other Action controls are implemented, then 
+ sub-actions may or may not be supported for that control type.</remarks>
+ <history>
+ 	[Joe] 	10/26/2003	Created 
+ </history></member><member name="P:PortalQH.ModuleAction.ID"><summary>
+ A Module Action ID is a identifier that can be used in a Module Action Collection 
+ to find a specific Action. 
+ </summary>
+ <value>The integer ID of the current <see cref="T:PortalQH.ModuleAction" />.</value>
+ <remarks>When building a heirarchy of <see cref="T:PortalQH.ModuleAction">ModuleActions</see>, 
+ the ID is used to link the child and parent actions.</remarks>
+ <history>
+ 	[Joe] 	10/18/2003	Created 
+ </history></member><member name="P:PortalQH.ModuleAction.Visible"><summary>
+ Gets or sets whether the current action should be displayed. 
+ </summary>
+ <value>A boolean value that determines if the current action should be displayed</value>
+ <remarks>If Visible is false, then the action is always hidden.  If Visible 
+ is true then the action may be visible depending on the security access rights 
+ specified by the <see cref="P:PortalQH.ModuleAction.Secure" /> property.  By 
+ utilizing a custom method in your module, you can encapsulate specific business 
+ rules to determine if the Action should be visible.</remarks>
+ <history>
+ 	[Joe] 	10/26/2003	Created 
+ </history></member><member name="P:PortalQH.ModuleAction.Secure"><summary>
+ Gets or sets the value indicating the <see cref="T:PortalQH.SecurityAccessLevel" /> that is required 
+ to access this <see cref="T:PortalQH.ModuleAction" />. 
+ </summary>
+ <value>The value indicating the <see cref="T:PortalQH.SecurityAccessLevel" /> that is required 
+ to access this <see cref="T:PortalQH.ModuleAction" /></value>
+ <remarks>The security access level determines the roles required by the current user in 
+ order to access this module action.</remarks>
+ <history>
+ 	[jbrinkman] 	12/27/2003	Created 
+ </history></member><member name="P:PortalQH.ModuleAction.CommandName"><summary>
+ A Module Action CommandName represents a string used by the ModuleTitle to notify 
+ the parent module that a given Module Action was selected in the Module Menu. 
+ </summary>
+ <value>The name of the command to perform.</value>
+ <remarks>
+ Use the CommandName property to determine the command to perform. The CommandName 
+ property can contain any string set by the programmer. The programmer can then 
+ identify the command name in code and perform the appropriate tasks. 
+ </remarks>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="P:PortalQH.ModuleAction.CommandArgument"><summary>
+ A Module Action CommandArgument provides additional information and 
+ complements the CommandName. 
+ </summary>
+ <value>A string that contains the argument for the command.</value>
+ <remarks>
+ The CommandArgument can contain any string set by the programmer. The 
+ CommandArgument property complements the <see cref="P:PortalQH.ModuleAction.CommandName" />
+  property by allowing you to provide any additional information for the command. 
+ For example, you can set the CommandName property to "Sort" and set the 
+ CommandArgument property to "Ascending" to specify a command to sort in ascending 
+ order. 
+ </remarks>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="P:PortalQH.ModuleAction.Title"><summary>
+ Gets or sets the string that is displayed in the Module Menu 
+ that represents a given menu action. 
+ </summary>
+ <value>The string value that is displayed to represent the module action.</value>
+ <remarks>The title property is displayed by the Actions control for each module 
+ action.</remarks>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="P:PortalQH.ModuleAction.Icon"><summary>
+ Gets or sets the URL for the icon file that is displayed for the given 
+ <see cref="T:PortalQH.ModuleAction" />. 
+ </summary>
+ <value>The URL for the icon that is displayed with the module action.</value>
+ <remarks>The URL for the icon is a simple string and is not checked for formatting.</remarks>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="P:PortalQH.ModuleAction.Url"><summary>
+ Gets or sets the URL to which the user is redirected when the 
+ associated Module Menu Action is selected. 
+ </summary>
+ <value>The URL to which the user is redirected when the 
+ associated Module Menu Action is selected.</value>
+ <remarks>If the URL is present then the Module Action Event is not fired. 
+ If the URL is empty then the Action Event is fired and is passed the value 
+ of the associated Command property.</remarks>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="P:PortalQH.ModuleAction.UseActionEvent"><summary>
+ Gets or sets a value that determines if a local ActionEvent is fired when the 
+ <see cref="T:PortalQH.ModuleAction" /> contains a URL. 
+ </summary>
+ <value>A boolean indicating whether to fire the ActionEvent.</value>
+ <remarks>When a MenuAction is clicked, an event is fired within the Actions 
+ control.  If the UseActionEvent is true then the Actions control will forward 
+ the event to the parent skin which will then attempt to raise the event to 
+ the appropriate module.  If the UseActionEvent is false, and the URL property 
+ is set, then the Actions control will redirect the response to the URL.  In 
+ all cases, an ActionEvent is raised if the URL is not set.</remarks>
+ <history>
+ 	[jbrinkman] 	12/22/2003	Created 
+ </history></member><member name="P:PortalQH.ModuleAction.NewWindow"><summary>
+ Gets or sets a value that determines if a new window is opened when the 
+ DoAction() method is called. 
+ </summary>
+ <value>A boolean indicating whether to open a new window.</value>
+ <remarks />
+ <history>
+ 	[jbrinkman] 	12/22/2003	Created 
+ </history></member><member name="T:PortalQH.ModuleActionCollection"><summary>
+ Represents a collection of <see cref="T:PortalQH.ModuleAction" /> objects. 
+ </summary>
+ <remarks>The ModuleActionCollection is a custom collection of ModuleActions. 
+ Each ModuleAction in the collection has it's own <see cref="P:PortalQH.ModuleAction.Actions" />
+  collection which provides the ability to create a heirarchy of ModuleActions.</remarks>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="M:PortalQH.ModuleActionCollection.#ctor"><summary>
+ Initializes a new, empty instance of the <see cref="T:PortalQH.ModuleActionCollection" /> class. 
+ </summary>
+ <remarks>The default constructor creates an empty collection of <see cref="T:PortalQH.ModuleAction" />
+  objects.</remarks>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="M:PortalQH.ModuleActionCollection.#ctor(PortalQH.ModuleActionCollection)"><summary>
+ Initializes a new instance of the <see cref="T:PortalQH.ModuleActionCollection" />
+  class containing the elements of the specified source collection. 
+ </summary>
+ <param name="value">A <see cref="T:PortalQH.ModuleActionCollection" /> with which to initialize the collection.</param>
+ <remarks>This overloaded constructor copies the <see cref="T:PortalQH.ModuleAction" />s 
+  from the indicated collection.</remarks>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="M:PortalQH.ModuleActionCollection.#ctor(PortalQH.ModuleAction())"><summary>
+ Initializes a new instance of the <see cref="T:PortalQH.ModuleActionCollection" />
+  class containing the specified array of <see cref="T:PortalQH.ModuleAction" /> objects. 
+ </summary>
+ <param name="value">An array of <see cref="T:PortalQH.ModuleAction" /> objects 
+ with which to initialize the collection. </param>
+ <remarks>This overloaded constructor copies the <see cref="T:PortalQH.ModuleAction" />s 
+  from the indicated array.</remarks>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="P:PortalQH.ModuleActionCollection.Item(System.Int32)"><summary>
+ Gets or sets the <see cref="T:PortalQH.ModuleActionCollection" /> at the 
+ specified index in the collection. 
+ <para>
+ In VB.Net, this property is the indexer for the <see cref="T:PortalQH.ModuleActionCollection" /> class. 
+ </para>
+ </summary>
+ <param name="index">The index of the collection to access.</param>
+ <value>A <see cref="T:PortalQH.ModuleAction" /> at each valid index.</value>
+ <remarks>This method is an indexer that can be used to access the collection.</remarks>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="M:PortalQH.ModuleActionCollection.Add(PortalQH.ModuleAction)"><summary>
+ Add an element of the specified <see cref="T:PortalQH.ModuleAction" /> to the end of the collection. 
+ </summary>
+ <param name="value">An object of type <see cref="T:PortalQH.ModuleAction" /> to add to the collection.</param>
+ <returns>The index of the newly added <see cref="T:PortalQH.ModuleAction" /></returns>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="M:PortalQH.ModuleActionCollection.Add(Integer,String,String,String,String,Boolean,SecurityAccessLevel,Boolean,Boolean)"><summary>
+ Add an element of the specified <see cref="T:PortalQH.ModuleAction" /> to the end of the collection. 
+ </summary>
+ <param name="ID">This is the identifier to use for this action.</param>
+ <param name="Title">This is the title that will be displayed for this action</param>
+ <param name="CmdName">The command name passed to the client when this action is 
+ clicked.</param>
+ <param name="CmdArg">The command argument passed to the client when this action is 
+ clicked.</param>
+ <param name="Icon">The URL of the Icon to place next to this action</param>
+ <param name="Url">The destination URL to redirect the client browser when this 
+ action is clicked.</param>
+ <param name="UseActionEvent">Determines whether client will receive an event 
+ notification</param>
+ <param name="Secure">The security access level required for access to this action</param>
+ <param name="Visible">Whether this action will be displayed</param>
+ <returns>The index of the newly added <see cref="T:PortalQH.ModuleAction" /></returns>
+ <remarks>This method creates a new <see cref="T:PortalQH.ModuleAction" /> with the specified 
+ values, adds it to the collection and returns the index of the newly created ModuleAction.</remarks>
+ <history>
+ 	[Joe] 	10/18/2003	Created 
+ </history></member><member name="M:PortalQH.ModuleActionCollection.IndexOf(PortalQH.ModuleAction)"><summary>
+ Gets the index in the collection of the specified <see cref="T:PortalQH.ModuleActionCollection" />, 
+ if it exists in the collection. 
+ </summary>
+ <param name="value">The <see cref="T:PortalQH.ModuleAction" /> to locate in the collection.</param>
+ <returns>The index in the collection of the specified object, if found; otherwise, -1.</returns>
+ <example> This example tests for the presense of a ModuleAction in the 
+ collection, and retrieves its index if it is found. 
+ <code>
+   Dim testModuleAction = New ModuleAction(5, "Edit Action", "Edit") 
+   Dim itemIndex As Integer = -1 
+   If collection.Contains(testModuleAction) Then 
+     itemIndex = collection.IndexOf(testModuleAction) 
+   End If 
+ </code>
+ </example>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="M:PortalQH.ModuleActionCollection.Insert(System.Int32,PortalQH.ModuleAction)"><summary>
+ Add an element of the specified <see cref="T:PortalQH.ModuleAction" /> to the 
+ collection at the designated index. 
+ </summary>
+ <param name="index">An <see cref="T:system.int32">Integer</see> to indicate the location to add the object to the collection.</param>
+ <param name="value">An object of type <see cref="T:PortalQH.ModuleAction" /> to add to the collection.</param>
+ <example>
+ <code>
+ ' Inserts a ModuleAction at index 0 of the collection. 
+ collection.Insert(0, New ModuleAction(5, "Edit Action", "Edit")) 
+ </code>
+ </example>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="M:PortalQH.ModuleActionCollection.Remove(PortalQH.ModuleAction)"><summary>
+ Remove the specified object of type <see cref="T:PortalQH.ModuleAction" /> from the collection. 
+ </summary>
+ <param name="value">An object of type <see cref="T:PortalQH.ModuleAction" /> to remove from the collection.</param>
+ <example>
+ <code>
+ ' Removes the specified ModuleAction from the collection. 
+ Dim testModuleAction = New ModuleAction(5, "Edit Action", "Edit") 
+ collection.Remove(testModuleAction) 
+ </code>
+ </example>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="M:PortalQH.ModuleActionCollection.Contains(PortalQH.ModuleAction)"><summary>
+ Gets a value indicating whether the collection contains the specified <see cref="T:PortalQH.ModuleAction" />. 
+ </summary>
+ <param name="value">The <see cref="T:PortalQH.ModuleAction" /> to search for in the collection.</param>
+ <returns><b>true</b> if the collection contains the specified object; otherwise, <b>false</b>.</returns>
+ <example>
+ <code>
+ ' Tests for the presence of a ModuleAction in the 
+ ' collection, and retrieves its index if it is found. 
+ Dim testModuleAction = New ModuleAction(5, "Edit Action", "Edit") 
+ Dim itemIndex As Integer = -1 
+ If collection.Contains(testModuleAction) Then 
+    itemIndex = collection.IndexOf(testModuleAction) 
+ End If 
+ </code>
+ </example>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="M:PortalQH.ModuleActionCollection.AddRange(PortalQH.ModuleAction())"><summary>
+ Copies the elements of the specified <see cref="T:PortalQH.ModuleAction" />
+  array to the end of the collection. 
+ </summary>
+ <param name="value">An array of type <see cref="T:PortalQH.ModuleAction" />
+  containing the objects to add to the collection.</param>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="M:PortalQH.ModuleActionCollection.AddRange(PortalQH.ModuleActionCollection)"><summary>
+ Adds the contents of another <see cref="T:PortalQH.ModuleActionCollection" />
+  to the end of the collection. 
+ </summary>
+ <param name="value">A <see cref="T:PortalQH.ModuleActionCollection" /> containing 
+ the objects to add to the collection. </param>
+ <history>
+ 	[Joe] 	10/9/2003	Created 
+ </history></member><member name="T:PortalQH.ActionEventArgs"><summary>
+ 
+ </summary>
+ <remarks />
+ <history>
+ 	[Joe] 	10/26/2003	Created 
+ </history></member><member name="M:PortalQH.ActionEventArgs.#ctor(PortalQH.ModuleAction,PortalQH.ModuleSettings)"><summary>
+ 
+ </summary>
+ <param name="ModAction" />
+ <param name="ModSettings" />
+ <remarks />
+ <history>
+ 	[Joe] 	10/26/2003	Created 
+ </history></member><member name="P:PortalQH.ActionEventArgs.Action"><summary>
+ 
+ </summary>
+ <value />
+ <remarks />
+ <history>
+ 	[Joe] 	10/26/2003	Created 
+ </history></member><member name="P:PortalQH.ActionEventArgs.AssociatedModule"><summary>
+ 
+ </summary>
+ <value />
+ <remarks />
+ <history>
+ 	[jbrinkman] 	12/27/2003	Created 
+ </history></member><member name="T:PortalQH.ActionEventHandler"><summary>
+ 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks /></member><member name="T:PortalQH.ModuleActionEventListener"><summary>
+ 
+ </summary>
+ <remarks />
+ <history>
+ 	[jbrinkman] 	12/27/2003	Created 
+ </history></member><member name="M:PortalQH.ModuleActionEventListener.#ctor(System.Int32,PortalQH.ActionEventHandler)"><summary>
+ 
+ </summary>
+ <param name="ModID" />
+ <param name="e" />
+ <remarks />
+ <history>
+ 	[jbrinkman] 	12/27/2003	Created 
+ </history></member><member name="P:PortalQH.ModuleActionEventListener.ModuleID"><summary>
+ 
+ </summary>
+ <value />
+ <remarks />
+ <history>
+ 	[jbrinkman] 	12/27/2003	Created 
+ </history></member><member name="P:PortalQH.ModuleActionEventListener.ActionEvent"><summary>
+ 
+ </summary>
+ <value />
+ <remarks />
+ <history>
+ 	[jbrinkman] 	12/27/2003	Created 
+ </history></member><member name="T:PortalQH.SecurityAccessLevel"><summary>
+ The SecurityAccessLevel enum is used to determine which level of access rights 
+ to assign to a specific module or module action. 
+ </summary></member><member name="T:PortalQH.PortalSecurity.FilterFlag"><summary>
+ The FilterFlag enum determines which filters are applied by the InputFilter 
+ function.  The Flags attribute allows the user to include multiple 
+ enumerated values in a single variable by OR'ing the individual values 
+ together. 
+ </summary>
+ <history>
+ 	[Joe Brinkman] 	8/15/2003	Created  Bug #000120, #000121 
+ </history></member><member name="M:PortalQH.PortalSecurity.InputFilter(System.String,PortalQH.PortalSecurity.FilterFlag)"><summary>
+ This function applies security filtering to the UserInput string. 
+ </summary>
+ <param name="UserInput">This is the string to be filtered</param>
+ <param name="FilterType">Flags which designate the filters to be applied</param>
+ <returns>Filtered UserInput</returns>
+ <history>
+ 	[Joe Brinkman] 	8/15/2003	Created Bug #000120, #000121 
+ </history></member><member name="M:PortalQH.PortalSecurity.FormatMultiLine(System.String)"><summary>
+ This filter removes CrLf characters and inserts br 
+ </summary>
+ <param name="strInput">This is the string to be filtered</param>
+ <returns>Filtered UserInput</returns>
+ <remarks>
+ This is a private function that is used internally by the InputFilter function 
+ </remarks>
+ <history>
+ 	[Joe Brinkman] 	8/15/2003	Created Bug #000120 
+ </history></member><member name="M:PortalQH.PortalSecurity.FormatDisableScripting(System.String)"><summary>
+ This function uses Regex search strings to remove HTML tags which are 
+ targeted in Cross-site scripting (XSS) attacks.  This function will evolve 
+ to provide more robust checking as additional holes are found. 
+ </summary>
+ <param name="strInput">This is the string to be filtered</param>
+ <returns>Filtered UserInput</returns>
+ <remarks>
+ This is a private function that is used internally by the InputFilter function 
+ </remarks>
+ <history>
+ 	[Joe Brinkman] 	8/15/2003	Created Bug #000120 
+ </history></member><member name="M:PortalQH.PortalSecurity.FormatRemoveSQL(System.String)"><summary>
+ This function verifies raw SQL statements to prevent SQL injection attacks 
+ and replaces a similar function (PreventSQLInjection) from the Globals.vb module 
+ </summary>
+ <param name="strSQL">This is the string to be filtered</param>
+ <returns>Filtered UserInput</returns>
+ <remarks>
+ This is a private function that is used internally by the InputFilter function 
+ </remarks>
+ <history>
+ 	[Joe Brinkman] 	8/15/2003	Created Bug #000121 
+     [Tom Lucas]     3/8/2004    Fixed   Bug #000114 (Aardvark) 
+ </history></member><member name="M:PortalQH.PortalSecurity.IncludesMarkup(System.String)"><summary>
+ This function determines if the Input string contains any markup. 
+ </summary>
+ <param name="strInput">This is the string to be checked</param>
+ <returns>True if string contains Markup tag(s)</returns>
+ <remarks>
+ This is a private function that is used internally by the InputFilter function 
+ </remarks>
+ <history>
+ 	[Joe Brinkman] 	8/15/2003	Created Bug #000120 
+ </history></member><member name="M:PortalQH.PortalSecurity.HasNecessaryPermission(PortalQH.SecurityAccessLevel,PortalQH.PortalSettings,PortalQH.ModuleSettings,System.String)"><summary>
+ Determines is user has the necessary permissions to access the an item with the 
+ designated AccessLevel. 
+ </summary>
+ <param name="AccessLevel">The SecurityAccessLevel required to access a portal module or module action.</param>
+ <param name="pSettings">The PortalSettings for the current portal.</param>
+ <param name="mSettings">The ModuleSettings for the associated module.</param>
+ <param name="UserName">The Context.User.Identity.Name of the currently logged in user.</param>
+ <returns>A boolean value indicating if the user has the necessary permissions</returns>
+ <remarks>Every module control and module action has an associated permission level.  This 
+ function determines whether the user represented by UserName has sufficient permissions, as 
+ determined by the PortalSettings and ModuleSettings, to access a resource with the 
+ designated AccessLevel.</remarks>
+ <history>
+ 	[jbrinkman] 	12/21/2003	Created 
+ </history></member><member name="T:PortalQH.CDefault"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[sun1]	1/19/2004	Created 
+ </history></member><member name="M:PortalQH.CDefault.Page_Init(System.Object,System.EventArgs)"><summary>
+ Contains the functionality to populate the Root aspx page with controls 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ - obtain PortalSettings from Current Context 
+ - set global page settings 
+ - initialise reference paths to load the cascading style sheets 
+ - add skin control placeholder.  This holds all the modules and content of the page. 
+ </remarks>
+ <history>
+ 	[sun1]	1/19/2004	Created 
+ </history></member><member name="M:PortalQH.CDefault.Page_Load(System.Object,System.EventArgs)"><summary>
+ Initialize the Scrolltop html control which controls the open / closed nature of each module 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[sun1]	1/19/2004	Created 
+ </history></member><member name="M:PortalQH.CDefault.InitializePage"><summary>
+ 
+ </summary>
+ <remarks>
+ - Obtain PortalSettings from Current Context 
+ - redirect to a specific tab based on name 
+ - if first time loading this page then reload to avoid caching 
+ - set page title and stylesheet 
+ - check to see if we should show the Assembly Version in Page Title 
+ - set the background image if there is one selected 
+ - set META tags, copyright, keywords and description 
+ </remarks>
+ <history>
+ 	[sun1]	1/19/2004	Created 
+ </history></member><member name="M:PortalQH.CDefault.ManageRequest"><summary>
+ 
+ </summary>
+ <remarks>
+ - manage affiliates 
+ - log visit to site 
+ </remarks>
+ <history>
+ 	[sun1]	1/19/2004	Created 
+ </history></member><member name="M:PortalQH.SoNgayGiaiQuyetHoSo.CapNhatSoNgayGiaiQuyet"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	5/25/2007	Updated, 
+     So ngay giai quyet = '' -&gt; xo'a dinh nghia thoi han thu ly cua giai doan 
+ </history></member><member name="T:PortalQH.ErrorPage"><summary>
+ Trapped errors are redirected to this universal error page, resulting in a 
+ graceful display. 
+ </summary>
+ <remarks>
+ 'get the last server error 
+ 'process this error using the Exception Management Application Block 
+ 'add to a placeholder and place on page 
+ 'catch direct access - No exception was found...you shouldn't end up here unless you go to this aspx page URL directly 
+ </remarks>
+ <history>
+ 	[sun1]	1/19/2004	Created 
+ </history></member><member name="T:PortalQH.Global"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[sun1]	1/18/2004	Created 
+ </history></member><member name="M:PortalQH.Global.Application_BeginRequest(System.Object,System.EventArgs)"><summary>
+ Application_BeginRequest Event 
+ 
+ The Application_BeginRequest method is an ASP.NET event that executes 
+ on each web request into the portal application.  The below method 
+ obtains the current TabId from the querystring of the 
+ request -- and then obtains the configuration necessary to process 
+ and render the request. 
+ 
+ This portal configuration is stored within the application's "Context" 
+ object -- which is available to all pages, controls and components 
+ during the processing of a single request. 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ - get TabId from querystring 
+ - parse the Request URL into a Domain Name token 
+ - alias parameter can be used to switch portals 
+ - TabId uniquely identifies a Portal 
+ - else use the domainname 
+ - if portalalias is nothing then load the default tab 
+ - validate the alias 
+ - if Portal Alias Exists then load the PortalSettings into current context 
+ - Else portal Alias does not exist in database 
+ </remarks>
+ <history>
+ 	[sun1]	1/18/2004	Created 
+ </history></member><member name="M:PortalQH.Global.Application_AuthenticateRequest(System.Object,System.EventArgs)"><summary>
+ Application_AuthenticateRequest  Event 
+ 
+ If the client is authenticated with the application, then determine 
+ which security roles he/she belongs to and replace the "User" intrinsic 
+ with a custom IPrincipal security object that permits "User.IsInRole" 
+ role checks within the application 
+ 
+ Roles are cached in the browser in an in-memory encrypted cookie.  If the 
+ cookie doesn't exist yet for this session, create it. 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ - Obtain PortalSettings from Current Context 
+ ' check if user has switched portals 
+ '   expire cookies if portal has changed 
+ '   check if user is valid for new portal 
+ '       log user out 
+ '       Redirect browser back to home page 
+ 
+ ' get UserId based on authentication method ( from web.config ) 
+ '   authenticate user and set last login ( this is necessary for users who have a permanent Auth cookie set ) 
+ '       Log User Off from Cookie Authentication System 
+ '       expire cookies 
+     Else ' valid Auth cookie 
+ '       create cookies if they do not exist yet for this session. 
+ '           keep cookies in sync 
+             create a cookie authentication ticket ( version, user name, issue time, expires every hour, don't persist cookie, roles ) 
+             encrypt the ticket 
+             send roles cookie to client 
+             get roles from UserRoles table 
+             create a string to persist the roles 
+         ELSE get roles from roles cookie 
+             convert the string representation of the role data into a string array 
+ add our own custom principal to the request containing the roles in the auth ticket 
+ </remarks>
+ <history>
+ 	[sun1]	1/18/2004	Created 
+ </history></member><member name="M:PortalQH.Global.Application_Start(System.Object,System.EventArgs)"><summary>
+ Application_Start 
+ 
+ Executes on the first web request into the portal application, 
+ when a new DLL is deployed, or when web.config is modified. 
+ This procedure performs all version upgrade operations ( including database ) 
+ </summary>
+ <param name="Sender" />
+ <param name="E" />
+ <remarks>
+ - global variable initialization 
+ - Get the name of the data provider 
+ - get the executing assembly location and cache it 
+ - perform automatic upgrade 
+ </remarks>
+ <history>
+ 	[sun1]	1/18/2004	Created 
+ </history></member><member name="M:PortalQH.Global.Application_Error(System.Object,System.EventArgs)"><summary>
+ Report errors in the Application utilizing the ExceptionManagement ApplicationBlock from Microsoft 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[sun1]	1/18/2004	Created 
+ </history></member><member name="M:HSHC.DanhSachHSQuaHanController.DanhSachHSQuaHan(System.String,System.String,System.String,System.String)"><summary>
+ Lay danh sach ho so co 1 giai doan thu ly bat ky bi qua han 
+ </summary>
+ <param name="LinhVuc" />
+ <param name="LoaiHoSo" />
+ <param name="TuNgay" />
+ <param name="DenNgay" />
+ <returns />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/28/2007	Created 
+ </history></member><member name="M:HSHC.HoSoHuyController.InHoSoHuy(System.String)"><summary>
+ In van ban khong giai quyet ho so 
+ </summary>
+ <param name="strHoSoTiepNhanID" />
+ <returns />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	6/11/2007	Created 
+ </history></member><member name="M:HSHC.HoSoKhongGiaiQuyetController.InHoSoKhongGiaiQuyet(System.String)"><summary>
+ In van ban khong giai quyet ho so 
+ </summary>
+ <param name="strHoSoTiepNhanID" />
+ <returns />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	6/11/2007	Created 
+ </history></member><member name="M:HSHC.ThongKeBaoCaoController.LichSuGiaiQuyetHS(System.String,System.String)"><summary>
+ 
+ </summary>
+ <param name="pID" />
+ <param name="pMalv" />
+ <returns />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/1/2007	Created 
+ </history></member><member name="M:HSHC.ThongTinTraCuuController.GetDSHoSoThuLy(HSHC.ThongTinTraCuuInfo)"><summary>
+ Lay danh sach ho so thu ly 
+ </summary>
+ <param name="objTTTCInfo" />
+ <returns />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	3/31/2007	Created 
+ </history></member><member name="M:HSHC.ThongTinTraCuuController.GetDSHoSoChuyenThuLy(HSHC.ThongTinTraCuuInfo)"><summary>
+ 
+ </summary>
+ <param name="objTTTCInfo" />
+ <returns />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/2/2007	Created 
+ </history></member><member name="M:HSHC.THQTThuLyController.THQTThuLy(System.String,System.String,System.String,System.String)"><summary>
+ Lay danh sach ho so co 1 giai doan thu ly bat ky bi qua han 
+ </summary>
+ <param name="LinhVuc" />
+ <param name="LoaiHoSo" />
+ <param name="TuNgay" />
+ <param name="DenNgay" />
+ <returns />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/28/2007	Created 
+ </history></member><member name="M:HSHC.TinhTrangHoSoController.restoreTinhTrangHoSo(System.String,System.String,System.String)"><summary>
+ Phuc hoi lai tinh trang truoc cua ho so 
+ </summary>
+ <param name="MaLinhVuc" />
+ <param name="TabCode" />
+ <param name="HoSoTiepNhanID" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/27/2007	Created 
+ </history></member><member name="T:HSHC.ChiTietHSQuaHan"><summary>
+ Su dung lai module ThongKe_ChiTietHoSo 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	5/2/2007	Created 
+ </history></member><member name="M:HSHC.ChiTietHSQuaHan.LoadGrid"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/1/2007	Updated 
+     Desc : Nhung giai doan thu ly tre duoc the hien bang ma`u red 
+ </history></member><member name="M:HSHC.ChiTietHSQuaHan.btnTroVe_Click(System.Object,System.EventArgs)"><summary>
+ 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	5/2/2007	Created 
+ </history></member><member name="M:HSHC.ChuyenNhanHS.LoadGrid"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/2/2007	Updated 
+     Desc. : The hien thoi han chuyen ho so 
+ </history></member><member name="M:HSHC.ChuyenNhanHS.LayChuoiSoBienNhan"><summary>
+ 
+ </summary>
+ <returns />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/2/2007	Updated 
+     Desc. : Sua cach lay control checkbox 
+ </history></member><member name="M:HSHC.ChuyenNhanHS.btnCapNhat_Click(System.Object,System.EventArgs)"><summary>
+ 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/2/2007	Updated 
+ </history></member><member name="M:HSHC.ChuyenXuLy.btnUndo_Click(System.Object,System.EventArgs)"><summary>
+ 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/25/2007	Created 
+     Description: Phuc hoi lai tinh trang ho so truoc khi thu ly 
+ </history></member><member name="T:HSHC.DanhSachHSQuaHan"><summary>
+ Bao cao chi tiet qua trinh thu ly qua han. 
+ Dieu kien lay la cac ho so co 1 giai doan thu ly bat ky bi tre han 
+ Moi ho so se link den lich su thu ly ho so 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/28/2007	Created 
+ </history></member><member name="M:HSHC.DanhSachHSQuaHan.loadDMLinhVuc"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/28/2007	Created 
+ </history></member><member name="M:HSHC.DanhSachHSQuaHan.loadDMLoaiHoSo(System.String)"><summary>
+ 
+ </summary>
+ <param name="LinhVuc" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/28/2007	Created 
+ </history></member><member name="M:HSHC.DanhSachHSQuaHan.ClientScriptRegister"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/28/2007	Created 
+ </history></member><member name="M:HSHC.DanhSachHSQuaHan.loadData"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/28/2007	Created 
+ </history></member><member name="M:HSHC.DanhSachHSQuaHan.viewHistory(System.String)"><summary>
+ Xem lich su thu ly ho so 
+ </summary>
+ <param name="HoSoTiepNhanID" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	5/2/2007	Created 
+ </history></member><member name="M:HSHC.DanhSachHSQuaHan.getFromQueryString"><summary>
+ Set param lay tu QueryString, sau do load du lieu 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	5/2/2007	Created 
+ </history></member><member name="M:HSHC.HuyHoSo.RegisterClientScript"><summary>
+ Dang ky javascript 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	6/5/2007	Created 
+ </history></member><member name="M:HSHC.HuyHoSo.LoadData"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	6/5/2007	Created 
+ </history></member><member name="M:HSHC.HuyHoSo.btnCapNhat_Click(System.Object,System.EventArgs)"><summary>
+ 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	6/5/2007	Updated, ReLoad du lieu sau khi update 
+ </history></member><member name="M:HSHC.HuyHoSo.btnInVB_Click(System.Object,System.EventArgs)"><summary>
+ In van ban huy ho so tiep nhan 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	6/11/2007	Created 
+ </history></member><member name="M:HSHC.KhongGiaiQuyet.Page_Load(System.Object,System.EventArgs)"><summary>
+ 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	6/4/2007	Updated, them method RegisterClientScript 
+     [phuocdd]   6/13/2007   Updated, khong quan ly visible cua btnIn trong code, theo yeu cau khach hang 
+ </history></member><member name="M:HSHC.KhongGiaiQuyet.RegisterClientScript"><summary>
+ Dang ky javascript 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	6/4/2007	Created 
+ </history></member><member name="M:HSHC.KhongGiaiQuyet.btnCapNhat_Click(System.Object,System.EventArgs)"><summary>
+ 
+ </summary>
+ <param name="sender" />
+ <param name="e" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	6/13/2007	Updated, khong quan ly visible btnIn trong code, theo yeu cau khach hang 
+ </history></member><member name="M:HSHC.ThongKe_ChiTietHoSo.LoadGrid"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/1/2007	Updated 
+     Desc : Nhung giai doan thu ly tre duoc the hien bang ma`u red 
+ </history></member><member name="M:HSHC.ThongKeHoSo.Init_State"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	5/21/2007	Updated, thay "BỔ TÚC" bằng "BỔ SUNG" 
+ </history></member><member name="M:HSHC.ThongKeHoSo.LoadGrid"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	5/22/2007	Updated, Tach rieng bindgrid cac ho so qua han 
+ </history></member><member name="M:HSHC.ThongKeLoaiHoSo.dgdDanhSach_PreRender(System.Object,System.EventArgs)"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	5/21/2007	Updated, thay "Bổ túc" bằng "Bổ sung" 
+ </history></member><member name="M:HSHC.ThongTinTraCuu.BindData(System.String)"><summary>
+ 
+ </summary>
+ <param name="ItemCode" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	3/31/2007	Updated 
+     Desc. : Cho chon tat ca cac phuong, duong 
+ </history></member><member name="T:HSHC.THQTThuLy"><summary>
+ Bao cao chi tiet qua trinh thu ly qua han. 
+ Dieu kien lay la cac ho so co 1 giai doan thu ly bat ky bi tre han 
+ Moi ho so se link den lich su thu ly ho so 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/28/2007	Created 
+ </history></member><member name="M:HSHC.THQTThuLy.loadDMLinhVuc"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/28/2007	Created 
+ </history></member><member name="M:HSHC.THQTThuLy.loadDMLoaiHoSo(System.String)"><summary>
+ 
+ </summary>
+ <param name="LinhVuc" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/28/2007	Created 
+ </history></member><member name="M:HSHC.THQTThuLy.ClientScriptRegister"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/28/2007	Created 
+ </history></member><member name="M:HSHC.THQTThuLy.loadData"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	4/28/2007	Created 
+ </history></member><member name="M:HSHC.THQTThuLy.viewDSQuaHan(System.String)"><summary>
+ Xem danh sach ho so thu ly qua han 
+ </summary>
+ <param name="MaLoaiHoSo" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	5/3/2007	Created 
+ </history></member><member name="M:HSHC.ThuLyHoSo.Init_State"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	3/31/2007	Updated 
+     Desc. : Thay doi cach lay du lieu 
+ </history></member><member name="M:HSHC.ThuLyHoSo.AddAttributeCheckbox"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	3/31/2007	Updated 
+     Desc. : Doi ID checkbox control 
+ </history></member><member name="M:HSHC.TiepNhanHoSo.Set_Attribute"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[phuocdd]	5/14/2007	Update, khong bat buoc nhap ten duong theo yeu cau khach hang 
+     [phuocdd]   Jun 22nd 2007   Update, bo require So nha theo yeu cau cua khach hang, mac dinh set bang " " 
+ </history></member><member name="T:PortalQH.HTTPHandler"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[sun1]	1/19/2004	Created 
+ </history></member><member name="F:PortalQH.HTTPHandler.Implements"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[sun1]	1/19/2004	Created 
+ </history></member><member name="M:PortalQH.HTTPHandler.Init(System.Web.HttpApplication)"><summary>
+ 
+ </summary>
+ <param name="app" />
+ <remarks>
+ </remarks>
+ <history>
+ 	[sun1]	1/19/2004	Created 
+ </history></member><member name="M:PortalQH.HTTPHandler.Dispose"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[sun1]	1/19/2004	Created 
+ </history></member><member name="T:PortalQH.HTTPHandler.MyEventHandler"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[sun1]	1/19/2004	Created 
+ </history></member><member name="E:PortalQH.HTTPHandler.MyEvent"><summary>
+ 
+ </summary>
+ <remarks>
+ </remarks>
+ <history>
+ 	[sun1]	1/19/2004	Created 
+ </history></member><member name="M:PortalQH.HTTPHandler.OnBeginRequest(System.Object,System.EventArgs)"><summary>
+ Enables portal jumping within the application, from alias to alias 
+ without requiring re authentication 
+ </summary>
+ <param name="s" />
+ <param name="e" />
+ <remarks>
+ 'if we are not in the default.aspx 
+ 'get the domain name using the global function GetDomainName 
+ 'get the Portal Alias and match it to the Domain.  If it is a match then continue 
+ ' request may include a tabname in the path 
+ 'retrieve the Portal Alias by removing the Domain name and trailing slash from the querystring 
+ ' if the Portal Alias exists that you would like to jump to, then get the leading parameter from the querystring 
+ 'if the querystring parameter TabID is numeric then switch to the tab 
+ otherwise use the tabname 
+ </remarks>
+ <history>
+ 	[sun1]	1/19/2004	Created 
+ </history></member></endtag></content></tag></remarks></member></endtag></content></tag></remarks></member>
+  </members>
+</doc>

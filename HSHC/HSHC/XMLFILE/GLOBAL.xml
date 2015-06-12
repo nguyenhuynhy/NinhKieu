@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<HSHC>
+<tabDanhMuc>
+	<tab1>DMLINHVUC</tab1><!-->Tab + tabid + itemcode-->
+	<tab2>DMLOAIHOSO</tab2>
+	<tab3>DMHOSOKEMTHEO</tab3>
+	<tab4>DMLYDO</tab4>
+	<tab5>DMTINHTRANGHOSO</tab5>
+	<tab6>DMTINHTRANGXULY</tab6>
+	<tab7>PARAMS</tab7>
+</tabDanhMuc>
+<tabHUYHOSOBOSUNG>689</tabHUYHOSOBOSUNG>
+<ReportPath>HSHC</ReportPath>
+<Variable>
+<SoNgayLoc>20</SoNgayLoc><!--NganTL created : So ngay loc ho so-->
+<SoDongHienThiDatagrid>10</SoDongHienThiDatagrid>
+<nguoiky>00001,00002,00003,00004,00033,00034,00040</nguoiky>
+<CPKT>06</CPKT>
+<CPXD>01</CPXD>
+<InPhieuChuyen>217</InPhieuChuyen>
+<FilePhieuChuyen>PhieuLuanChuyen.doc</FilePhieuChuyen>
+<FileYeuCauBoSungHSHCQH>PhieuBaoYeuCauBoSungHoSo.doc</FileYeuCauBoSungHSHCQH>
+<FileYeuCauBoSungCPKTQH>PhieuBaoYeuCauBoSungHoSo.doc</FileYeuCauBoSungCPKTQH>
+<FileYeuCauBoSungCPXDQH>PhieuBaoYeuCauBoSungHoSo.rtf</FileYeuCauBoSungCPXDQH>
+<FileHenXacMinhCPXDQH>PhieuBaoYeuCauBoSungHoSo_HenXacMinh.rtf</FileHenXacMinhCPXDQH>
+<FileYeuCauBoSungCPVHQH>PhieuBaoYeuCauBoSungHoSo.doc</FileYeuCauBoSungCPVHQH>
+<FileYeuCauBoSungCPLDQH>PhieuBaoYeuCauBoSungHoSo.doc</FileYeuCauBoSungCPLDQH><!--Ngantl edit theo cach goi moi-->
+<FileHoSoKhong>ThuTraLoiKhongGiaiQuyet.doc</FileHoSoKhong>
+<FileHuyHoSoTN>HuyHoSoTN.doc</FileHuyHoSoTN>
+<FilePath>BarCode\</FilePath>
+<UrlPath>/BarCode/</UrlPath>
+<FileTemplate>BarCodeNet.bmp</FileTemplate>
+<FileExport>BarcodeInsert.bmp</FileExport>
+</Variable>
+<LyDoTraHoSo>
+<NoiDung>Vì lý do sau:</NoiDung>
+<NoiDung>- Hồ sơ không đủ thẩm quyền do...cấp</NoiDung>
+<NoiDung>- Hồ sơ ghi chép không đầy đủ</NoiDung>
+<NoiDung>- Hồ sơ chưa đăng ký đầy đủ cần phải bổ sung</NoiDung>
+</LyDoTraHoSo>
+<FilePhieuTraHoSo>PhieuTraHoSo.rtf</FilePhieuTraHoSo>
+<!--ThuyTT add date 12/01/2006-->
+<LinhVucKiemTraHoSoTiepNhan>CPKT</LinhVucKiemTraHoSoTiepNhan>
+<!--ThuyTT end-->
+</HSHC>

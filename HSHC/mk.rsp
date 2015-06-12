@@ -1,0 +1,73 @@
+# ************************************
+# * PortalQH command Line Compiler *
+# ************************************
+# *      Version - 2.0               *
+# * Service Pack - 0                 *
+# * Release Date - Februari 2004     *
+# ************************************
+# 
+*.vb 
+#
+/target:library 
+#
+/optimize- 
+# 
+/out:bin\PortalQH.dll
+#
+/recurse:Admin\*.vb Components\*.vb Components\Exceptions\*.vb controls\*.vb 
+/recurse:DesktopModules\Announcements\*.vb 
+/recurse:DesktopModules\Contacts\*.vb 
+/recurse:DesktopModules\Discussions\*.vb 
+/recurse:DesktopModules\Documents\*.vb 
+/recurse:DesktopModules\Events\*.vb 
+/recurse:DesktopModules\FAQs\*.vb 
+/recurse:DesktopModules\Feedback\*.vb 
+/recurse:DesktopModules\HTML\*.vb 
+/recurse:DesktopModules\IFrame\*.vb 
+/recurse:DesktopModules\Images\*.vb 
+/recurse:DesktopModules\Links\*.vb 
+/recurse:DesktopModules\Maps\*.vb 
+/recurse:DesktopModules\News\*.vb 
+/recurse:DesktopModules\Search\*.vb 
+/recurse:DesktopModules\UserDefinedTable\*.vb 
+/recurse:DesktopModules\Weather\*.vb 
+/recurse:DesktopModules\XML\*.vb 
+/recurse:"Web References"\*.vb
+#
+/reference:bin\CountryListBox.dll
+/reference:bin\freetextbox.dll 
+/reference:bin\Microsoft.ApplicationBlocks.ExceptionManagement.dll
+/reference:bin\Microsoft.ApplicationBlocks.ExceptionManagement.Interfaces.dll
+/reference:bin\SharpZipLib.dll
+/reference:bin\SolpartWebControls.dll 
+/reference:system.dll 
+/reference:system.data.dll 
+/reference:system.drawing.dll 
+/reference:system.web.dll 
+/reference:system.web.services.dll 
+/reference:system.xml.dll 
+#
+/libpath:C:\WINNT\Microsoft.NET\Framework\v1.0.3705\ 
+#
+/imports:microsoft.visualbasic
+/imports:system
+/imports:system.collections
+/imports:system.componentmodel
+/imports:system.data
+/imports:system.data.sqlclient
+/imports:system.drawing
+/imports:system.web
+/imports:system.web.ui
+/imports:system.web.ui.htmlcontrols
+/imports:system.Web.ui.webcontrols
+#
+/nowarn- 
+#
+/optionexplicit+
+/optionstrict+
+# Change the - to a + in the line below to view what this compiler is doing.
+# For example /verbose+
+/verbose-
+# Remove the # from the line below to enable a debug report to print.
+# Be warned that this file will be huge.
+#/bugreport:compile.debug.txt

@@ -1,0 +1,1609 @@
+/**************************************************
+				set Style Header
+**************************************************/
+.QH_HeaderLeft 
+{
+	background-image:url(Images/QH_HeaderLeft.jpg);
+	background-repeat:no-repeat;
+	background-position:left;
+	WIDTH : 174;	/*194*/
+	HEIGHT: 91;
+}
+.QH_HeaderMiddle 
+{
+	background-image:url(Images/QH_HeaderMiddle.jpg);
+	background-repeat:no-repeat;
+	background-position:left;
+	WIDTH : 415;
+	HEIGHT: 66;
+}
+.QH_HeaderRight 
+{
+	background-image:url(Images/QH_HeaderRight.jpg);
+	background-repeat:no-repeat;
+	background-position:right;
+	WIDTH : 184;	/*245*/
+	HEIGHT: 66;
+}
+.QH_HeaderBG 
+{
+	background-image:url(Images/QH_HeaderBG.jpg);
+	background-repeat:repeat-x;
+	HEIGHT: 66;
+	/*HEIGHT: 91;*/
+}
+.QH_HeaderPaneRight 
+{
+	background-image:url(Images/QH_HeaderPaneRight.jpg);
+	background-repeat:no-repeat;
+	background-position:right;
+	WIDTH : 184;	/*245*/
+	HEIGHT: 25;
+	text-align:center;
+	color:#FFF;
+}
+.QH_HeaderPaneBG 
+{
+	background-image:url(Images/QH_HeaderPaneBG.jpg);
+	background-repeat:repeat-x;
+	HEIGHT: 25;
+}
+.QH_DateBG 
+{
+	background-image:url(Images/QH_DateBG.jpg);
+	background-repeat:no-repeat;
+	background-position:right;
+	WIDTH : 194;
+	HEIGHT: 44;
+	text-align:center;
+	color:#FFF;
+}
+.QH_BreadCumbBG 
+{
+	background-image:url(Images/QH_BreadCumbBG.jpg);
+	background-repeat:repeat-x;
+	HEIGHT: 44;
+	text-align:center;
+}
+.verticaltext{
+font-weight:bold;
+font:Arial;
+font-size:10;
+vertical-align:top;
+text-align:center;
+ writing-mode:tb-rl;
+
+}
+/**************************************************
+				end set Style Header
+**************************************************/
+
+/*-------------------------------------------------------
+-------------------------------------------------------*/
+
+/**************************************************
+				set Style Footer
+**************************************************/
+.QH_FooterBG 
+{
+	background-image:url(Images/QH_FooterBG.jpg);
+	background-repeat:repeat-x;
+	HEIGHT: 48;
+	text-align:center;
+}
+/*-------------------------------------------------------
+-------------------------------------------------------*/
+
+/**************************************************
+				set Style Login
+002ee5
+**************************************************/
+A.QH_Login:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #FFFFBF;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+A.QH_Login:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #FFFFBF;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+A.QH_Login:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #FFFFBF;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+A.QH_Login:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #FF0;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+/*-------------------------------------------------------
+#28497B
+-------------------------------------------------------*/
+
+/**************************************************
+				set Style Help
+**************************************************/
+A.QH_Help:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #FFFFBF;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+A.QH_Help:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #FFFFBF;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+A.QH_Help:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #FFFFBF;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+A.QH_Help:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #FF0;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+/*-------------------------------------------------------
+-------------------------------------------------------*/
+
+/**************************************************
+			set Style Change password
+**************************************************/
+A.QH_ChangePass:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #FFFFBF;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+A.QH_ChangePass:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #FFFFBF;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+A.QH_ChangePass:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #FFFFBF;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+A.QH_ChangePass:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #FF0;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+/*-------------------------------------------------------
+-------------------------------------------------------*/
+
+/**************************************************
+				set Style BreadCumb
+**************************************************/
+A.QH_BreadCumb:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: white;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+A.QH_BreadCumb:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: white;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+A.QH_BreadCumb:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: white;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+A.QH_BreadCumb:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: lightblue;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+/*-------------------------------------------------------
+-------------------------------------------------------*/
+
+/**************************************************
+				set Style Date
+**************************************************/
+.QH_Date
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #fff;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+/*-------------------------------------------------------
+-------------------------------------------------------*/
+
+/**************************************************
+				set Style User
+**************************************************/
+.QH_User
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #fff;
+    FONT-FAMILY: Tahoma;
+    text-align:right;
+}
+/*-------------------------------------------------------
+-------------------------------------------------------*/
+
+/**************************************************
+				set Style CopyRight
+**************************************************/
+.QH_CopyRight
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #000;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+}
+/*-------------------------------------------------------
+-------------------------------------------------------*/
+
+/**************************************************
+				set Style Menu
+**************************************************/
+.QH_MainMenu
+{
+    background-image:url(Images/QH_MenuBG.jpg);
+	background-repeat:repeat-x;
+	HEIGHT: 23;
+	text-align:center;
+	border-bottom:solid 1px #fff;
+}
+.QH_Menu
+{
+    BORDER-RIGHT: #9CCEFC 1px solid;
+    BORDER-TOP: #9CCEFC 1px solid;
+    BORDER-BOTTOM: #9CCEFC 1px solid;
+    BORDER-LEFT: #9CCEFC 1px solid;
+    
+    FILTER: progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=3, Color= 'lightskyblue' , Positive= 'true' );
+    WIDTH: 98%;
+    BACKGROUND-COLOR: aliceblue;
+    font: 11px Arial;
+}
+.QH_MenuHeader
+{
+    PADDING-RIGHT: 5px;
+    PADDING-LEFT: 7px;
+    BACKGROUND-IMAGE: url(images/MenuHeader.gif);
+    PADDING-BOTTOM: 4px;
+    FONT: bold 11px Verdana,Arial,Helvetica,sans-serif;
+    COLOR: darkblue;
+    PADDING-TOP: 4px;
+    BORDER-BOTTOM: #9CCEFC 1px solid;
+}
+.QH_MenuItem
+{
+    PADDING-RIGHT: 5px;
+    BACKGROUND-POSITION: 1px 2px;
+    PADDING-LEFT: 22px;
+    BACKGROUND-IMAGE: url(images/join.gif);
+    PADDING-BOTTOM: 3px;
+    FONT: 11px Arial,Verdana,Helvetica,sans-serif;
+    PADDING-TOP: 3px;
+    BACKGROUND-REPEAT: no-repeat
+}
+.QH_MenuSelected
+{
+    PADDING-RIGHT: 5px;
+    BACKGROUND-POSITION: 5px 4px;
+    PADDING-LEFT: 22px;
+    BACKGROUND-IMAGE: url(images/Current.gif);
+    PADDING-BOTTOM: 3px;
+    PADDING-TOP: 3px;
+    BACKGROUND-REPEAT: no-repeat;
+    BACKGROUND-COLOR: lightskyblue
+}
+
+/**************************************************
+				set Style Solpart Menu
+**************************************************/
+.MainMenu_Bg
+{
+    VERTICAL-ALIGN: middle;
+}
+.MainMenu_MenuContainer
+{
+    BACKGROUND-COLOR: transparent;
+}
+.MainMenu_MenuBar
+{
+    CURSOR: hand;
+}
+.MainMenu_MenuItem
+{
+    BORDER-RIGHT: #000000 0px solid;
+    BORDER-TOP: #000000 0px solid;
+    PADDING-LEFT: 2px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: #000000 0px solid;
+    CURSOR: hand;
+    COLOR: #005CC3;	/*#002ee5*/
+    BORDER-BOTTOM: #000000 0px solid;
+    FONT-FAMILY: Arial;
+}
+.MainMenu_MenuIcon
+{
+	border-right: #000000 0px solid;
+	border-top: #000000 0px solid;
+	border-left: #000000 0px solid;
+	cursor: hand;
+	border-bottom: #000000 0px solid;
+	background-color: royalblue; /*royalblue*/
+	text-align: center;
+}
+.MainMenu_SubMenu
+{
+	border-right: #404040 0px solid;
+	border-top: #ff8080 0px solid;
+	padding-left: 2px;
+	z-index: 1000;
+	filter: progid:DXImageTransform.Microsoft.Shadow(color= 'DimGray' , Direction=135, Strength=3);
+	border-left: #ff8080 0px solid;
+	cursor: hand;
+	border-bottom: #404040 0px solid;
+	background-color: aliceblue;
+}
+.MainMenu_MenuBreak
+{
+    BORDER-RIGHT: #404040 0px solid;
+    BORDER-TOP: #ff8080 0px solid;
+    BORDER-LEFT: #ff8080 0px solid;
+    BORDER-BOTTOM: #404040 0px solid;
+    HEIGHT: 11px;
+    background-color: aliceblue;
+}
+.MainMenu_MenuItemSel
+{
+    PADDING-LEFT: 2px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    CURSOR: hand;
+    COLOR: red;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Arial, Helvetica;
+    BACKGROUND-COLOR: transparent;
+}
+.MainMenu_MenuArrow
+{
+	border-right: #000000 0px solid;
+	border-top: #000000 0px solid;
+	font-size: 10pt;
+	cursor: hand;
+	color: black;
+	border-bottom: #000000 0px solid;
+	font-family: webdings;
+}
+.MainMenu_RootMenuArrow
+{
+    FONT-SIZE: 10pt;
+    CURSOR: hand;
+    color: black;
+    FONT-FAMILY: webdings
+}
+/**************************************************
+			end set Style Solpart Menu
+**************************************************/
+
+/*-------------------------------------------------------
+-------------------------------------------------------*/
+
+/**************************************************
+				set Style Form Controls
+#e5e5e5
+**************************************************/
+.QH_ColLabel
+{
+	BORDER-RIGHT: #C1E7FD 1px double;
+    BORDER-TOP: #C1E7FD 1px double;
+    BORDER-LEFT: #C1E7FD 1px double;
+    BORDER-BOTTOM: #C1E7FD 1px double;
+    PADDING-RIGHT: 5px;
+    FONT: 11px Arial, Helvetica, sans-serif;
+    COLOR: black;
+    background-color: #F2F9FF;	/*aliceblue #CFE8FF*/
+    TEXT-ALIGN: right;
+}
+.QH_ColLabelTK
+{
+	BORDER-RIGHT: #C1E7FD 1px inset;
+    BORDER-TOP: #C1E7FD 1px ;
+    BORDER-LEFT: #C1E7FD 1px ;
+    BORDER-BOTTOM: #C1E7FD 1px inset;
+    PADDING-RIGHT: 5px;
+    FONT: 11px Arial, Helvetica, sans-serif;
+    COLOR: black;
+    background-color: #F2F9FF;	/*aliceblue #CFE8FF*/
+    TEXT-ALIGN: right;
+}
+.QH_ColLabel1
+{
+    PADDING-RIGHT: 5px;
+    FONT: 11px Arial, Helvetica, sans-serif;
+    COLOR: black;
+    TEXT-ALIGN: right
+}
+.QH_ColControlDate
+{
+	BORDER-RIGHT: #3D71C0 1px solid; 
+	BORDER-LEFT: #3D71C0 1px solid;
+	BORDER-TOP: #3D71C0 1px solid;
+	BORDER-BOTTOM: #3D71C0 1px solid;
+	width:120px;
+	HEIGHT: 18px; 
+}
+.QH_ColControl
+{
+	BORDER-RIGHT: #C1E7FD 1px double;
+    BORDER-TOP: #C1E7FD 1px double;
+    BORDER-LEFT: #C1E7FD 1px double;
+    BORDER-BOTTOM: #C1E7FD 1px double;
+    PADDING-LEFT: 2px;
+}
+.QH_ColControlList {
+	FONT-SIZE: 11px;
+	COLOR: #333333;
+	FONT-FAMILY: Tahoma, Verdana, Arial; 
+	HEIGHT: 20px; 
+	width:220px;
+}
+.QH_ColLabelTitle
+{
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Tahoma;
+	FONT-WEIGHT:700;
+	color:#0248B1;
+	text-align:right;
+	BACKGROUND-COLOR: #E6F2FF;
+	padding-right:10px;
+}
+.QH_RowTitle
+{
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Tahoma;
+	FONT-WEIGHT:700;
+	color:#0248B1;
+	text-align:right;
+	padding-right:10px;
+}
+.QH_ColLabelValue
+{
+	padding-left:10px;
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Tahoma;
+	BACKGROUND-COLOR: #F4F8FD;
+}
+.QH_LabelNote 
+{
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Arial;
+}
+.QH_RadioButtonList 
+{
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Arial;
+}
+.QH_ControlDanhMuc
+{
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Arial;
+}
+input {
+	FONT-SIZE: 11px; 
+	COLOR: #333333; 
+	FONT-FAMILY: Tahoma, Verdana, Arial;
+}
+.QH_LabelLeftBoldRed
+{
+    PADDING-LEFT: 5px;
+    FONT: bold 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: text-top;
+    COLOR: red;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+.QH_LabelLeftBoldRedLarge
+{
+    PADDING-LEFT: 5px;
+    FONT: bold 13px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: text-top;
+    COLOR: red;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+.QH_TextRight	/*#9CCEFC*/
+{
+	BORDER-RIGHT: silver 1px solid; 
+	BORDER-LEFT: silver 1px solid;
+	BORDER-TOP: silver 1px solid;
+	BORDER-BOTTOM: silver 1px solid;
+	
+    PADDING-RIGHT: 3px;
+    MARGIN-TOP: 1px;
+    HEIGHT: 18px; 
+    
+    FONT-SIZE: 11px;
+    COLOR: darkblue;
+    FONT-FAMILY: Tahoma;
+	text-decoration: none;
+    TEXT-ALIGN: right;
+}
+.QH_DropDownList
+{
+    CLEAR: both;
+    BORDER-RIGHT: #3D71C0 1px solid;
+    BORDER-TOP: #3D71C0 1px solid;
+    MARGIN-TOP: 1px;
+    PADDING-LEFT: 5px;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: #3D71C0 1px solid;
+    CLIP: rect(1px 1px 1px 1px);
+    COLOR: black;
+    BORDER-BOTTOM: #3D71C0 1px solid;
+    FONT-FAMILY: Arial,Tahoma, Verdana, Helvetica, sans-serif;
+    TEXT-DECORATION: none;
+}
+.QH_ColControlMultiline
+{
+	BORDER-RIGHT: #3D71C0 1px solid; 
+	BORDER-LEFT: #3D71C0 1px solid;
+	BORDER-TOP: #3D71C0 1px solid;
+	BORDER-BOTTOM: #3D71C0 1px solid;
+	width:220px;
+	height:50px;
+	FONT-SIZE: 11px; 
+	COLOR: #333333; 
+	FONT-FAMILY: Tahoma, Verdana, Arial; 
+}
+.QH_ColControlSmallList {
+	FONT-SIZE: 11px;
+	COLOR: #333333;
+	FONT-FAMILY: Tahoma, Verdana, Arial; 
+	HEIGHT: 20px; 
+	width:120px;
+}
+.QH_ColControlVerySmallList {
+	FONT-SIZE: 11px;
+	COLOR: #333333;
+	FONT-FAMILY: Tahoma, Verdana, Arial; 
+	HEIGHT: 20px; 
+	width:60px;
+}
+.QH_PageTitle  
+{
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 12pt; 
+	font-family:Arial;
+	COLOR: #a90404; 
+	text-align:center;
+}
+.QH_SectionTitle  
+{
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 10pt; 
+	font-family:Arial;
+	COLOR: #a90404; 
+	text-align:left;
+}
+.QH_TextBox
+{
+    BORDER-RIGHT: black 1px solid;
+    BORDER-TOP: black 1px solid;
+    MARGIN-TOP: 1px;
+    PADDING-LEFT: 5px;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: black 1px solid;
+    COLOR: black;
+    BORDER-BOTTOM: black 1px solid;
+    FONT-FAMILY: Arial,Tahoma, Verdana, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.QH_IMAGEBUTTON
+{
+    MARGIN-BOTTOM: -3px;
+    CURSOR: hand;
+    HEIGHT: 17px;
+    margin-left: 2px;
+    margin-right:2px   
+}
+
+/*-------------------------------------------------------
+-------------------------------------------------------*/
+
+/**************************************************
+				set Style Grid
+**************************************************/
+.QH_DataGrid {
+	BORDER-RIGHT: #9CCEFC 1px solid;
+    BORDER-TOP: #9CCEFC 1px solid;
+    /*PADDING-LEFT: 4px;*/
+    FONT-SIZE: 11px;
+    BORDER-LEFT: #9CCEFC 1px solid;
+    BORDER-BOTTOM: #9CCEFC 1px solid;
+    FONT-FAMILY: Tahoma;
+    padding-right: 2px;
+	padding-left: 2px;
+	padding-bottom: 2px;
+	padding-top: 2px;
+}
+.QH_DataGridbottom
+{
+    PADDING-LEFT: 4px;
+    FONT-SIZE: 11px;
+    COLOR: #011;
+    BORDER-BOTTOM: #9CCEFC 1px solid;
+    BORDER-LEFT: #9CCEFC 1px solid;
+    BORDER-RIGHT: #9CCEFC 1px solid;
+    BORDER-TOP: #9CCEFC 1px solid;
+    border-color:#9CCEFC;
+    FONT-FAMILY: Arial, Tahoma, 'Times New Roman', 'MS Sans Serif'
+}
+
+.QH_DataGridHeader 
+{
+	BORDER-BOTTOM: #9CCEFC 1px solid;
+    BORDER-LEFT: #9CCEFC 1px solid;
+    BORDER-RIGHT: #9CCEFC 1px solid;
+    BORDER-TOP: #9CCEFC 1px solid;
+    padding-right: 2px;
+	padding-left: 2px;
+	font-weight: bolder;
+	font-size: 11px;
+	padding-bottom: 2px;
+	color: black;
+	padding-top: 2px;
+	font-family: Arial, Tahoma, 'Times New Roman' , 'MS Sans Serif';
+	height: 26px;
+	background-Color:#B7DCFE;
+	text-align: center;
+}
+
+.QH_TableHeader 
+{
+	BORDER-BOTTOM: #9CCEFC 1px solid;
+    BORDER-LEFT: #9CCEFC 1px solid;
+    BORDER-RIGHT: #9CCEFC 1px solid;
+    BORDER-TOP: #9CCEFC 1px solid;
+   
+	
+	font-weight: bolder;
+	font-size: 11px;
+	padding-bottom: 2px;
+	color: black;
+	
+	font-family: Arial, Tahoma, 'Times New Roman' , 'MS Sans Serif';
+	height: 26px;
+	background-Color:#B7DCFE;
+}
+
+.QH_TableFooter
+{
+	BORDER-BOTTOM: #9CCEFC 1px solid;
+    BORDER-LEFT: #9CCEFC 1px solid;
+    BORDER-RIGHT: #9CCEFC 1px solid;
+    BORDER-TOP: #9CCEFC 1px solid;
+   
+	
+	font-weight: bolder;
+	font-size: 11px;
+	padding-bottom: 2px;
+	color: black;
+	
+	font-family: Arial, Tahoma, 'Times New Roman' , 'MS Sans Serif';
+	height: 26px;
+	background-Color:#FFFFAA;
+}
+
+.QH_TableItem
+{	
+	font-weight: bolder;
+	font-size: 11px;
+	padding-bottom: 2px;
+	color: black;
+	
+	font-family: Arial, Tahoma, 'Times New Roman' , 'MS Sans Serif';
+	height: 26px;
+	background-Color:#FFFFDD;
+}
+
+table, td, tr 
+{
+	border-color:#9CCEFC;
+}
+.QH_DataGridItem {
+	background-Color:#FFFFFF;
+	padding-right: 2px;
+	padding-left: 2px;
+	padding-bottom: 2px;
+	padding-top: 2px;
+}
+.QH_DatagridAlternation 
+{
+	BORDER-BOTTOM: #9CCEFC 1px solid;
+    BORDER-LEFT: #9CCEFC 1px solid;
+    BORDER-RIGHT: #9CCEFC 1px solid;
+    BORDER-TOP: #9CCEFC 1px solid;
+	background-Color:#CFE8FF;
+	padding-right: 2px;
+	padding-left: 2px;
+	padding-bottom: 2px;
+	padding-top: 2px;
+}
+.QH_DataGrid_Link:link	/*#044FC0*/
+{
+	color:blue;
+	text-decoration:underline;
+}
+.QH_DataGrid_Link:visited
+{
+	color:blue;
+	text-decoration:underline;
+}
+.QH_DataGrid_Link:active
+{
+	color:blue;
+	text-decoration:underline;
+}
+.QH_DataGrid_Link:hover
+{
+	color:red;
+	text-decoration:underline;
+}
+/**************************************************
+				end set Style Grid
+**************************************************/
+
+/*-------------------------------------------------------
+-------------------------------------------------------*/
+
+/**************************************************
+				set Style Button
+**************************************************/
+A.QH_Button:link
+{
+	border-right: white 2px outset;
+	padding-right: 6px;
+	border-top: white 2px outset;
+	display: inline;
+	padding-left: 6px;
+	font-weight: 700;
+	font-size: 10px;
+	FONT-FAMILY: Tahoma;
+	background-image: url(Images/ButtonBg.gif);
+	padding-bottom: 2px;
+	margin: 0px;
+	vertical-align: middle;
+	border-left: white 2px outset;
+	height:24px;
+	color: white;
+	padding-top: 2px;
+	border-bottom: white 2px outset;
+	font-variant: normal;
+	text-decoration: none;
+}
+A.QH_Button:visited
+{
+	border-right: white 2px outset;
+	padding-right: 6px;
+	border-top: white 2px outset;
+	/*display: inline;*/
+	padding-left: 6px;
+	font-weight: bold;
+	font-size: 10px;
+	background-image: url(Images/ButtonBg.gif);
+	padding-bottom: 2px;
+	margin: 0px;
+	vertical-align: middle;
+	border-left: white 2px outset;
+	color: white;
+	padding-top: 2px;
+	border-bottom: white 2px outset;
+	font-variant: normal;
+	text-decoration: none;	
+	FONT-FAMILY: Tahoma;
+	height:24px;
+}
+A.QH_Button:active
+{
+	border-right: white 2px outset;
+	padding-right: 6px;
+	border-top: white 2px outset;
+	display: inline;
+	padding-left: 6px;
+	font-weight: bold;
+	font-size: 10px;
+	background-image: url(Images/ButtonBg.gif);
+	padding-bottom: 2px;
+	margin: 0px;
+	vertical-align: middle;
+	border-left: white 2px outset;
+	padding-top: 2px;
+	border-bottom: white 2px outset;
+	font-variant: normal;
+	text-decoration: none;	
+	FONT-FAMILY: Tahoma;
+    COLOR: gray;
+	height:24px;
+}
+A.QH_Button:hover
+{
+	border-right: white 2px inset;
+	padding-right: 6px;
+	border-top: white 2px inset;
+	display: inline;
+	padding-left: 6px;
+	font-weight: bold;
+	font-size: 10px;
+	background-image: url(images/ButtonBg.gif);
+	padding-bottom: 2px;
+	margin: 0px;
+	vertical-align: middle;
+	border-left: white 2px inset;
+	color: white;
+	padding-top: 2px;
+	border-bottom: white 2px inset;
+	background-color: transparent;
+	font-variant: normal;
+	text-decoration: none;
+	FONT-FAMILY: Tahoma;
+	height:24px;
+}
+/**************************************************
+				end set Style Button
+**************************************************/
+
+/*-------------------------------------------------------
+-------------------------------------------------------*/
+
+/**************************************************
+				set Style Links
+**************************************************/
+A:link
+{
+	color:blue;
+	background-color:Transparent;
+}
+A:visited
+{
+	color:blue;
+	background-color:Transparent;
+}
+A:active
+{
+	color:blue;
+	background-color:Transparent;
+}
+A:hover
+{
+	color:red;
+	background-color:Transparent;
+}
+/*-------------------------------------------------------
+-------------------------------------------------------*/
+
+/**************************************************
+				set Style FieldSet
+**************************************************/
+.QH_MainFieldSet 
+{
+	BORDER-RIGHT: #B0D1FF 1px solid; 
+	BORDER-TOP: #B0D1FF 1px solid; 
+	BORDER-LEFT: #B0D1FF 1px solid; 
+	BORDER-BOTTOM: #B0D1FF 1px solid; 
+	
+	/*PADDING-RIGHT: 5px; #e7dfc5
+	PADDING-LEFT: 5px; 
+	PADDING-BOTTOM: 5px; 
+	PADDING-TOP: 5px;*/
+	
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 12pt; 
+	font-family:Arial;
+	COLOR: #a90404; 
+}
+/*-------------------------------------------------------
+-------------------------------------------------------*/
+
+/**************************************************
+				set Style Box Menu
+**************************************************/
+.QH_BoxTitleLeft 
+{
+	background-image:url(Images/QH_BoxTitleLeft.jpg);
+	background-repeat:no-repeat;
+	background-position:left;
+	WIDTH : 13;
+	HEIGHT: 23;
+}
+.QH_BoxTitleLeft_Vice
+{
+	background-image:url(Images/QH_BoxTitleLeft_Vice.jpg);
+	background-repeat:no-repeat;
+	background-position:left;
+	WIDTH : 18;
+	HEIGHT: 23;
+}
+.QH_BoxTitleRight 
+{
+	background-image:url(Images/QH_BoxTitleRight.jpg);
+	background-repeat:no-repeat;
+	background-position:right;
+	WIDTH : 18;
+	HEIGHT: 23;
+}
+.QH_BoxTitleRight_Vice
+{
+	background-image:url(Images/QH_BoxTitleRight_Vice.jpg);
+	background-repeat:no-repeat;
+	background-position:right;
+	WIDTH : 13;
+	HEIGHT: 23;
+}
+.QH_BoxTitleBG 
+{
+	background-image:url(Images/QH_BoxTitleBG.jpg);
+	background-repeat:repeat-x;
+	HEIGHT: 23;
+	text-align:center;
+	font-family:Tahoma;
+	font-size:12px;
+	font-weight:bold;
+	color:#fff;
+}
+.QH_BoxTopLeft 
+{
+	background-image:url(Images/QH_BoxTopLeft.jpg);
+	background-repeat:no-repeat;
+	background-position:left;
+	WIDTH : 11;
+	HEIGHT: 13;
+}
+.QH_BoxTopRight 
+{
+	background-image:url(Images/QH_BoxTopRight.jpg);
+	background-repeat:no-repeat;
+	background-position:right;
+	WIDTH : 14;
+	HEIGHT: 13;
+}
+.QH_BoxTopBG 
+{
+	background-image:url(Images/QH_BoxTopBG.jpg);
+	background-repeat:repeat-x;
+	HEIGHT: 13;
+}
+.QH_BoxLeft 
+{
+	background-image:url(Images/QH_BoxLeft.jpg);
+	background-repeat:repeat-y;
+	background-position:left;
+	WIDTH : 11;
+	HEIGHT: 8;
+}
+.QH_BoxRight 
+{
+	background-image:url(Images/QH_BoxRight.jpg);
+	background-repeat:repeat-y;
+	background-position:right;
+	WIDTH : 14;
+	HEIGHT: 8;
+}
+.QH_BoxBottomLeft 
+{
+	background-image:url(Images/QH_BoxBottomLeft.jpg);
+	background-repeat:no-repeat;
+	background-position:left;
+	WIDTH : 11;
+	HEIGHT: 14;
+}
+.QH_BoxBottomRight 
+{
+	background-image:url(Images/QH_BoxBottomRight.jpg);
+	background-repeat:no-repeat;
+	background-position:right;
+	WIDTH : 14;
+	HEIGHT: 14;
+}
+.QH_BoxBottomBG 
+{
+	background-image:url(Images/QH_BoxBottomBG.jpg);
+	background-repeat:repeat-x;
+	HEIGHT: 14;
+}
+.QH_BoxSeperator 
+{
+	background-image:url(Images/QH_BoxSeperator.jpg);
+	background-repeat:repeat-x;
+	WIDTH : 127;
+	HEIGHT: 8;
+}
+.QH_BoxBG
+{
+	background-image:url(Images/QH_BoxBG.jpg);
+	background-repeat:repeat-x;
+	HEIGHT: 8;
+}
+.QH_MenuLeft_Item
+{
+	background-image: url(images/Bulet.gif);
+	background-repeat:no-repeat;
+	background-position:5 0;
+	background-color:Transparent;
+	TEXT-DECORATION: none;
+	font: 12px Arial;
+	color: #003399;
+	border-Top:solid 1px #D5E6FD;
+	padding-bottom: 3px;
+	padding-top: 3px;
+	padding-left: 20px;
+}
+.QH_MenuLeft_ItemText
+{
+	background-color:Transparent;
+	TEXT-DECORATION: none;
+	text-align:left;
+	font: 12px Arial;
+	color: #003399;
+	cursor:hand;
+}
+.QH_MenuLeft_Header
+{
+	text-align: center; 
+	font: 11px Arial;
+	font-weight:bold;
+	color: #022555;
+	height:20px;
+	width:180px;
+	padding-left:10px;
+}
+.QH_MenuLeft_Footer
+{
+	vertical-align:bottom;
+}
+.QH_MenuLeft
+{
+    BORDER-RIGHT: gray 1px solid;
+    BORDER-TOP: gray 1px solid;
+    FILTER: progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=3, Color= '#B5D6FB' , Positive= 'true' );
+    BORDER-LEFT: gray 1px solid;
+    WIDTH: 98%;
+    BORDER-BOTTOM: gray 1px solid;
+    BACKGROUND-COLOR: aliceblue
+}
+/**************************************************
+				end set Style Box Menu
+**************************************************/
+
+/*-------------------------------------------------------
+-------------------------------------------------------*/
+
+/**************************************************
+				set Style Tab
+**************************************************/
+.tab, .backtab, .tab A, .backtab A {
+	FONT-WEIGHT:700;
+    COLOR: #16387c;
+    text-align:center;
+	FONT-SIZE: 11px;
+    FONT-FAMILY: Arial, Tahoma, 'Times New Roman', 'MS Sans Serif';
+    cursor: hand;
+    width:15%;
+}
+.tab A:link, .backtab A:link, .tab A:active, .backtab A:active, .tab A:visited, .backtab A:visited, .tab A:hover, .backtab A:hover
+{
+	COLOR: #000;
+}
+.code {
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:0px;
+  padding-bottom:0px;
+  border-left: 1px solid #B0D1FF;
+  border-bottom: 1px solid #B0D1FF;
+  border-top: none;
+  border-right: 1px solid #B0D1FF;
+  background: #e6f2ff;
+}
+.tab {
+  border-top: 1px solid #B0D1FF;
+  border-bottom: none;
+  border-left: 1px solid #B0D1FF;
+  border-right: 1px solid #B0D1FF;
+  background: #e6f2ff;
+  padding: 3px;
+}
+.backtab {
+  border-top: 1px solid #B0D1FF;
+  border-right: 1px solid #B0D1FF;
+  border-bottom: 1px solid #B0D1FF;
+  border-left: 1px solid #B0D1FF;
+  background: #5EAAF7;
+  padding: 3px;
+}
+.space {
+  width:70%;
+  font: x-small verdana;
+  padding: 0px 0px 0px 0px;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid #B0D1FF;
+  border-left: none;
+  /*background: #F4F8FD;*/
+}
+/**************************************************
+				end set Style Tab
+**************************************************/
+
+
+/**************************************************
+				set Style Login
+**************************************************/
+.QH_Header_Login
+{
+    PADDING-RIGHT: 10px;
+    PADDING-LEFT: 10px;
+    BACKGROUND-IMAGE: url(images/xp_security.gif);
+    PADDING-BOTTOM: 4px;
+    FONT: bold 11px Verdana, Arial, Helvetica, sans-serif;
+    COLOR: darkblue;
+    PADDING-TOP: 4px;
+    BORDER-BOTTOM: silver 1px solid;
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 25px;
+    BACKGROUND-COLOR: #eff3f7;
+    TEXT-ALIGN: center
+}
+.QH_Footer_Login
+{
+	BORDER-RIGHT: #e5e5e5 1px double;
+    BORDER-TOP: #e5e5e5 1px double;
+    BORDER-LEFT: #e5e5e5 1px double;
+    BORDER-BOTTOM: #e5e5e5 1px double;
+    PADDING-RIGHT: 10px;
+    PADDING-LEFT: 10px;
+    PADDING-BOTTOM: 4px;
+    FONT: bold 11px Verdana, Arial, Helvetica, sans-serif;
+    COLOR: darkblue;
+    PADDING-TOP: 4px;
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 25px;
+    BACKGROUND-COLOR: #F4F8FD;/*#eff3f7;*/
+    TEXT-ALIGN: center
+}
+/**************************************************
+				end set Style Login
+**************************************************/
+
+.QH_Label_Title
+{
+	border-right: medium none;
+	border-top: medium none;
+	font: bold 14px Verdana,Arial,Helvetica,sans-serif;
+	border-left: medium none;
+	color: #f45c0a;
+	padding-top: 3px;
+	border-bottom: medium none;
+	text-align: center;
+}
+.QH_Label
+{   
+    PADDING-RIGHT: 5px;
+    FONT: 11px Arial, Helvetica, sans-serif;
+    COLOR: #0248B1;
+    /*BACKGROUND-COLOR: aliceblue;*/
+    TEXT-ALIGN: right;
+    FONT-WEIGHT:700;
+}
+.QH_ColLabelLeft
+{
+    PADDING-LEFT: 5px;
+    FONT: 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: middle;
+    COLOR: darkblue;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none;
+}
+.QH_ColLabelRightTK
+{
+	BORDER-RIGHT: #C1E7FD 1px inset;
+    BORDER-TOP: #C1E7FD 1px ;
+    BORDER-LEFT: #C1E7FD 1px ;
+    BORDER-BOTTOM: #C1E7FD 1px inset;
+    
+    PADDING-LEFT: 5px;
+    FONT: 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: middle;
+    COLOR: darkblue;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none;
+    background-color: #FBFDFF;
+}
+
+.QH_Label_Title1
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT: bold 11px Verdana,Arial,Helvetica,sans-serif;
+    BORDER-LEFT: medium none;
+    COLOR: #ff8600;
+    PADDING-TOP: 3px;
+    BORDER-BOTTOM: medium none;
+    HEIGHT: 19px;
+    TEXT-ALIGN: center
+}
+
+.QH_LoaiHS
+{
+    BORDER-RIGHT: #9CCEFC 1px solid;
+    BORDER-LEFT: #9CCEFC 1px solid;
+    BORDER-TOP: #9CCEFC 1px solid;
+    BORDER-BOTTOM: #9CCEFC 1px solid;
+    
+    PADDING-RIGHT: 5px;
+    PADDING-LEFT: 10px;
+    PADDING-BOTTOM: 4px;
+    PADDING-TOP: 4px;
+    
+    FILTER: progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=3, Color= 'lightskyblue' , Positive= 'true' );
+    WIDTH: 99%;
+    BORDER-COLLAPSE: collapse;
+    BACKGROUND-COLOR: aliceblue;
+    
+    /*font-weight: bolder;*/
+	font-size: 11px;
+	font-family: Arial, Tahoma, 'Times New Roman' , 'MS Sans Serif';
+}
+.QH_LabelBold
+{
+    PADDING-RIGHT: 5px;
+    FONT: bold 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: text-bottom;
+    COLOR: darkblue;
+    PADDING-TOP: 4px;
+    TEXT-ALIGN: right;
+    TEXT-DECORATION: none
+}
+
+.QH_Table	/*#e5e5e5*/
+{
+    /*BORDER-RIGHT: #e5e5e5 1px double;
+    BORDER-TOP: #e5e5e5 1px double;
+    BORDER-LEFT: #e5e5e5 1px double;
+    BORDER-BOTTOM: #e5e5e5 1px double;*/
+    BORDER-COLLAPSE: collapse
+}
+
+.QH_LabelLeft
+{
+    PADDING-LEFT: 5px;
+    FONT: 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: text-top;
+    COLOR: darkblue;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+
+.QH_ColLabelLeft
+{
+    PADDING-LEFT: 5px;
+    FONT: 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: middle;
+    COLOR: darkblue;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+
+.QH_LabelLeftBold
+{
+    PADDING-LEFT: 5px;
+    FONT: bold 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: text-top;
+    COLOR: darkblue;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+.QH_ColLabelMiddle
+{
+    FONT: bold 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: middle;
+    COLOR: black;
+    TEXT-ALIGN: center;
+    TEXT-DECORATION: none
+}
+
+.QH_MainFieldSet 
+{
+	BORDER-RIGHT: #B0D1FF 1px solid; 
+	BORDER-TOP: #B0D1FF 1px solid; 
+	BORDER-LEFT: #B0D1FF 1px solid; 
+	BORDER-BOTTOM: #B0D1FF 1px solid; 
+	
+	/*PADDING-RIGHT: 5px; 
+	PADDING-LEFT: 5px; 
+	PADDING-BOTTOM: 5px; 
+	PADDING-TOP: 5px;/*#e7dfc5*/
+	
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 12pt; 
+	font-family:Arial;
+	COLOR: #a90404; 
+	background-color:#e6f2ff;
+}
+
+/************************************/
+/* Module Title Menu */
+/************************************/
+.ModuleTitle_MenuContainer {
+	BACKGROUND-COLOR: transparent;
+}
+
+.ModuleTitle_MenuBar {
+	CURSOR: hand;
+}
+
+.ModuleTitle_MenuItem {
+    BORDER-RIGHT: #000000 0px solid;
+    BORDER-TOP: #000000 0px solid;
+    PADDING-LEFT: 2px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: #000000 0px solid;
+    CURSOR: hand;
+    COLOR: #002ee5;
+    BORDER-BOTTOM: #000000 0px solid;
+    FONT-FAMILY: Arial;
+    background-color: aliceblue;
+}
+
+.ModuleTitle_MenuIcon {
+	border-right: #000000 0px solid;
+	border-top: #000000 0px solid;
+	border-left: #000000 0px solid;
+	cursor: hand;
+	border-bottom: #000000 0px solid;
+	background-color: royalblue;
+	text-align: center;
+}
+
+.ModuleTitle_SubMenu 
+{
+	border-right: #000000 0px solid;
+	border-top: #000000 0px solid;
+	padding-left: 2px;
+	z-index: 1000;
+	filter: progid:DXImageTransform.Microsoft.Shadow(color= 'DimGray' , Direction=135, Strength=3);
+	border-left: #000000 0px solid;
+	cursor: hand;
+	border-bottom: #000000 0px solid;
+	background-color: aliceblue;
+}
+
+.ModuleTitle_MenuBreak {
+    BORDER-RIGHT: #000000 0px solid;
+    BORDER-TOP: #000000 0px solid;
+    BORDER-LEFT: #000000 0px solid;
+    BORDER-BOTTOM: #000000 0px solid;
+    HEIGHT: 11px;
+    background-color: aliceblue;
+}
+
+.ModuleTitle_MenuItemSel {
+    BORDER-RIGHT: #000000 0px solid;
+    BORDER-TOP: #000000 0px solid;
+    BORDER-LEFT: #000000 0px solid;
+    BORDER-BOTTOM: #000000 0px solid;
+    CURSOR: hand;
+    COLOR: red;
+    PADDING-LEFT: 2px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;    
+    FONT-STYLE: normal;
+    FONT-FAMILY: Arial, Helvetica;
+    BACKGROUND-COLOR: transparent
+    
+}
+
+.ModuleTitle_MenuArrow {
+	font-family: webdings; 
+	font-size: 8pt; 
+	cursor: hand; 
+	
+}
+
+.ModuleTitle_RootMenuArrow {
+	font-family: webdings; 
+	font-size: 8pt; 
+	cursor: hand;
+}
+/************************************/
+
+/*Footer*/
+.QH_FooterLeftTop
+{
+	background-image:  url(Images/FooterLeftTop.gif);
+	background-repeat:no-repeat;
+	background-position:left;
+	width:151;
+	height:31;
+}
+.QH_FooterBgTop
+{
+	background-image:  url(Images/FooterBgTop.gif);
+	background-position:left;
+}
+.QH_FooterLeftBottom
+{
+	background-image:  url(Images/FooterLeftBottom.gif);
+	background-repeat:no-repeat;
+	background-position:left;
+	width:151;
+	height:13;
+}
+.QH_FooterBgBottom
+{
+	background-image:  url(Images/FooterBgBottom.gif);
+	background-position:left;
+}
+
+/*LANPHM add 20/7/2005*/
+/*Set Root Menu High Light Style*/
+A.QH_RootMenu:link
+{
+	color: red;
+	text-decoration: none;
+}
+A.QH_RootMenu:active
+{
+	color: red;
+	text-decoration: none;
+}
+A.QH_RootMenu:visited
+{
+	text-decoration: none;
+	color: red;
+}
+A.QH_RootMenu:hover
+{
+	color: red;
+	text-decoration: none;
+}
+
+/*web tong hop thong tin*/
+.QH_HeaderLeft_THTT
+{
+	background-image: url(Images/layoutgraphics_left.gif);
+	font: bold 11px Arial;
+	color:black;
+	height: 18px;
+}
+.QH_HeaderRight_THTT
+{
+	background-image: url(Images/layoutgraphics_right.gif);
+	font: bold 11px Arial;
+	color:black;
+	height:18px;
+}
+.QH_Header_THTT
+{
+	border: none;
+	background-image: url(Images/layoutgraphics_middle.gif);
+	font: bold 11px Arial;
+	color:black;
+	text-align:center;
+	padding-top: 3px;
+	height:18px;
+
+}
+.QH_MenuSelected_THTT
+{
+	padding-right: 5px;
+	background-position: 5px 4px;
+	padding-left: 22px;
+	background-image: url(images/Current.gif);
+	padding-bottom: 3px;
+	padding-top: 3px;
+	background-repeat: no-repeat;
+	background-color: #E0E092;
+		
+}
+.QH_NEWS_MENU_ITEM_THTT
+{
+	padding: 3 5 3 15;
+	background-image: url(images/bullet01.gif);
+	background-repeat:no-repeat;
+	background-position: 4 8;
+	font-weight:bold;
+	font: bold 11px Arial;
+	text-transform: capitalize;
+	color:#00149C;
+	text-decoration: none;
+}
+.QH_NEWS_MENU_THTT
+{
+	border-top: #528AF7 1px solid; 
+	font: 11px Arial;
+	text-transform:capitalize;
+	background-color: #F7F7FF;
+}
+.QH_TableMain
+{
+    BORDER-RIGHT: silver 1px solid;
+    BORDER-TOP: silver 1px solid;
+    BORDER-LEFT: silver 1px solid;
+    BORDER-BOTTOM: silver 1px solid
+}
+A.QH_MenuLink:link
+{
+    TEXT-DECORATION: none
+}
+A.QH_MenuLink:visited
+{
+    TEXT-DECORATION: none
+}
+A.QH_MenuLink:active
+{
+    TEXT-DECORATION: none
+}
+A.QH_MenuLink:hover
+{
+    TEXT-DECORATION: none
+}
+.QH_DataGridHeader1
+{
+	color:#fff;
+	background-color:#3E71C0;
+	text-align:center
+}

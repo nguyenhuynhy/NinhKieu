@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema targetNamespace="http://tempuri.org/XMLSchema.xsd" elementFormDefault="qualified"
+	xmlns="http://tempuri.org/XMLSchema.xsd" xmlns:mstns="http://tempuri.org/XMLSchema.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="DANHSACHHOSO">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TINHTHANH" type="xs:string" />
+				<xs:element name="CONGTY" type="xs:string" />
+				<xs:element name="VANPHONG" type="xs:string" />
+				<xs:element name="TENLINHVUC" type="xs:string" />
+				<xs:element name="SOBIENNHAN" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="DIACHI" type="xs:string" />
+				<xs:element name="NGAYNHAN" type="xs:string" />
+				<xs:element name="NGAYHENTRA" type="xs:string" />
+				<xs:element name="LOAIHOSO" type="xs:string" />
+				<xs:element name="MATINHTRANG" type="xs:string" />
+				<xs:element name="TENTINHTRANG" type="xs:string" />
+				<xs:element name="GHICHU" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="INBIENNHANHOSO">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TINHTHANH" type="xs:string" />
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="CONGTY" type="xs:string" />
+				<xs:element name="VANPHONG" type="xs:string" />
+				<xs:element name="NGUOINHAN" type="xs:string" />
+				<xs:element name="SOBIENNHAN" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="GIOITINH" type="xs:string" />
+				<xs:element name="NGAYHENTRA" type="xs:string" />
+				<xs:element name="DIACHITHUONGTRU" type="xs:string" />
+				<xs:element name="SOCMND" type="xs:string" />
+				<xs:element name="DIACHI" type="xs:string" />
+				<xs:element name="MALOAIHOSO" type="xs:string" />
+				<xs:element name="TENLOAIHOSO" type="xs:string" />
+				<xs:element name="NOIDUNGKHAC" type="xs:string" />
+				<xs:element name="TENHOSOKEMTHEO" type="xs:string" />
+				<xs:element name="SOBANCHINH" type="xs:long" />
+				<xs:element name="SOBANSAO" type="xs:long" />
+				<xs:element name="SOPHOTO" type="xs:long" />
+				<xs:element name="ChuoiTraCuu" type="xs:string" />
+				<xs:element name="ChuoiTraCuu1" type="xs:string" />
+				<xs:element name="ChuoiTraCuu2" type="xs:string" />
+				<xs:element name="ChuoiTraCuu3" type="xs:string" />
+				<xs:element name="ThongTinLienLac" type="xs:string" />
+				<xs:element name="NOIDUNGHOSO" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="INTHONGBAOBOSUNG">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TINHTHANH" type="xs:string" />
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="CONGTY" type="xs:string" />
+				<xs:element name="VANPHONG" type="xs:string" />
+				<xs:element name="SOBIENNHAN" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="GIOITINH" type="xs:string" />
+				<xs:element name="NGAYNHAN" type="xs:string" />
+				<xs:element name="DIACHITHUONGTRU" type="xs:string" />
+				<xs:element name="SOCMND" type="xs:string" />
+				<xs:element name="DIACHI" type="xs:string" />
+				<xs:element name="TENLOAIHOSO" type="xs:string" />
+				<xs:element name="ThongTinLienLac" type="xs:string" />
+				<xs:element name="NOIDUNG" type="xs:string" />
+				<xs:element name="TENLINHVUC" type="xs:string" />
+				<xs:element name="DIACHITRUSO" type="xs:string" />
+				<xs:element name="PHONE" type="xs:string" />
+				<xs:element name="FAX" type="xs:string" />
+				<xs:element name="EMAIL" type="xs:string" />
+				<xs:element name="WEBSITE" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="THONGKELV_LHS">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TINHTHANH" type="xs:string" />
+				<xs:element name="CONGTY" type="xs:string" />
+				<xs:element name="VANPHONG" type="xs:string" />
+				<xs:element name="TUNGAY" type="xs:string" />
+				<xs:element name="DENNGAY" type="xs:string" />
+				<xs:element name="TENLINHVUC" type="xs:string" />
+				<xs:element name="LOAITHONGKE" type="xs:string" />
+				<xs:element name="TENLVHS" type="xs:string" />
+				<xs:element name="TONTRUOC" type="xs:int" />
+				<xs:element name="MOINHAN" type="xs:int" />
+				<xs:element name="DAHUY" type="xs:int" />
+				<xs:element name="DAGQDUNGHAN" type="xs:int" />
+				<xs:element name="DAGQQUAHAN" type="xs:int" />
+				<xs:element name="CHUAGQTRONGHAN" type="xs:int" />
+				<xs:element name="CHUAGQQUAHAN" type="xs:int" />
+				<xs:element name="DATRA" type="xs:int" />
+				<xs:element name="CHUATRA" type="xs:int" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CTGIAIQUYETHOSO">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TINHTHANH" type="xs:string" />
+				<xs:element name="CONGTY" type="xs:string" />
+				<xs:element name="VANPHONG" type="xs:string" />
+				<xs:element name="TENLINHVUC" type="xs:string" />
+				<xs:element name="SOBIENNHAN" type="xs:string" />
+				<xs:element name="NGAYNHAN" type="xs:string" />
+				<xs:element name="NGAYHENTRA" type="xs:string" />
+				<xs:element name="NGAYTHUCTRA" type="xs:string" />
+				<xs:element name="LOAIHOSO" type="xs:string" />
+				<xs:element name="NGUOINHANHS" type="xs:string" />
+				<xs:element name="NGUOINOP" type="xs:string" />
+				<xs:element name="DIACHI" type="xs:string" />
+				<xs:element name="TINHTRANG" type="xs:string" />
+				<xs:element name="NGAYTHULY" type="xs:string" />
+				<xs:element name="CONGVIEC" type="xs:string" />
+				<xs:element name="NGUOICHUYEN" type="xs:string" />
+				<xs:element name="NGUOINHAN" type="xs:string" />
+				<xs:element name="GHICHU" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DANHSACHHOSOCHUNG">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TINHTHANH" type="xs:string" />
+				<xs:element name="CONGTY" type="xs:string" />
+				<xs:element name="VANPHONG" type="xs:string" />
+				<xs:element name="LVBAOCAO" type="xs:string" />
+				<xs:element name="LOAIBAOCAO" type="xs:string" />
+				<xs:element name="TUNGAY" type="xs:string" />
+				<xs:element name="DENNGAY" type="xs:string" />
+				<xs:element name="TENLINHVUC" type="xs:string" />
+				<xs:element name="SOBIENNHAN" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="DIACHI" type="xs:string" />
+				<xs:element name="NGAYNHANHS" type="xs:string" />
+				<xs:element name="NGAYHENTRA" type="xs:string" />
+				<xs:element name="TENLOAIHOSO" type="xs:string" />
+				<xs:element name="NGAYXULY" type="xs:string" />
+				<xs:element name="TENLYDO" type="xs:string" />
+				<xs:element name="NOIDUNGXULY" type="xs:string" />
+				<xs:element name="GHICHU" type="xs:string" />
+				<xs:element name="NGUOIXULY" type="xs:string" />
+				<xs:element name="TINHTRANG" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="THONGKETON">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TINHTHANH" type="xs:string" />
+				<xs:element name="CONGTY" type="xs:string" />
+				<xs:element name="VANPHONG" type="xs:string" />
+				<xs:element name="TUNGAY" type="xs:string" />
+				<xs:element name="DENNGAY" type="xs:string" />
+				<xs:element name="TENLINHVUC" type="xs:string" />
+				<xs:element name="NHANVIEN" type="xs:string" />
+				<xs:element name="TENLOAIHOSO" type="xs:string" />
+				<xs:element name="SOLUONG" type="xs:int" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GIAYCNDKKD">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TINHTHANH" type="xs:string" />
+				<xs:element name="CONGTY" type="xs:string" />
+				<xs:element name="VANPHONG" type="xs:string" />
+				<xs:element name="SOBIENNHAN" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="SONHA" type="xs:string" />
+				<xs:element name="DUONG" type="xs:string" />
+				<xs:element name="PHUONG" type="xs:string" />
+				<xs:element name="PHONE" type="xs:string" />
+				<xs:element name="MAIL" type="xs:string" />
+				<xs:element name="WEBSITE" type="xs:string" />
+				<xs:element name="NGANHKINHDOANH" type="xs:string" />
+				<xs:element name="VONKINHDOANH" type="xs:string" />
+				<xs:element name="NGAYSINH" type="xs:string" />
+				<xs:element name="DANTOC" type="xs:string" />
+				<xs:element name="SOCMND" type="xs:string" />
+				<xs:element name="NGAYCAPCMND" type="xs:string" />
+				<xs:element name="NOICAPCMND" type="xs:string" />
+				<xs:element name="DIACHITHUONGTRU" type="xs:string" />
+				<xs:element name="CHOOHIENNAY" type="xs:string" />
+				<xs:element name="GIOITINH" type="xs:string" />
+				<xs:element name="LANHDAO" type="xs:string" />
+				<xs:element name="CHUCDANH" type="xs:string" />
+				<xs:element name="CAPMOI" type="xs:string" />
+				<xs:element name="CAPDOI" type="xs:string" />
+				<xs:element name="CAPPHOBAN" type="xs:string" />
+				<xs:element name="THAYDOI" type="xs:string" />
+				<xs:element name="SOGIAYPHEP" type="xs:string" />
+				<xs:element name="FAX" type="xs:string" />
+				<xs:element name="TITLE" type="xs:string" />
+				<xs:element name="TIENBANGCHU" type="xs:string" />
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="KYTHAY" type="xs:string" />
+				<xs:element name="BANGHIEU" type="xs:string" />
+				<xs:element name="NOILUUBANSAO" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HOSOKHONG">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="THANHPHO" type="xs:string" />
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="QUAN" type="xs:string" />
+				<xs:element name="PHUONG" type="xs:string" />
+				<xs:element name="PHONG" type="xs:string" />
+				<xs:element name="NGAYTHONGBAO" type="xs:string" />
+				<xs:element name="SOBIENNHAN" type="xs:string" />
+				<xs:element name="NGAYNHAN" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="GIOITINH" type="xs:string" />
+				<xs:element name="DIACHI" type="xs:string" />
+				<xs:element name="NGANHKD" type="xs:string" />
+				<xs:element name="LYDO" type="xs:string" />
+				<xs:element name="NOIDUNGXULY" type="xs:string" />
+				<xs:element name="GHICHU" type="xs:string" />
+				<xs:element name="TENLANHDAO" type="xs:string" />
+				<xs:element name="CHUCDANHLD" type="xs:string" />
+				<xs:element name="KYTHAY" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HUYGIAYCNDKKD">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="THANHPHO" type="xs:string" />
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="QUAN" type="xs:string" />
+				<xs:element name="PHUONG" type="xs:string" />
+				<xs:element name="PHONG" type="xs:string" />
+				<xs:element name="NGAYTHONGBAO" type="xs:string" />
+				<xs:element name="SOGIAYPHEP" type="xs:string" />
+				<xs:element name="NGAYCAP" type="xs:string" />
+				<xs:element name="NGANHKD" type="xs:string" />
+				<xs:element name="SOBIENNHAN" type="xs:string" />
+				<xs:element name="NGAYNHAN" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="GIOITINH" type="xs:string" />
+				<xs:element name="DIACHI" type="xs:string" />
+				<xs:element name="LYDO" type="xs:string" />
+				<xs:element name="NGUOIDUYET" type="xs:string" />
+				<xs:element name="CHUCDANH" type="xs:string" />
+				<xs:element name="KYTHAY" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PHIEUCHUYENTHULY">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="BOPHANTHULY" type="xs:string" />
+				<xs:element name="BOPHANTIEPNHAN" type="xs:string" />
+				<xs:element name="QUANHUYEN" type="xs:string" />
+				<xs:element name="SOBIENNHAN" type="xs:string" />
+				<xs:element name="NGAYNHAN" type="xs:string" />
+				<xs:element name="NGAYHENTRA" type="xs:string" />
+				<xs:element name="HOTENNGUOINOP" type="xs:string" />
+				<xs:element name="DIACHITHUONGTRU" type="xs:string" />
+				<xs:element name="TENLOAIHOSO" type="xs:string" />
+				<xs:element name="DIACHI" type="xs:string" />
+				<xs:element name="NGAY" type="xs:string" />
+				<xs:element name="NGUOILAP" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DEXUAT">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="PHONGBAN" type="xs:string" />
+				<xs:element name="QUANHUYEN" type="xs:string" />
+				<xs:element name="HOTENNGUOINOP" type="xs:string" />
+				<xs:element name="DIACHITHUONGTRU" type="xs:string" />
+				<xs:element name="TENLOAIHOSO" type="xs:string" />
+				<xs:element name="MATHANGKINHDOANH" type="xs:string" />
+				<xs:element name="NOIDUNG" type="xs:string" />
+				<xs:element name="DIACHI" type="xs:string" />
+				<xs:element name="NGAY" type="xs:string" />
+				<xs:element name="NGUOILAP" type="xs:string" />
+				<xs:element name="SOBIENNHAN" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DANHSACHHOCATHE">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="PHONGBAN" type="xs:string" />
+				<xs:element name="THANHPHO" type="xs:string" />
+				<xs:element name="SOBIENNHAN" type="xs:string" />
+				<xs:element name="SOGIAYPHEP" type="xs:string" />
+				<xs:element name="NGAYCAP" type="xs:string" />
+				<xs:element name="SOGIAYPHEPTRUOC" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="NGANHKINHDOANH" type="xs:string" />
+				<xs:element name="MATHANGKINHDOANH" type="xs:string" />
+				<xs:element name="VONKINHDOANH" type="xs:string" />
+				<xs:element name="DIACHI" type="xs:string" />
+				<xs:element name="NGAY" type="xs:string" />
+				<xs:element name="NGAYLAP" type="xs:string" />
+				<xs:element name="NGUOILAP" type="xs:string" />
+				<xs:element name="TITLE" type="xs:string" />
+				<xs:element name="HEADER" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BAOCAOCONGTACCAPPHEP">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="PHONGBAN" type="xs:string" />
+				<xs:element name="THANHPHO" type="xs:string" />
+				<xs:element name="NGAYLAP" type="xs:string" />
+				<xs:element name="NGUOILAP" type="xs:string" />
+				<xs:element name="TITLE" type="xs:string" />
+				<xs:element name="LOAI" type="xs:string" />
+				<xs:element name="THOIGIAN" type="xs:string" />
+				<xs:element name="TENLOAICAPPHEP" type="xs:string" />
+				<xs:element name="TONTRUOC" type="xs:integer" />
+				<xs:element name="MOINHAN" type="xs:integer" />
+				<xs:element name="TONGTIEPNHAN" type="xs:integer" />
+				<xs:element name="TONGDENHANTRA" type="xs:integer" />
+				<xs:element name="PTTONGDENHANTRA" type="xs:float" />
+				<xs:element name="DGQDUNGHAN" type="xs:integer" />
+				<xs:element name="PTDGQDUNGHAN" type="xs:integer" />
+				<xs:element name="DGQTREHAN" type="xs:integer" />
+				<xs:element name="PTDGQTREHAN" type="xs:float" />
+				<xs:element name="DGQQUAHAN" type="xs:integer" />
+				<xs:element name="PTDGQQUAHAN" type="xs:float" />
+				<xs:element name="CHUADENHANTRA" type="xs:integer" />
+				<xs:element name="PTCHUADENHANTRA" type="xs:float" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DMCONGTRINHCAPPHEP">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="PHONGBAN" type="xs:string" />
+				<xs:element name="THANHPHO" type="xs:string" />
+				<xs:element name="QUANHUYEN" type="xs:string" />
+				<xs:element name="NGAYLAP" type="xs:string" />
+				<xs:element name="NGUOILAP" type="xs:string" />
+				<xs:element name="TITLE" type="xs:string" />
+				<xs:element name="LOAI" type="xs:string" />
+				<xs:element name="THOIGIAN" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="DIACHIXAYDUNG" type="xs:string" />
+				<xs:element name="DIENTICHXAYDUNG" type="xs:string" />
+				<xs:element name="MACAPNHA" type="xs:string" />
+				<xs:element name="TENCAPNHA" type="xs:string" />
+				<xs:element name="MAPHANLOAIXAYDUNG" type="xs:string" />
+				<xs:element name="TENPHANLOAIXAYDUNG" type="xs:string" />
+				<xs:element name="DIENTICHKHUONVIEN" type="xs:string" />
+				<xs:element name="DIENTICHSANXAYDUNG" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="QUYETDINHCAPPHOBAN">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="THANHPHO" type="xs:string" />
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="PHONGBAN" type="xs:string" />
+				<xs:element name="QUAN" type="xs:string" />
+				<xs:element name="PHUONG" type="xs:string" />
+				<xs:element name="SOQUYETDINH" type="xs:string" />
+				<xs:element name="NGAYQUYETDINH" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="GIOITINH" type="xs:string" />
+				<xs:element name="NGAYNHAN" type="xs:string" />
+				<xs:element name="SOGIAYPHEP" type="xs:string" />
+				<xs:element name="NGAYCAP" type="xs:string" />
+				<xs:element name="KYTHAY" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GIAYPHEPXAYDUNG">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="THANHPHO" type="xs:string" />
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="PHONGBAN" type="xs:string" />
+				<xs:element name="QUAN" type="xs:string" />
+				<xs:element name="PHUONG" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="CHUDAUTU" type="xs:string" />
+				<xs:element name="GIOITINH" type="xs:string" />
+				<xs:element name="DIACHIXAYDUNG" type="xs:string" />
+				<xs:element name="DIACHITHUONGTRU" type="xs:string" />
+				<xs:element name="SOGIAYPHEP" type="xs:string" />
+				<xs:element name="NGAYCAP" type="xs:string" />
+				<xs:element name="CONGTRINHXAYDUNG" type="xs:string" />
+				<xs:element name="KYHIEUTHIETKE" type="xs:string" />
+				<xs:element name="NGUOILAPTHIETKE" type="xs:string" />
+				<xs:element name="HANGMUCTRUOC" type="xs:string" />
+				<xs:element name="HANGMUCSAU" type="xs:string" />
+				<xs:element name="LODAT" type="xs:string" />
+				<xs:element name="CAODONEN" type="xs:string" />
+				<xs:element name="GIAYSUDUNGDAT" type="xs:string" />
+				<xs:element name="GHICHU" type="xs:string" />
+				<xs:element name="TIEPTRANGSAU" type="xs:string" />
+				<xs:element name="TIEPTRANGTRUOC" type="xs:string" />
+				<xs:element name="HANHOANTHANH" type="xs:string" />
+				<xs:element name="MACANBOTHULY" type="xs:string" />
+				<xs:element name="XAY" type="xs:string" />
+				<xs:element name="SUA" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CONGVANKIENTRUCSU">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="THANHPHO" type="xs:string" />
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="QUAN" type="xs:string" />
+				<xs:element name="NGAYCONGVAN" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="GIOITINH" type="xs:string" />
+				<xs:element name="DIACHIXAYDUNG" type="xs:string" />
+				<xs:element name="KYTHAY" type="xs:string" />
+				<xs:element name="CHUCDANH" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="THONGBAOCAPMOI">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="QUAN" type="xs:string" />
+				<xs:element name="PHUONG" type="xs:string" />
+				<xs:element name="PHONGBAN" type="xs:string" />
+				<xs:element name="NGAYTHONGBAO" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="GIOITINH" type="xs:string" />
+				<xs:element name="DIACHITHUONGTRU" type="xs:string" />
+				<xs:element name="SOGIAYPHEP" type="xs:string" />
+				<xs:element name="NGAYCAP" type="xs:string" />
+				<xs:element name="TENLANHDAO" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CONGVANKHONGGIAIQUYET">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="QUAN" type="xs:string" />
+				<xs:element name="PHUONG" type="xs:string" />
+				<xs:element name="PHONGBAN" type="xs:string" />
+				<xs:element name="NGAYTHONGBAO" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="GIOITINH" type="xs:string" />
+				<xs:element name="TENLOAICAPPHEP" type="xs:string" />
+				<xs:element name="DIACHIXAYDUNG" type="xs:string" />
+				<xs:element name="DIACHITHUONGTRU" type="xs:string" />
+				<xs:element name="NOIDUNGXULY" type="xs:string" />
+				<xs:element name="TENLANHDAO" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="THONGBAOHUY">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="THANHPHO" type="xs:string" />
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="QUAN" type="xs:string" />
+				<xs:element name="PHUONG" type="xs:string" />
+				<xs:element name="PHONGBAN" type="xs:string" />
+				<xs:element name="NGAYTHONGBAO" type="xs:string" />
+				<xs:element name="SOBIENNHAN" type="xs:string" />
+				<xs:element name="NGAYNHAN" type="xs:string" />
+				<xs:element name="TENLOAIHOSO" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="GIOITINH" type="xs:string" />
+				<xs:element name="DIACHIXAYDUNG" type="xs:string" />
+				<xs:element name="GHICHU" type="xs:string" />
+				<xs:element name="KYTHAY" type="xs:string" />
+				<xs:element name="CHUCDANH" type="xs:string" />
+				<xs:element name="TENLANHDAO" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NHANXETHOSO">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="QUAN" type="xs:string" />
+				<xs:element name="NGAYNHANXET" type="xs:string" />
+				<xs:element name="LOAIHOSO" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="CHUDAUTU" type="xs:string" />
+				<xs:element name="DIACHIXAYDUNG" type="xs:string" />
+				<xs:element name="DIACHITHUONGTRU" type="xs:string" />
+				<xs:element name="NGUOILAP" type="xs:string" />
+				<xs:element name="CONGTRINHXAYDUNG" type="xs:string" />
+				<xs:element name="TENLOAICAPPHEP" type="xs:string" />
+				<xs:element name="KYHIEUTHIETKE" type="xs:string" />
+				<xs:element name="DONVITHIETKE" type="xs:string" />
+				<xs:element name="LODAT" type="xs:string" />
+				<xs:element name="GIAYSUDUNGDAT" type="xs:string" />
+				<xs:element name="GIAYSUDUNGDATNHANXET" type="xs:string" />
+				<xs:element name="PHONGCHAYCHUACHAY" type="xs:string" />
+				<xs:element name="PHONGCHAYCHUACHAYNHANXET" type="xs:string" />
+				<xs:element name="MOITRUONG" type="xs:string" />
+				<xs:element name="MOITRUONGNHANXET" type="xs:string" />
+				<xs:element name="KIENTRUC" type="xs:string" />
+				<xs:element name="KIENTRUCNHANXET" type="xs:string" />
+				<xs:element name="KHACPHAPLY" type="xs:string" />
+				<xs:element name="KHACPHAPLYNHANXET" type="xs:string" />
+				<xs:element name="YKIENUBND" type="xs:string" />
+				<xs:element name="YKIENUBNDNHANXET" type="xs:string" />
+				<xs:element name="HIENTRANG" type="xs:string" />
+				<xs:element name="HIENTRANGNHANXET" type="xs:string" />
+				<xs:element name="VITRIDAT" type="xs:string" />
+				<xs:element name="VITRIDATNHANXET" type="xs:string" />
+				<xs:element name="DIENTICHDAT" type="xs:string" />
+				<xs:element name="DIENTICHDATNHANXET" type="xs:string" />
+				<xs:element name="DIENTICHXAYDUNG" type="xs:string" />
+				<xs:element name="DIENTICHXAYDUNGNHANXET" type="xs:string" />
+				<xs:element name="KETCAU" type="xs:string" />
+				<xs:element name="KETCAUNHANXET" type="xs:string" />
+				<xs:element name="SOTANG" type="xs:string" />
+				<xs:element name="SOTANGNHANXET" type="xs:string" />
+				<xs:element name="CACHTIMDUONGNHADAT" type="xs:string" />
+				<xs:element name="CACHTIMDUONGNHADATNHANXET" type="xs:string" />
+				<xs:element name="KIENTRUCKECAN" type="xs:string" />
+				<xs:element name="KIENTRUCKECANNHANXET" type="xs:string" />
+				<xs:element name="VANDEKHAC" type="xs:string" />
+				<xs:element name="VANDEKHACNHANXET" type="xs:string" />
+				<xs:element name="VITRIQUYHOACH" type="xs:string" />
+				<xs:element name="VITRIQUYHOACHNHANXET" type="xs:string" />
+				<xs:element name="LOGIOI" type="xs:string" />
+				<xs:element name="LOGIOINHANXET" type="xs:string" />
+				<xs:element name="DUONGDUPHONG" type="xs:string" />
+				<xs:element name="DUONGDUPHONGNHANXET" type="xs:string" />
+				<xs:element name="KHOANGLUI" type="xs:string" />
+				<xs:element name="KHOANGLUINHANXET" type="xs:string" />
+				<xs:element name="KIENTRUCKHUVUC" type="xs:string" />
+				<xs:element name="KIENTRUCKHUVUCNHANXET" type="xs:string" />
+				<xs:element name="VANDEKHAC2" type="xs:string" />
+				<xs:element name="VANDEKHACNHANXET2" type="xs:string" />
+				<xs:element name="DIENTICHDANGSUDUNG" type="xs:string" />
+				<xs:element name="DIENTICHDANGSUDUNGNHANXET" type="xs:string" />
+				<xs:element name="DIENTICHKHUONVIENXAYDUNG" type="xs:string" />
+				<xs:element name="DIENTICHKHUONVIENXAYDUNGNHANXET" type="xs:string" />
+				<xs:element name="QUYENSUDUNGDAT" type="xs:string" />
+				<xs:element name="QUYENSUDUNGDATNHANXET" type="xs:string" />
+				<xs:element name="QUYENSUDUNGDATCHUACO" type="xs:string" />
+				<xs:element name="MATDOXAYDUNG" type="xs:string" />
+				<xs:element name="MATDOXAYDUNGNHANXET" type="xs:string" />
+				<xs:element name="TONGDIENTICHSANXAYDUNG" type="xs:string" />
+				<xs:element name="TONGDIENTICHSANXAYDUNGNHANXET" type="xs:string" />
+				<xs:element name="CACHTIMDUONGTHIETKE" type="xs:string" />
+				<xs:element name="CACHTIMDUONGTHIETKENHANXET" type="xs:string" />
+				<xs:element name="DIEN" type="xs:string" />
+				<xs:element name="KHACTHIETKENHANXET1" type="xs:string" />
+				<xs:element name="THOATNUOC" type="xs:string" />
+				<xs:element name="CAPNUOC" type="xs:string" />
+				<xs:element name="KHACTHIETKE" type="xs:string" />
+				<xs:element name="KHACTHIETKENHANXET2" type="xs:string" />
+				<xs:element name="NHANXET" type="xs:string" />
+				<xs:element name="XAY" type="xs:string" />
+				<xs:element name="SUA" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SUACHUANGUYENTRANG">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="QUAN" type="xs:string" />
+				<xs:element name="PHUONG" type="xs:string" />
+				<xs:element name="NGAYXACNHAN" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="NOIDUNG" type="xs:string" />
+				<xs:element name="GHICHU" type="xs:string" />
+				<xs:element name="NGUOILAP" type="xs:string" />
+				<xs:element name="KYTHAY" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="THONGBAOBOSUNGHOSO">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="PHONGBAN" type="xs:string" />
+				<xs:element name="UBND" type="xs:string" />
+				<xs:element name="QUAN" type="xs:string" />
+				<xs:element name="PHUONG" type="xs:string" />
+				<xs:element name="GIOITINH" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="DIACHITHUONGTRU" type="xs:string" />
+				<xs:element name="SOBIENNHAN" type="xs:string" />
+				<xs:element name="NGAYYEUCAU" type="xs:string" />
+				<xs:element name="NGAYNHAN" type="xs:string" />
+				<xs:element name="SONHA" type="xs:string" />
+				<xs:element name="DUONG" type="xs:string" />
+				<xs:element name="DIACHIXAYDUNG" type="xs:string" />
+				<xs:element name="NOIDUNG" type="xs:string" />
+				<xs:element name="CHUCDANH" type="xs:string" />
+				<xs:element name="NGUOISUDUNG" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TONGHOPDANHSACHGPXD">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SOBIENNHAN" type="xs:string" />
+				<xs:element name="HOTEN" type="xs:string" />
+				<xs:element name="DIADIEMXAYDUNG" type="xs:string" />
+				<xs:element name="PHUONG" type="xs:string" />
+				<xs:element name="XAYMOI" type="xs:string" />
+				<xs:element name="SUACHUA" type="xs:string" />
+				<xs:element name="QUYMO" type="xs:string" />
+				<xs:element name="KIENCO" type="xs:string" />
+				<xs:element name="BANKIENCO" type="xs:string" />
+				<xs:element name="DTKV" type="xs:double" />
+				<xs:element name="DTXD" type="xs:double" />
+				<xs:element name="DTSANXD" type="xs:double" />
+				<xs:element name="SOGIAYPHEP" type="xs:string" />
+				<xs:element name="NGAYCAP" type="xs:string" />
+				<xs:element name="TUNGAY" type="xs:string" />
+				<xs:element name="DENNGAY" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

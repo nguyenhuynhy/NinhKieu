@@ -1,0 +1,82 @@
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\admin\Containers\Icon.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\admin\Containers\PrintModule.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\admin\Containers\Title.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\admin\Containers\Visibility.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\admin\Files\FileManager.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\admin\Files\FilesDB.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\admin\PAUploader\PaFolderCollection.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\admin\Skins\SkinsDB.vb
+The 'endtag' start tag on line '7' does not match the end tag of 'remarks'. Line 10, position 4.
+
+Filename: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\admin\Skins\SkinsDB.vb
+
+Signature: Public ReadOnly Property HTMLList() As ArrayList
+
+Header: <summary>
+     List of regular expressions for processing HTML syntax. 
+ </summary>
+ <returns>ArrayList of Regex objects formatted for the Parser method.</returns>
+ <remarks>
+     Additional patterns can be added to this list (if necessary) if properly 
+     formatted to return <tag>, <content> and <endtag> groups.  For future 
+     consideration, this list could be imported from a configuration file to 
+     provide for greater flexibility. 
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history>
+
+Skipping and moving on....
+The 'endtag' start tag on line '7' does not match the end tag of 'remarks'. Line 10, position 4.
+
+Filename: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\admin\Skins\SkinsDB.vb
+
+Signature: Public ReadOnly Property CSSList() As ArrayList
+
+Header: <summary>
+     List of regular expressions for processing CSS syntax. 
+ </summary>
+ <returns>ArrayList of Regex objects formatted for the Parser method.</returns>
+ <remarks>
+     Additional patterns can be added to this list (if necessary) if properly 
+     formatted to return <tag>, <content> and <endtag> groups.  For future 
+     consideration, this list could be imported from a configuration file to 
+     provide for greater flexibility. 
+ </remarks>
+ <history>
+ 	[willhsc]	3/3/2004	Created 
+ </history>
+
+Skipping and moving on....
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\components\DinhNghiaTinhTrang.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\components\Globals.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\components\ModuleActions.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\components\Security.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\Default.aspx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\DesktopModules\MenuList.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\DesktopModules\SoNgayGiaiQuyetHoSo.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\ErrorPage.aspx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\Global.asax.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\COMPONENTS\DanhSachHSQuaHanController.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\COMPONENTS\HoSoHuy.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\COMPONENTS\HoSoKhongGiaiQuyet.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\COMPONENTS\ThongKeBaoCao.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\COMPONENTS\ThongTinTraCuu.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\COMPONENTS\THQTThuLyController.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\COMPONENTS\TinhTrangHoSo.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\DesktopModules\ChiTietHSQuaHan.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\DesktopModules\ChuyenNhanHS.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\DesktopModules\ChuyenXuLy.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\DesktopModules\DanhSachHSQuaHan.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\DesktopModules\HuyHoSo.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\DesktopModules\KhongGiaiQuyet.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\DesktopModules\ThongKe_ChiTietHoSo.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\DesktopModules\ThongKeHoSo.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\DesktopModules\ThongKeLoaiHoSo.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\DesktopModules\ThongTinTraCuu.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\DesktopModules\THQTThuLy.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\DesktopModules\ThuLyHoSo.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HSHC\DesktopModules\TiepNhanHoSo.ascx.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\HttpHandler.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\Report\Components\clsCreateControl.vb
+Parsing file: D:\Working\2007\SoBCVT-HN\Wip\Program\HSHC\THTT\DesktopModules\MenuList.ascx.vb

@@ -1,0 +1,369 @@
+<?xml version="1.0" standalone="yes" ?>
+<NewDataSet>
+<!--SEARCHINFO
+SearchInfoID int
+DBName nvarchar(20)
+ItemCode nvarchar(50)
+ProcedureName nvarchar(50)
+Title nvarchar(500)
+STT int
+PortalID int
+Used nvarchar(1)
+-->
+<!--end SEARCHINFO-->
+<SEARCHINFO>
+	<ID>SearchInfoID</ID>
+	<Description>SearchInfoID</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>100</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>1</IsKey>
+	<MaxLength>5</MaxLength>
+	<IsNumber>1</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHINFO>
+<SEARCHINFO>
+	<ID>DBName</ID>
+	<Description>Database Name</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>300</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>50</MaxLength>
+	<IsNumber>0</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHINFO> 
+<SEARCHINFO>
+	<ID>ItemCode</ID>
+	<Description>Item Code</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>100</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>50</MaxLength>
+	<IsNumber>0</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHINFO> 
+<SEARCHINFO>
+	<ID>ProcedureName</ID>
+	<Description>Procedure Name</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>300</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>100</MaxLength>
+	<IsNumber>0</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHINFO> 
+<SEARCHINFO>
+	<ID>TieuDe</ID>
+	<Description>Title</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>300</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>500</MaxLength>
+	<IsNumber>0</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHINFO> 
+<SEARCHINFO>
+	<ID>STT</ID>
+	<Description>STT</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>100</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>1</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>5</MaxLength>
+	<IsNumber>1</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHINFO> 
+<SEARCHINFO>
+	<ID>PortalID</ID>
+	<Description>PortalID</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>100</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>5</MaxLength>
+	<IsNumber>1</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHINFO> 
+<SEARCHINFO>
+	<ID>Used</ID>
+	<Description>Used</Description>
+	<ControlType>CheckBox</ControlType>
+	<Width></Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>1</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>0</MaxLength>
+	<IsNumber>0</IsNumber>
+	<CssClass>QH_DropDownList</CssClass>
+</SEARCHINFO>
+<!--SEARCHPARAMS
+SearchParamID int
+SearchInfoID int
+ID nvarchar(50)
+Description nvarchar(500)
+ControlType nvarchar(50)
+Width nvarchar(50)
+TextMode char(1)
+DataSource nvarchar(50)
+DefaultValue nvarchar(50)
+Visible char(1)
+CssClass nvarchar(50)
+STT int
+-->
+<!--end SEARCHPARAMS-->
+<SEARCHPARAMS>
+	<ID>SearchParamID</ID>
+	<Description>SearchParamID</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>100</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>0</Enabled>
+	<IsNull>1</IsNull>
+	<IsKey>1</IsKey>
+	<MaxLength>5</MaxLength>
+	<IsNumber>1</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHPARAMS> 
+<SEARCHPARAMS>
+	<ID>SearchInfoID</ID>
+	<Description>Search Info</Description>
+	<ControlType>DropDownList</ControlType>
+	<Width>300</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource>SEARCHINFO</DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>5</MaxLength>
+	<IsNumber>0</IsNumber>
+	<CssClass>QH_DropDownList</CssClass>
+</SEARCHPARAMS> 
+<SEARCHPARAMS>
+	<ID>ID</ID>
+	<Description>ID</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>100</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>50</MaxLength>
+	<IsNumber>0</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHPARAMS> 
+<SEARCHPARAMS>
+	<ID>Description</ID>
+	<Description>Description</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>300</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>500</MaxLength>
+	<IsNumber>0</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHPARAMS>
+<SEARCHPARAMS>
+	<ID>ControlType</ID>
+	<Description>ControlType</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>100</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>50</MaxLength>
+	<IsNumber>0</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHPARAMS> 
+<SEARCHPARAMS>
+	<ID>Width</ID>
+	<Description>Width</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>100</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>50</MaxLength>
+	<IsNumber>1</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHPARAMS> 
+<SEARCHPARAMS>
+	<ID>TextMode</ID>
+	<Description>TextMode</Description>
+	<ControlType>CheckBox</ControlType>
+	<Width></Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>1</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>0</MaxLength>
+	<IsNumber>0</IsNumber>
+	<CssClass>QH_DropDownList</CssClass>
+</SEARCHPARAMS>
+<SEARCHPARAMS>
+	<ID>DataSource</ID>
+	<Description>DataSource</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>300</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>1</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>50</MaxLength>
+	<IsNumber>0</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHPARAMS> 
+<SEARCHPARAMS>
+	<ID>DefaultValue</ID>
+	<Description>DefaultValue</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>300</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>1</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>50</MaxLength>
+	<IsNumber>0</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHPARAMS> 
+<SEARCHPARAMS>
+	<ID>Visible</ID>
+	<Description>Visible</Description>
+	<ControlType>CheckBox</ControlType>
+	<Width></Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>1</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>0</MaxLength>
+	<IsNumber>0</IsNumber>
+	<CssClass>QH_DropDownList</CssClass>
+</SEARCHPARAMS>
+<SEARCHPARAMS>
+	<ID>CssClass</ID>
+	<Description>CssClass</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>300</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>50</MaxLength>
+	<IsNumber>0</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHPARAMS> 
+<SEARCHPARAMS>
+	<ID>STT</ID>
+	<Description>STT</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>100</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>5</MaxLength>
+	<IsNumber>1</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</SEARCHPARAMS> 
+</NewDataSet>

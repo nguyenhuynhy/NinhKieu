@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="PortalQH">
+</Property><Property Name="Solution File" Value="E:\Deploy\BenLuc\Source\HSHC\PortalQH.sln">
+</Property><Property Name="User Options File" Value="E:\Deploy\BenLuc\Source\HSHC\PortalQH.suo">
+</Property><Property Name="Date" Value="Tuesday, August 19, 2008">
+</Property><Property Name="Time" Value="18:13 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="PortalQH.sln" Description="File successfully backed up as E:\Deploy\BenLuc\Source\HSHC\Backup\PortalQH.sln">
+</Event><Event ErrorLevel="0" Project="" Source="PortalQH.suo" Description="File successfully backed up as E:\Deploy\BenLuc\Source\HSHC\Backup\PortalQH.suo">
+</Event><Event ErrorLevel="1" Project="PortalQH" Source="http://localhost:/hshcla/PortalQH.vbproj" Description="Warning: The project file is being backed up to a relative path that differs from the original solution relative path.  The difference in folder hierarchy may create problems in opening or building the backed up solution and project.">
+</Event><Event ErrorLevel="2" Project="http://localhost:/hshcla/" Source="http://localhost:/hshcla/" Description="ERROR: Failed to backup website http://localhost:/hshcla/">
+</Event><Event ErrorLevel="0" Project="" Source="PortalQH.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="PortalQH.sln" Description="Converted">
+</Event></UpgradeLog>

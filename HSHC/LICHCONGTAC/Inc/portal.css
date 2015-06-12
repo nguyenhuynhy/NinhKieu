@@ -1,0 +1,588 @@
+/* ================================
+    CSS STYLES FOR PortalQH
+   ================================
+*/   
+
+
+
+/* background color for the content part of the pages */
+BODY
+{    
+    BACKGROUND-COLOR: white;
+    font-family:Arial Tahoma Times New Roman;
+    font-size:10px;   
+    scrollbar-3dlight-color: #EBF4FF;
+	scrollbar-arrow-color: #164BA9;
+	scrollbar-base-color: #97BCDF;
+	scrollbar-shadow-color: #EBF4FF;
+	scrollbar-face-color: #6495ED;
+	scrollbar-highlight-color:  #97BCDF;
+	scrollbar-track-color: #EBF4FF;
+	scrollbar-darkshadow-color: #80AED6;
+}
+
+.QH_Banner
+{
+	/*border-bottom: 1 solid #B7B7B7;*/
+	border: 1 solid #6495ED;
+	background-image : url(bg4.gif); /* url(images/background.jpg);*/
+	padding:  4 5 4 10;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #00008B;
+	text-align:center ;
+	filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=3, Color='#D1D1D1', Positive='true')	
+}
+
+.QH_HeaderTreeView
+{
+	/*border-bottom: 1 solid #B7B7B7;*/
+	border: 1 solid #6495ED;
+	background-image : url(yahoo1.gif); /* url(images/background.jpg);*/
+	padding:  4 5 4 10;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color:White;
+	height:25px;
+	text-align:left;
+	/*filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=3, Color='#D1D1D1', Positive='true')	 */
+}
+.QH_Label
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	color: Black;
+	text-align: right;
+	vertical-align:text-middle;
+	text-decoration: none;
+	padding-right: 5;
+	/*width: 15%;*/
+}
+.QH_ColLabel
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	color: Black;
+	text-align: right;
+	vertical-align:middle;
+	text-decoration: none;
+	padding-right: 5;
+	/*width: 15%;*/
+}
+
+.QH_TableCol
+{
+	border: 1px solid #cccccc;
+    background-color: WHITE;
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 11px;
+    COLOR: #00008B;
+    FONT-FAMILY: Arial, Tahoma, 'Times New Roman', 'MS Sans Serif';
+    background-image : url(bg4.gif); 
+    text-align:center;
+    padding: 2 2 2 2;
+    height:26;
+}
+
+.QH_DropDownList
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	/*font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif; */
+	/*FONT-FAMILY: Arial,Tahoma, Verdana, Helvetica, sans-serif*/
+}
+
+.QH_ColLabelMiddle
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	color: Black;
+	text-align:center;
+	vertical-align:middle;
+	text-decoration: none;
+	/*width: 15%;*/
+}
+
+.QH_ColLabelLeft
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	color: Black;
+	text-align:left;
+	vertical-align:middle;
+	text-decoration: none;
+	padding-left: 5;
+	/*width: 15%;*/
+}
+
+.QH_IMAGEBUTTON
+{
+	font-size:  11px;  
+	font-family: Arial,Verdana;
+	background-image : url(images/bgHeader.gif); /*url(images/background.jpg);*/
+	padding: 2 1 0 1;
+	cursor:hand;
+}
+
+.QH_LabelLeft
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	color: Black;
+	text-align: left;
+	vertical-align:text-middle;
+	text-decoration: none;
+	padding-left: 5;
+	/*width: 15%;*/
+}
+
+.QH_LabelDisplay
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	color: Black;
+	text-align: left;
+	vertical-align:text-middle;
+	text-decoration: none;
+	padding-left: 5;
+	/*border: 1px solid #6495ED;*/
+	/*width: 15%;*/
+}
+
+.QH_LabelLeftItalic
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	font-style:italic;
+	color: Black;
+	text-align: left;
+	vertical-align:text-middle;
+	text-decoration: none;
+	padding-left: 5;
+	/*width: 15%;*/
+}
+.QH_LabelLeftBold
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color: Black;
+	text-align: left;
+	vertical-align:text-middle;
+	text-decoration: none;
+	padding-left: 5;
+	/*width: 15%;*/
+}
+.QH_LabelLeftBoldItalic
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-style:italic;
+	color: Black;
+	text-align: left;
+	vertical-align:text-middle;
+	text-decoration: none;
+	padding-left: 5;
+	/*width: 15%;*/
+}
+.QH_LabelRight
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	color: Black;
+	text-align:right;
+	vertical-align:text-middle;
+	text-decoration: none;
+	padding-left: 5;
+	/*width: 15%;*/
+}
+.QH_LabelRightBold
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color: Black;
+	text-align:right;
+	vertical-align:text-middle;
+	text-decoration: none;
+	padding-left: 5;
+	/*width: 15%;*/
+}
+.QH_LabelMiddleBold
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color: Black;
+	text-align:center;
+	vertical-align:text-middle;
+	text-decoration: none;
+	padding-left: 5;
+	/*width: 15%;*/
+}
+.QH_TextRight
+{
+	border: 1 solid #6495ED;
+	color:black	;
+	padding-right:3;
+	text-align:right;
+	margin-top:1;
+    FONT-SIZE: 11px; 
+    FONT-FAMILY: Arial,Tahoma, Verdana, Helvetica, sans-serif
+	text-decoration: none;
+}
+
+.QH_LabelBold
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color: Black;
+	text-align:right;
+	padding-top:4;
+	vertical-align:text-middle;
+	text-decoration: none;
+	padding-right: 5;
+	border: 1px solid #6495ED;
+}
+.QH_TextBox
+{
+	border: 1 solid #6495ED;
+	color:black	;
+	padding-left:5;
+	margin-top:1;
+    FONT-SIZE: 11px; 
+    FONT-FAMILY: Arial,Tahoma, Verdana, Helvetica, sans-serif
+	text-decoration: none;
+}
+
+.QH_TextDetail
+{
+	font-size: 11px;
+	color: Black;
+	font-family: Verdana;
+	text-decoration: none;
+}
+.QH_DataGrid
+{
+    FONT-FAMILY: Arial, Tahoma, 'Times New Roman', 'MS Sans Serif';
+	FONT-SIZE: 11px;
+	COLOR: Black;
+	/*border: 1px solid #6495ED; */
+	padding-left: 4;
+	
+}
+.QH_DataGridNoBoder
+{
+    FONT-FAMILY: Arial, Tahoma, 'Times New Roman', 'MS Sans Serif';
+	FONT-SIZE: 11px;
+	COLOR: black;
+	padding-left: 4;
+	
+}
+.QH_DataGridbottom
+{
+    FONT-FAMILY: Arial, Tahoma, 'Times New Roman', 'MS Sans Serif';
+	FONT-SIZE: 11px;
+	COLOR: black;
+	/*border-bottom: solid 1px #6495ED;*/
+	padding-left: 4;
+}
+
+.QH_DataGridTopBottom
+{
+    FONT-FAMILY: Arial, Tahoma, 'Times New Roman', 'MS Sans Serif';
+	FONT-SIZE: 11px;
+	COLOR: black;
+	/*border-bottom: solid 1px #6495ED;*/
+	/*border-top: solid 1px #6495ED;*/
+	padding-left: 4;
+	
+}
+
+.QH_DatagridAlternation 
+{
+	/*background: #F0F8FF; /* #F7FBFF;	*/
+	background-color:#F7FBFF;
+	/*background-color:#EFFFDE;
+	border: 1px solid #6495ED;
+	COLOR: #6495ED;*/
+}
+.QH_DataGridHeader
+{
+	/*border: 1px solid #6495ED;
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 11px;
+    COLOR: #00008B;
+    FONT-FAMILY: Arial, Tahoma, 'Times New Roman', 'MS Sans Serif';
+    background-image : url(bg4.gif); 
+    text-align:center;
+    padding: 2 2 2 2;
+    height:26;
+	*/
+	font: 11px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	text-align:center;
+	color: White;
+	vertical-align:middle;
+	background-color:#5486DD;
+}
+.QH_HeaderLabel
+{
+	background-image : url(yahoo1.gif);   /*url(images/background.jpg);*/
+	padding: 4 10 4 10;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color:White;
+	height:25px;
+	/*COLOR:#00008B; 
+	
+	/*border-bottom: 1 solid #6495ED;*/
+}
+.QH_tabGridSelected
+{
+	border-top: 1 solid #D3E0FA;
+	border-left: 1 solid #D3E0FA;
+	border-right: 1 solid #D3E0FA;
+	height:23;
+	font-weight:bolder;
+	font-size: 11px;
+	color: #00008B; 
+	font-family: Verdana,Arial;
+	text-decoration: none;
+	padding: 1 5 1 5; 
+	background-image : url(images/bg4.gif);
+	cursor:hand;
+}
+
+.QH_tabGrid
+{
+	border-top: 1 solid #D3E0FA;
+	border-left: 1 solid #D3E0FA;
+	border-right: 1 solid #D3E0FA;
+	font-weight:bolder;
+	font-size: 11px;
+	color: #00008B; 
+	font-family: Verdana,Arial;
+	text-decoration: none;
+	padding: 1 5 1 5; 
+	height:23;
+	background-color: white;
+	cursor:hand;
+}
+.QH_button
+{
+	font-size:  11px;  
+	font-family: Arial,Verdana;
+	/*
+	border: 1px solid #6495ED;
+	border-top : 1px outset #B1B1B1; 
+	border-right : 1px outset #000000; 
+	border-bottom : 1px outset #000000; 
+	border-left : 1px outset #B1B1B1; 
+	*/
+	/*background-color : #E2E2E2; */
+	background-image : url(images/bgHeader.gif); /*url(images/background.jpg);*/
+	padding: 2 1 0 1;
+	cursor:hand;
+}
+.QH_DataGridTitle
+{
+	font: 12px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	text-align:center;
+	color: White;
+	vertical-align:middle;
+	background-color: #1E90FF;
+}
+A.QH_button:link {
+    text-decoration:    underline;
+    background-color:Red;
+}
+
+A.QH_button:visited  {
+    text-decoration:    underline;
+    background-color:Red;
+    /*color: #003366; */
+}
+
+A.QH_button:active   {
+    text-decoration:    underline;
+    background-color:Red;
+}
+
+A.QH_button:hover    {
+    /*text-decoration:    underline; */
+    background-image:url(btn_CapNhat_over.gif);
+    background-color:Red;
+}
+
+.QH_listPicker
+{
+	color: black;
+	font-size: 11px;
+	font-family: Arial,Verdana;
+}
+.QH_tabPanel
+{
+	background-color: White;
+	display:inline;
+	border-bottom: solid 1 #6495ED;
+	border-top: solid 1 #6495ED;
+	/*filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=3, Color='#D1D1D1', Positive='true'); */
+}
+
+.QH_Panel
+{
+	background-color: White;
+	display:inline;
+	border: solid 1px #B7B7B7;/*#6495ED;*/
+	filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=3, Color='#D1D1D1', Positive='true');
+}
+
+.QH_PanelBackColor
+{
+	background-color:#F2F3EC;
+	border: solid 1px #6495ED;
+	filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=3, Color='#D1D1D1', Positive='true');
+}
+
+.QH_tabSelected
+{
+	border-top: 1 solid #6495ED;
+	border-left: 1 solid #6495ED;
+	border-right: 1 solid #6495ED;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #00008B; 
+	text-decoration: none;
+	text-align:center;
+	padding: 5 8 0 8; 
+	background-image : url(images/bg4.gif);
+	cursor:hand;
+	height:25;
+	width:auto;
+	filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=0, Color='#D1D1D1', Positive='true');
+	margin-bottom:-4;
+}
+.LabelText
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: white;
+    FONT-FAMILY: Tahoma ,Verdana, Helvetica, sans-serif
+}
+
+.QH_Table
+{
+	background-color: WHITE;
+	border: 1 solid #B7B7B7;
+	/*border: 1px solid #6495ED; */
+}
+
+.QH_TableMain
+{
+	background-color: WHITE;
+	/*border: 1 solid #B7B7B7;*/
+	border: 1px solid #6495ED;
+	
+}
+
+.QH_TableNoRight
+{
+	border-left: solid 1px #6495ED;
+}
+.QH_TableRight
+{
+	border-right: solid 1px #6495ED;
+}
+
+.QH_TableTop
+{
+	border-top: solid 1px #6495ED;
+}
+
+
+/* text style used for textboxes in the admin and edit pages, for Nav compatibility */
+.NormalTextBox
+{
+    font-size: 11px;
+	color: black; /* #003063;*/
+	/*font-weight:bold;*/
+	font-family: Arial,Verdana;
+	text-decoration: none;
+	/*font-family: Tahoma, Arial, Helvetica;
+    font-size: 12px;
+    font-weight: normal;
+    border-bottom-style: outset;
+      */
+    
+}
+
+.NormalRed
+{
+    font: 11px Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #ff0000
+}
+
+.NormalBold
+{
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+
+/* text style for buttons and link buttons used in the portal admin pages */
+.CommandButton     {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: normal;
+}
+.ActivePage
+{
+	color:Red;
+	font-weight:bold;
+}
+
+/* tabtrip style */
+.QH_Tabtrip
+{
+	
+	TabtripDefaultStyle:#000000,verdana,bold,8pt,#ffffff,120,21,center;
+	TabSelectedStyle:red,white;
+	TabHoverStyle:#777777;
+}
+
+.TabSelectedStyle
+{
+	background-color:red;
+	color:white;
+}
+.TabHoverStyle
+{
+	background-color:#777777;
+}
+
+.TabtripDefaultStyle
+{
+	background-color:#000000;
+	font-family:verdana;
+	font-weight:bold;
+	font-size:8pt;
+	color:#ffffff;
+	width:120;
+	height:21;
+	text-align:center;
+}
+
+.QH_PageView
+{  
+	border-bottom: #000000 1px solid; 
+	PADDING-RIGHT: 5px; 
+	BORDER-TOP: medium none; 
+	PADDING-LEFT: 5px; 
+	PADDING-BOTTOM: 5px; 
+	BORDER-LEFT: #000000 1px solid; 
+	PADDING-TOP: 5px; 
+	BORDER-BOTTOM: #000000 1px solid:
+}
+
+.QH_IMAGEBUTTON
+{
+	font-size:  11px;  
+	font-family: Arial,Verdana;
+	background-image : url(images/bgHeader.gif); /*url(images/background.jpg);*/
+	padding: 2 1 0 1;
+	cursor:hand;
+}
+.QH_IMAGEBUTTON1
+{
+    MARGIN-BOTTOM: -3px;
+    CURSOR: hand;
+    HEIGHT: 17px
+}

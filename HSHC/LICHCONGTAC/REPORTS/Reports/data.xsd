@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema targetNamespace="http://tempuri.org/XMLSchema.xsd" elementFormDefault="qualified"
+	xmlns="http://tempuri.org/XMLSchema.xsd" xmlns:mstns="http://tempuri.org/XMLSchema.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="LichTrucLe">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Book_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:decimal" />
+				<xs:element name="TieuDe" type="xs:string" minOccurs="0" />
+				<xs:element name="CanBo" type="xs:string" minOccurs="0" />
+				<xs:element name="Ngay" type="xs:string" minOccurs="0" />
+				<xs:element name="Gio" type="xs:string" minOccurs="0" />
+				<xs:element name="TaiXe" type="xs:string" minOccurs="0" />
+				<xs:element name="MaDV" type="xs:string" minOccurs="0" />
+				<xs:element name="PhucVu" type="xs:string" minOccurs="0" />
+				<xs:element name="LanhDao" type="xs:string" minOccurs="0" />
+				<xs:element name="BaoVe" type="xs:string" minOccurs="0" />
+				<xs:element name="GhiChu" type="xs:string" minOccurs="0" />
+				<xs:element name="ModifiedBy" type="xs:string" minOccurs="0" />
+				<xs:element name="ModifiedOn" type="xs:dateTime" minOccurs="0" />
+				<xs:element name="DayName" msdata:ReadOnly="true" type="xs:string" minOccurs="0" />
+				<xs:element name="TenDV" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LichCongTac">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Ngay" type="xs:string" minOccurs="0" />
+				<xs:element name="Thu" type="xs:string" minOccurs="0" />
+				<xs:element name="Gio" type="xs:string" minOccurs="0" />
+				<xs:element name="NoiDung" type="xs:string" minOccurs="0" />
+				<xs:element name="ChuTri" type="xs:string" minOccurs="0" />
+				<xs:element name="ChuanBi" type="xs:string" minOccurs="0" />
+				<xs:element name="ThanhPhan" type="xs:string" minOccurs="0" />
+				<xs:element name="DiaDiem" type="xs:string" minOccurs="0" />
+				<xs:element name="NgoaiLich" type="xs:string" minOccurs="0" />
+				<xs:element name="TuNgay" type="xs:string" />
+				<xs:element name="DenNgay" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LichCongTac_NgoaiLich">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Ngay" type="xs:string" minOccurs="0" />
+				<xs:element name="Gio" type="xs:string" minOccurs="0" />
+				<xs:element name="NoiDung" type="xs:string" minOccurs="0" />
+				<xs:element name="ChuTri" type="xs:string" minOccurs="0" />
+				<xs:element name="ChuanBi" type="xs:string" minOccurs="0" />
+				<xs:element name="ThanhPhan" type="xs:string" minOccurs="0" />
+				<xs:element name="DiaDiem" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LichLamViecTD">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DayName" type="xs:string" minOccurs="0" />
+				<xs:element name="DayValue" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ThongKeCuocHop">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Ngay" type="xs:string" minOccurs="0" />
+				<xs:element name="ChairMan" type="xs:string" minOccurs="0" />
+				<xs:element name="TrongGio" type="xs:integer" minOccurs="0" />
+				<xs:element name="NgoaiGio" type="xs:integer" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

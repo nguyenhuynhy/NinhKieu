@@ -1,0 +1,1771 @@
+A:link
+{
+	color: blue;
+	text-decoration: none ;
+}
+
+A:visited   {
+	color: blue;
+	text-decoration: none ;
+}
+
+A:active    {
+	color: blue;
+	text-decoration: none ;
+}
+
+A:hover {
+    text-decoration: none;
+    color:  red;
+}
+
+SMALL   {
+    font-size:  8px;
+}
+
+BIG {
+    font-size:  14px;
+}
+
+BLOCKQUOTE, PRE {
+    font-family:    Lucida Console, monospace;
+}
+
+
+UL LI   {
+    list-style-type:    square ;
+}
+
+UL LI LI    {
+    list-style-type:    disc;
+}
+
+UL LI LI LI {
+    list-style-type:    circle;
+}
+
+OL LI   {
+    list-style-type:    decimal;
+}
+
+OL OL LI    {
+    list-style-type:    lower-alpha;
+}
+
+OL OL OL LI {
+    list-style-type:    lower-roman;
+}
+
+HR {
+    color: dimgrey;
+    height:1pt;
+    text-align:left
+}
+.Head
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: darkblue;
+    FONT-FAMILY: Arial, Helvetica
+}
+BODY
+{ 
+	FONT-SIZE: 10px; 
+	SCROLLBAR-HIGHLIGHT-COLOR: white; 
+	SCROLLBAR-SHADOW-COLOR: white; 
+	SCROLLBAR-3DLIGHT-COLOR: #cddfeb; 
+	SCROLLBAR-ARROW-COLOR: white; 
+	SCROLLBAR-TRACK-COLOR: white; 
+	FONT-FAMILY: Tahoma Times New Roman Arial; 
+	SCROLLBAR-DARKSHADOW-COLOR: #6699ff; 
+	SCROLLBAR-BASE-COLOR: #6699ff; 
+	BACKGROUND-COLOR: white;
+}
+
+.LeftPane
+{
+}
+.ContentPane
+{
+}
+.RightPane
+{
+}
+.SelectUser
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    COLOR: darkblue;
+    FONT-FAMILY: Arial, Helvetica;
+    TEXT-DECORATION: none;
+}
+.OtherTabs
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10px;
+    COLOR: darkblue;
+    FONT-FAMILY: Arial, Helvetica;
+    TEXT-DECORATION: none;
+}
+A.OtherTabs:link
+{
+    COLOR: darkblue;
+    TEXT-DECORATION: none;
+}
+A.OtherTabs:visited
+{
+    COLOR: darkblue;
+    TEXT-DECORATION: none;
+}
+A.OtherTabs:active
+{
+    COLOR: black;
+    TEXT-DECORATION: none;
+}
+A.OtherTabs:hover
+{
+    COLOR: white;
+    TEXT-DECORATION: underline;
+}
+
+
+
+.QH_HeaderTreeView
+{
+    BORDER-RIGHT: silver 1px solid;
+    PADDING-RIGHT: 5px;
+    BORDER-TOP: silver 1px solid;
+    PADDING-LEFT: 10px;
+    BACKGROUND-IMAGE: url(images/HeaderTreeView.gif);
+    PADDING-BOTTOM: 4px;
+    FONT: bold 11px Verdana, Arial, Helvetica, sans-serif;
+    BORDER-LEFT: silver 1px solid;
+    COLOR: white;
+    PADDING-TOP: 4px;
+    BORDER-BOTTOM: silver 1px solid;
+    HEIGHT: 25px;
+    TEXT-ALIGN: left
+}
+.QH_Label
+{   
+    PADDING-RIGHT: 5px;
+    FONT: 11px Arial, Helvetica, sans-serif;
+    COLOR: black;
+    BACKGROUND-COLOR: aliceblue;
+    TEXT-ALIGN: right
+}
+.QH_ColLabelLeft
+{
+    PADDING-LEFT: 5px;
+    FONT: 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: middle;
+    COLOR: darkblue;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+.QH_LabelLeft
+{
+    PADDING-LEFT: 5px;
+    FONT: 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: text-top;
+    COLOR: darkblue;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+.QH_LabelLeftBold
+{
+    PADDING-LEFT: 5px;
+    FONT: bold 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: text-top;
+    COLOR: darkblue;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+.QH_LabelLeftBoldRed
+{
+    PADDING-LEFT: 5px;
+    FONT: bold 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: text-top;
+    COLOR: red;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+.QH_LabelRightBold
+{
+    PADDING-LEFT: 5px;
+    FONT: bold 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: text-top;
+    COLOR: darkblue;
+    TEXT-ALIGN: right;
+    TEXT-DECORATION: none
+}
+.QH_LabelMiddleBold
+{
+    PADDING-LEFT: 5px;
+    FONT: bold 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: text-top;
+    COLOR: darkblue;
+    TEXT-ALIGN: center;
+    TEXT-DECORATION: none
+}
+.QH_TextRight
+{
+    BORDER-RIGHT: silver 1px solid;
+    PADDING-RIGHT: 3px;
+    BORDER-TOP: silver 1px solid;
+    MARGIN-TOP: 1px;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: silver 1px solid;
+    COLOR: darkblue;
+    BORDER-BOTTOM: silver 1px solid;
+    FONT-FAMILY: Arial,Tahoma, Verdana, Helvetica, sans-serif;
+	text-decoration: none;
+    TEXT-ALIGN: right
+}
+.QH_LabelBold
+{
+    PADDING-RIGHT: 5px;
+    FONT: bold 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: text-bottom;
+    COLOR: darkblue;
+    PADDING-TOP: 4px;
+    TEXT-ALIGN: right;
+    TEXT-DECORATION: none
+}
+.QH_TextDetail
+{
+    FONT-SIZE: 11px;
+    COLOR: darkblue;
+    FONT-FAMILY: Verdana;
+    TEXT-DECORATION: none
+}
+.QH_DropDownList
+{
+    CLEAR: both;
+    BORDER-RIGHT: silver 1px solid;
+    BORDER-TOP: silver 1px solid;
+    MARGIN-TOP: 1px;
+    PADDING-LEFT: 5px;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: silver 1px solid;
+    CLIP: rect(1px 1px 1px 1px);
+    COLOR: black;
+    BORDER-BOTTOM: silver 1px solid;
+    FONT-FAMILY: Arial,Tahoma, Verdana, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.QH_Header_Login
+{
+    PADDING-RIGHT: 10px;
+    PADDING-LEFT: 10px;
+    BACKGROUND-IMAGE: url(images/xp_security.gif);
+    PADDING-BOTTOM: 4px;
+    FONT: bold 11px Verdana, Arial, Helvetica, sans-serif;
+    COLOR: darkblue;
+    PADDING-TOP: 4px;
+    BORDER-BOTTOM: silver 1px solid;
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 25px;
+    BACKGROUND-COLOR: #eff3f7;
+    TEXT-ALIGN: center
+}
+.QH_Footer_Login
+{
+    PADDING-RIGHT: 10px;
+    PADDING-LEFT: 10px;
+    PADDING-BOTTOM: 4px;
+    FONT: bold 11px Verdana, Arial, Helvetica, sans-serif;
+    COLOR: darkblue;
+    PADDING-TOP: 4px;
+    BORDER-BOTTOM: silver 1px solid;
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 25px;
+    BACKGROUND-COLOR: #eff3f7;
+    TEXT-ALIGN: center
+}
+.QH_tabGridSelected
+{
+    BORDER-RIGHT: #d3e0fa 1px solid;
+    PADDING-RIGHT: 5px;
+    BORDER-TOP: #d3e0fa 1px solid;
+    PADDING-LEFT: 5px;
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 11px;
+    BACKGROUND-IMAGE: url(images/tabGridSelected.gif);
+    PADDING-BOTTOM: 1px;
+    BORDER-LEFT: #d3e0fa 1px solid;
+    CURSOR: hand;
+    COLOR: #00008b;
+    PADDING-TOP: 1px;
+    FONT-FAMILY: Verdana,Arial;
+    HEIGHT: 23px;
+    TEXT-DECORATION: none
+}
+.QH_tabGrid
+{
+    BORDER-RIGHT: #d3e0fa 1px solid;
+    PADDING-RIGHT: 5px;
+    BORDER-TOP: #d3e0fa 1px solid;
+    PADDING-LEFT: 5px;
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 11px;
+    PADDING-BOTTOM: 1px;
+    BORDER-LEFT: #d3e0fa 1px solid;
+    CURSOR: hand;
+    COLOR: #00008b;
+    PADDING-TOP: 1px;
+    FONT-FAMILY: Verdana,Arial;
+    HEIGHT: 23px;
+    BACKGROUND-COLOR: white;
+    TEXT-DECORATION: none
+}
+.QH_listPicker
+{
+    FONT-SIZE: 11px;
+    COLOR: black;
+    FONT-FAMILY: Arial,Verdana
+}
+.QH_tabPanel
+{
+    BORDER-RIGHT: silver 1px solid;
+    PADDING-RIGHT: 8px;
+    BORDER-TOP: silver 1px solid;
+    DISPLAY: inline;
+    PADDING-LEFT: 8px;
+    FILTER: progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=3, Color='silver', Positive='true');
+    PADDING-BOTTOM: 8px;
+    BORDER-LEFT: silver 1px solid;
+    PADDING-TOP: 8px;
+    BORDER-BOTTOM: silver 1px solid
+}
+.QH_tabSelected
+{
+    BORDER-RIGHT: silver 1px solid;
+    PADDING-RIGHT: 8px;
+    BORDER-TOP: silver 1px solid;
+    PADDING-LEFT: 8px;
+    FILTER: progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=0, Color='#D1D1D1', Positive='true');
+    BACKGROUND-IMAGE: url(images/tabSelected.gif);
+    MARGIN-BOTTOM: -4px;
+    PADDING-BOTTOM: 0px;
+    FONT: bold 11px Verdana, Arial, Helvetica, sans-serif;
+    BORDER-LEFT: silver 1px solid;
+    WIDTH: auto;
+    CURSOR: hand;
+    COLOR: #00008b;
+    PADDING-TOP: 5px;
+    HEIGHT: 25px;
+    TEXT-ALIGN: center;
+    TEXT-DECORATION: none
+}
+.LabelText
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: darkblue;
+    FONT-FAMILY: Tahoma ,Verdana, Helvetica, sans-serif
+}
+.QH_TableNoRight
+{
+    BORDER-LEFT: silver 1px solid
+}
+.NormalTextBox
+{
+}
+.NormalRed
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #ff0000;
+    FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+.NormalBold
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+.CommandButton
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    FONT-FAMILY: Tahoma, Arial, Helvetica
+}
+.QH_Tabtrip
+{
+    TabtripDefaultStyle: #000000,verdana,bold,8pt,#ffffff,120,21,center;
+    TabSelectedStyle: red,white;
+    TabHoverStyle: #777777
+}
+.TabSelectedStyle
+{
+    COLOR: darkblue;
+    BACKGROUND-COLOR: red
+}
+.TabHoverStyle
+{
+    BACKGROUND-COLOR: #777777
+}
+.TabtripDefaultStyle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    WIDTH: 120px;
+    COLOR: #ffffff;
+    FONT-FAMILY: verdana;
+    HEIGHT: 21px;
+    TEXT-ALIGN: center
+}
+.QH_PageView
+{
+    PADDING-RIGHT: 5px;
+    BORDER-TOP: medium none;
+    PADDING-LEFT: 5px;
+    PADDING-BOTTOM: 5px;
+    BORDER-LEFT: #000000 1px solid;
+    PADDING-TOP: 5px;
+    BORDER-BOTTOM: #000000 1px solid
+}
+.QH_IMAGEBUTTON
+{
+    MARGIN-BOTTOM: -3px;
+    CURSOR: hand;
+    HEIGHT: 15px
+}
+TD
+{
+    FONT-SIZE: 11px;
+    FONT-FAMILY: Tahoma, Arial, Helvetica;
+    TEXT-DECORATION: none
+}
+
+.QH_Label_Title
+{
+	border-right: medium none;
+	border-top: medium none;
+	font: bold 14px Verdana,Arial,Helvetica,sans-serif;
+	border-left: medium none;
+	color: #f45c0a;
+	padding-top: 3px;
+	border-bottom: medium none;
+	text-align: center;
+}
+.QH_Label_Title1
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT: bold 11px Verdana,Arial,Helvetica,sans-serif;
+    BORDER-LEFT: medium none;
+    COLOR: #ff8600;
+    PADDING-TOP: 3px;
+    BORDER-BOTTOM: medium none;
+    HEIGHT: 19px;
+    TEXT-ALIGN: center
+}
+.QH_Filter_Bg
+{
+    BACKGROUND-COLOR: #deebff
+}
+.QH_DataGrid
+{
+    BORDER-RIGHT: silver 1px solid;
+    BORDER-TOP: silver 1px solid;
+    PADDING-LEFT: 4px;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: silver 1px solid;
+    COLOR: #0000ff;
+    BORDER-BOTTOM: silver 1px solid;
+    FONT-FAMILY: Arial, Tahoma, 'Times New Roman', 'MS Sans Serif'
+}
+.SelectedTab
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #002ee5;
+    FONT-FAMILY: Arial, Helvetica
+}
+A.SelectedTab:link
+{
+    COLOR: #002ee5;
+    TEXT-DECORATION: none
+}
+A.SelectedTab:visited
+{
+    COLOR: #002ee5;
+    TEXT-DECORATION: none
+}
+A.SelectedTab:active
+{
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A.SelectedTab:hover
+{
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A.QH_MenuLink:link
+{
+    TEXT-DECORATION: none
+}
+A.QH_MenuLink:visited
+{
+    TEXT-DECORATION: none
+}
+A.QH_MenuLink:active
+{
+    TEXT-DECORATION: none
+}
+A.QH_MenuLink:hover
+{
+    TEXT-DECORATION: none
+}
+.QH_ColLabelMiddle
+{
+    FONT: bold 11px Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN: middle;
+    COLOR: black;
+    TEXT-ALIGN: center;
+    TEXT-DECORATION: none
+}
+.QH_Table
+{
+    BORDER-RIGHT: #e5e5e5 1px double;
+    BORDER-TOP: #e5e5e5 1px double;
+    BORDER-LEFT: #e5e5e5 1px double;
+    BORDER-BOTTOM: #e5e5e5 1px double;
+    BORDER-COLLAPSE: collapse
+}
+.QH_TableMain
+{
+    BORDER-RIGHT: silver 1px solid;
+    BORDER-TOP: silver 1px solid;
+    BORDER-LEFT: silver 1px solid;
+    BORDER-BOTTOM: silver 1px solid
+}
+.QH_LoaiHS
+{
+    BORDER-RIGHT: gray 1px solid;
+    PADDING-RIGHT: 5px;
+    BORDER-TOP: gray 1px solid;
+    PADDING-LEFT: 10px;
+    FILTER: progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=3, Color= 'lightskyblue' , Positive= 'true' );
+    PADDING-BOTTOM: 4px;
+    BORDER-LEFT: gray 1px solid;
+    WIDTH: 99%;
+    PADDING-TOP: 4px;
+    BORDER-BOTTOM: gray 1px solid;
+    BORDER-COLLAPSE: collapse;
+    BACKGROUND-COLOR: aliceblue
+}
+.QH_TextBox
+{
+    BORDER-RIGHT: black 1px solid;
+    BORDER-TOP: black 1px solid;
+    MARGIN-TOP: 1px;
+    PADDING-LEFT: 5px;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: black 1px solid;
+    COLOR: black;
+    BORDER-BOTTOM: black 1px solid;
+    FONT-FAMILY: Arial,Tahoma, Verdana, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+
+.ActivePage
+{
+    FONT-WEIGHT: bold;
+    COLOR: red
+}
+
+/* Menu-Styles */
+/* Module Title Menu */
+.ModuleTitle_MenuContainer {
+	BACKGROUND-COLOR: transparent;
+}
+
+.ModuleTitle_MenuBar {
+	CURSOR: hand;
+}
+
+.ModuleTitle_MenuItem {
+    BORDER-RIGHT: #000000 0px solid;
+    BORDER-TOP: #000000 0px solid;
+    PADDING-LEFT: 2px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: #000000 0px solid;
+    CURSOR: hand;
+    COLOR: #002ee5;
+    BORDER-BOTTOM: #000000 0px solid;
+    FONT-FAMILY: Arial;
+    background-color: aliceblue;
+}
+
+.ModuleTitle_MenuIcon {
+	border-right: #000000 0px solid;
+	border-top: #000000 0px solid;
+	border-left: #000000 0px solid;
+	cursor: hand;
+	border-bottom: #000000 0px solid;
+	background-color: royalblue;
+	text-align: center;
+}
+
+.ModuleTitle_SubMenu 
+{
+	border-right: #000000 0px solid;
+	border-top: #000000 0px solid;
+	padding-left: 2px;
+	z-index: 1000;
+	filter: progid:DXImageTransform.Microsoft.Shadow(color= 'DimGray' , Direction=135, Strength=3);
+	border-left: #000000 0px solid;
+	cursor: hand;
+	border-bottom: #000000 0px solid;
+	background-color: aliceblue;
+}
+
+.ModuleTitle_MenuBreak {
+    BORDER-RIGHT: #000000 0px solid;
+    BORDER-TOP: #000000 0px solid;
+    BORDER-LEFT: #000000 0px solid;
+    BORDER-BOTTOM: #000000 0px solid;
+    HEIGHT: 11px;
+    background-color: aliceblue;
+}
+
+.ModuleTitle_MenuItemSel {
+    BORDER-RIGHT: #000000 0px solid;
+    BORDER-TOP: #000000 0px solid;
+    BORDER-LEFT: #000000 0px solid;
+    BORDER-BOTTOM: #000000 0px solid;
+    CURSOR: hand;
+    COLOR: red;
+    PADDING-LEFT: 2px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;    
+    FONT-STYLE: normal;
+    FONT-FAMILY: Arial, Helvetica;
+    BACKGROUND-COLOR: transparent
+    
+}
+
+.ModuleTitle_MenuArrow {
+	font-family: webdings; 
+	font-size: 8pt; 
+	cursor: hand; 
+	
+}
+
+.ModuleTitle_RootMenuArrow {
+	font-family: webdings; 
+	font-size: 8pt; 
+	cursor: hand;
+}
+
+
+.MainMenu_Bg
+{
+    VERTICAL-ALIGN: middle;
+}
+.MainMenu_MenuContainer
+{
+    BACKGROUND-COLOR: transparent;
+}
+.MainMenu_MenuBar
+{
+    CURSOR: hand;
+}
+.MainMenu_MenuItem
+{
+    BORDER-RIGHT: #000000 0px solid;
+    BORDER-TOP: #000000 0px solid;
+    PADDING-LEFT: 2px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: #000000 0px solid;
+    CURSOR: hand;
+    COLOR: #002ee5;
+    BORDER-BOTTOM: #000000 0px solid;
+    FONT-FAMILY: Arial
+}
+.MainMenu_MenuIcon
+{
+	border-right: #000000 0px solid;
+	border-top: #000000 0px solid;
+	border-left: #000000 0px solid;
+	cursor: hand;
+	border-bottom: #000000 0px solid;
+	background-color: royalblue;
+	text-align: center;
+}
+.MainMenu_SubMenu
+{
+	border-right: #404040 0px solid;
+	border-top: #ff8080 0px solid;
+	padding-left: 2px;
+	z-index: 1000;
+	filter: progid:DXImageTransform.Microsoft.Shadow(color= 'DimGray' , Direction=135, Strength=3);
+	border-left: #ff8080 0px solid;
+	cursor: hand;
+	border-bottom: #404040 0px solid;
+	background-color: aliceblue;
+}
+.MainMenu_MenuBreak
+{
+    BORDER-RIGHT: #404040 0px solid;
+    BORDER-TOP: #ff8080 0px solid;
+    BORDER-LEFT: #ff8080 0px solid;
+    BORDER-BOTTOM: #404040 0px solid;
+    HEIGHT: 11px;
+    background-color: aliceblue;
+}
+.MainMenu_MenuItemSel
+{
+    PADDING-LEFT: 2px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    CURSOR: hand;
+    COLOR: red;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Arial, Helvetica;
+    BACKGROUND-COLOR: transparent
+}
+.MainMenu_MenuArrow
+{
+	border-right: #000000 0px solid;
+	border-top: #000000 0px solid;
+	font-size: 10pt;
+	cursor: hand;
+	color: black;
+	border-bottom: #000000 0px solid;
+	font-family: webdings;
+}
+.MainMenu_RootMenuArrow
+{
+    FONT-SIZE: 10pt;
+    CURSOR: hand;
+    color: black;
+    FONT-FAMILY: webdings
+}
+
+/*LANPHM add 20/7/2005*/
+/*Set Root Menu High Light Style*/
+A.QH_RootMenu:link
+{
+	color: red;
+	text-decoration: none;
+}
+A.QH_RootMenu:active
+{
+	color: red;
+	text-decoration: none;
+}
+A.QH_RootMenu:visited
+{
+	text-decoration: none;
+	color: red;
+}
+A.QH_RootMenu:hover
+{
+	color: red;
+	text-decoration: none;
+}
+/*Set Header Menu Content Footer*/
+/*Header*/
+.QH_HeaderBg
+{
+    background-image: url(Images/HeaderBg.gif);
+}
+.QH_HeaderLeft
+{
+    background-image: url(Images/HeaderLeft.gif);
+    background-repeat:no-repeat;
+    background-position: left;
+    width:213;
+    height:103;
+}
+.QH_HeaderMiddle
+{
+    background-image: url(Images/HeaderMiddle.gif);
+    background-repeat:no-repeat;
+    background-position: center;
+    width:398px;
+    height:103;
+}
+.QH_HeaderRight
+{
+    background-image: url(Images/HeaderRight.gif);
+    background-repeat:no-repeat;
+    background-position: right; 
+    height:103;
+    width:188;
+    text-align:right;
+    vertical-align:bottom;
+}
+.QH_HeaderLeft_THTT
+{
+	background-image: url(Images/layoutgraphics_left.gif);
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color:black;
+	height: 18px;
+}
+.QH_HeaderRight_THTT
+{
+	background-image: url(Images/layoutgraphics_right.gif);
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color:black;
+	height:18px;
+}
+.QH_Header_THTT
+{
+	border: none;
+	background-image: url(Images/layoutgraphics_middle.gif);
+	font: 11px Verdana, Arial, Helvetica, sans-serif;
+	color:black;
+	text-align:center;
+	padding-top: 3px;
+	height:18px;
+
+}
+.QH_MenuSelected_THTT
+{
+	padding-right: 5px;
+	background-position: 5px 4px;
+	padding-left: 22px;
+	background-image: url(images/Current.gif);
+	padding-bottom: 3px;
+	padding-top: 3px;
+	background-repeat: no-repeat;
+	background-color: #E0E092;
+		
+}
+.QH_NEWS_MENU_ITEM_THTT
+{
+	padding: 3 5 3 15;
+	background-image: url(images/bullet01.gif);
+	background-repeat:no-repeat;
+	background-position: 4 8;
+	font-weight:bold;
+	font: bold 11px Arial,Verdana,Helvetica,sans-serif;
+	text-transform: capitalize;
+	color:#00149C;
+	text-decoration: none;
+}
+.QH_NEWS_MENU_THTT
+{
+	border-top: #528AF7 1px solid; 
+	font: 13px Arial, Verdana, Helvetica, sans-serif;
+	text-align:justify;
+	text-transform:capitalize;
+	background-color: #F7F7FF;
+}
+/*Menu 1*/
+.QH_1_MenuBg
+{
+    background-image: url(Images/1_MenuBg.gif);
+}
+/*Menu 2*/
+.QH_2_MenuBg
+{
+    background-image: url(Images/2_MenuBg.gif);
+}
+.QH_2_MenuLeftBg_1
+{
+	background-image: url(Images/2_MenuLeftBg_1.gif);
+    background-repeat:no-repeat;
+    background-position: left; 	
+}
+.QH_2_MenuLeftBg_2
+{
+	background-image: url(Images/2_MenuLeftBg_2.gif);
+}
+.QH_2_MenuRightBg_1
+{
+	background-image: url(Images/2_MenuRightBg_1.gif);
+    background-repeat:no-repeat;
+    background-position: right; 	
+}
+.QH_2_MenuRightBg_2
+{
+	background-image: url(Images/2_MenuRightBg_2.gif);
+}
+
+/*Footer*/
+.QH_FooterLeft
+{
+	background-image:  url(Images/FooterLeft.gif);
+	background-repeat:no-repeat;
+	background-position:left;
+	width:48px;
+	height:48px;
+}
+.QH_FooterRight
+{
+	background-image: url(Images/FooterRight.gif);
+	background-repeat:no-repeat;
+	background-position:right;	
+	width:45px;
+	height:48px;
+}
+.QH_FooterMiddle
+{
+	background-image: url(Images/FooterMiddle.gif);
+	height:28px;	
+}
+
+/*Set Login Style*/
+A.QH_Login:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #002ee5;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+A.QH_Login:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: red;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+A.QH_Login:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #002ee5;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+A.QH_Login:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: red;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+/*Set Login Style*/
+A.QH_Help:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #002ee5;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+A.QH_Help:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: red;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+A.QH_Help:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #002ee5;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+A.QH_Help:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: red;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+/*Set Change Pass Style*/
+
+/*Set Change Pass Style*/
+A.QH_ChangePass:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #002ee5;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+A.QH_ChangePass:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #002ee5;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+A.QH_ChangePass:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #002ee5;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+A.QH_ChangePass:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: red;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+/*Set BreadCumb Style*/
+A.QH_BreadCumb:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: red;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+A.QH_BreadCumb:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: red;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+A.QH_BreadCumb:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: red;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+A.QH_BreadCumb:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: red;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+/* Set Date Style*/
+.QH_Date
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #002ee5;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+/* Set User Style*/
+.QH_User
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #002ee5;
+    FONT-FAMILY: Arial, Helvetica;
+    text-align:right;
+}
+/* Set CopyRight Style*/
+.QH_CopyRight
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #002ee5;
+    FONT-FAMILY: Arial, Helvetica;
+	text-decoration: none;
+}
+
+/*End LANPHM*/
+/*
+.QH_Khung_TopLeft
+{
+    BACKGROUND-IMAGE: url(images/Khung_TopLeft.gif)
+}
+.QH_Khung_TopMid
+{
+    BACKGROUND-IMAGE: url(images/Khung_TopMid.gif)
+}
+.QH_Khung_TopRight
+{
+    BACKGROUND-IMAGE: url(images/Khung_TopRight.gif)
+}
+.QH_Khung_Left
+{
+    BACKGROUND-IMAGE: url(images/Khung_Left11.gif);
+}
+.QH_Khung_Left1
+{
+    BACKGROUND-IMAGE: url(images/Khung_Left11.gif);
+    background-repeat:no-repeat;
+}
+.QH_Khung_Right
+{
+    BACKGROUND-IMAGE: url(images/Khung_Right.gif);
+    VERTICAL-ALIGN: bottom
+}
+.QH_Khung_Right1
+{
+    BACKGROUND-IMAGE: url(images/Khung_Right1.gif);
+    VERTICAL-ALIGN: bottom
+}
+*/
+/*Set style for button link*/
+
+A.QH_button:link
+{
+	border-right: white 2px outset;
+	padding-right: 6px;
+	border-top: white 2px outset;
+	display: inline;
+	padding-left: 6px;
+	font-weight: bold;
+	font-size: 10px;
+	background-image: url(Images/ButtonBg.gif);
+	padding-bottom: 2px;
+	margin: 0px;
+	vertical-align: middle;
+	border-left: white 2px outset;
+	height:24px;
+	color: black;
+	padding-top: 2px;
+	border-bottom: white 2px outset;
+	font-variant: normal;
+	text-decoration: none;
+}
+A.QH_button:visited
+{
+	border-right: white 2px outset;
+	padding-right: 6px;
+	border-top: white 2px outset;
+	/*display: inline;*/
+	padding-left: 6px;
+	font-weight: bold;
+	font-size: 10px;
+	background-image: url(Images/ButtonBg.gif);
+	padding-bottom: 2px;
+	margin: 0px;
+	vertical-align: middle;
+	border-left: white 2px outset;
+	color: black;
+	padding-top: 2px;
+	border-bottom: white 2px outset;
+	font-variant: normal;
+	text-decoration: none;	
+	height:24px;
+}
+A.QH_button:active
+{
+	border-right: white 2px outset;
+	padding-right: 6px;
+	border-top: white 2px outset;
+	display: inline;
+	padding-left: 6px;
+	font-weight: bold;
+	font-size: 10px;
+	background-image: url(Images/ButtonBg.gif);
+	padding-bottom: 2px;
+	margin: 0px;
+	vertical-align: middle;
+	border-left: white 2px outset;
+	padding-top: 2px;
+	border-bottom: white 2px outset;
+	font-variant: normal;
+	text-decoration: none;	
+    COLOR: gray;
+	height:24px;
+}
+A.QH_button:hover
+{
+	border-right: white 2px inset;
+	padding-right: 6px;
+	border-top: white 2px inset;
+	display: inline;
+	padding-left: 6px;
+	font-weight: bold;
+	font-size: 10px;
+	background-image: url(images/ButtonBg.gif);
+	padding-bottom: 2px;
+	margin: 0px;
+	vertical-align: middle;
+	border-left: white 2px inset;
+	color: black;
+	padding-top: 2px;
+	border-bottom: white 2px inset;
+	background-color: transparent;
+	font-variant: normal;
+	text-decoration: none;
+	height:24px;
+}
+/*Set style for datagrid*/
+.QH_DataGridbottom
+{
+    PADDING-LEFT: 4px;
+    FONT-SIZE: 11px;
+    COLOR: darkblue;
+    BORDER-BOTTOM: silver 1px solid;
+    FONT-FAMILY: Arial, Tahoma, 'Times New Roman', 'MS Sans Serif'
+}
+.QH_DatagridAlternation
+{
+	background-color: snow;
+}
+.QH_DataGridHeader
+{
+	padding-right: 2px;
+	padding-left: 2px;
+	font-weight: bolder;
+	font-size: 11px;
+	padding-bottom: 2px;
+	color: black;
+	padding-top: 2px;
+	font-family: Arial, Tahoma, 'Times New Roman' , 'MS Sans Serif';
+	height: 26px;
+	background-color: aliceblue;
+	text-align: center;
+}
+/* Set style for menu*/
+.QH_Menu
+{
+    BORDER-RIGHT: gray 1px solid;
+    BORDER-TOP: gray 1px solid;
+    FILTER: progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=3, Color= 'lightskyblue' , Positive= 'true' );
+    BORDER-LEFT: gray 1px solid;
+    WIDTH: 98%;
+    BORDER-BOTTOM: gray 1px solid;
+    BACKGROUND-COLOR: aliceblue
+}
+.QH_MenuHeader
+{
+    PADDING-RIGHT: 5px;
+    PADDING-LEFT: 7px;
+    BACKGROUND-IMAGE: url(images/MenuHeader.gif);
+    PADDING-BOTTOM: 4px;
+    FONT: bold 11px Verdana,Arial,Helvetica,sans-serif;
+    COLOR: darkblue;
+    PADDING-TOP: 4px;
+    BORDER-BOTTOM: #b7b7b7 1px solid
+}
+.QH_MenuItem
+{
+    PADDING-RIGHT: 5px;
+    BACKGROUND-POSITION: 1px 2px;
+    PADDING-LEFT: 22px;
+    BACKGROUND-IMAGE: url(images/join.gif);
+    PADDING-BOTTOM: 3px;
+    FONT: 11px Arial,Verdana,Helvetica,sans-serif;
+    PADDING-TOP: 3px;
+    BACKGROUND-REPEAT: no-repeat
+}
+.QH_MenuSelected
+{
+    PADDING-RIGHT: 5px;
+    BACKGROUND-POSITION: 5px 4px;
+    PADDING-LEFT: 22px;
+    BACKGROUND-IMAGE: url(images/Current.gif);
+    PADDING-BOTTOM: 3px;
+    PADDING-TOP: 3px;
+    BACKGROUND-REPEAT: no-repeat;
+    BACKGROUND-COLOR: lightskyblue
+}
+/*Set style for Column Label & Control trong table content*/
+.QH_ColLabel
+{
+    BORDER-RIGHT: #e5e5e5 1px double;
+    PADDING-RIGHT: 5px;
+    BORDER-TOP: #e5e5e5 1px double;
+    FONT: 11px Arial, Helvetica, sans-serif;
+    BORDER-LEFT: #e5e5e5 1px double;
+    COLOR: black;
+    BORDER-BOTTOM: #e5e5e5 1px double;
+    background-color: aliceblue;
+    TEXT-ALIGN: right;
+}
+.QH_ColControl
+{
+    BORDER-RIGHT: #e5e5e5 1px double;
+    BORDER-TOP: #e5e5e5 1px double;
+    PADDING-LEFT: 2px;
+    BORDER-LEFT: #e5e5e5 1px double;
+    BORDER-BOTTOM: #e5e5e5 1px double
+}
+.QH_ColLabel1
+{
+    PADDING-RIGHT: 5px;
+    FONT: 11px Arial, Helvetica, sans-serif;
+    COLOR: black;
+    TEXT-ALIGN: right
+}
+
+/*Set style for WEB*/
+.QH_MenuRight_Left
+{
+	background-image: url(images/MenuRight_Left.gif);
+}
+.QH_MenuRight_Right
+{
+	background-image: url(images/MenuRight_Right.gif);
+	}
+.QH_MenuRight_Footer
+{
+	background-image: url(images/MenuRight_Footer.gif);
+	background-repeat:no-repeat;
+	vertical-align:bottom;
+	}
+.QH_MenuRight_Header
+{
+	background-image: url(images/MenuRight_Header.gif);
+	background-repeat:no-repeat;
+	text-align: center; 
+	font: 11px Arial;
+	font-weight:bold;
+	color: #022555;
+	height:20px;
+}
+.QH_MenuRight_Middle
+{
+	background-image: url(images/MenuRight_Middle.gif);
+	background-repeat:repeat-y;
+}
+.QH_MenuRight_Item
+{
+	background-image: url(images/Bulet.gif);
+	background-repeat:no-repeat;
+	background-position:5 0;
+	background-color:Transparent;
+	TEXT-DECORATION: blink;
+	font: 12px Arial;
+	color: #003399;
+	border-Top:solid 1px #D5E6FD;
+	padding-bottom: 3px;
+	padding-top: 3px;
+	padding-left: 20px;
+	
+}
+.QH_MenuRight_Item:hover
+{
+	background-color: #B5D6FB;
+	TEXT-DECORATION: blink;
+	padding-left: 20px;
+	font: 12px Arial;
+	color: #003399;
+	padding-bottom: 3px;
+	padding-top: 3px;
+}
+.QH_MenuRight_Item_Selected
+{
+	background-color: #B5D6FB;
+}
+
+
+.QH_MenuLeft_Item
+{
+	background-image: url(images/Bulet.gif);
+	background-repeat:no-repeat;
+	background-position:5 0;
+	background-color:Transparent;
+	TEXT-DECORATION: none;
+	font: 12px Arial;
+	color: #003399;
+	border-Top:solid 1px #D5E6FD;
+	padding-bottom: 3px;
+	padding-top: 3px;
+	padding-left: 20px;
+	
+}
+.QH_MenuLeft_ItemText
+{
+	background-color:Transparent;
+	TEXT-DECORATION: none;
+	text-align:left;
+	font: 12px Arial;
+	color: #003399;
+	cursor:hand;
+}
+
+.QH_MenuLeft_Item:hover
+{
+	background-color: #B5D6FB;
+	background-position:5 0;
+	TEXT-DECORATION: none;
+	padding-left: 20px;
+	font: 12px Arial;
+	color: #003399;
+	padding-bottom: 3px;
+	padding-top: 3px;
+}
+.QH_MenuLeft_Item_Selected
+{
+	background-color: #B5D6FB;
+}
+.QH_MenuLeft_Left
+{
+	background-image: url(images/MenuRight_Left.gif);
+}
+.QH_MenuLeft_Right
+{
+	background-image: url(images/MenuRight_Right.gif);	
+}
+.QH_MenuLeft_Footer
+{
+	background-image: url(images/MenuRight_Footer.gif);	
+	background-repeat:no-repeat;
+	vertical-align:bottom;
+}
+	
+.QH_MenuLeft_Header
+{
+	background-image: url(images/MenuRight_Header.gif);
+	background-repeat:no-repeat;
+	text-align: center; 
+	font: 11px Arial;
+	font-weight:bold;
+	color: #022555;
+	height:20px;
+}
+.QH_MenuLeft_Middle
+{
+	background-image: url(images/MenuRight_Middle.gif);
+	background-repeat:repeat-y;
+	text-align:center;
+}
+.QH_MenuLeft_Image
+{
+	height:66px;
+	width:158;
+	background-image: url(images/QH1.gif);
+	background-repeat:no-repeat;
+}
+
+.QH_Khung_TopLeft
+{
+	background-image: url(images/Khung_TopLeft.gif);
+}
+.QH_Khung_TopMid
+{
+	background-image: url(images/Khung_TopMid.gif);
+}
+.QH_Khung_TopRight
+{
+	background-image: url(images/Khung_TopRight.gif);
+}
+
+.QH_Content_TopLeft
+{
+	background-image: url(images/Content_TopLeft.gif);
+}
+.QH_Content_TopMid
+{
+	background-image: url(images/Content_TopMid.gif);
+}
+.QH_Content_TopRight
+{
+	background-image: url(images/Content_TopRight.gif);
+}
+
+.QH_Content_Left
+{
+	background-image: url(images/Content_Left.gif);
+	background-repeat:repeat-y;
+}
+.QH_Content_Right
+{
+	background-image: url(images/Content_Right.gif);
+	background-repeat:repeat-y;
+}
+.QH_Content_BottomLeft
+{
+	background-image: url(images/Content_BottomLeft.gif);
+	background-repeat:no-repeat;
+}
+.QH_Content_BottomMid
+{
+	background-image: url(images/Content_BottomMid.gif);
+	background-repeat:repeat-x;
+}
+.QH_Content_BottomRight
+{
+	background-image: url(images/Content_BottomRight.gif);
+	background-repeat:no-repeat;
+}
+.QH_Content_Search
+{
+	background-image: url(images/Content_Search.gif);
+	background-repeat:repeat-x;
+}
+.QH_Content_Header{
+	font: 11px Arial;
+	font-weight:bold;
+	color: #022555;
+}
+.QH_Content_Header_Middle{
+	font: 11px Arial;
+	font-weight:bold;
+	color: #022555;
+	text-align:center;
+}
+
+/* News*/
+.QH_News_Category
+{
+	background-color:#EFF1F4;
+	border: none;
+	font: bold 12px Arial, Verdana, Helvetica, sans-serif;
+	padding-left: 5px;
+	padding-top:3;
+	color: DarkBlue;
+	cursor: hand;
+	text-decoration:none;
+	text-transform: uppercase;
+	
+}
+
+.QH_News_Title
+{
+	background-image: url(images/Center_07.gif);
+	background-repeat:no-repeat;
+	border: none;
+	font: bold 12px Arial, Verdana, Helvetica, sans-serif;
+	padding-left: 25px;
+	padding-top:3px;
+	color: #FB4700;
+	cursor: hand;
+	text-decoration: none;
+}
+.QH_News_Content
+{
+	margin-left:0px;
+	border: none;
+	font: 13px Arial, Verdana, Helvetica, sans-serif;
+	color: #17263D;
+	
+	text-align:justify;
+	margin:0in;
+	margin-bottom:.0001pt;
+}
+.QH_News_Content_Margin
+{
+	padding-left:5px;
+	}
+.QH_News_Title_Margin
+{
+	padding-Top:5px;
+	}
+.QH_News_Content_Detail
+{
+	border-bottom:solid 1 #FE8A6C;
+	/*background-image: url(images/Center_03.gif);
+	background-repeat:repeat-x;*/
+	}
+.QH_News_Content_Others
+{
+	border-bottom:solid 1 #FE8A6C;
+	text-align:right;
+}
+.QH_News_Content_Others1
+{
+	background-image: url(images/XemChiTiet_01.gif);
+	background-repeat:no-repeat;
+	cursor: hand;
+}
+.QH_News_Others
+{
+	background-image: url(images/XemChiTiet_03.gif);
+	background-repeat:repeat-x;
+	text-decoration: blink;
+	color:Black;
+	cursor: hand;
+}
+.QH_News_Detail_Title
+{
+	padding-left:5px;
+	color: Red;
+	font-size: 13pt;
+	font-weight: bold;
+}
+.QH_News_Detail
+{
+	background-image: url(images/Center_04.gif);
+	background-repeat:no-repeat;
+	font-weight:bold;
+	text-decoration: none;
+	cursor: hand;
+}
+.QH_NEWS_SOURCE
+{
+	font-style:italic;
+	font-weight:bold;
+	color: darkblue;
+	text-align:right;
+}
+.QH_News_PublicDate
+{
+	font-weight:bold;
+	text-align:right;
+	color: darkblue;
+	}
+.QH_News_Content_Posted
+{
+	background-image: url(images/Center_13.gif);
+}
+.QH_News_Content_Posted_1
+{
+	/*border-left:solid 1 #90BBFD;*/
+	background-image: url(images/Center_10.gif);
+	background-repeat:no-repeat;
+	}
+.QH_News_Content_Posted_2
+{
+	background-image: url(images/Center_11.gif);
+	background-repeat:no-repeat;
+	}
+.QH_News_Content_Posted_3
+{
+	background-image: url(images/Center_12.gif);
+	background-repeat:no-repeat;
+	}
+.QH_News_Title_More
+{
+	background-image: url(images/Center_17.gif);
+	background-repeat:no-repeat;
+	padding-left:18px;
+	border: none;
+	font: bold 11px Arial, Verdana, Helvetica, sans-serif;
+	text-align:left;
+	padding-top:0;
+	cursor: hand;
+	color: #205DA4;
+	text-decoration: none;
+}
+
+
+
+.QH_News_Summary
+{
+	font-weight: bold;
+	text-indent: 0px;
+	text-align:justify;
+}
+
+
+
+.QH_News_PublishDate
+{
+	
+}
+
+.QH_NEWS_MENU
+{
+	border-top: #528AF7 1px solid; 
+	font: 13px Arial, Verdana, Helvetica, sans-serif;
+	text-align:justify;
+	text-transform:capitalize;
+	background-color: #F7F7FF;
+}
+.QH_NEWS_MENU_ITEM
+{
+	padding: 3 5 3 15;
+	background-image: url(images/bullet01.gif);
+	background-repeat:no-repeat;
+	background-position: 4 8;
+	font-weight:bold;
+	font: bold 11px Arial,Verdana,Helvetica,sans-serif;
+	text-transform: capitalize;
+	color:#00149C;
+	text-decoration: none;
+}
+.QH_NEWS_MENU_ITEM_SELECTED
+{
+	padding: 3 5 3 15;
+	background-image: url(images/bullet01.gif);
+	background-repeat:no-repeat;
+	background-position: 4 8;
+	background-color: #8AAEEE;
+	font: 11px Arial,Verdana,Helvetica,sans-serif;
+	text-transform:capitalize;
+	color: White;
+	font-weight: bold;
+}
+.QH_NEWS_MENU_HOMEPAGE
+{
+	cursor: hand;
+	text-decoration: none;
+	/*color: #cc6666;*/
+	color : darkblue;
+	/*font-weight:bold;*/
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+}
+.QH_NEWS_MENU_HEADER
+{
+ 	font-weight:bold;
+	text-align:center;
+	color: White;
+	vertical-align:middle;
+	background-image: url(layoutgraphics_middle.gif); /*background-color:#5486DD; */
+	height:18PX;
+}
+
+
+.QH_NEWS_HEADER
+{
+	border: none; /* 1 solid #528AF7; */
+	font: bold 17px Arial, Verdana, Helvetica, sans-serif;
+	text-align:center;
+	padding-top:3px;
+	height:21px;
+	color: Maroon;
+}	
+/*End News*/
+
+.QH_ColLabel2
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	color: darkblue;
+	text-align: right;
+	vertical-align:middle;
+	text-decoration: none;
+	padding-right: 5;
+	/*width: 15%;*/
+}
+
+/* HOME PAGE */
+.QH_Home_Link
+{
+	color:Silver;
+	font:caption;
+	font-size:20pt;	
+	font-family: Tahoma;  
+}
+A.QH_Home_Link:link
+{
+	color:White;
+	font:caption;
+	font-size:20pt;	
+	font-family: Tahoma;  
+}
+A.QH_Home_Link:visited
+{
+	color:White;
+	font:caption;
+	font-size:20pt;	
+	font-family: Tahoma;  
+	
+}
+A.QH_Home_Link:active
+{
+	color:White;
+	font:caption;
+	font-size:20pt;	
+	font-family: Tahoma;  
+	
+}
+A.QH_Home_Link:hover
+{
+	color:White;
+	font:caption;
+	font-size:20pt;	
+	font-family: Tahoma;  
+	
+}
+
+/* End HOME PAGE */

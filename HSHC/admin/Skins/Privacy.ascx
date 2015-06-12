@@ -1,0 +1,2 @@
+<%@ Control language="vb" CodeBehind="Privacy.ascx.vb" AutoEventWireup="false" Explicit="True" Inherits="PortalQH.Skins.Privacy" %>
+<asp:hyperlink id="hypPrivacy" runat="server" cssclass="OtherTabs"></asp:hyperlink>

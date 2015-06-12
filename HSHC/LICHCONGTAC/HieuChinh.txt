@@ -1,0 +1,26 @@
+Cac file da sua:
+Up:
+MemberJoin_List.asp
+Cal_Week_Approved.asp
+
+Add:
+rpt_InLichKhan
+
+Cac store da sua:
+Up:
+COMM_ListUser
+funtion RptGetBookChairMan
+
+Add:
+function f_GetParam
+
+
+
+	
+
+
+
+
+
+
+

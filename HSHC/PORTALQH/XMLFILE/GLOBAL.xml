@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<PORTALQH>
+<!--CREATED : NGANTL-->
+<!--DINH NGHIA GIA TRI DANH MUC CHO LIST MENU-->
+<tabDanhMuc>
+	<tab1>DMDUONG</tab1>
+	<tab2>DEPARTMENTS</tab2>
+	<tab3>DMDONVI</tab3>
+	<tab4>DMKHUVUC</tab4>
+	<tab5>DMCHUCVU</tab5>
+	<tab6>DMCHUCDANH</tab6>
+	<tab7>DMLOAIDONVI</tab7>
+	<tab8>DMDONVITINH</tab8>
+	<tab9>DMKYBAOCAO</tab9>
+	<tab10>DMLINHVUC</tab10>
+	<tab11>NEWS_CATEGORIES</tab11>
+	<tab12>LOAILICHTRUCLE</tab12>
+	<tab13>PARAMS</tab13>
+</tabDanhMuc>
+<Variable>
+<SoNgayLoc>20</SoNgayLoc><!--NganTL created : So ngay loc ho so-->
+<SoDongHienThiDatagrid>10</SoDongHienThiDatagrid>
+</Variable>
+</PORTALQH>

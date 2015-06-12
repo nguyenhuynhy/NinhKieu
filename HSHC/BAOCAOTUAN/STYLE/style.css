@@ -1,0 +1,35 @@
+p {  font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #000000}
+td {  font-family:Arial, Helvetica, sans-serif; font-size: 13px; color: #000000}
+h1 {  font-family: Arial, Helvetica, sans-serif; font-size: 24px; color: #009900; text-align: center}
+a {  text-decoration: none; color: #005E00}
+a:hover {  color: #A6A600; text-decoration: underline}
+
+
+
+.clCMAbs{position:absolute; visibility:hidden; left:0; top:0}
+.clCMEvent {
+	CLIP: rect(10px 100% 100% 10px); HEIGHT: 99%; LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: visible; WIDTH: 99%
+}
+  
+/*Style for the background-bar*/
+.clBar{position:absolute; width:10; height:10; background-color:Navy; layer-background-color:Navy; visibility:hidden}
+
+/*Styles for level 0*/
+.clLevel0,.clLevel0over{position:absolute; padding:5px; font-family:tahoma,Verdana; font-size:12px; font-weight:bold}
+.clLevel0{background-color:#105A9C; layer-background-color:#D3D3D3; color:white;}
+.clLevel0over{background-color:black; layer-background-color:#336699; color:#FFCC00; cursor:pointer; cursor:hand; }
+.clLevel0border{position:absolute; visibility:hidden; background-color:black; layer-background-color:black}
+
+
+/*Styles for level 1*/
+.clLevel1, .clLevel1over{position:absolute; padding:2px; font-family:tahoma, arial; font-size:12px; font-weight:bold; text-align: left}
+.clLevel1{background-color:#D3D3D3; layer-background-color:#0C75C9; color:navy;}
+.clLevel1over{background-color:#E6E8FF; layer-background-color:#0C75C9; color:#0000FF; cursor:pointer; cursor:hand; }
+.clLevel1border{position:absolute; visibility:hidden; background-color:black; layer-background-color:black}
+
+
+/*Styles for level 2*/
+.clLevel2, .clLevel2over{position:absolute; padding:2px; font-family:tahoma,arial,helvetica; font-size:10px; font-weight:bold}
+.clLevel2{background-color:Navy; layer-background-color:Navy; color:white;}
+.clLevel2over{background-color:#0099cc; layer-background-color:#0099cc; color:#FED664; cursor:pointer; cursor:hand; }
+.clLevel2border{position:absolute; visibility:hidden; background-color:black; layer-background-color:black}

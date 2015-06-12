@@ -1,0 +1,185 @@
+<span id="_ctl0__ctl0__ctl0_lblTitle" class="QH_Label_Title" style="width:100%;"><b><Font size=3>Số liệu đã duyệt</font></b></span><table class="QH_DataGrid" cellspacing="0" cellpadding="3" rules="all" border="1" id="_ctl0__ctl0__ctl0_dgdDanhSach" style="width:100%;border-collapse:collapse;">
+	<tr class="QH_DatagridHeader">
+		<td style="font-weight:bold;">STT</td><td style="font-weight:bold;">Kỳ báo cáo</td><td style="font-weight:bold;">Đơn vị báo cáo</td><td style="font-weight:bold;">Loại số liệu</td>
+	</tr><tr>
+		<td align="Center" style="width:5%;">
+							
+						101</td><td align="Left" style="width:15%;">
+							
+						Năm 2001 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Phòng Lao Động Thương Binh và Xã Hội</td><td align="Left" style="width:15%;">
+							
+						Số liệu thực hiện</td>
+	</tr><tr class="QH_DatagridAlternation">
+		<td align="Center" style="width:5%;">
+							
+						102</td><td align="Left" style="width:15%;">
+							
+						Năm 2005 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Ban Tôn Giáo</td><td align="Left" style="width:15%;">
+							
+						Số liệu kế hoạch</td>
+	</tr><tr>
+		<td align="Center" style="width:5%;">
+							
+						103</td><td align="Left" style="width:15%;">
+							
+						Năm 2005 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Phòng Giáo Dục và Đào Tạo</td><td align="Left" style="width:15%;">
+							
+						Số liệu kế hoạch</td>
+	</tr><tr class="QH_DatagridAlternation">
+		<td align="Center" style="width:5%;">
+							
+						104</td><td align="Left" style="width:15%;">
+							
+						Qúy 1 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Phòng kinh Tế</td><td align="Left" style="width:15%;">
+							
+						Số liệu kế hoạch</td>
+	</tr><tr>
+		<td align="Center" style="width:5%;">
+							
+						105</td><td align="Left" style="width:15%;">
+							
+						Qúy 1 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Văn phòng HĐND & UBND</td><td align="Left" style="width:15%;">
+							
+						Số liệu thực hiện</td>
+	</tr><tr class="QH_DatagridAlternation">
+		<td align="Center" style="width:5%;">
+							
+						106</td><td align="Left" style="width:15%;">
+							
+						Qúy 1 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Ban Tôn Giáo</td><td align="Left" style="width:15%;">
+							
+						Số liệu ước lượng</td>
+	</tr><tr>
+		<td align="Center" style="width:5%;">
+							
+						107</td><td align="Left" style="width:15%;">
+							
+						Qúy 1 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Phòng Giáo Dục và Đào Tạo</td><td align="Left" style="width:15%;">
+							
+						Số liệu ước lượng</td>
+	</tr><tr class="QH_DatagridAlternation">
+		<td align="Center" style="width:5%;">
+							
+						108</td><td align="Left" style="width:15%;">
+							
+						Qúy 1 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Phòng Lao Động Thương Binh và Xã Hội</td><td align="Left" style="width:15%;">
+							
+						Số liệu ước lượng</td>
+	</tr><tr>
+		<td align="Center" style="width:5%;">
+							
+						109</td><td align="Left" style="width:15%;">
+							
+						Qúy 2 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Phòng Lao Động Thương Binh và Xã Hội</td><td align="Left" style="width:15%;">
+							
+						Số liệu ước lượng</td>
+	</tr><tr class="QH_DatagridAlternation">
+		<td align="Center" style="width:5%;">
+							
+						110</td><td align="Left" style="width:15%;">
+							
+						Quý 3 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Phòng Thống Kê</td><td align="Left" style="width:15%;">
+							
+						Số liệu kế hoạch</td>
+	</tr><tr>
+		<td align="Center" style="width:5%;">
+							
+						111</td><td align="Left" style="width:15%;">
+							
+						Quý 3 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Ban Tôn Giáo</td><td align="Left" style="width:15%;">
+							
+						Số liệu ước lượng</td>
+	</tr><tr class="QH_DatagridAlternation">
+		<td align="Center" style="width:5%;">
+							
+						112</td><td align="Left" style="width:15%;">
+							
+						Quý 4 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Phòng Giáo Dục và Đào Tạo</td><td align="Left" style="width:15%;">
+							
+						Số liệu kế hoạch</td>
+	</tr><tr>
+		<td align="Center" style="width:5%;">
+							
+						113</td><td align="Left" style="width:15%;">
+							
+						Quý 4 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Phòng Giáo Dục và Đào Tạo</td><td align="Left" style="width:15%;">
+							
+						Số liệu thực hiện</td>
+	</tr><tr class="QH_DatagridAlternation">
+		<td align="Center" style="width:5%;">
+							
+						114</td><td align="Left" style="width:15%;">
+							
+						Quý 4 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Ban Tôn Giáo</td><td align="Left" style="width:15%;">
+							
+						Số liệu ước lượng</td>
+	</tr><tr>
+		<td align="Center" style="width:5%;">
+							
+						115</td><td align="Left" style="width:15%;">
+							
+						Quý 4 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Phòng Giáo Dục và Đào Tạo</td><td align="Left" style="width:15%;">
+							
+						Số liệu ước lượng</td>
+	</tr><tr class="QH_DatagridAlternation">
+		<td align="Center" style="width:5%;">
+							
+						116</td><td align="Left" style="width:15%;">
+							
+						Quý 4 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Phòng kinh Tế</td><td align="Left" style="width:15%;">
+							
+						Số liệu ước lượng</td>
+	</tr><tr>
+		<td align="Center" style="width:5%;">
+							
+						117</td><td align="Left" style="width:15%;">
+							
+						Quý 4 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Phòng Tổ Chức Chính Quyền</td><td align="Left" style="width:15%;">
+							
+						Số liệu ước lượng</td>
+	</tr><tr class="QH_DatagridAlternation">
+		<td align="Center" style="width:5%;">
+							
+						118</td><td align="Left" style="width:15%;">
+							
+						Tháng 1 Năm 2005</td><td align="Left" style="width:30%;">
+							
+						Phòng Tổ Chức Chính Quyền</td><td align="Left" style="width:15%;">
+							
+						Số liệu kế hoạch</td>
+	</tr>
+</table>

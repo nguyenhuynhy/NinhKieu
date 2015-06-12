@@ -1,0 +1,52 @@
+<?xml version="1.0" standalone="yes" ?>
+<NewDataSet xmlns="http://www.fsshcm.com.vn/Reports.xsd">
+	<rptHoSoChuyenSoCapPhep>
+		<ID>TuNgay</ID>
+		<HeaderName>Từ ngày</HeaderName>
+		<ReportName></ReportName>
+		<Description>Từ ngày</Description>
+		<DataType>nvarchar</DataType>
+		<ControlType>DATETEXTBOX</ControlType>
+		<Width>80</Width>
+		<TextMode>0</TextMode>
+		<Crlf></Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>10</MaxLength>
+		<IsNumber>0</IsNumber>
+		<CssClass>QH_Textbox</CssClass>
+		<IsParam>true</IsParam>
+		<IsWhere>true</IsWhere>
+	</rptHoSoChuyenSoCapPhep>
+	<rptHoSoChuyenSoCapPhep>
+		<ID>DenNgay</ID>
+		<HeaderName>Đến ngày</HeaderName>
+		<ReportName></ReportName>
+		<Description>Đến ngày</Description>
+		<DataType>nvarchar</DataType>
+		<ControlType>DATETEXTBOX</ControlType>
+		<Width>80</Width>
+		<TextMode>0</TextMode>
+		<Crlf></Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>10</MaxLength>
+		<IsNumber>0</IsNumber>
+		<CssClass>QH_Textbox</CssClass>
+		<IsParam>true</IsParam>
+		<IsWhere>true</IsWhere>
+	</rptHoSoChuyenSoCapPhep>
+	<rptHoSoChuyenSoCapPhep>
+		<ID>sp_rptHoSoChuyenSoCapPhep</ID>
+		<ReportName>rptHoSoChuyenSoCapPhep.xls</ReportName>
+		<Description></Description>
+	</rptHoSoChuyenSoCapPhep>
+</NewDataSet>

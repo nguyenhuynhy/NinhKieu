@@ -1,0 +1,1124 @@
+<?xml version="1.0" standalone="yes" ?>
+<NewDataSet>
+<!--DMDONVI
+MaDonVi nvarchar(5)
+TenDonVi nvarchar(500)
+DiaChi nvarchar(500)
+DienThoai nvarchar(20)
+MaLoaiDonVi nvarchar(5)
+MaDonViCapTren nvarchar(5)
+PhuongDiem nvarchar(1)
+TenVietTat nvarchar(500)
+TinhTrang nvarchar(1)
+-->
+<!--end DMDONVI-->
+<DMDONVI>
+		<ID>MaDonVi</ID>
+		<Description>Mã đơn vị</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>1</IsKey>
+		<MaxLength>5</MaxLength>
+		<IsNumber>0</IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMDONVI> 
+<DMDONVI>
+		<ID>TenDonVi</ID>
+		<Description>Tên đơn vị</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>300</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>500</MaxLength>
+		<IsNumber>0</IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMDONVI> 
+<DMDONVI>
+		<ID>DiaChi</ID>
+		<Description>Địa chỉ</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>300</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>500</MaxLength>
+		<IsNumber>1</IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMDONVI> 
+<DMDONVI>
+		<ID>DienThoai</ID>
+		<Description>Điện thoại</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>20</MaxLength>
+		<IsNumber>0</IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMDONVI> 
+<DMDONVI>
+		<ID>MaLoaiDonVi</ID>
+		<Description>Mã loại đơn vị</Description>
+		<ControlType>DropDownList</ControlType>
+		<Width>300</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource>DMLOAIDONVI</DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>5</MaxLength>
+		<IsNumber>0</IsNumber>
+		<CssClass>QH_DropDownList</CssClass>
+	</DMDONVI> 
+<DMDONVI>
+		<ID>MaDonViCapTren</ID>
+		<Description>Mã đơn vị cấp trên</Description>
+		<ControlType>DropDownList</ControlType>
+		<Width>300</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource>DMDONVI</DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>5</MaxLength>
+		<IsNumber>0</IsNumber>
+		<CssClass>QH_DropDownList</CssClass>
+	</DMDONVI> 
+<DMDONVI>
+		<ID>PhuongDiem</ID>
+		<Description>Phường điểm</Description>
+		<ControlType>CheckBox</ControlType>
+		<Width></Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber>0</IsNumber>
+		<CssClass>QH_DropDownList</CssClass>
+	</DMDONVI> 
+<DMDONVI>
+		<ID>TenVietTat</ID>
+		<Description>Tên viết tắt</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>500</MaxLength>
+		<IsNumber>0</IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMDONVI> 
+<DMDONVI>
+		<ID>Used</ID>
+		<Description>Đang sử dụng</Description>
+		<ControlType>CheckBox</ControlType>
+		<Width></Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber>0</IsNumber>
+		<CssClass>QH_DropDownList</CssClass>
+	</DMDONVI> 
+<!--DMLOAIDONVI
+MaLoaiDonVi nvarchar(5)
+TenLoaiDonVi nvarchar(500)
+TinhTrang nvarchar(1)
+-->
+<DMLOAIDONVI>
+		<ID>MaLoaiDonVi</ID>
+		<Description>Mã loại đơn vị</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>1</IsKey>
+		<MaxLength>5</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMLOAIDONVI> 
+<DMLOAIDONVI>
+		<ID>TenLoaiDonVi</ID>
+		<Description>Tên loại đơn vị</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>300</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMLOAIDONVI> 
+<DMLOAIDONVI>
+		<ID>STT</ID>
+		<Description>Số thứ tự</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>5</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMLOAIDONVI> 
+<DMLOAIDONVI>
+		<ID>Used</ID>
+		<Description>Đang sử dụng</Description>
+		<ControlType>CheckBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber>0</IsNumber>
+		<CssClass>QH_CheckBox</CssClass>
+	</DMLOAIDONVI>
+<!--DMPHONGBAN
+MaPhongBan nvarchar(5)
+MaDonVi nvarchar(5)
+TenPhongBan nvarchar(500)
+DienThoai nvarchar(50)
+TinhTrang nvarchar(1)
+-->
+<DEPARTMENTS> <!--REFER TO DEPARTMENTS OF PORTAL-->
+		<ID>DeptID</ID>
+		<Description>Mã phòng ban</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>1</IsKey>
+		<MaxLength>5</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DEPARTMENTS>
+<DEPARTMENTS>
+		<ID>Description</ID>
+		<Description>Tên phòng ban</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>300</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DEPARTMENTS> 
+<DEPARTMENTS>
+		<ID>Notes</ID>
+		<Description>Ghi chú</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>300</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DEPARTMENTS> 
+<DEPARTMENTS>
+		<ID>Active</ID>
+		<Description>Đang sử dụng</Description>
+		<ControlType>CheckBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber>0</IsNumber>
+	</DEPARTMENTS>
+<!--DMDUONG
+MaDuong nvarchar(5)
+TenDuong nvarchar(500)
+ChieuDai nvarchar(50)
+LoGioi nvarchar(50)
+GhiChu nvarchar(500)
+TinhTrang nvarchar(1)
+-->
+<DMDUONG>
+		<ID>MaDuong</ID>
+		<Description>Mã đường</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>1</IsKey>
+		<MaxLength>5</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMDUONG> 
+<DMDUONG>
+		<ID>TenDuong</ID>
+		<Description>Tên đường</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>300</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMDUONG>
+<DMDUONG>
+		<ID>TenVietTat</ID>
+		<Description>Tên viết tắt</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>300</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMDUONG>
+<DMDUONG>
+		<ID>ChieuDai</ID>
+		<Description>Chiều dài</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMDUONG>
+<DMDUONG>
+		<ID>LoGioi</ID>
+		<Description>Lộ giới</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMDUONG>
+<DMDUONG>
+		<ID>GhiChu</ID>
+		<Description>Ghi chú</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>500</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMDUONG>
+<DMDUONG>
+		<ID>Used</ID>
+		<Description>Đang sử dụng</Description>
+		<ControlType>CheckBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber>0</IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMDUONG>
+
+<!--DMKHUVUC
+MaKhuVuc nvarchar(5)
+TenKhuVuc nvarchar(500)
+STT int(2)
+TinhTrang nvarchar(1)
+-->
+<DMKHUVUC>
+		<ID>MaKhuVuc</ID>
+		<Description>Mã khu vực</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>1</IsKey>
+		<MaxLength>5</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMKHUVUC> 
+<DMKHUVUC>
+		<ID>TenKhuVuc</ID>
+		<Description>Tên khu vực</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>300</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMKHUVUC> 
+<DMKHUVUC>
+		<ID>STT</ID>
+		<Description>Số thứ tự</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>5</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMKHUVUC> 
+<DMKHUVUC>
+		<ID>Used</ID>
+		<Description>Đang sử dụng</Description>
+		<ControlType>CheckBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber>0</IsNumber>
+	</DMKHUVUC>
+<!--DMCHUCVU
+MaChucVu nvarchar(5)
+TenChucVu nvarchar(500)
+STT int(2)
+TinhTrang nvarchar(1)
+-->
+<DMCHUCVU>
+		<ID>MaChucVu</ID>
+		<Description>Mã chức vụ</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>1</IsKey>
+		<MaxLength>5</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMCHUCVU> 
+<DMCHUCVU>
+		<ID>TenChucVu</ID>
+		<Description>Tên chức vụ</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>300</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMCHUCVU> 
+<DMCHUCVU>
+		<ID>STT</ID>
+		<Description>Số thứ tự</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>5</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMCHUCVU> 
+<DMCHUCVU>
+		<ID>Used</ID>
+		<Description>Đang sử dụng</Description>
+		<ControlType>CheckBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber>0</IsNumber>
+	</DMCHUCVU>
+<!--DMCHUCDANH
+MaChucDanh nvarchar(5)
+TenChucDanh nvarchar(500)
+STT int(2)
+TinhTrang nvarchar(1)
+-->
+<DMCHUCDANH>
+		<ID>MaChucDanh</ID>
+		<Description>Mã chức danh</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>1</IsKey>
+		<MaxLength>5</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMCHUCDANH> 
+<DMCHUCDANH>
+		<ID>TenChucDanh</ID>
+		<Description>Tên chức danh</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>300</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>0</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMCHUCDANH> 
+<DMCHUCDANH>
+		<ID>STT</ID>
+		<Description>Số thứ tự</Description>
+		<ControlType>TextBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>5</MaxLength>
+		<IsNumber></IsNumber>
+		<CssClass>QH_TextBox</CssClass>
+	</DMCHUCDANH> 
+<DMCHUCDANH>
+		<ID>Used</ID>
+		<Description>Đang sử dụng</Description>
+		<ControlType>CheckBox</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<Crlf>1</Crlf>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>0</MaxLength>
+		<IsNumber>0</IsNumber>
+	</DMCHUCDANH>
+<DMLINHVUC>
+  <ID>MaLinhVuc</ID> 
+  <Description>Mã lĩnh vực</Description> 
+  <ControlType>TextBox</ControlType> 
+  <Width>100</Width> 
+  <TextMode>0</TextMode> 
+  <Crlf>1</Crlf> 
+  <DataSource /> 
+  <DefaultValue /> 
+  <Visible>1</Visible> 
+  <Enabled>1</Enabled> 
+  <IsNull>0</IsNull> 
+  <IsKey>1</IsKey> 
+  <MaxLength>5</MaxLength> 
+  <IsNumber /> 
+  <CssClass>QH_TextBox</CssClass> 
+  </DMLINHVUC>
+- <DMLINHVUC>
+  <ID>TenLinhVuc</ID> 
+  <Description>Tên lĩnh vực</Description> 
+  <ControlType>TextBox</ControlType> 
+  <Width>300</Width> 
+  <TextMode /> 
+  <Crlf>1</Crlf> 
+  <DataSource /> 
+  <DefaultValue /> 
+  <Visible>1</Visible> 
+  <Enabled>1</Enabled> 
+  <IsNull>1</IsNull> 
+  <IsKey>0</IsKey> 
+  <MaxLength>500</MaxLength> 
+  <IsNumber /> 
+  <CssClass>QH_TextBox</CssClass> 
+  </DMLINHVUC>
+- <DMLINHVUC>
+  <ID>MaChaLV</ID> 
+  <Description>Thuộc lĩnh vực</Description> 
+  <ControlType>DROPDOWNLIST</ControlType> 
+  <Width>200</Width> 
+  <TextMode>0</TextMode> 
+  <DataSource>DMLINHVUC</DataSource> 
+  <DefaultValue /> 
+  <Visible>1</Visible> 
+  <Enabled>1</Enabled> 
+  <IsNull>1</IsNull> 
+  <IsKey>0</IsKey> 
+  <MaxLength>500</MaxLength> 
+  <IsNumber>0</IsNumber> 
+  <CssClass>QH_DropDownList</CssClass> 
+  </DMLINHVUC>
+- <DMLINHVUC>
+  <ID>TinhTrang</ID> 
+  <ControlType>CheckBox</ControlType> 
+  <Description>Hoạt động</Description> 
+  <Width>100</Width> 
+  <TextMode>0</TextMode> 
+  <Crlf>1</Crlf> 
+  <DataSource /> 
+  <DefaultValue /> 
+  <Visible>1</Visible> 
+  <Enabled>1</Enabled> 
+  <IsNull>1</IsNull> 
+  <IsKey>0</IsKey> 
+  <MaxLength>0</MaxLength> 
+  <IsNumber>0</IsNumber> 
+  <CssClass>chkbox</CssClass> 
+  </DMLINHVUC>
+- <!-- DM Ky bao cao
+  --> 
+- <DMKYBAOCAO>
+  <ID>MaKyBaoCao</ID> 
+  <Description>Mã kỳ báo cáo</Description> 
+  <ControlType>TEXTBOX</ControlType> 
+  <Width>100</Width> 
+  <TextMode>0</TextMode> 
+  <DataSource /> 
+  <DefaultValue /> 
+  <Visible>1</Visible> 
+  <Enabled>1</Enabled> 
+  <IsNull>0</IsNull> 
+  <IsKey>1</IsKey> 
+  <MaxLength>5</MaxLength> 
+  <IsNumber>0</IsNumber> 
+  <CssClass>QH_TextBox</CssClass> 
+  </DMKYBAOCAO>
+- <DMKYBAOCAO>
+  <ID>MaCha</ID> 
+  <Description>Thuộc chu kỳ báo cáo</Description> 
+  <ControlType>DROPDOWNLIST</ControlType> 
+  <Width>200</Width> 
+  <TextMode>0</TextMode> 
+  <DataSource>DMKYBAOCAO</DataSource> 
+  <DefaultValue /> 
+  <Visible>1</Visible> 
+  <Enabled>1</Enabled> 
+  <IsNull>1</IsNull> 
+  <IsKey>0</IsKey> 
+  <MaxLength>500</MaxLength> 
+  <IsNumber>0</IsNumber> 
+  <CssClass>QH_DropDownList</CssClass> 
+  </DMKYBAOCAO>
+- <DMKYBAOCAO>
+  <ID>TenKyBaoCao</ID> 
+  <Description>Tên kỳ báo cáo</Description> 
+  <ControlType>TEXTBOX</ControlType> 
+  <Width>300</Width> 
+  <TextMode>0</TextMode> 
+  <DataSource /> 
+  <DefaultValue /> 
+  <Visible>1</Visible> 
+  <Enabled>1</Enabled> 
+  <IsNull>1</IsNull> 
+  <IsKey>0</IsKey> 
+  <MaxLength>1000</MaxLength> 
+  <IsNumber>0</IsNumber> 
+  <CssClass>QH_TEXTBOX</CssClass> 
+  </DMKYBAOCAO>
+- <!-- 
+<DMKYBAOCAO>
+		<ID>ThuTuHienThi</ID>
+		<Description>Thứ tự hiển thị</Description>
+		<ControlType>TEXTBOX</ControlType>
+		<Width>50</Width>
+		<TextMode>0</TextMode>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>0</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>4</MaxLength>
+		<IsNumber>1</IsNumber>
+		<CssClass>QH_TEXTBOX</CssClass>
+	</DMKYBAOCAO>
+	<DMKYBAOCAO>
+		<ID>SoThangCongDon</ID>
+		<Description>Số tháng cộng dồn</Description>
+		<ControlType>TEXTBOX</ControlType>
+		<Width>100</Width>
+		<TextMode>0</TextMode>
+		<DataSource></DataSource>
+		<DefaultValue></DefaultValue>
+		<Visible>1</Visible>
+		<Enabled>1</Enabled>
+		<IsNull>1</IsNull>
+		<IsKey>0</IsKey>
+		<MaxLength>10</MaxLength>
+		<IsNumber>1</IsNumber>
+		<CssClass>QH_TEXTBOX</CssClass>
+	</DMKYBAOCAO>
+
+  --> 
+- <DMKYBAOCAO>
+  <ID>TinhTrang</ID> 
+  <Description>Tình Trạng</Description> 
+  <ControlType>CHECKBOX</ControlType> 
+  <Width>100</Width> 
+  <TextMode>0</TextMode> 
+  <DataSource /> 
+  <DefaultValue /> 
+  <Visible>1</Visible> 
+  <Enabled>1</Enabled> 
+  <IsNull>1</IsNull> 
+  <IsKey>0</IsKey> 
+  <MaxLength>0</MaxLength> 
+  <IsNumber>0</IsNumber> 
+  <CssClass>chkbox</CssClass> 
+  </DMKYBAOCAO>
+- <DMKYBAOCAO>
+  <ID>IsYearTime</ID> 
+  <Description>Thuộc kỳ báo cáo năm</Description> 
+  <ControlType>CHECKBOX</ControlType> 
+  <Width>100</Width> 
+  <TextMode>0</TextMode> 
+  <DataSource /> 
+  <DefaultValue /> 
+  <Visible>1</Visible> 
+  <Enabled>1</Enabled> 
+  <IsNull>0</IsNull> 
+  <IsKey>0</IsKey> 
+  <MaxLength>2</MaxLength> 
+  <IsNumber>0</IsNumber> 
+  <CssClass>chkbox</CssClass> 
+  </DMKYBAOCAO>
+<NEWS_CATEGORIES>
+  <ID>Category_ID</ID> 
+  <Description>Mã</Description> 
+  <ControlType>TEXTBOX</ControlType> 
+  <Width>80</Width> 
+  <TextMode>0</TextMode> 
+  <DataSource /> 
+  <DefaultValue /> 
+  <Visible>1</Visible> 
+  <Enabled>1</Enabled> 
+  <IsNull>1</IsNull> 
+  <IsKey>1</IsKey> 
+  <MaxLength>50</MaxLength> 
+  <IsNumber /> 
+  <CssClass>QH_TextBox</CssClass> 
+  </NEWS_CATEGORIES>
+- <NEWS_CATEGORIES>
+  <ID>Category_Name</ID> 
+  <Description>Tên</Description> 
+  <ControlType>TEXTBOX</ControlType> 
+  <Width>200</Width> 
+  <TextMode>0</TextMode> 
+  <DataSource /> 
+  <DefaultValue /> 
+  <Visible>1</Visible> 
+  <Enabled>1</Enabled> 
+  <IsNull>0</IsNull> 
+  <IsKey>0</IsKey> 
+  <MaxLength>100</MaxLength> 
+  <IsNumber /> 
+  <CssClass>QH_TextBox</CssClass> 
+  </NEWS_CATEGORIES>
+- <NEWS_CATEGORIES>
+  <ID>Category_NameE</ID> 
+  <Description>Tên (English)</Description> 
+  <ControlType>TEXTBOX</ControlType> 
+  <Width>200</Width> 
+  <TextMode>0</TextMode> 
+  <DataSource /> 
+  <DefaultValue /> 
+  <Visible>1</Visible> 
+  <Enabled>1</Enabled> 
+  <IsNull>1</IsNull> 
+  <IsKey>0</IsKey> 
+  <MaxLength>100</MaxLength> 
+  <IsNumber /> 
+  <CssClass>QH_TextBox</CssClass> 
+  </NEWS_CATEGORIES>
+- <NEWS_CATEGORIES>
+  <ID>Used</ID> 
+  <Description>Đang sử dụng</Description> 
+  <ControlType>CheckBox</ControlType> 
+  <Width>100</Width> 
+  <TextMode>0</TextMode> 
+  <Crlf>1</Crlf> 
+  <DataSource /> 
+  <DefaultValue /> 
+  <Visible>1</Visible> 
+  <Enabled>1</Enabled> 
+  <IsNull>1</IsNull> 
+  <IsKey>0</IsKey> 
+  <MaxLength>0</MaxLength> 
+  <IsNumber>0</IsNumber> 
+  </NEWS_CATEGORIES>
+<!-- Loai lich truc le-->	
+<LOAILICHTRUCLE>
+	<ID>MaLoaiLichTrucLe</ID>
+	<Description>Mã</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>80</Width>
+	<TextMode>0</TextMode>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>0</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>1</IsNull>
+	<IsKey>1</IsKey>
+	<MaxLength>5</MaxLength>
+	<IsNumber>1</IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</LOAILICHTRUCLE>
+<LOAILICHTRUCLE>
+	<ID>Ten</ID>
+	<Description>Tên</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>300</Width>
+	<TextMode>0</TextMode>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>100</MaxLength>
+	<IsNumber></IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</LOAILICHTRUCLE>
+<LOAILICHTRUCLE>
+	<ID>TieuDe</ID>
+	<Description>Tiêu đề</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>300</Width>
+	<TextMode>0</TextMode>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>500</MaxLength>
+	<IsNumber></IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</LOAILICHTRUCLE>
+<LOAILICHTRUCLE>
+	<ID>TuNgay</ID>
+	<Description>Từ ngày (dd/MM/yyyy)</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>100</Width>
+	<TextMode>0</TextMode>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>10</MaxLength>
+	<IsNumber></IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</LOAILICHTRUCLE>
+<LOAILICHTRUCLE>
+	<ID>DenNgay</ID>
+	<Description>Đến ngày (dd/MM/yyyy)</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>100</Width>
+	<TextMode>0</TextMode>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>10</MaxLength>
+	<IsNumber></IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</LOAILICHTRUCLE>
+<LOAILICHTRUCLE>
+	<ID>GhiChu</ID>
+	<Description>Ghi chú</Description>
+	<ControlType>TextBox</ControlType>
+	<Width>300</Width>
+	<TextMode>1</TextMode>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>1</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>2000</MaxLength>
+	<IsNumber></IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</LOAILICHTRUCLE>
+<LOAILICHTRUCLE>
+	<ID>Used</ID>
+	<Description>Đang sử dụng</Description>
+	<ControlType>CheckBox</ControlType>
+	<Width>100</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>1</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>0</MaxLength>
+	<IsNumber>0</IsNumber>
+</LOAILICHTRUCLE>
+<PARAMS>
+	<ID>ParamID</ID> 
+	<Description>Mã</Description> 
+	<ControlType>TextBox</ControlType> 
+	<Width>100</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>0</Enabled>
+	<IsNull>1</IsNull>
+	<IsKey>1</IsKey>
+	<MaxLength>100</MaxLength>
+	<IsNumber></IsNumber>
+	<CssClass>QH_TextBox</CssClass>	
+</PARAMS>
+<PARAMS>
+	<ID>ParamName</ID> 
+	<Description>Tên</Description> 
+	<ControlType>TextBox</ControlType> 
+	<Width>300</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>500</MaxLength>
+	<IsNumber></IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</PARAMS>
+<PARAMS>
+	<ID>ParamValue</ID> 
+	<Description>Giá trị</Description> 
+	<ControlType>TextBox</ControlType> 
+	<Width>300</Width>
+	<TextMode>1</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>500</MaxLength>
+	<IsNumber></IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</PARAMS>
+<PARAMS>
+	<ID>GhiChu</ID> 
+	<Description>Ghi chú</Description> 
+	<ControlType>TextBox</ControlType> 
+	<Width>300</Width>
+	<TextMode>1</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>0</IsNull>
+	<IsKey>0</IsKey>
+	<MaxLength>4000</MaxLength>
+	<IsNumber></IsNumber>
+	<CssClass>QH_TextBox</CssClass>
+</PARAMS>
+<PARAMS> 	
+	<ID>MaLinhVuc</ID> 
+	<Description>Mã lĩnh vực</Description> 
+	<ControlType>DropDownList</ControlType> 
+	<Width>300</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource>DMLINHVUCPORTAL</DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>1</IsNull>	
+	<IsKey>0</IsKey>
+	<MaxLength>5</MaxLength>
+	<IsNumber>0</IsNumber>
+	<CssClass>QH_DropDownList</CssClass>
+</PARAMS> 
+<PARAMS>	
+	<ID>Used</ID> 
+	<Description>Đang sử dụng</Description> 
+	<ControlType>CheckBox</ControlType> 
+	<Width>300</Width>
+	<TextMode>0</TextMode>
+	<Crlf>1</Crlf>
+	<DataSource></DataSource>
+	<DefaultValue></DefaultValue>
+	<Visible>1</Visible>
+	<Enabled>1</Enabled>
+	<IsNull>1</IsNull>	
+	<IsKey>0</IsKey>
+	<MaxLength>0</MaxLength>
+	<IsNumber>0</IsNumber>
+</PARAMS>
+</NewDataSet>

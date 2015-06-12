@@ -1,0 +1,4 @@
+FSSPORTALQH:
+Them: DMKhoi, View_DonVi_PhanLoai
+FSSWEBQH cap nhat lai cac store bat dau bang BCT_
+Hien tai phan quyen bang cach insert vao bang BCT_PhanQuyen trong BD FSSWEBQH 

@@ -1,0 +1,10 @@
+Gio	String	10	10g00
+NoiDung1	String	255	Lam viec voi lanh dao
+NoiDung2	String	255	Lam viec voi lanh dao
+NoiDung3	String	255	Lam viec voi lanh dao
+DiaDiem	String	255	Phong hop B9
+ThanhPhan1	String	255	Ban giam doc
+ThanhPhan2	String	255	Ban giam doc
+ThanhPhan3	String	255	Ban giam doc
+DayValue	String	12	
+

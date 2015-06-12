@@ -1,0 +1,2 @@
+<%@ Control language="vb" CodeBehind="PortalQH.ascx.vb" AutoEventWireup="false" Explicit="True" Inherits="PortalQH.Skins.PortalQH" %>
+<asp:hyperlink id="hypPortalQH" cssclass="Normal" runat="server" font-size="9px"></asp:hyperlink>

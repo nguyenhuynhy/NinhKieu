@@ -1,0 +1,359 @@
+<html>
+<head>
+<title>MeadCo's ScriptX: Techie printing</title>
+<style>
+html	     { font: 9pt / 13pt Verdana; color: black }
+input        { font: 9pt Verdana; color: black }
+div#idBtn input { width: 115pt }
+input.ie55   { display: none }
+body         { background-color: gainsboro; padding: 10pt }
+p            { margin-top: 6pt; margin-bottom: 6pt }
+li	     { margin-top: 4pt }
+h2	     { font:bold 16pt / 18pt Verdana }
+</style>
+
+<!-- special style sheet for printing -->
+<style media="print">
+.noprint     { display: none }
+</style>
+</head>
+
+<body>
+
+<!-- MeadCo Security Manager -->
+<object id="secmgr" viewastext style="display:none"
+classid="clsid:5445be81-b796-11d2-b931-002018654e2e"
+codebase="http://www.meadroid.com/scriptx/smsx.cab#Version=6,1,432,1">
+  <param name="GUID" value="{67533199-D16A-46D3-BA23-5AA77981F726}">
+  <param name="Path" value="http://www.meadroid.com/scriptx/sxlic.mlf">
+  <param name="Revision" value="0">
+</object>
+
+<!-- MeadCo ScriptX -->
+<object id="factory" viewastext style="display:none"
+classid="clsid:1663ed61-23eb-11d2-b92f-008048fdd814">
+</object>
+
+<script defer>
+
+//////////////////////////////////////////////////////////////////////////////
+// initialize upon window.onload event
+
+function window.onload() {
+  if (!secmgr.object) {
+  return
+  } else {
+  // read current settings
+  GetSettings();
+
+   // handle to refresh settings
+  factory.printing.onpagesetup = GetSettings;
+
+  // assign IE printing UI event handlers
+  factory.printing.onuserprint = OnUserPrint;
+  factory.printing.onuserpagesetup = OnUserPageSetup;
+  factory.printing.onuserprintpreview = OnUserPrintPreview;
+
+  // enable control buttons
+  var templateSupported = factory.printing.IsTemplateSupported();
+  var controls = idControls.all.tags("input");
+  for ( i = 0; i < controls.length; i++ ) {
+    controls[i].disabled = false;
+    if ( templateSupported && controls[i].className == "ie55" )
+      controls[i].style.display = "inline";
+  }
+
+  window.status = "Printing settings are initialized";
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// This event is fired when IE is about to make the document snapshot for
+// further printing or previewing, to give the script a chance to
+// modify DHTML immediately before printing (IE5+)
+
+function window.onbeforeprint() {
+  var units = factory.printing.GetMarginMeasure() != 1 ? " inches": " mm";
+  idInfoPane.innerHTML =
+    "<b>Printer: </b>" + factory.printing.printer +
+    "<br><b>Paper size: </b>" + factory.printing.paperSize +
+    "<br><b>&nbsp; Paper width: </b>" + factory.printing.pageWidth + units +
+    "<br><b>&nbsp; Paper height: </b>" + factory.printing.pageHeight + units +
+    "<br><b>Paper unprintable area:</b>" +
+    "<br><b>&nbsp; left: </b>" + factory.printing.unprintableLeft + units +
+    "<br><b>&nbsp; top: </b>" + factory.printing.unprintableTop + units +
+    "<br><b>&nbsp; right: </b>" + factory.printing.unprintableRight + units +
+    "<br><b>&nbsp; bottom: </b>" + factory.printing.unprintableBottom + units +
+    "<br><b>Paper margins:</b>" +
+    "<br><b>&nbsp; left: </b>" + factory.printing.leftMargin + units +
+    "<br><b>&nbsp; top: </b>" + factory.printing.topMargin + units +
+    "<br><b>&nbsp; right: </b>" + factory.printing.rightMargin + units +
+    "<br><b>&nbsp; bottom: </b>" + factory.printing.bottomMargin + units +
+    "<br><b>Copies: </b>" + factory.printing.copies +
+    "<br><b>Collated: </b>" + factory.printing.collate;
+
+  idInfoPane.style.display = "inline";
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// restore DHTML state once the snapshot for printing/previewing is done
+
+function window.onafterprint() {
+  idInfoPane.style.display = "none";
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// set current settings from HTML controls
+
+function PutSettings() {
+  if ( idPrinter.value ) factory.printing.printer = idPrinter.value;
+  if ( idSize.value ) factory.printing.paperSize = idSize.value;
+  if ( idSource.value ) factory.printing.paperSource = idSource.value;
+  factory.printing.copies = idCopies.value;
+  factory.printing.collate = idCollate.checked;
+  factory.printing.portrait = idPortrait.checked;
+  factory.printing.printBackground = idBackground.checked;
+  factory.printing.header = idHeader.value;
+  factory.printing.footer = idFooter.value;
+  factory.printing.leftMargin = idLeft.value;
+  factory.printing.topMargin = idTop.value;
+  factory.printing.rightMargin = idRight.value;
+  factory.printing.bottomMargin = idBottom.value;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// read current settings into HTML controls
+
+function GetSettings() {
+  idHeader.value = factory.printing.header;
+  idFooter.value = factory.printing.footer;
+  idPortrait.checked = factory.printing.portrait;
+  idBackground.checked = factory.printing.printBackground;
+  idMeasure.checked = factory.printing.GetMarginMeasure() != 1;
+  idLeft.value = factory.js.FormatNumber(factory.printing.leftMargin);
+  idTop.value = factory.js.FormatNumber(factory.printing.topMargin);
+  idRight.value = factory.js.FormatNumber(factory.printing.rightMargin);
+  idBottom.value = factory.js.FormatNumber(factory.printing.bottomMargin);
+  idPrinter.value = factory.printing.printer;
+  idCopies.value = factory.printing.copies;
+  idCollate.checked = factory.printing.collate;
+  idSize.value = factory.printing.paperSize;
+  idSource.value = factory.printing.paperSource;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// handle unit measure change
+
+function ChangeMarginMeasure() {
+  idMeasure.disabled = true;
+  PutSettings();
+  factory.printing.UpdateSettings();
+  factory.printing.SetMarginMeasure(idMeasure.checked? 2: 1);
+  GetSettings();
+  idMeasure.disabled = false;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// refresh settings: set and read back
+
+function UpdateSettings() {
+  PutSettings();
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// user selected "Page Setup..." from IE menu
+
+function OnUserPageSetup()
+{
+  if ( !confirm(document.title + "\n\nProceed to Page Setup dialog?") )
+    return;
+
+  PageSetup(); // see below
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// user selected "Print.." from IE menu, toolbar or context menu
+
+function OnUserPrint(prompt) {
+  if ( !confirm(document.title + "\n\nProceed to printing?") )
+    return;
+
+  Print(prompt, null) // see below
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// user selected "Print Privew.." from IE menu or toolbar
+
+function OnUserPrintPreview() {
+  if ( !confirm(document.title + "\n\nProceed to Print Preview?") )
+    return;
+
+  Preview(); // see below
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// update settings and call PageSetup
+
+function PageSetup()
+{
+  PutSettings();
+  factory.printing.PageSetup();
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// update settings and call PrintSetup
+
+function PrintSetup() {
+  PutSettings();
+  factory.printing.PrintSetup();
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// update settings and call Preview
+
+function Preview()
+{
+  PutSettings();
+  factory.printing.Preview();
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// provide visual feedback on the printing spooler operations
+
+function SpoolStatus(start) {
+  // provide some visual feedback on spooling status
+  if ( start ) {
+    // update status bar
+    window.status = idWait.innerText;
+    // pop up hidden DIV with spooling status
+    var width = document.body.clientWidth/3;
+    var height = document.body.clientHeight/4;
+    idWait.style.pixelWidth = width;
+    idWait.style.pixelHeight = height;
+    idWait.style.pixelLeft = document.body.scrollLeft + width;
+    idWait.style.pixelTop = document.body.scrollTop + height/2;
+    idWait.style.visibility = "visible";
+  }
+  else {
+    window.status = "Spooling is complete";
+    idWait.style.visibility = "hidden";
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// update settings and call Print
+
+function Print(prompt, frame) {
+  PutSettings();
+  if ( factory.printing.Print(prompt, frame) ) {
+    // provide visual feedback
+    SpoolStatus(true);
+    // wait for spooling to complete
+    factory.printing.WaitForSpoolingComplete();
+    SpoolStatus(false);
+    GetSettings();
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// print the specified URL
+
+function PrintHTML(url) {
+  factory.printing.PrintHTML(url);
+  SpoolStatus(true);
+  factory.printing.WaitForSpoolingComplete();
+  SpoolStatus(false);
+  GetSettings();
+}
+</script>
+
+<h2>MeadCo's ScriptX: Techie printing example</h2>
+
+<p>This page illustrates all-in-one the advanced technical aspects of <a title= "Click here to go to the ScriptX home page " href="http://www.meadroid.com/scriptx/index.htm" target="site">ScriptX</a> functionality.</p>
+
+<ul>
+ <li>Internet Explorer's printing User Interface is handled from script (menu, toolbar, context menu)</li>
+ <li><i>window.onbeforeprint</i> and <i>window.onafterprint</i> are used to customize the print-out</li>
+ <li>Visual feedback is provided to track print spooler operations</li>
+</ul>
+
+<p>To check that a setting is available, change an input field and press the <i>Update Settings</i> button. The entry that you have made will be corrected to the closest available value or to the current default setting.
+</p>
+
+<!--
+<p><b>Important note for users of IE 5.5 :</b> A major code defect in this version of Internet Explorer may result in unwanted behaviour if you invoke the Page Setup dialog too many times in any one browser session. This bug has been fixed in IE 6.0.</p>
+-->
+
+<hr size="1" color="dimgray">
+
+<div id=idInfoPane></div>
+
+<div id="idControls" class="noprint">
+  <p><b>Click one of the following buttons:</b></p>
+  <div id="idBtn">
+    <input type="button" value="Print the page" onclick="Print(false)" disabled>
+    <input type="button" value="Print the IFRAME" onclick="Print(false, idFrame)" disabled>
+    <input type="button" value="PrintHTML('info.htm')" onclick="PrintHTML('info.htm')" disabled>
+    <p><input type="button" value="Update Settings" onclick="UpdateSettings()" disabled>
+    <input type="button" value="Page Setup..." onclick="PageSetup()" disabled>
+    <input type="button" value="Print Setup..." onclick="PrintSetup()" disabled>
+    <input type="button" value="Print Preview..." onclick="Preview()" class="ie55" disabled>
+  </div>
+  <p>
+  <hr size="1" color="dimgray">
+  <p>
+  Header: <input name="idHeader" size="20" disabled>&nbsp;&nbsp;&nbsp;&nbsp;
+  Footer: <input name="idFooter" size="20" disabled>
+  </p>
+
+  <p>Print background color and images: <input name="idBackground" type="checkbox" disabled value="ON">
+
+  <p>Portrait mode: <input name="idPortrait" type="checkbox" disabled>
+  (Landscape otherwise)</p>
+
+  <p>Margins in Inches: <input name="idMeasure" onclick="ChangeMarginMeasure()" type="checkbox" disabled>
+  (Millimeters otherwise)</p>
+
+  <p>Left margin: <input name="idLeft" size="10" disabled>
+  &nbsp;&nbsp; Top margin: <input name="idTop" size="10" disabled>
+  </p>
+  <p>Right margin: <input name="idRight" size="10" disabled>
+  &nbsp;&nbsp; Bottom margin: <input name="idBottom" size="10" disabled>
+  </p>
+
+  <p>Printer: <input name="idPrinter" size="20" disabled>
+
+  <p>Number of copies: <input name="idCopies" size="3" disabled>&nbsp;&nbsp;
+  Collate copies: <input name="idCollate" type="checkbox" disabled></p>
+
+  <p>Paper Size: <input name="idSize" size="20" disabled>
+
+  <p>Paper Source: <input name="idSource" size="20" disabled>
+
+</div>
+
+  <hr>
+
+<p><iframe name="idFrame" width="100%" height="40%" src="frame.htm">
+</iframe></p>
+
+<hr/>
+
+<div style="page-break-before:always">
+
+<H2>Note</H2>
+<p>The buttons and options will not appear on the print out.</p>
+<p>Instead, a summary of the current options will be printed.</p>
+<p>This is achieved by using the <i>onbeforeprint</i> event. This event is fired when IE is about to make the document snapshot for printing or previewing, to give the script a chance to modify DHTML immediately before printing.</p>
+<h2>Description</h2>
+<p>MeadCo's ScriptX is a non-visual downloadable ActiveX control, developed to provide absolute control over document printing operations from client and server computers running Microsoft's Internet Explorer browser. ScriptX became well know for its HTML printing capabilties following publication of our article Scripting Support for Web Page Printing on the MSDN website.</p>
+<p>Part of its purpose is to ensure the consistent formatting and appearance of printed output from any local or networked printer, regardless of the printing attributes already set in that computer's browser. ScriptX applies a document author's desired attributes at the time of printing browser window or framed content, but thereafter automatically restores all default settings and makes no other permanent changes.</p>
+</div>
+
+<div id=idWait class=noprint style="visibility: hidden; position: absolute; left: 0px; top: 0px; width: 0px; height: 0px; background-color: lightyellow; color: darkred; font:bold 11pt Arial; border: thin inset threedface; padding: 40pt">
+  <center><b>Please wait for spooling to complete...</b></center>
+</div>
+
+</body>
+
+</html>

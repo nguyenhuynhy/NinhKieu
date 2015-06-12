@@ -1,0 +1,33 @@
+<head>
+<title>ScriptX JScript Invoke By Ref</title>
+</head>
+
+<body style="border:1pt solid gray" scroll=no bgcolor="gainsboro">
+
+<object id=factory style="display:none" classid="clsid:1663ed61-23eb-11d2-b92f-008048fdd814"
+  viewastext codebase="http://www.meadroid.com/scriptx/ScriptX.cab#Version=6,1,432,1">
+</object>
+
+<script>
+function window.onload() {
+  if (!factory.object) {
+  return
+  } else {
+  srcText.innerText = factory.sourceText;
+
+  // pack params to "args" array
+  args = new Array("msxml", 0, 0, 0, 0);
+
+  // call the "GetComponentVersion" method on "factory" object
+  error = factory.js.InvokeByRefResult(factory, "GetComponentVersion", args);
+
+  if ( error == 0 )
+    alert("MSXML Version: "+args[1]+"."+args[2]+"."+args[3]+"."+args[4]);
+  else
+    alert("Error: "+error);
+  }
+}
+</script>
+
+<textarea wrap=off style="overflow: auto; font-size: 8pt; width: 100%; height: 100%" id=srcText></textarea>
+</body>

@@ -1,0 +1,56 @@
+.bTextBold
+{
+	Font-Family: Arial ; Font-Size:12pt ; FONT-WEIGHT: bold;   
+}
+.bText
+{
+	Font-Family: Arial ; Font-Size:12pt;   
+}
+.Text 
+{
+	Font-Family: Arial ; Font-Size: 10pt;
+}
+.Search
+{
+	Font-Family: Arial ; Font-Size: 10pt; Color: #0033CC;
+}
+
+.textinfo
+{
+	Font-Family: Arial ; Font-Size:10pt ; Color: #1D4D77 ;
+}
+
+.Title
+{
+	Font-Family: Arial ; Font-Size:10pt ; Color: #1D4D77 ; FONT-WEIGHT: bold;   
+}
+
+A:visited
+{
+    COLOR: #0033FF
+}
+A:hover
+{
+    COLOR: red
+}
+A.link:unknown
+{
+    COLOR: #ffffff
+}
+A.active:unknown
+{
+    COLOR: #ffffff
+}
+A.hover:unknown
+{
+    COLOR: #ff6600
+}
+A:active
+{
+    COLOR: #FF3300
+
+}
+A:link
+{
+    COLOR: #003366
+}

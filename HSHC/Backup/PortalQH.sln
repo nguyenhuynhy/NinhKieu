@@ -1,0 +1,31 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PortalQH", "http://localhost:/hshcla/PortalQH.vbproj", "{79D3BA0F-F76F-4A84-AE7F-C6A01EC247F9}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 2
+		SccLocalPath0 = .
+		CanCheckoutShared = false
+		SolutionUniqueID = {F17824CD-89A3-4A7E-8B10-1C0A62E9A86E}
+		SccProjectUniqueName1 = http://localhost:/hshcla/PortalQH.vbproj
+		SccLocalPath1 = .
+		CanCheckoutShared = false
+		SccProjectEnlistmentChoice1 = 2
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{79D3BA0F-F76F-4A84-AE7F-C6A01EC247F9}.Debug.ActiveCfg = Debug|.NET
+		{79D3BA0F-F76F-4A84-AE7F-C6A01EC247F9}.Debug.Build.0 = Debug|.NET
+		{79D3BA0F-F76F-4A84-AE7F-C6A01EC247F9}.Release.ActiveCfg = Release|.NET
+		{79D3BA0F-F76F-4A84-AE7F-C6A01EC247F9}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

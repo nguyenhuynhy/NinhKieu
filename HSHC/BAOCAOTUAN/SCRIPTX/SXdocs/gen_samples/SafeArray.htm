@@ -1,0 +1,45 @@
+<head>
+<title>ScriptX JScript SafeArrays</title>
+</head>
+
+<body style="border:1pt solid gray" scroll=no bgcolor="gainsboro">
+
+<object id=factory style="display:none" classid="clsid:1663ed61-23eb-11d2-b92f-008048fdd814"
+  viewastext codebase="http://www.meadroid.com/scriptx/ScriptX.cab#Version=6,1,432,1">
+</object>
+
+<script defer>
+function window.onload() {
+  if (!factory.object) {
+  return
+  } else {
+ srcText.innerText = factory.sourceText;
+ js = factory.js;
+
+ // construct and fill new SafeArray
+ var a = js.VecFill(0, 1, 2, 3, 4); 
+
+ // construct empty SafeArray of 20 elems
+ var b = js.Vec(20); 
+ alert( js.Format("SafeArray VarType: 0x%X", js.VarType(b)) );
+ 
+ // resize SA
+ alert( "Size of a == " + js.VecGetSize(a) + ", size of b == " + js.VecGetSize(b) );
+ js.VecResize(a, 10);
+ alert( "New size of a: " +  js.VecGetSize(a) );
+
+ // access SafeArray element
+ js.VecPut(a, 5, "five");
+ alert( "a[5] == " + js.VecGet(a, 5) );
+ 
+ // convert JS array to SafeArray
+ jsa = new Array("one", "two", "three") // create JS array
+ sa = js.VecFromArray(jsa); // convert JS array to SafeArray
+ vba = new VBArray(sa); // reverse: standard JS way to access a SafeArray
+ alert( "match: " + jsa[1] + ", " + js.VecGet(sa, 1) + ", " + vba.getItem(1) );
+  }
+}
+</script>
+
+<textarea wrap=off style="overflow: auto; font-size: 8pt; width: 100%; height: 100%" id=srcText></textarea>
+</body>

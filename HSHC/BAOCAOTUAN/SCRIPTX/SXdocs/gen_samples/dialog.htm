@@ -1,0 +1,31 @@
+<head>
+<title>ScriptX HTML Dialog</title>
+<style>
+  html, input { font-family: ms sans serif; font-size: 8pt }
+  html { width: 150pt; height: 75pt }
+  body { margin: 4pt; border: 0; background-color: threedface }
+  p { margin-top: 0; margin-bottom: 4pt }
+</style>
+</head>
+
+<body scroll=no>
+<p>Enter any text here:
+<p><input name=idtext style="width: 100%" >
+<p><input name=idbut type=button value="Close">
+
+<script defer>
+function document.onkeydown() {
+  if ( event.keyCode == 27 ) window.close();
+}
+
+function window.onload() {
+  idtext.value = window.dialogArguments;
+  window.returnValue = null;
+}
+
+function idbut.onclick() {
+  window.returnValue = idtext.value;
+  window.close();
+}
+</script>
+</body>

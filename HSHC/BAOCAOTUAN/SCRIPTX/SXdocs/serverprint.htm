@@ -1,0 +1,377 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html id="serverprintx">
+
+<head>
+
+<META NAME="keywords" CONTENT="Printer,Print,Printing,HTML,PrintHTML,Header,Footer,Margin,Paper,Background,Template,ActiveX,Control,Object">
+<META NAME="description" CONTENT="MeadCo HTML Printing">
+
+<META NAME="Author" CONTENT="Mead & Co Ltd.">
+
+<script>
+window.expAllowStatic = true;
+</script>
+
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" media="print" type="text/css" href="print.css">
+
+<style>
+pre          { background-color: #EEEEEE }
+.samp        { background-color: #EEEEEE }
+.args        { background-color: #EEEEEE; width: 70% }
+.comm        { color: #505050 }
+.ext         { background-color: #EEEEEE; color: #FF0000 }
+.menu        { height: 25; width: 100%; background-color: gray; color: white; font-weight:
+               bold; text-align: center; margin-top: 0; padding: 2pt }
+.samplink    { font-weight: bold }
+h5           { font-size: 8pt }
+h1, h2       { page-break-before: always }
+#idNoPgBreak { page-break-before: auto }
+</style>
+
+<script defer>
+function openWindow(url) {
+  var iwidth = screen.availWidth*0.8
+  var iheight = screen.availHeight*0.75
+  var itop=(screen.availHeight-iheight)/5;
+  var ileft=(screen.availWidth-iwidth)/2;
+  window.open(url,'serv_sample','menubar=yes toolbar=yes resizable=yes scrollbars=yes status=yes height='+iheight+' width='+iwidth+' left='+ileft+' top='+itop)
+}
+
+function send() {
+  userAgent = "** ScriptX is running on **: " + window.navigator.userAgent + " " +
+    window.navigator.appMinorVersion;
+
+  navigate("mailto:feedback@meadroid.com?subject=Bug%20Report&body="
+    + escape(userAgent));
+}
+</script>
+
+<title>MeadCo's ScriptX: Printing Programming Manual</title>
+</head>
+
+<body>
+
+<h1><a target="_new" href="http://www.meadroid.com/scriptx/index.asp">ScriptX</a> Printing - Server side deployment</h1>
+
+<p>October 2003</p>
+
+<hr size="1"/>
+
+<p>This document applies to ScriptX Printing v6.1.429.14 or later. If you are 
+using an earlier version, please contact <a href="mailto:support@meadroid.com">
+MeadCo</a> for an upgrade.</p>
+
+<p>Last updated: 16th September 2003</p>
+
+<ul>
+  <li>Added information on deployment with ASP.NET</li>
+  <li>Added zip archives for test files.</li>
+  <li>No dependency on account names (e.g. IWAM_&lt;machinename&gt; or IUSR_&lt;machinename&gt;)</li>
+</ul>
+
+<p>ScriptX can be used with Microsoft's <a href="javascript:openWindow('http://www.microsoft.com/iis/')">Internet Information Server</a><span class="ext">»</span> 
+(IIS) and Active Server Pages/ASP.NET to print HTML documents on the server side.</p>
+
+<p>An Active Server Page (ASP or ASP.NET) may handle an HTTP <i>GET</i> or <i>POST</i> request and print a report
+(a different HTML page) as part of some server-side application logic. In this case, the print-out will take place on the <b>server side</b> and will go to a printer which is physically attached or networked to the server. The browsing user who originated the HTTP request may not ever see the printed output nor know that printing has taken place.</p>
+
+<p> We
+strongly recommend that the following articles are studied before server side
+deployment of ScriptX Printing:</p>
+
+<ul>
+  <li>
+<a href="javascript:openWindow('http://support.microsoft.com/support/kb/articles/Q288/3/66.ASP')">HOWTO: Configure Office Applications to Run Under the Interactive User Account</a></li>
+  <li><a href="javascript:openWindow('http://support.microsoft.com/default.aspx?scid=kb;EN-US;q288367')">HOWTO: Configure Office Applications to Run Under a Specific User Account</a></li>
+  <li>
+<a href="javascript:openWindow('http://support.microsoft.com/support/kb/articles/Q184/2/91.ASP')">PRB: COM Objects Fail to Print When Called From ASP</a> </li>
+</ul>
+
+<p>The Internet Explorer components are utilised to perform the printing -
+ScriptX Printing does not contain any actual printing code. <font size="2">Please
+take note of all the caveats Microsoft place around the use of Office
+Applications as automation servers. Many of these caveats apply to the use of
+Internet Explorer. Internet Explorer was developed with the intention of a user
+sitting in front of it, not as a server service.&nbsp;</font> Since Internet
+Explorer is an application intended for use by a user rather than as a server
+process its use is not without potential problems. For example, there will be no
+user present to respond to script error dialogues or other such prompts.&nbsp;</p>
+
+<p>A publishing license (<i>sxlic.exe</i>) from MeadCo is required to enable server-side printing, and both the <i>sxlic.exe</i> and <i>ScriptX.exe</i> executables should be installed (executed) on your Windows NT4 or Windows 2000 server.</p>
+
+<h3>Test files</h3>
+
+<p>The following test files (as .zip archives) are available, these are described below:</p>
+
+<ul>
+  <li><a href="service/validateasp.zip">Testing deployment on 'classic' ASP</a>.</li>
+  <li><a href="service/validatedotnet.zip">Testing deployment on ASP.NET</a></li>
+</ul>
+
+<h3>Deployment</h3>
+
+<p>It is strongly recommended that an evaluation license is obtained from MeadCo
+and a suitable server set aside for testing and evaluation - installation and
+configuration of the components may require several re-boots in order to achieve
+the settings required in a particular scenario. Following successful test
+deployment and evaluation, the set of steps and/or configurations necessary for
+deployment to production servers within your environment/scenario will have been
+determined.</p>
+
+<blockquote>
+
+<p><b>ASP.NET</b> If you intend to use ScriptX Printing with ASP.NET we 
+recommend that you first configure and test the system using the old form Active 
+Server Pages (.asp files). There are a number of additional considerations when 
+working with ASP.NET that further complicate configuration - using .asp files 
+reduces the number of potential causes of failure.</p>
+
+</blockquote>
+
+<p>The following steps should be undertaken while logged onto the server machine
+under an account with Administrator privileges.</p>
+
+<ol>
+  <li>Install the ScriptX components (<i>ScriptX.exe</i>) and publishing license
+    (<i>sxlic.exe</i>) on the server.</li>
+  <li>Using Internet Services Manager, create a suitable virtual directory <b>and</b>
+    set <i><b>Application Protection</b></i> to <i><b>Low (IIS Process)</b>.</i></li>
+  <li>Create a test asp page (testprint1.asp) with the following script in the
+    created virtual directory:<pre class="clsCode">&lt;%@ LANGUAGE=&quot;VBScript&quot;%&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;&lt;TITLE&gt;ScriptX Printing Server Test 1&lt;/TITLE&gt;&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;H1&gt;Testing ScriptX Printing.&lt;/H1&gt;
+&lt;%
+dim factory,b
+Set factory = CreateObject(&quot;ScriptX.Factory&quot;)
+on error resume next
+b = factory.printing.IsSpooling
+if err.Number &lt;&gt; 0 then
+	Response.Write &quot;Printing is not licensed: &quot; &amp; err.description &amp; &quot; (Error code: &quot; &amp; err.Number &amp; &quot;)&quot;
+else
+	Response.Write &quot;Printing is licensed.&quot;
+end if
+factory.ShutDown
+set factory = nothing
+%&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</pre>
+    <p>Navigate to the page using Internet Explorer and verify that the page is displayed without errors and printing is licensed.
+    This test ensures that the ScriptX components are correctly installed.</p>
+    <p><b>Note:</b> If the above test fails with a 0113 error (Script timed
+    out), it is most likely that Application Protection is not set to <i> Low (IIS
+    Process)</i> on the
+    virtual directory.</p>
+  </li>
+  <li>Create a test asp page (testprint2.asp) with the following script in the
+    created virtual directory:<pre class="clsCode">&lt;%@ LANGUAGE=&quot;VBScript&quot;%&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;&lt;TITLE&gt;ScriptX Printing Server Test 2&lt;/TITLE&gt;&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;H1&gt;Testing ScriptX Printing.&lt;/H1&gt;
+&lt;%
+dim factory
+Set factory = CreateObject(&quot;ScriptX.Factory&quot;)
+Response.Write &quot;The page headers are: &quot; &amp; factory.printing.header
+factory.printing.header = &quot;ScriptX Printing - Printing at the Server&quot;
+Response.Write &quot;The updated page headers are: &quot; &amp; factory.printing.header
+factory.ShutDown
+set factory = nothing
+%&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</pre>
+    <p>Navigate to the page using Internet Explorer and verify that the page is displayed without errors.
+    This test ensures that the ScriptX components are correctly installed and
+    the default printer for the current interactive account is accessible.</p>
+    <p><b>Note</b>: If the above test fails with &quot;Unspecified error&quot;
+    the most likely cause is that a valid printer is not available and cannot be
+    accessed.</p>
+  </li>
+  <li>Create a test asp page (testprint3.asp) with the following script in the
+    created virtual directory:<pre class="clsCode">&lt;%@ LANGUAGE=&quot;VBScript&quot;%&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;&lt;TITLE&gt;ScriptX Printing Server Test 3&lt;/TITLE&gt;&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;H1&gt;Testing ScriptX Printing.&lt;/H1&gt;
+&lt;%
+dim factory
+Set factory = CreateObject(&quot;ScriptX.Factory&quot;)
+factory.printing.header = &quot;ScriptX Printing - Printing at the Server&quot;
+factory.printing.footer = &quot;Printed at the server&quot;
+factory.printing.printHTML &quot;<a href="http://localhost/default.asp">http://localhost/default.asp</a>&quot; ' Change this URL to an appropriate page on your server. 
+factory.ShutDown
+set factory = nothing
+%&gt;
+&lt;p&gt;The page has been printed&lt;/p&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</pre>
+    <p>Navigate to the page using Internet Explorer and verify that the page is displayed without errors.
+    This test ensures that the ScriptX components are correctly installed and
+    the default printer for the current interactive account is accessible and
+    printing to the printer.</p>
+    <p><b>Note</b>: If the above test fails with &quot;Unspecified error&quot;
+    the most likely cause is that a valid printer is not available and cannot be
+    accessed.</p>
+  </li>
+</ol>
+
+    <h4>Configuration</h4>
+<p>The above steps complete the initial deployment of ScriptX Printing server
+side and validate that ScriptX&nbsp; can be successfully used on the server.
+However, as configured after initial installation, there are two undesirable
+aspects:</p>
+<ol>
+  <li>An interactive user must be logged onto the server at all times.</li>
+  <li>The ASP application must be marked as Application Protection Low (IIS
+    Process); a failure in the ASP application will cause the entire server to
+    fail.</li>
+</ol>
+<p>Before making the changes discussed here, the server should be rebooted (or
+the IIS Process stopped and restarted) to ensure that the ScriptX Components are
+unloaded from the IIS Process (IIS caches used component DLLs).</p>
+<blockquote>
+  <h4>Application Protection</h4>
+  <p>ScriptX Printing version 6.1.429.14 and later support setting ASP 
+  Application Protection to medium or high.&nbsp;</p>
+  <p>The ASP worker process will run under either the IUSR_&lt;machinename&gt; account 
+  (medium protection) or IWAM_&lt;machinename&gt; (high protection). These accounts must have &quot;Log on as a batch job&quot;
+  rights and must also have permission to launch DCOM servers and access DCOM 
+  servers (in particular the
+  &quot;MeadCo TriPrint Server&quot; object - DComCnfg can be used for this).</p>
+  <p>After changing the protection level and appropriate configuration with 
+  dcomcnfg.exe it is suggested that the above tests
+  are run again to ensure successful operation.</p>
+  <p><b>Note:</b> If the tests fail with the error &quot;Unable to create
+  ActiveX Object&quot; the most likely cause is that the IUSR/IWAM accounts do
+  not have &quot;Log on as a batch job&quot; rights or do not have permission to
+  launch DCOM servers.</p>
+  <h4>Running ScriptX Printing under a specific user account</h4>
+  <p>Running ScriptX Printing under a specific user account removes the
+  necessity for an interactive user to be logged onto the server machine. There
+  is no necessity for the account to be used to have &quot;Administrator&quot;
+  rights. However, it must:</p>
+  <ol>
+    <li>Have &quot;Log on as a batch job&quot; rights.</li>
+    <li>Have a properly configured Internet Explorer (in other words, log on to
+      the account and ensure that the web pages to be printed can be accessed).</li>
+    <li>Have a functional default printer available - ScriptX Printing must be
+      able to read the settings of the default printer.</li>
+    <li>Have access rights to the printer to be used.</li>
+    <li>Have DCOM access rights to the MeadCo Triprint Server object.</li>
+  </ol>
+  <p>As discussed here: <a href="javascript:openWindow('http://support.microsoft.com/default.aspx?scid=kb;EN-US;q288367')">HOWTO: Configure Office Applications to Run Under a Specific User Account</a>,
+  if the account to be used is not already logged on, its registry hive will not
+  be used, the &quot;Default User&quot; hive will be used instead. Although the
+  default hive can be configured with access to the required printer(s), since
+  ScriptX Printing requires read and write access to various parts of the hive
+  (for example to store print header/footer settings) this is not recommended.
+  It is recommended that a &quot;null&quot; service is used instead, as
+  discussed in the above article. If the account to be used for ScriptX Printing
+  is not already in use for a service, a suitable service is available here: <a href="service/service.zip">Service.zip</a>.
+  After downloading, unpack the .zip file to a suitable location and follow the
+  instructions given in the readme file.</p>
+  <p>To configure ScriptX Printing to use a particular account, use DComCnfg to
+  configure the application &quot;MeadCo TriPrint Server&quot; with the required
+  Identity.</p>
+  <p>After configuration, it is suggested that the above tests are run again to
+  ensure successful operation.</p>
+  <p><b>Note:</b> If the tests fail with the error &quot;Unable to create
+  ActiveX Object&quot; the most likely cause is that the <font SIZE="2">credentials (e.g.
+password) specified to a &quot;This User&quot; identity are wrong</font>.</p>
+
+<h4><a name="Printing">Printing</a></h4>
+
+<p>To print, the configuration parameters of the ScriptX Printing object may be
+used to set properties such as the printer to be used and headers and footers.
+To perform the print, the <i>printHTML </i>method is used, for example:</p>
+
+  <pre class="clsCode">&lt;%
+ ' the object is dynamically created and destroyed
+ set factory = CreateObject(&quot;<strong>ScriptX.Factory</strong>&quot;)
+ factory.printing.PrintHTML &quot;http://localhost/orders/order.asp?number=&quot; &amp; Request.Form(&quot;number&quot;)
+
+ ' After use, shut down the object to ensure that resources 
+ ' are released in a timely manner
+ factory.ShutDown
+ set factory = nothing
+%&gt;</pre>
+
+<p><b>Please note</b>: HTML files printed by <i>PrintHTML</i> calls on the server-side are
+download and printed in a separate process which is absolutely unrelated to the current user's ASP session
+context, including any authentication that has occurred by the remote user,
+either through an authentication dialogue or automatic authentication through,
+for example, NTLM. If the page to be printed is secured in some way, it <b>must
+be</b> accessible by the separate process Internet Explorer without any user
+intervention - this may require that automatic authentication is enabled. In the
+above example, <i>http://localhost/</i> based URLs are printed so technically this is still the same HTTP server, but in fact any URL may be used. The only way to pass any contextual information is via the <i>query</i> part of the URL itself (the strings that follows the question mark).<br>
+
+</p>
+
+</blockquote>
+
+<h3>ASP.NET Deployment<br>
+
+</h3>
+
+<p>To successfully use ScriptX Printing with ASP.NET, the MeadCo TriPrint Server 
+object should be configured to run under a named account, as described for ASP 
+deployment and the IIS application configured as medium or high protection.</p>
+<p>In addition, the ASPNET account may need to be added to the list of accounts 
+with launch and access rights on the MeadCo TriPrint Server object.</p>
+<p>The use of the component is essentially as described in the
+<a href="#Printing">Printing section</a> above, however, a number of rules must also be followed when using the component within an aspx page:</p>
+<ol>
+  <li><p>The page <b>must</b> have the attribute aspcompat=true:</p>
+  <pre>&lt;%@ Page aspcompat=true Language=&quot;VB&quot; debug=&quot;true&quot; %&gt;</pre>
+  </li>
+  <li><p>Due to lazy release of COM objects by the .NET CLR garbage collection, 
+  timely release of the components must be forced or orphaned processes can 
+  result. It is also required that a specific reference to the printing object 
+  is made so that this can be released properly:</p>
+  <pre>&lt;script language = &quot;vb&quot; runat = &quot;server&quot;&gt;
+Sub ScriptXPrint()
+	dim factory as Object
+	Dim printing as Object
+	dim i as Integer
+
+	Try
+		' Create the ScriptX object
+		factory = CreateObject(&quot;ScriptX.Factory&quot;)
+		' Get the printing object - this allows for more efficient access
+		' and also enables timely release of the objects
+		printing = factory.printing
+
+		' perform some printing
+		printing.header = &quot;ScriptX Printing - Printing at the Server&quot;
+		printing.footer = &quot;Printed at the server&quot;
+		printing.printHTML(&quot;http://localhost/default.htm&quot;) ' Change this URL to an appropriate page on your server.
+	Catch e as Exception
+		Response.Write(&quot;Print failed: &quot; + e.Message)
+	End Try
+
+	if NOT factory is nothing then
+		' Closedown the ScriptX object - *required*
+		factory.ShutDown()
+
+		' Now ask .NET to release the objects. There should be only one reference
+		' on each object, but we loop until there are no references just in case.
+		i = System.Runtime.InteropServices.Marshal.ReleaseComObject(printing)
+		while i&gt;0
+			i = System.Runtime.InteropServices.Marshal.ReleaseComObject(printing)
+		end while
+		i = System.Runtime.InteropServices.Marshal.ReleaseComObject(factory)
+		while i&gt;0
+			i = System.Runtime.InteropServices.Marshal.ReleaseComObject(factory)
+		end while
+	end if
+	factory = nothing
+End Sub
+&lt;/script&gt;
+</pre></li>
+</ol>
+
+</BODY>
+</HTML>

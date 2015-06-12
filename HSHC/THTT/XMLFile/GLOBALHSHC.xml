@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<HSHC>
+<tabDanhMuc>
+	<tab1>CHUCDANH</tab1><!-->Tab + tabid + itemcode-->
+	<tab2>DONVI</tab2>
+	<tab3>DMHOSOKEMTHEO</tab3>
+	<tab4>DMLYDO</tab4>
+	<tab5>DMTINHTRANGHOSO</tab5>
+	<tab6>DMTINHTRANGXULY</tab6>
+	<tab7>PARAMS</tab7>
+	<tab8>DMROLE</tab8>
+	<tab9>NEWS_CATEGORIES</tab9>
+</tabDanhMuc>
+<Variable>
+<SoNgayLoc>20</SoNgayLoc><!--NganTL created : So ngay loc ho so-->
+<SoDongHienThiDatagrid>10</SoDongHienThiDatagrid>
+</Variable>
+</HSHC>

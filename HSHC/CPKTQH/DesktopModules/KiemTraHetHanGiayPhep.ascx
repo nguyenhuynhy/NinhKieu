@@ -1,0 +1,1 @@
+<%@ Control Language="vb" AutoEventWireup="false" Codebehind="KiemTraHetHanGiayPhep.ascx.vb" Inherits="CPKTQH.KiemTraHetHanGiayPhep" TargetSchema="http://schemas.microsoft.com/intellisense/ie3-2nav3-0" %>

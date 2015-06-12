@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CPKTQH>
+	<tabDanhMuc>
+		<tab1>DMCHUNGCHI</tab1>
+		<tab2>DMHINHTHUCKINHDOANH</tab2>
+		<tab3>DMHOSOKEMTHEO</tab3>
+		<tab4>DMLOAICHINHANH</tab4>
+		<tab5>DMLOAIDOANHNGHIEP</tab5>
+		<tab6>DMLOAIHOSO</tab6>
+		<tab7>DMLOAITHANHVIEN</tab7>
+		<tab8>DMLYDO</tab8>
+		<tab9>DMNGANHKINHDOANH</tab9>
+		<tab10>DMTINHTRANGGIAYPHEP</tab10>
+		<tab11>DMTINHTRANGHOSO</tab11>
+		<tab12>DMTINHTRANGXULY</tab12>
+		<tab13>DMPHUONGTHUCKINHDOANH</tab13>
+	</tabDanhMuc>
+	<tab182>CAPMOICNDKKD</tab182>
+	<tab183>THAYDOIDKKD</tab183>
+	<tab184>HOSOKHONG</tab184>
+	<tab185>HUYCNDKKD</tab185>
+	<tab186>NGUNGKINHDOANH</tab186>
+	<tab187>CAPPHOBAN</tab187>
+	<tab188>DONVITRUCTHUOC</tab188>
+	<tab230>CAPDOICNDKKD</tab230>
+	<tab233>INBANSAOGCNDKKD</tab233>
+	<tab744>GIAHANGPKD</tab744>
+	<tab748>VAOSOCONGVAN</tab748>
+	<tab782>THUHOIGCNDKKD</tab782>
+	<nguoiky>00001,00002,00033,00040</nguoiky>
+	<FileDeXuat>BaoCaoKiemTraDeXuat.doc</FileDeXuat>
+	<FileTBThuHoi>ThongBaoThuHoiGCNDKKD.doc</FileTBThuHoi>
+	<FileQDThuHoi>QuyetDinhThuHoiGCNDKKD.doc</FileQDThuHoi>	
+	<FilePhieuChuyenKhaoSat>PhieuChuyenKhaoSat.rtf</FilePhieuChuyenKhaoSat>
+	<FilePhieuKhaoSat>PhieuKhaoSat.rtf</FilePhieuKhaoSat>
+	<!--<FileHoSoKhong>ThuTraLoiKhongGiaiQuyet.rtf</FileHoSoKhong> -->
+	<FileHoSoKhong>ThuTraLoiKhongGiaiQuyet.doc</FileHoSoKhong>
+	<!--<FileNgungKinhDoanh>GiayCNNgungKD.rtf</FileNgungKinhDoanh>-->
+	<FileNgungKinhDoanh>GiayCNNgungKD.doc</FileNgungKinhDoanh>
+	<FileHuyGiayCNDKKD>ThongBaoHuyGiayCNDKKD.doc</FileHuyGiayCNDKKD>
+	<FileGiayCNDKKD>GiayCNDKKD.doc</FileGiayCNDKKD>
+	<FileGiayCNDKKDGopVon>GiayCNDKKDGopVon.doc</FileGiayCNDKKDGopVon>
+	<FileGiayChungNhanDKKD>GiayChungNhanDKKD.doc</FileGiayChungNhanDKKD>
+	<Ykiendexuat>+ Địa điểm kinh doanh không thuộc tuyến đường hạn chế, cấm kinh doanh.
++ Địa điểm kinh doanh không vi phạm các vi phạm quy định về trật tự xã hội, an toàn giao thông.
++ Ngành nghề kinh doanh không thuộc lĩnh vực hạn chế, cấm kinh doanh.
++ Ông (bà): [HoTen] hiện chưa có giấy chứng nhận đăng ký kinh doanh.
++ Không nằm trong danh sách ngăn chặn cấp giấy chứng nhận đăng ký kinh doanh</Ykiendexuat>
+	<YkiendexuatTD>+ Địa điểm kinh doanh không thuộc tuyến đường hạn chế, cấm kinh doanh.
++ Địa điểm kinh doanh không vi phạm các vi phạm quy định về trật tự xã hội, an toàn giao thông.
++ Ngành nghề kinh doanh không thuộc lĩnh vực hạn chế, cấm kinh doanh.
+</YkiendexuatTD>
+	<maphongban>PB002</maphongban>
+	<Variable>
+		<SoNgayLoc>20</SoNgayLoc> <!--NganTL created : So ngay loc ho so-->
+		<SoDongHienThiDatagrid>10</SoDongHienThiDatagrid>
+		<TabCapDoiKD>230</TabCapDoiKD>
+		<FileTemplate>../../barcode/BarCodeNet.bmp</FileTemplate>
+		<FileExport>../../barcode/BarcodeInsert.bmp</FileExport>
+		<ControlCapMoiCNDKKD>CAPMOICNDKKD</ControlCapMoiCNDKKD>
+		<ControlCapDoiCNDKKD>CAPDOICNDKKD</ControlCapDoiCNDKKD>
+	</Variable>
+</CPKTQH>

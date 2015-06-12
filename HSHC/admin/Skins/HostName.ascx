@@ -1,0 +1,2 @@
+<%@ Control language="vb" CodeBehind="HostName.ascx.vb" AutoEventWireup="false" Explicit="True" Inherits="PortalQH.Skins.HostName" %>
+<asp:hyperlink id="hypHostName" runat="server" cssclass="OtherTabs"></asp:hyperlink>

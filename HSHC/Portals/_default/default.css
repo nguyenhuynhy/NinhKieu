@@ -1,0 +1,455 @@
+/* ================================
+    CSS STYLES FOR PortalQH
+   ================================
+*/   
+
+
+/* PAGE BACKGROUND */
+/* background color for the header at the top of the page  */
+.HeadBg {
+    background-color:White;
+    
+}
+
+/* background color for the content part of the pages */
+
+
+/* background/border colors for the selected tab */
+.TabBg {
+    background-color: #5A88D6;
+    
+}
+/* background/border colors for the selected tab */
+.FooterBg {
+    background-color: #415B66; 
+    /*background-image: url(images/bgHeader2.gif); 
+   	border: 1px solid #6495ED; */
+
+}
+
+.LeftPane  { 
+}
+
+.ContentPane  { 
+}
+
+.RightPane  { 
+}
+
+/* text style for the selected tab */
+.SelectedTab {
+    font-weight: bold;
+    font-size: 8.5pt;
+    color: white;
+    font-family: Tahoma, Arial, Helvetica;
+    text-decoration: none;
+}
+
+/* hyperlink style for the selected tab */
+A.SelectedTab:link {
+    text-decoration:    none;
+    color:white;
+}
+
+A.SelectedTab:visited  {
+    text-decoration:    none;
+    color:#eeeeee;
+}
+
+A.SelectedTab:active   {
+    text-decoration:    none;
+    color:#eeeeee;
+}
+
+A.SelectedTab:hover    {
+    text-decoration:    none;
+    color:#cccccc;
+}
+
+/* text style for the unselected tabs */
+.OtherTabs {
+    font-weight: bold;
+    font-size: 8.5pt;
+    color: white;
+    font-family: Tahoma, Arial, Helvetica;
+    text-decoration: none;
+}
+    
+/* hyperlink style for the unselected tabs */
+A.OtherTabs:link {
+    text-decoration:    none;
+    color:white;
+}
+
+A.OtherTabs:visited  {
+    text-decoration:    none;
+    color:#eeeeee;
+}
+
+A.OtherTabs:active   {
+    text-decoration:    none;
+    color:#eeeeee;
+}
+
+A.OtherTabs:hover    {
+    text-decoration:    none;
+    color:#cccccc;
+}
+
+/* GENERAL */
+/* style for module titles */
+.Head   {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size:  20px;
+    font-weight:    normal;
+    color: #333333;
+}
+
+/* style of item titles on edit and admin pages */
+.SubHead    {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size:  11px;
+    font-weight:    bold;
+    color: #003366;
+}
+
+/* module title style used instead of Head for compact rendering by QuickLinks and Signin modules */
+.SubSubHead {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size:  11px;
+    font-weight:    bold;
+    color: black;
+}
+
+/* text style used for most text rendered by modules */
+.Normal
+{
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+/* text style used for textboxes in the admin and edit pages, for Nav compatibility */
+.NormalTextBox
+{
+    font-size: 11px;
+	color: black; /* #003063;*/
+	/*font-weight:bold;*/
+	font-family: Arial,Verdana;
+	text-decoration: none;
+	/*font-family: Tahoma, Arial, Helvetica;
+    font-size: 12px;
+    font-weight: normal; */
+}
+
+.NormalRed
+{
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ff0000
+}
+
+.NormalBold
+{
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: bold
+}
+
+/* text style for buttons and link buttons used in the portal admin pages */
+.CommandButton     {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 11px;
+    font-weight: normal;
+}
+    
+/* hyperlink style for buttons and link buttons used in the portal admin pages */
+A.CommandButton:link {
+    text-decoration:    underline;
+    color: #003366;
+}
+
+A.CommandButton:visited  {
+    text-decoration:    underline;
+    color: #003366;
+}
+
+A.CommandButton:active   {
+    text-decoration:    underline;
+    color: #003366;
+}
+
+A.CommandButton:hover    {
+    text-decoration:    underline;
+    color: #ff0000;
+}
+    
+/* GENERIC */
+H1  {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size:  20px;
+    font-weight:    normal;
+    color: #666644;
+}
+
+H2  {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size:  20px;
+    font-weight:    normal;
+    color: #666644;
+}
+
+H3  {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size:  12px;
+    font-weight:    normal;
+    color: #003366;
+}
+
+H4  {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size:  12px;
+    font-weight:    normal;
+    color: #003366;
+}
+
+H5, DT  {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size:  11px;
+    font-weight:    bold;
+    color: #003366;
+}
+
+H6  {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size:  11px;
+    font-weight:    bold;
+    color: #003366;
+}
+
+TFOOT, THEAD    {
+    font-family: Tahoma, Arial, Helvetica;
+    font-size:  12px;
+    color: #003366;
+}
+
+TH  {
+    vertical-align: baseline;
+    font-family: Tahoma, Arial, Helvetica;
+    font-size:  12px;
+    font-weight:    bold;
+    color: #003366;
+}
+
+A:link  {
+    text-decoration:    none;
+    color:  #003366;
+}
+
+A:visited   {
+    text-decoration:    none;
+    color:  #003366;
+}
+
+A:active    {
+    text-decoration:    none;
+    color:  #003366;
+}
+
+A:hover {
+    text-decoration:    underline;
+    color:  #ff0000;
+}
+
+SMALL   {
+    font-size:  8px;
+}
+
+BIG {
+    font-size:  14px;
+}
+
+BLOCKQUOTE, PRE {
+    font-family:    Lucida Console, monospace;
+}
+
+
+UL LI   {
+    list-style-type:    square ;
+}
+
+UL LI LI    {
+    list-style-type:    disc;
+}
+
+UL LI LI LI {
+    list-style-type:    circle;
+}
+
+OL LI   {
+    list-style-type:    decimal;
+}
+
+OL OL LI    {
+    list-style-type:    lower-alpha;
+}
+
+OL OL OL LI {
+    list-style-type:    lower-roman;
+}
+
+HR {
+    color: dimgrey;
+    height:1pt;
+    text-align:left
+}
+
+/* Menu-Styles */
+/* Module Title Menu */
+.ModuleTitle_MenuContainer {
+	border-bottom: blue 0px solid; 
+	border-left: blue 0px solid; 
+	border-top: blue 0px solid; 
+	border-right: blue  0px solid; 
+}
+
+.ModuleTitle_MenuBar {
+	cursor:auto; 
+	cursor: hand;
+	height:16;
+	background-color: Transparent;
+}
+
+.ModuleTitle_MenuItem {
+	cursor: pointer; 
+	cursor: hand; 
+	color: yellow; 
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 8pt; 
+	font-weight: bold; 
+	font-style: normal; 
+	background-color: #333333;
+}
+
+.ModuleTitle_MenuIcon {
+	cursor: pointer; 
+	cursor: hand; 
+	background-color:#333333; 
+	text-align: center; 
+	width: 15; 
+	height: 21;
+}
+
+.ModuleTitle_SubMenu {
+	z-index: 1000; 
+	cursor: pointer; 
+	cursor: hand; 
+	background-color: #FFFFFF; 
+	filter:progid:DXImageTransform.Microsoft.Shadow(color='DimGray', Direction=135, Strength=3); 
+	
+}
+
+.ModuleTitle_MenuBreak {
+	background-color: #EEEEEE; 
+	height: 1px;
+}
+
+.ModuleTitle_MenuItemSel {
+
+	cursor: pointer; 
+	cursor: hand; 
+	color: White; 
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 8pt; 
+	font-weight: bold; 
+	font-style: normal;
+
+	background-color: Blue;
+}
+
+.ModuleTitle_MenuArrow {
+	font-family: webdings; 
+	font-size: 8pt; 
+	cursor: pointer; 
+	cursor: hand; 
+	
+}
+
+.ModuleTitle_RootMenuArrow {
+	font-family: webdings; 
+	font-size: 8pt; 
+	cursor: pointer; 
+	cursor: hand;
+}
+
+/* Main Menu */
+
+.MainMenu_MenuContainer {
+	background-color: #5A88D6;
+	
+	
+}
+
+.MainMenu_MenuBar {
+	cursor: pointer; 
+	cursor: hand; 
+	height:16;
+}
+
+.MainMenu_MenuItem {
+	cursor: hand; 
+	color: Yellow; 
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 8pt; 
+	font-weight: bold; 
+	font-style: normal; 
+}
+
+.MainMenu_MenuIcon {
+	cursor: pointer; 
+	cursor: hand; 
+	background-color: #333333; 
+	text-align: center; 
+	width: 15; 
+	height: 21;
+}
+
+.MainMenu_SubMenu {
+	z-index: 1000; 
+	cursor: pointer; 
+	cursor: hand; 
+	background-color: #333333; 
+	filter:progid:DXImageTransform.Microsoft.Shadow(color='DimGray', Direction=135, Strength=3) ; 
+	
+}
+
+.MainMenu_MenuBreak {
+	background-color: White; 
+	height: 1px;
+}
+
+.MainMenu_MenuItemSel {
+	background-color: Blue; 
+	cursor: pointer; 
+	cursor: hand; 
+	color: White; 
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 8pt; 
+	font-weight: bold; 
+	font-style: normal;
+}
+
+.MainMenu_MenuArrow {
+	font-family: webdings; 
+	font-size: 8pt; 
+	cursor: pointer; 
+	cursor: hand; 
+}
+
+.MainMenu_RootMenuArrow {
+	font-family: webdings; 
+	font-size: 8pt; 
+	cursor: pointer; 
+	cursor: hand;
+}

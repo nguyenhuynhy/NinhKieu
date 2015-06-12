@@ -1,0 +1,67 @@
+/* ================================
+    CSS STYLES FOR PortalQH
+   ================================
+*/   
+
+
+/* PAGE BACKGROUND */
+/* background color for the header at the top of the page  */
+.QH_Banner
+{
+	/*border-bottom: 1 solid #B7B7B7;*/
+	border: 1 solid #6495ED;
+	background-image : url(images/bgHeader2.gif); /* url(images/background.jpg);*/
+	padding:  4 5 4 10;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #00008B;
+	text-align:center ;
+	filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=3, OffY=3, Color='#D1D1D1', Positive='true')	
+}
+
+.QH_Label
+{
+	font: 11px Arial, Helvetica, sans-serif;
+	color: Black;
+	text-align: right;
+	vertical-align:text-top;
+	text-decoration: none;
+	padding-right: 5;
+	/*width: 15%;*/
+}
+.QH_TextBox
+{
+	font-size: 11px;
+	color: black; /*#003063;*/
+	/*font-weight:bold;*/
+	font-family: Arial,Verdana; 
+	text-decoration: none;
+	border-color:#FAF8D5;
+	border-bottom-width:thin;
+	border-left-width:thin;
+	border-right-width:thin;
+	border-top-width:thin;
+		
+}
+
+.QH_TextDetail
+{
+	font-size: 11px;
+	color: Black;
+	font-family: Verdana;
+	text-decoration: none;
+}
+.QH_form
+{
+	background-color: White;
+	/*border: 1 solid #B7B7B7;*/
+	border: 1px solid #6495ED;
+}
+
+.QH_formHeader
+{
+	background-image : url(images/bgHeader.gif); /* url(images/background.jpg);*/
+	padding: 4 10 4 10;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #00008B;
+	border-bottom: 1 solid #6495ED;
+}

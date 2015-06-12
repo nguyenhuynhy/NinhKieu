@@ -1,0 +1,3284 @@
+<html>
+
+<head>
+
+<META name="description" content="MeadCo Ltd is a software development company based in Cambridge UK, specializing in ActiveX controls and Web application development. This document is the technical manual for ScriptX HTML Printing.">
+
+<META name="keywords" content="html printing, printing html, printing html
+page, pdf printing, printing pdf file, printing pdf, printing multiple files,
+print template, template printing, printing template,
+printer, print, template, Internet Explorer, WebBrowser,
+DEVICERECT,LAYOUTRECT,TEMPLATEPRINTER,PrintHTML,
+page, header, footer, margin, paper, size, source, background, 
+landscape, portrait, orientation,
+javascript, jscript, vbscript, activex,
+internet printing, internet printing control,
+activex control, activex component, free activex control,
+activex printing, printing web document, printing document, 
+printing word document, document printing, digital document printing, 
+printing web page, web page printing, Internet Explorer printing,
+server printing, server side printing, ASP printing, print from ASP page,
+printing manual, printing guide, printing tutorial">
+
+<script>
+window.expAllowStatic = true;
+</script>
+
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" media="print" type="text/css" href="print.css">
+
+<style>
+pre          { background-color: #EEEEEE }
+.samp        { background-color: #EEEEEE }
+.args        { background-color: #EEEEEE; width: 70% }
+.comm        { color: #505050 }
+.ext         { background-color: #EEEEEE; color: #FF0000 }
+.menu        { height: 25; width: 100%; background-color: gray; color: white; font-weight: 
+               bold; text-align: center; margin-top: 0; padding: 2pt }
+.samplink    { font-weight: bold }
+h5           { font-size: 8pt }
+h1, h2       { page-break-before: always }
+#idNoPgBreak { page-break-before: auto }
+</style>
+
+<script defer>
+function openWindow(url) {
+  var iwidth = screen.availWidth*0.8
+  var iheight = screen.availHeight*0.75
+  var itop=(screen.availHeight-iheight)/5;
+  var ileft=(screen.availWidth-iwidth)/2;
+  window.open(url,'sx_sample','menubar=yes toolbar=yes resizable=yes scrollbars=yes status=yes height='+iheight+' width='+iwidth+' left='+ileft+' top='+itop)
+}
+
+function send() {
+  userAgent = "** ScriptX is running on **: " + window.navigator.userAgent + " " +
+    window.navigator.appMinorVersion;
+
+  navigate("mailto:feedback@meadroid.com?subject=Bug%20Report&body="
+    + escape(userAgent));
+}
+</script>
+
+<title>MeadCo's ScriptX: Printing Programming Manual</title>
+</head>
+
+<body>
+
+<h1><a target="_new" href="http://www.meadroid.com/scriptx/index.asp">ScriptX</a> printing: technical manual</h1>
+
+<p>October 2003</p>
+
+<hr size="1"/>
+
+<h2 id="idNoPgBreak">Contents</h2>
+<dl>
+  <dt><a href="#intro">Overview</a></dt>
+  <dl>
+    <dt><a href="#intro">Introduction</a></dt>
+    <dt><a href="#examples">Summary of examples</a></dt>
+    <dt><a href="#extprint">HTML Printing with ScriptX</a></dt>
+    <dt><a href="#html_object">How do I use the ScriptX object?</a></dt>
+    <dl>
+      <dt><a href="#clientSide">Client-side deployment</a></dt>
+      <dl>
+        <dt><a href="#clientSideBasic">Basic functionality: <em>ScriptX.cab</em></a></dt>
+        <dt><a href="#clientSideAdvanced">Advanced functionality: <em>smsx.cab</em></a></dt>
+        <dt><a href="#objectInstalled">How to check whether or not the object is properly installed</a></dt>
+      </dl>
+      <dt><a href="javascript:openWindow('serverprint.htm')">Server-side deployment</a></dt>
+      <dt><a href="#testing">Testing your print-outs</a></dt>
+    </dl>
+  </dl>
+  <dt><a href="#support">Technical support</a></dt>
+  <dt><a href="#refs">Reference</a></dt>
+</dl>  
+
+<h2><a name="intro"></a>Overview</h2>
+
+<h3 id="idNoPgBreak">Introduction</h3>
+
+<p>MeadCo's ScriptX is a non-visual downloadable ActiveX control, developed to provide absolute control over document printing operations from client and server computers running Microsoft's Internet Explorer browser.
+ScriptX became well know for its HTML printing capabilties following publication of our article <a
+href="http://msdn.microsoft.com/workshop/author/script/dhtmlprint.asp" target="_blank">Scripting Support for
+Web Page Printing</a><span class="ext">�</span> on the MSDN website. 
+
+
+<p>Part of its purpose is to ensure the consistent formatting and appearance of printed output from any local or networked printer, regardless of the printing attributes already set in that computer's browser. ScriptX applies a document author's desired attributes at the time of printing browser window or framed content, but thereafter automatically restores all default settings and makes no other permanent changes.</p>
+
+<p><a name="basic"></a>ScriptX 1.0 was introduced by MeadCo in 1998 as a freely distributable utility offering a limited set of print formatting functionality - the scripted control of the printing of HTML frame or window content (with or without a prompt), and the specification by script of printing parameters such as page <a href="#header">headers</a>, <a href="#footer">footers</a>, <a href="#leftMargin">margins</a> and <a href="#portrait">paper orientation</a>.</p> 
+
+<p>That basic functionality is still available at no charge and is freely distributable. Features that are part of that 'free' printing subset are marked in this document as <span class="ext"><sup>basic</sup></span>.</p>
+
+<p>With the releases of later versions, significantly more <a href="#extprint">advanced printing functionality</a> was introduced which is only accessible in the presence of a paid-for MeadCo <a href="http://www.meadroid.com/scriptx/license/index.htm">publishing license</a><span class="ext">�</span>.</p>
+
+<h3>Target platform</h3>
+  
+<p>ScriptX has been tested on and supports Microsoft Internet Explorer versions 4.01 SP1 - 6.0 SP1 on all Microsoft Windows Win32 OS platforms with the exception of Windows NT 3.51.</p>
+
+<h3>Product credits</h3>
+
+<p>ScriptX has been widely adopted and acknowledged by the Web and intranet development communities. Check out
+the following references:</p>
+
+<ul>
+  
+  <li><a target="_blank" href="http://msdn.microsoft.com/workshop/author/script/dhtmlprint.asp#setup">Scripting Support for Web Page Printing</a><span class="ext">�</span></li>
+
+<li><a target="_blank" href="http://www.google.com">Google keywords: scriptx  meadroid</a><span class="ext">�</span></li>
+</ul>
+
+<h2 id="idNoPgBreak"><a name="examples"></a>Summary of examples</h2>
+
+  <ul>
+    <dt><a href="javascript:openWindow('samples/basic.htm')"><b>Basic</b></a></dt>
+
+    <dd>Illustrates the straightforward use of the freely distributable ScriptX basic printing functionality: <a href="#header">headers</a>, <a href="#footer">footers</a>,
+      <a href="#leftMargin">margins</a> and <a href="#portrait">paper orientation</a>.</dd>
+
+    <dt><br><a href="javascript:openWindow('samples/advanced.htm')"><b>Advanced</b></a></dt>
+
+    <dd>Illustrates the typical use of ScriptX advanced printing functionality for which a publishing license is required.</dd>
+
+    <dt><br><a href="javascript:openWindow('samples/techie.htm')"><b>Techie</b></a></dt>
+
+    <dd>An all-in-one technical example illustrating the most advanced use of licensed ScriptX functionality.
+   </dd>
+  </ul>
+
+<p>Feel free to investigate the source code from any of the examples and to cut &amp; paste fragments into your own applications.</p>
+
+<h2><a name="extprint"></a>HTML Printing with ScriptX</h2>
+
+<p>ScriptX extends basic printing functionality with some powerful features which can  only be deployed in the presence of a paid-for <a href="http://www.meadroid.com/scriptx/indexlc.asp">publishing license</a>. Some of these are:</p>
+
+  <ul>
+
+    <li><p>Control over the printing of a document's background color and images (<i><a href="#printBackground">printBackground</a>).</i></p></li>
+
+    <li><p>A <i><a href="#SetMarginMeasure">SetMarginMeasure</a> </i>method to ensure that the chosen unit of measure for margins (inches or millimeters) will be consistent across machines with different locale settings.</p></li>
+
+    <li><p>Facilities to select a non-default printer, paper size &amp; source, page range &amp; collation and number of copies to print.</p></li>
+
+    <li><p>A <i><a href="#PrintHTML">PrintHTML</a> </i>method to print one or more externally-located HTML documents. <i>PrintHTML</i> can also be used to implement <a href="javascript:openWindow('serverprint.htm')">server side printing</a>.</p></li>
+
+    <li><p>All Internet Explorer versions from IE 4.01 SP1 onwards are fully supported. Custom Print Templates can now be deployed (<a href="#templateURL"><i>templateURL</i></a>) in IE5.5 and later. Read more about MeadCo's in-depth support for Print Templates <a href="http://www.meadroid.com/scriptx/indexmpt.asp">here</a>.</p></li>
+
+    <li><p>Reliability and scalability. The <i><a href="#PrintHTML">PrintHTML(url)</a></i> method can queue and print any number of documents without compromising system performance. This is especially important for <a href="javascript:openWindow('serverprint.htm')">server side printing</a>. On the client side, <i><a href="#PrintHTML">PrintHTML</a></i> works in the HTTP session context of the calling page (SSL is supported as well).</p></li>
+
+    <li><p>Precise tracking of spooler activity (<i><a href="#IsSpooling">IsSpooling</a>, <a href="#WaitForSpoolingComplete">WaitForSpoolingComplete</a>, <a href="#onafterprint">onafterprint</a></i>). By default, when the Internet Explorer window is closed or the page navigated away from whilst a print-out is still being spooled, the user will be prompted. The prompt can be customized or disabled (<i><a href="#onbeforeunload">onbeforeunload</a></i>).</p></li>
+
+    <li><p>Print settings changes (<a href="#header">headers</a><span class="ext"><sup>basic</sup></span>, <a href="#footer">footers</a><span class="ext"><sup>basic</sup></span>, <a href="#leftMargin">margins</a><span class="ext"><sup>basic</sup></span>, <a href="#portrait">paper orientation</a><span class="ext"><sup>basic</sup></span>, <a href="#printer">printer name</a>, <a href="#paperSize">paper size</a>, <a href="#paperSource">paper source</a>, <a href="#SetPageRange">page range selection</a>, <a href="#copies">number of copies</a>, <a href="#collate">collation</a>, <a href="#duplex">duplex mode</a>) once made from script now become active for Internet Explorer's native UI <i>Print...</i> and <i>Page Setup...</i> commands, as well as for the native <i><a target="_blank" href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/print.asp">window.print()</a></i><span class="ext">�</span> script method, during the time that the document is displayed. Now an author doesn't need to put a [Print] button on an HTML page.</p></li>
+
+    <li><p>Internet Explorer's native printing UI can now be trapped and cancelled, or handled in a particular way (<i><a href="#disableUI">disableUI</a>, </i><a href="#onuserprint"><i>onuserprint</i></a>, <a href="#onuserpreview"><i>onuserpreview</i></a>, <a href="#onuserpagesetup"><i>onuserpagesetup</i></a>). A document's DHTML user interface can also be updated in response to user changes in the <i>Page Setup </i>and <i>Print </i>dialogs (<i><a href="#onpagesetup">onpagesetup</a></i>). See the <b><a href="javascript:openWindow('samples/techie.htm')">Techie printing example</a></b> for an illustration of UI handling.</p></li>
+
+    <li><p>All changes made to print settings affect only the current document and are automatically restored upon navigation, or when the window is closed.</p></li>
+
+    <li><p>A redirect of raw print-out data can be made to a specified file name (<i><a href="#printToFileName">printToFileName</a></i>).</p></li>
+
+    <li><p>Basic printing of Microsoft Office<sup>tm</sup> and Adobe Acrobat<sup>tm</sup> documents hosted in frames.<br></p></li>
+
+    <li><p align="left">Batch printing of PDF and MS Office documents (<a href="#batchPrintPDF"><i>BatchPrintPDF</i></a>).</p></li>
+
+  </ul>
+
+<h3>Backwards compatibility</h3>
+
+  <p><a name="prompting"></a>The current version of ScriptX is backwards compatible and will work with all existing publishing licenses. A number of issues have been resolved since earlier versions, including full support for all versions of Internet Explorer up to 6.0 SP1 + all patches.</p>
+
+<p>We <b>strongly</b> recommend that you update your &lt;OBJECT&gt; elements to reference the current version <i>6,1,432,1</i> and update the <i>ScriptX.cab</i> or <i>smsx.cab</i> files on your servers.
+
+  <ul>
+
+    <li><p><strong>An important compatibility issue</strong> is that ScriptX printing will now <b>always prompt </b>when called in the context of Internet Explorer's Internet Security Zone (check the zone icon in the browser's status bar). This is done to prevent anonymous Internet content invoking printing without a prompt (see <a target="_blank" href="http://support.microsoft.com/support/kb/articles/Q247/6/71.ASP">PRB: Printing with WebBrowser from Internet Explorer Raises Print Dialog Box in Internet Explorer 5</a><span class="ext">�</span>).<br><br>For the My Computer, Local Intranet and Trusted Sites Security Zones promptless printing will work. If you need promptless printing for the Internet Security Zone, you should obtain a <a href="http://www.meadroid.com/scriptx/indexlc.asp">publishing license</a> that will bind the deployment of ScriptX to the URL addresses from which you want to serve ScriptX-enabled content.</p></li>
+
+    <li><strong>Another important note</strong> concerns margin units of measure (inches and millimeters). By default ScriptX uses the units of measure set on the client machine. This is OK when pages are being authored for a known environment such as a small corporate intranet where all Regional Settings are identical, but in a broader environment users' Number settings are certain to vary. So an author should specify the <a href="#SetMarginMeasure"><i>SetMarginMeasure</i></a> method&nbsp;with a value of either 1 (mm) or 2 (inches). ScriptX will then print to the margins specified regardless of -- and without affecting -- a user's default Regional Number Settings.</li>
+  </ul>
+
+<h2><a name="html_object"></a>How do I use the ScriptX object?</h2>
+
+<p>Before reading further, please have a look at our illustrative <a href="javascript:openWindow('samples/basic.htm')"><b>Basic</b></a>, <b><a href="javascript:openWindow('samples/advanced.htm')">Advanced</a> </b>and <b><a href="javascript:openWindow('samples/techie.htm')">Techie</a></b> examples of ScriptX printing to get an idea of what ScriptX can do for you.</p>
+
+<p>ScriptX can be deployed either on <a href="#clientSide">client-side</a> HTML or XML pages, or from <a href="javascript:openWindow('serverprint.htm')">server-side</a> script.</p>
+
+<h3><a name="clientSide"></a>Client-side deployment</h3>
+
+<p>ScriptX is deployed as a client-side ActiveX control, instantiated and scripted on an HTML or XML page as an <i><a target="_blank" href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/object.asp">&lt;OBJECT&gt; </a></i><a target="_blank" href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/object.asp">element</a><span class="ext">�</span>. Download and installation is a <b>one-time client-side event</b> and is handled automatically by the standard <a target="_blank" href="http://msdn.microsoft.com/workshop/delivery/download/overview/overview.asp">Internet Explorer Component Download</a><span class="ext">�</span> security schema.</p>
+
+<p>The end user's system must have the <i>&quot;Download Signed ActiveX Controls&quot;</i> and <i>&quot;Script ActiveX control marked as safe for scripting&quot;</i> security settings enabled for the corresponding <a target="_blank" href="http://www.microsoft.com/windows/ie/security/quiz/summary.htm#ZONES">Security Zone</a>. These are the <b>default settings</b> for the <i>My Computer</i>, <i>Local Intranet</i>, <i>Trusted Sites</i> and <i>Internet </i> Security Zones.</p>
+
+<p>ScriptX is installed from one of two signed CABs: <em>ScriptX.cab</em> for freely-distributable 'basic' deployment or <em>smsx.cab </em> for fully-functional licensed use. Both are part of a download package obtainable from the <a href="http://www.meadroid.com/scriptx/">ScriptX site</a>. The appropriate CAB file should be placed on the web server and its location should be referenced by the <a target="_blank" href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/codebase.asp"><i>CODEBASE</i></a><span class="ext">�</span> attribute of the <i>&lt;OBJECT&gt; </i>tag, as shown below.</p>
+
+<p><b>NOTE</b>: In your own code, we recommend that you script the ScriptX <i>&lt;OBJECT&gt; </i>elements in the document's <i>&lt;BODY&gt;</i> container.</p>
+
+<ul>
+  <li><p><b>Make sure</b> that you provide the correct relative or fully-qualified path to the CAB file and the correct version info (<i>6,1,432,1</i>) in your <a target="_blank" href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/codebase.asp"><i>CODEBASE</i></a><span class="ext">�</span> attributes.</p></li>
+
+  <li><p>Start to script the ScriptX object only when <b> the page is fully loaded</b> i.e. once the <i> <a target="_blank" href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onload.asp">window.onload</a><span class="ext">�</span> 
+    </i> event has occured.</p></li>
+
+  <li><p><b>Use the <i><a target="_blank" href="http://msdn.microsoft.com/workshop/Author/dhtml/reference/properties/Defer.asp">defer</a></i><span class="ext">�</span> 
+ </b> 
+attribute where appropriate in your scripts: <i>&lt;SCRIPT <b>defer</b>&gt;...&lt;SCRIPT&gt;</i> and avoid
+immediate script statements (i.e. code which is outside of any function scope). This is an under-appreciated but very useful feature which instructs the script to execute <b>only </b>when the whole document's DHTML content is completely parsed. This way you can be sure of accessing every element on the page.</p></li>
+</ul>
+
+<P>The folowing code snippets assume that <i>ScriptX.cab </i> or <i>smsx.cab </i>exists in the same folder as the hosting page itself.</p>
+
+<h4><a name="clientSideBasic"></a>Basic functionality: <em>ScriptX.cab</em></h4>
+
+<p><em>ScriptX.cab </em> contains the same ScriptX binaries as smsx.cab but - because the 'basic' printing subset does not need to refer to a publishing license - it excludes the Security Manager component:</p>
+
+  <pre class="clsCode">&lt;object id=factory <font color="#0000FF">viewastext </font>style=&quot;display:none&quot;
+classid=&quot;clsid:1663ed61-23eb-11d2-b92f-008048fdd814&quot;
+  <font color="#0000FF">codebase</font>=&quot;ScriptX.cab<font color="#0000FF">#Version=6,1,432,1</font>&quot;&gt;
+&lt;/object&gt;</pre>
+
+<p>The <a href="javascript:openWindow('samples/basic.htm')"><b>Basic</b></a> printing example illustrates the use of the <i>ScriptX.cab</i>.</p>
+
+<p>The <i><font color="#0000FF">viewastext </font></i>attribute prevents an authoring tool such as Microsoft FrontPage<sup>tm</sup> or Visual InterDev<sup>tm</sup> from running the object at design time.</p>
+
+<p><b>NOTE</b>: with the 'basic' subset, you can only script <a href="#header"><i>header</i></a>, <a href="#footer"><i>footer</i></a>,
+<a href="#leftMargin"><i>page margins</i></a>, <a href="#portrait"><i>paper orientation</i></a>,
+<a href="#Print"><i>Print</i></a><i> </i>and <i><a href="#PageSetup">PageSetup</a>
+</i>methods and properties.</p>
+
+<h4><a name="clientSideAdvanced"></a>Advanced functionality: <em>smsx.cab</em></h4>
+
+<p><em>smsx.cab </em>contains both the ScriptX and the <a href="http://www.meadroid.com/sm_intro.asp">Security Manager</a> binaries required to publish fully-functional licensed content:</p>
+
+  <pre class="clsCode">&lt;!-- MeadCo Security Manager --&gt;
+&lt;object viewastext style=&quot;display:none&quot;
+  classid=&quot;clsid:5445be81-b796-11d2-b931-002018654e2e&quot;
+  codebase=&quot;smsx.cab#Version=6,1,432,1&quot;&gt;
+  &lt;param name=&quot;<font color="#0000FF">GUID</font>&quot; value=&quot;<font color="#0000FF">{67533199-D16A-46D3-BA23-5AA77981F726}</font>&quot;&gt;
+  &lt;param name=&quot;Path&quot; value=&quot;sxlic.mlf&quot;&gt;
+  &lt;param name=&quot;Revision&quot; value=&quot;0&quot;&gt;
+&lt;/object&gt;
+
+&lt;!-- MeadCo ScriptX --&gt;
+&lt;object id=factory viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:1663ed61-23eb-11d2-b92f-008048fdd814&quot;&gt;
+&lt;/object&gt;</pre>
+
+<p><b>NOTE</b>: the <font color="#0000FF">{67533199-D16A-46D3-BA23-5AA77981F726}</font> value of the <font color="#0000FF">GUID</font> parameter used above identifies the MeadCo <em>evaluation</em> license that authors may use to experiment with Advanced printing capabilities. The license validates
+ local filesystem (<strong>file://</strong>) and local website (<strong>http://localhost/</strong>) content
+ for <em>evaluation purposes only on a single development computer</em>.</p>
+
+<p><b>The evaluation license is periodic</b>. It will expire in a few months and will be replaced by a new one with a different GUID, so any code depending on the evaluation license may suddenly stop working at any time.</p>
+
+<p>Registered customers are issued with an unique license identifier and a digitally signed <i>sxlic.mlf </i>license file. See the <a href="http://www.meadroid.com/scriptx/license/">licensing</a><span class="ext">�</span> page for more details. </p>
+
+<p>Check out the sources of the <a href="javascript:openWindow('samples/advanced.htm')"><b>Advanced</b></a> and <a href="javascript:openWindow('samples/techie.htm')"><b>Techie</b></a> printing examples for a complete illustration of how to use licensed ScriptX functionality. The following JScript code snippet shows how to modify printing settings so as to print to a specific printer:</p>
+
+  <pre class="clsCode">&lt;script defer&gt;
+function SetPrintSettings() {
+  // -- advanced features
+  factory.printing.SetMarginMeasure(2); // measure margins in inches
+  factory.printing.printer = &quot;HP DeskJet 870C&quot;;
+  factory.printing.paperSize = &quot;A4&quot;;
+  factory.printing.paperSource = &quot;Manual feed&quot;;
+  factory.printing.collate = true;
+  factory.printing.copies = 2;
+  factory.printing.SetPageRange(false, 1, 3); // need pages from 1 to 3
+
+  // -- basic features
+  factory.printing.header = &quot;This is MeadCo&quot;;
+  factory.printing.footer = &quot;Advanced Printing by ScriptX&quot;;
+  factory.printing.portrait = false;
+  factory.printing.leftMargin = 1.0;
+  factory.printing.topMargin = 1.0;
+  factory.printing.rightMargin = 1.0;
+  factory.printing.bottomMargin = 1.0;
+}
+
+function Print(frame) {
+  factory.printing.Print(true, frame) // print with prompt
+}
+&lt;/script&gt;</pre>
+
+<p>A subtle JScript syntax issue may occur when setting a printer name that contains back slashes. Don't forget to double the slashes:</p>
+
+  <pre class="clsCode">factory.printing.printer = &quot;\\\\FS-LYS-01\\HP5n-759&quot; // print to \\FS-LYS-01\HP5n-759</pre>
+
+<h4><a name="objectInstalled"></a>How to check whether or not the object is properly installed</h4>
+
+<p>The following technique can be applied to the use of both <i>ScriptX.cab</i> and <i>smsx.cab</i>. Upon the <i> <a target="_blank" href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onload.asp">window.onload</a><span class="ext">�</span> 
+</i>event, test whether or not the <i><a target="_blank" 
+href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/object.asp">object</a></i><span class="ext">�</span>
+property of the ScriptX or the Security Manager object returns as a valid object. The way to do that is shown in the script snippet below.<br><br>
+
+In the event that you experience any problems with automatic client-side download and installation, check out <a target="_blank" href="http://support.microsoft.com/support/kb/articles/Q252/9/37.ASP">HOWTO: Find More Information About Why Code Download Failed</a><span class="ext">�</span><i> </i>and <a target="_blank" href="http://support.microsoft.com/support/kb/articles/Q182/5/69.ASP">Description of Internet Explorer Security Zones Registry Entries</a><span class="ext">�</span>
+as part of your troubleshooting.</p>
+
+<pre class="clsCode">&lt;!-- MeadCo Security Manager - using the evaluation license --&gt;
+&lt;object id=&quot;secmgr&quot; viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:5445be81-b796-11d2-b931-002018654e2e&quot;
+codebase=&quot;smsx.cab#Version=6,1,432,1&quot;&gt;
+  &lt;param name=&quot;GUID&quot; value=&quot;{67533199-D16A-46D3-BA23-5AA77981F726}&quot;&gt;
+  &lt;param name=&quot;Path&quot; value=&quot;sxlic.mlf&quot;&gt;
+  &lt;param name=&quot;Revision&quot; value=&quot;0&quot;&gt;
+&lt;/object&gt;
+
+&lt;!-- MeadCo ScriptX --&gt;
+&lt;object id=&quot;factory&quot; viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:1663ed61-23eb-11d2-b92f-008048fdd814&quot;&gt;
+&lt;/object&gt;
+
+&lt;script defer&gt;
+function window.onload() {
+  if ( !<b>factory.object</b> ) {
+    alert(&quot;MeadCo's ScriptX Control is not properly installed!&quot;);
+    navigate(&quot;scriptx-install-error.htm&quot;);
+    return;
+  }
+  if ( !<b>secmgr.object</b> ) {
+    alert(&quot;MeadCo's Security Manager Control is not properly installed!&quot;);
+    navigate(&quot;secmgr-install-error.htm&quot;);
+    return;
+  }
+  if ( !<b>secmgr.validLicense</b> ) {
+    alert(&quot;The MeadCo Publishing License is invalid or has been declined by the user!&quot;);
+    navigate(&quot;license-error.htm&quot;);
+    return;
+  }
+  alert(&quot;Ready to script MeadCo's ScriptX!&quot;)
+}
+&lt;/script&gt;</pre>
+
+<h3><a name="testing"></a>Testing your print-outs</h3>
+
+<p>The development and testing of code to produce good-looking printed reports usually takes a number of iterations. To save toner, paper, trees and our own precious time :-) we regularly use the <a target="_blank" href="http://www.fineprint.com/">FinePrint<sup>tm</sup></a><span class="ext">�</span> application from FinePrint Software.</p>
+
+<p>FinePrint<sup>tm</sup> installs a virtual printer driver that serves as indirection layer between the printing application (Internet Explorer in our case) and a physical or networked printer. In 'bypass' mode it lets us accurately preview and repaginate ScriptX-enabled content before it is actually printed or discarded.</p>
+
+<p>It's also a very handy testing device with which to diagnose printing problems. So because we are physically unable to test ScriptX with every model and version of printer and printer driver that exists in the world, we would greatly appreciate it if you would try printing to the FinePrint driver before reporting errors against ScriptX from your particular printing environment.</p>
+
+<p><b>NOTE</b>: Mead & Co Limited has no commercial  affiliation with FinePrint Software, LLC.</p>
+
+<h2><a name="support"></a>Technical support</h2>
+
+<p>Licensees of ScriptX' advanced printing functionality are entitled to unlimited direct-to-company email support and access to new versions of the ScriptX software as-and-when issued, both at no additional charge.</p>
+
+<p><a href="javascript:send()">Please send us feedback &amp; bug reports</a>.</p><br>
+
+<h3><a name="links"></a>Web support links</h3>
+
+  <h4>Microsoft Internet Explorer printing and Internet Explorer Component Download support articles:</h4>
+  <p><a target="_blank" 
+  href="http://search.microsoft.com/us/SearchMS25.asp?so=RECCNT&qu=kbPrint+and+%28kbWebBrowser+or+msiew95+or+msient+or+msiew98+or+msiew2000%29&boolean=BOOLEAN&i=07&p=1&nq=NEW">Microsoft
+  Support Knowledge Base articles on Internet Explorer Printing</a><span class="ext">�</span></p>
+  <p><a target="_blank" href="http://support.microsoft.com/support/kb/articles/Q264/5/70.ASP">INFO: WebCast: How Does Internet
+  Component Download Work?</a><span class="ext">�</span></p>
+  <p><font face="Verdana, Arial, Helvetica" size="2"><a
+  href="http://support.microsoft.com/support/kb/articles/Q252/9/37.ASP" target="_blank" >HOWTO: Find More
+  Information About Why Code Download Failed</a></font><span class="ext">�</span></p>
+  <p><a target="_blank" href="http://support.microsoft.com/support/kb/articles/Q261/9/41.ASP">PRB: Trust Provider Warning
+  Message Appears When You Attempt to Download Components</a><span class="ext">�</span></p>
+  <p><a target="_blank" href="http://support.microsoft.com/support/kb/articles/Q271/5/83.ASP">PROBLEM: Blank Page Is Printed
+  in Internet Explorer 5.5</a><span class="ext">�</span></p>
+
+  <h4>General information on Internet Explorer printing:</h4>
+  <p><a target="_blank" href="http://msdn.microsoft.com/workshop/author/script/dhtmlprint.asp">Scripting Support for Web Page
+  Printing</a><span class="ext">�</span></p>
+  <p><a target="_blank" href="http://msdn.microsoft.com/workshop/browser/wb_print.asp">Printing with the Internet Explorer
+  WebBrowser Control</a><span class="ext">�</span></p>
+  <p><a target="_blank" href="http://msdn.microsoft.com/library/en-us/dnie55/html/beyondprintpreview.asp">Beyond
+  Print Preview: Print Customization for Internet Explorer 5.5</a><span class="ext">�</span></p>
+  <p><a target="_blank" href="http://msdn.microsoft.com/library/en-us/dnie55/html/printtemplate2.asp">Print
+  Preview 2: The Continuing Adventures of Internet Explorer 5.5 Print Customization</a><span class="ext">�</span></p>
+  <p><a target="_blank" href="http://msdn.microsoft.com/workshop/browser/hosting/printpreview/reference/reference.asp">Print
+  Template Reference</a><span class="ext">�</span></p>
+  <p><a target="_blank" href="http://msdn.microsoft.com/workshop/Author/dynstyle/printing.asp">Style Sheets and Printing</a><span
+  class="ext">�</span></p>
+  <p><a target="_blank" href="http://www.insidedhtml.com/tips/styles/ts13/page1.asp">Inside Technique : Printing Techniques</a><span
+  class="ext">�</span></p>
+  <p><a target="_blank" href="http://msdn.microsoft.com/workshop/Author/tables/tables_overview.asp#printing">Printing Tables
+  on Multiple Pages</a><span class="ext">�</span></p>
+  <p><a target="_blank" href="http://support.microsoft.com/support/kb/articles/q180/8/56.asp">INFO: Page Break Styles
+  Supported Only with Block Elements</a><span class="ext">�</span></p>
+
+<hr>
+<a name="refs"></a>
+<p style="page-break-before: always; font:bold 18pt / 24pt Verdana">ScriptX printing: technical reference</p>
+
+  <p>Unless otherwise indicated by the <span class="ext"><sup>basic</sup></span> icon, the use of any
+  property or method requires a <a href="http://www.meadroid.com/scriptx/license/">publishing license</a><span
+  class="ext">�</span>.</p>
+
+  <h4>Objects</h4>
+  <p><a href="#factory">factory</a>, <a href="#printing">printing</a></p>
+
+  <h4>Properties</h4>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a href="#collate">collate</a>, <a href="#copies">copies</a>, <a href="#CurrentPrinter">currentPrinter</a>, <a
+  href="#disableUI">disableUI</a>, <a href="#duplex">duplex</a>, <a href="#footer">footer</a>, <a href="#header">header</a>,
+  <a href="#leftMargin">leftMargin</a>, <a href="#onafterprint">onafterprint</a>, <a href="#onbeforeunload">onbeforeunload</a>,
+  <a href="#onpagesetup">onpagesetup</a>, <a href="#onuserpagesetup">onuserpagesetup</a>, <a
+  href="#onuserprint">onuserprint</a>, <a href="#onuserprintpreview">onuserprintpreview</a>, <a
+  href="#pageHeight">pageHeight</a>, <a href="#pageWidth">pageWidth</a>, <a href="#paperSize">paperSize</a>, <a
+  href="#paperSource">paperSource</a>, <a href="#portrait">portrait</a>, <a href="#printBackground">printBackground</a>,
+  <a href="#printer">printer</a>, <a href="#printToFileName">printToFileName</a>, <a href="#rightMargin">rightMargin</a>,
+  <a href="#templateURL">templateURL</a>, <a href="#topMargin">topMargin</a>, <a href="#unprintableBottom">unprintableBottom</a>,
+  <a href="#unprintableLeft">unprintableLeft</a>, <a href="#unprintableRight">unprintableRight</a>, <a
+  href="#unprintableTop">unprintableTop</a></p>
+
+  <h4>Methods and Functions</h4>
+  <p><a href="#BatchPrintPDF">BatchPrintPDF</a>, <a href="#DefaultPrinter">DefaultPrinter</a>, <a
+  href="#DoPrint">DoPrint</a>, <a href="#EnumJobs">EnumJobs</a>, <a href="#EnumPrinters">EnumPrinters</a>, <a
+  href="#GetJobsCount">GetJobsCount</a>, <a href="#GetMarginMeasure">GetMarginMeasure</a>, <a
+  href="#IsSpooling">IsSpooling</a>, <a href="#IsTemplateSupported">IsTemplateSupported</a>, <a
+  href="#OwnQueue">OwnQueue</a>, <a href="#PageSetup">PageSetup</a>, <a href="#Preview">Preview</a>, <a
+  href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>, <a href="#PrintPDF">PrintPDF</a>, <a
+  href="#PrintSetup">PrintSetup</a>, <a href="#PrintXML">PrintXML</a>, <a href="#SetMarginMeasure">SetMarginMeasure</a>,
+  <a href="#SetPageRange">SetPageRange</a>, <a href="#Sleep">Sleep</a>,
+  <a href="#WaitForSpoolingComplete">WaitForSpoolingComplete</a></p>
+
+<h2><a name="factory"></a>Objects</h2>
+<h3>factory</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Represents the ScriptX object itself on an <a href="#html_object">HTML page</a> for scripting by its <i>id </i>. For historical reasons, we name it <i>factory</i>.</p>
+
+  <p>For WSH or ASP (i.e. server-side) use <b>only</b>, create a ScriptX instance dynamically with the JScript <a
+  href="http://msdn.microsoft.com/scripting/jscript/doc/jsobjActiveXObject.htm" target="_blank">new ActiveXObject</a><span
+  class="ext">�</span> or the VBScript <a
+  href="http://msdn.microsoft.com/scripting/vbscript/doc/vsfctCreateObject.htm" target="_blank">CreateObject</a><span
+  class="ext">�</span>.</p>
+
+<p>Note that you can <b>not</b>  use CreateObject or new ActiveXObject to call ScriptX client-side. You should call ScriptX in all client-side cases by the <i>id </i>of the on-page ScriptX object.</p>
+
+  <p>See <a href="#html_object">How do I use the ScriptX object</a> for deployment details.</p>
+</blockquote>
+
+<h4>Examples</h4>
+<blockquote>
+  <p>HTML page:</p>
+
+  <pre class="clsCode">&lt;object id=factory viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:1663ed61-23eb-11d2-b92f-008048fdd814&quot;
+codebase=&quot;ScriptX.cab#Version=6,1,432,1&quot;&gt;
+&lt;/object&gt;</pre>
+
+  <p><a target="_blank" href="http://msdn.microsoft.com/scripting/windowshost/default.htm">WSH</a><span class="ext">�</span>
+  script (JScript):</p>
+  <pre class="clsCode">var factory = new ActiveXObject(&quot;<strong>ScriptX.Factory</strong>&quot;)
+factory.printing.PrintHTML(&quot;http://msdn.microsoft.com/workshop/author/script/dhtmlprint.asp&quot;)</pre>
+
+  <p>ASP page (VBScript):</p>
+
+  <pre class="clsCode">&lt;%
+ set factory = CreateObject(&quot;<strong>ScriptX.Factory</strong>&quot;)
+ factory.printing.PrintHTML &quot;http://localhost/orders/order.asp?number=&quot; &amp; Request.Form(&quot;number&quot;)
+ set factory = nothing
+%&gt;</pre>
+
+</blockquote>
+
+<h4>Properties</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Methods</h4>
+<blockquote>
+  <p><a href="#DoPrint">DoPrint</a>, <a href="#PageSetup">PageSetup</a></p>
+</blockquote>
+<h3><a name="printing"></a>printing</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Represents the printing functionality of ScriptX. See <a href="#extprint">HTML Printing with ScriptX</a> for
+  more information and examples.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing = factory.</i><b>printing</b></p>
+</blockquote>
+
+<h4>Properties</h4>
+<blockquote>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a href="#collate">collate</a>, <a href="#copies">copies</a>,
+  <a href="#CurrentPrinter">currentPrinter</a>, <a href="#disableUI">disableUI</a>, <a href="#duplex">duplex</a>, <a href="#footer">footer</a>, <a href="#header">header</a>,
+  <a href="#leftMargin">leftMargin</a>, <a href="#onafterprint">onafterprint</a>, <a href="#onbeforeunload">onbeforeunload</a>,
+  <a href="#onpagesetup">onpagesetup</a>, <a href="#onuserpagesetup">onuserpagesetup</a>, <a
+  href="#onuserprint">onuserprint</a>, <a href="#onuserprintpreview">onuserprintpreview</a>, <a
+  href="#pageHeight">pageHeight</a>, <a href="#pageWidth">pageWidth</a>, <a href="#paperSize">paperSize</a>, <a
+  href="#paperSource">paperSource</a>, <a href="#portrait">portrait</a>, <a href="#printBackground">printBackground</a>,
+  <a href="#printer">printer</a>, <a href="#printToFileName">printToFileName</a>, <a href="#rightMargin">rightMargin</a>,
+  <a href="#templateURL">templateURL</a>, <a href="#topMargin">topMargin</a>, <a href="#unprintableBottom">unprintableBottom</a>,
+  <a href="#unprintableLeft">unprintableLeft</a>, <a href="#unprintableRight">unprintableRight</a>, <a
+  href="#unprintableTop">unprintableTop</a></p>
+</blockquote>
+
+<h4>Methods</h4>
+<blockquote>
+  <p><a href="#BatchPrintPDF">BatchPrintPDF</a>,&nbsp; <a href="#DefaultPrinter">DefaultPrinter</a>, <a
+  href="#EnumJobs">EnumJobs</a>, <a href="#EnumPrinters">EnumPrinters</a>, <a href="#GetJobsCount">GetJobsCount</a>,
+  <a href="#GetMarginMeasure">GetMarginMeasure</a>, <a href="#IsSpooling">IsSpooling</a>, <a
+  href="#IsTemplateSupported">IsTemplateSupported</a>, <a href="#OwnQueue">OwnQueue</a>, <a href="#PageSetup">PageSetup</a>,
+  <a href="#Preview">Preview</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>, <a
+  href="#PrintPDF">PrintPDF</a>, <a href="#PrintSetup">PrintSetup</a>, <a href="#PrintXML">PrintXML</a>, <a
+  href="#SetMarginMeasure">SetMarginMeasure</a>, <a href="#SetPageRange">SetPageRange</a>, <a href="#Sleep">Sleep</a>, <a href="#WaitForSpoolingComplete">WaitForSpoolingComplete</a></p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a></p>
+</blockquote>
+<h2>Properties</h2>
+<h3><a name="bottomMargin"></a>bottomMargin<span class="ext"><sup>basic</sup></span></h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Specifies the bottom margin height for HTML print-outs. Cannot be set to be less than the printer's physically unprintable
+  area (<a href="#unprintableRight"><i>unprintableBottom</i></a>), in which case it will be automatically corrected
+  to the minimum allowed value. If top and bottom margins are set to overlap, they will be corrected to an arbitrary default
+  value of 1/10 of page height.</p>
+
+<p>ScriptX uses the default units of measure of the user's system. In a broad network environment default units are certain to vary  (they could be either inches or millimeters) so you may wish to specify a fixed unit of measure with the licensed function <i><a href="#SetMarginMeasure">SetMarginMeasure</a></i>.</p>
+
+<p>The bottomMargin property is part of the <a href="#basic">basic </a>freely-distributable printing subset.</p>
+
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><strong>bottomMargin</strong> = <em>numMargin</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/advanced.htm')">ScriptX Advanced Printing</a>
+  and <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> examples.</p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#leftMargin">leftMargin</a>, <a href="#pageHeight">pageHeight</a>, <a href="#pageWidth">pageWidth</a>, <a href="#portrait">portrait</a>, <a href="#rightMargin">rightMargin</a>,
+  <a href="#topMargin">topMargin</a>, <a href="#unprintableBottom">unprintableBottom</a>, <a
+  href="#unprintableLeft">unprintableLeft</a>, <a href="#unprintableRight">unprintableRight</a>, <a
+  href="#unprintableTop">unprintableTop</a></p>
+</blockquote>
+
+<blockquote>
+  <p><a href="#GetMarginMeasure">GetMarginMeasure</a>, <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>,
+  <a href="#SetMarginMeasure">SetMarginMeasure</a></p>
+</blockquote>
+
+<h3><a name="collate"></a>collate</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Specifies whether or not to collate the pages of HTML print-outs when more than one copy is printed.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><strong>collate</strong> = <em>true</em><i>|</i><em>false</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property. Use <em>true</em> to collate.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a>
+  example.</p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#duplex">duplex</a>, <a href="#printer">printer</a></p>
+</blockquote>
+<blockquote>
+  <p><a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>, <a href="#PrintSetup">PrintSetup</a></p>
+</blockquote>
+
+<h3><a name="copies"></a>copies</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Specifies the number of copies for HTML print-outs.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><strong>copies</strong> = <em>numCopies</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a>
+  example.</p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#collate">collate</a>, <a href="#duplex">duplex</a>, <a href="#printer">printer</a></p>
+  <p><a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>, <a
+  href="#PrintSetup">PrintSetup</a></p>
+</blockquote>
+
+<h3><a name="CurrentPrinter"></a>currentPrinter</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Specifies the printer to print to. Only the exact printer name strings as they appear on Internet Explorer's <i>Print</i> dialog can be specified. If the string does not exist or is written 
+  incorrectly, printing will be directed to the default printer.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>printing</em>.<b>currentPrinter = </b><i>sPrinterName</i></p>
+</blockquote>
+
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This a read/write property. With JScript, take care to double a backslash if one appears in the printer
+  name, as in the example below.</p>
+</blockquote>
+
+
+<h4>Usage</h4>
+<blockquote>
+  <p>The internal implementation of writing to the <i>currentPrinter</i> property is the same as writing
+     to the <a href="#printer">printer</a> property, other than the implementation of <i>currentPrinter</i> does not 'eat' any error.
+     Therefore an error in <i>currentPrinter</i> will be reported in the same way as any other error that occurs in
+     an ActiveX object property/method call.</p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+
+  <pre class="clsCode">factory.printing.currentPrinter = &quot;\\\\FS-LYS-01\\HP5n-759&quot; // print to \\FS-LYS-01\HP5n-759</pre>
+
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a href="#printer">printer</a>, <a
+  href="#EnumJobs">EnumJobs</a>, <a href="#EnumPrinters">EnumPrinters</a>, <a href="#GetJobsCount">GetJobsCount</a>, <a
+  href="#IsTemplateSupported">IsTemplateSupported</a>, <a href="#Print">Print</a></p>
+</blockquote>
+
+<h3>&nbsp;</h3>
+
+<h3><a name="disableUI"></a>disableUI</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Set to <i>true</i> to disable all of Internet Explorer's printing facilities, including the <i>File/Page
+  Setup,</i> <i>File/Print</i> main menu commands, the <i>Print</i> context menu command and the <i>window.print()</i>
+  scripting method. Given this, the only way left to print is via the ScriptX <i><a
+  href="http://www.meadroid.com/scriptx/docs.htm#Print">Print</a></i> and <i><a
+  href="http://www.meadroid.com/scriptx/docs.htm#PrintHTML">PrintHTML</a></i> methods.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><b>disableUI</b> = <em>true</em><i>|</i><em>false</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/advanced.htm')">ScriptX Advanced Printing</a>
+  example.</p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#onpagesetup">onpagesetup</a>, <a href="#onuserpagesetup">onuserpagesetup</a>, <a
+  href="#onuserprint">onuserprint</a>, <a href="#onuserprintpreview">onuserprintpreview</a></p>
+</blockquote>
+<blockquote>
+  <p><a href="#PageSetup">PageSetup</a>, <a href="#Preview">Preview</a>, <a href="#Print">Print</a>, <a
+  href="#PrintSetup">PrintSetup</a></p>
+</blockquote>
+
+<h3><a name="duplex"></a>duplex</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Duplex mode (if supported by the targeted printer).</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><b>duplex</b> = <em>number</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property. Use <i>1 </i>for simplex mode (no duplex), <i>2 </i>for
+  vertical duplex, <i>3 </i>for horizontal duplex.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#collate">collate</a>, <a href="#copies">copies</a></p>
+</blockquote>
+<blockquote>
+  <p><a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>, <a href="#PrintSetup">PrintSetup</a>,</p>
+</blockquote>
+
+<h3><a name="footer"></a>footer<span class="ext"><sup>basic</sup></span></h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p align="left">Specifies the string to be used as the footer for HTML print-outs. String can include <a
+  href="#metasymbols">Internet Explorer header/footer metasymbols</a>. If you need to use HTML for your
+  headers and footers, check <a href="http://www.meadroid.com/scriptx/template/">MaxiPT 1.0</a><span
+  class="ext">�</span> (Internet Explorer 5.5 or later).</p>
+  <p>The footer property is part of the <a href="#basic">basic </a>freely-distributable printing subset.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><strong>footer</strong> = <em>sFooter</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/advanced.htm')">ScriptX Advanced Printing</a>
+  and <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> examples.</p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#header">header</a></p>
+</blockquote>
+<blockquote>
+  <p><a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a></p>
+</blockquote>
+
+<h3><a name="header"></a>header<span class="ext"><sup>basic</sup></span></h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p align="left">Specifies the string to be used as the header for HTML print-outs. String can include <a
+  href="#metasymbols">Internet Explrore header/footer metasymbols</a>. If you need to use HTML for your
+  headers and footers, check <a href="http://www.meadroid.com/scriptx/template/">MaxiPT 1.0</a><span
+  class="ext">�</span> (Internet Explorer 5.5 or later).</p>
+  <p>The header property is part of the <a href="#basic">basic </a>freely-distributable printing subset.</p>
+
+<p><a name="metasymbols"></a>To print specific information as part of the <em><a href="#header">header</a></em> or <em><a href="#footer">footer</a></em>, include the following characters as part of the
+string:</p>
+
+  <table border="1" cellpadding="4" cellspacing="1" width="750" style="font-size: 8pt">
+    <tr bgcolor="threedface">
+      <td width="100" align="center"><strong>Shorthand</strong></td>
+      <td align="center"><strong>Meaning</strong></td>
+    </tr>
+    <tr>
+      <td width="100" align="center">&amp;w</td>
+      <td>Window title</td>
+    </tr>
+    <tr>
+      <td width="100" align="center">&amp;u</td>
+      <td>Page address (URL)</td>
+    </tr>
+    <tr>
+      <td width="100" align="center">&amp;d</td>
+      <td>Date in short format (as specified by Regional Settings in Control Panel)</td>
+    </tr>
+    <tr>
+      <td width="100" align="center">&amp;D</td>
+      <td>Date in long format (as specified by Regional Settings in Control Panel)</td>
+    </tr>
+    <tr>
+      <td width="100" align="center">&amp;t</td>
+      <td>Time in the format specified by Regional Settings in Control Panel</td>
+    </tr>
+    <tr>
+      <td width="100" align="center">&amp;T</td>
+      <td>Time in 24-hour format</td>
+    </tr>
+    <tr>
+      <td width="100" align="center">&amp;p</td>
+      <td>Current page number</td>
+    </tr>
+    <tr>
+      <td width="100" align="center">&amp;P</td>
+      <td>Total number of pages</td>
+    </tr>
+    <tr>
+      <td width="100" align="center">&amp;&amp;</td>
+      <td>A single ampersand (&amp;)</td>
+    </tr>
+    <tr>
+      <td width="100" align="center">&amp;b</td>
+      <td>The text immediately following these characters as centered.</td>
+    </tr>
+    <tr>
+      <td width="100" align="center">&amp;b&amp;b</td>
+      <td>The text immediately following the first &quot;&amp;b&quot; as centered, and the text following the
+        second &quot;&amp;b&quot; as right-justified.</td>
+    </tr>
+  </table>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><b>header</b> = <em>sHead</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/advanced.htm')">ScriptX Advanced Printing</a>
+  and <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> examples.</p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#footer">footer</a></p>
+</blockquote>
+<blockquote>
+  <p><a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a></p>
+</blockquote>
+
+<h3><a name="leftMargin"></a>leftMargin<span class="ext"><sup>basic</sup></span></h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Specifies the left margin for HTML print-outs. Cannot be set to be less than the printer's physically unprintable
+  area (<a href="#unprintableLeft"><i>unprintableLeft</i></a>), in which case it will be automatically
+  corrected to the minimum allowed value.&nbsp;If left and right margins overlap, they will be corrected
+  to an arbitrary default value of 1/10 of page width.</p>
+  <p>ScriptX uses the default units of measure of the user's system.
+  In a broad network environment default units are certain to vary (they could be either inches or millimeters) so you may wish to specify a fixed unit of measure with the licensed function <i><a href="#SetMarginMeasure">SetMarginMeasure</a></i>.</p>
+  <p>The leftMargin property is part of the <a href="#basic">basic </a>freely-distributable printing subset.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><b>leftMargin </b>= <em>numMargin</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/advanced.htm')">ScriptX Advanced Printing</a>
+  and <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> examples.</p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#pageHeight">pageHeight</a>, <a href="#pageWidth">pageWidth</a>,
+  <a href="#portrait">portrait</a>, <a href="#rightMargin">rightMargin</a>, <a href="#topMargin">topMargin</a>,
+  <a href="#unprintableBottom">unprintableBottom</a>, <a href="#unprintableLeft">unprintableLeft</a>, <a
+  href="#unprintableRight">unprintableRight</a>, <a href="#unprintableTop">unprintableTop</a></p>
+</blockquote>
+<blockquote>
+  <p><a href="#GetMarginMeasure">GetMarginMeasure</a>, <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>,
+  <a href="#SetMarginMeasure">SetMarginMeasure</a></p>
+</blockquote>
+
+<h3><a name="onafterprint"></a>onafterprint</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  Event handler to be called when print spooling is done. The event is applicable to the results of a <i><a
+  href="#Print">Print</a></i> call but <b>not </b>to that of a <a href="#PrintHTML">PrintHTML</a> call. It can be used
+  to update the user interface accordingly. It is similar to the <i><a href="#WaitForSpoolingComplete">WaitForSpoolingComplete</a>
+  </i>blocking call, but is asynchronous.
+  <p>Note the difference between ScriptX's <i>onafterprint</i> event and the DHTML <i><a target="_blank" 
+  href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onafterprint.asp">window.onafterprint</a></i><span class="ext">�</span>
+  event: the latter occurs after Internet Explorer has just made a document snapshot for printing and not after the actual
+  print spooling job (see <font face="Verdana, Arial, Helvetica" size="2"><a
+  href="http://support.microsoft.com/support/kb/articles/Q272/7/65.ASP" target="_blank">PRB: onafterprint Event
+  Fires Before the Print Dialog Box Appears</a></font><span class="ext">�</span>). So these two events are
+  <b>not</b> interchangeable.</p>
+  <p>In fact, the DHTML <i><a target="_blank" 
+  href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onbeforeprint.asp">window.onbeforeprint</a></i><span class="ext">�</span>
+  and <i><a target="_blank" href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onafterprint.asp">window.onafterprint</a></i><span class="ext">�</span>
+  exist to give the document's script a chance to customize DHTML content before it goes to print-out or
+  preview (and <b>not </b>to signal actual printing). The same effect can be achieved with the CSS&nbsp; <i>media=print</i>
+  or <i>media=screen</i> specific styles. Check out the following InsideDHTML.com articles: <a target="_blank" 
+  href="http://www.insidedhtml.com/tips/styles/ts41/page1.asp">Printing Techniques</a><span class="ext">�</span>,
+  <a target="_blank" href="http://www.insidedhtml.com/paradise/getResource.asp?r_id=1650">Using CSS to specify alternate
+  document to print out</a><span class="ext">�</span>.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i>onafterprint = <em>function_object</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <pre class="clsCode">&lt;script defer&gt;
+factory.printing.onafterprint = AfterPrint;
+
+function AfterPrint() {
+  alert(&quot;The document has been sent to the print spooler!&quot;);
+}
+&lt;/script&gt;</pre>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a href="#onpagesetup">onpagesetup</a>, <a
+  href="#onuserpagesetup">onuserpagesetup</a>, <a href="#onuserprint">onuserprint</a>, <a
+  href="#onuserprintpreview">onuserprintpreview</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#Print">Print</a>, <a href="#WaitForSpoolingComplete">WaitForSpoolingComplete</a></p>
+</blockquote>
+
+<h3><a name="onbeforeunload"></a>onbeforeunload</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  String to prompt a user with when spooling (or a download originated by a <i><a href="#PrintHTML">PrintHTML</a></i>
+  call) is still in progress but the page is being closed or navigated away. By default, ScriptX waits 5
+  seconds in blocking mode to let spooling complete, then prompts the user with the choice to cancel
+  the printing process. The user may decide to wait for another 5 seconds, and so on.
+  <p>Note: to suppress the prompt you can force the blocking wait state with <a href="#WaitForSpoolingComplete"><i>WaitForSpoolingComplete</i></a>
+  after any <i><a href="#Print">Print</a></i> or <i><a href="#PrintHTML">PrintHTML</a></i> call or before
+  leaving the page. However the use of <i>WaitForSpoolingComplete()</i> after each <i>PrintHTML</i>
+  call in a sequence of calls is not recommended. Use it only after the last call in the sequence.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i>onbeforeunload = <em>string</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>, <a href="#WaitForSpoolingComplete">WaitForSpoolingComplete</a></p>
+</blockquote>
+
+<h3><a name="onpagesetup"></a>onpagesetup</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  Event handler to be called when the current print or page setup settings are changed on the Internet Explorer
+  <i>Page Setup</i> dialog.&nbsp;
+  <p>Use it to update the page's user interface accordingly. This is exactly what the <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> example
+  does.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><b>onpagesetup</b> = <em>function_object</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a>
+  example.</p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+</blockquote>
+
+<blockquote>
+  <p> <a
+  href="#disableUI">disableUI</a>, <a href="#onafterprint">onafterprint</a>, <a
+  href="#onuserpagesetup">onuserpagesetup</a>, <a href="#onuserprint">onuserprint</a>, <a
+  href="#onuserprintpreview">onuserprintpreview</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#PageSetup">PageSetup</a></p>
+</blockquote>
+
+<h3><a name="onuserpagesetup"></a>onuserpagesetup</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  Event handler to be called when a user invokes the <i>Page Setup...</i> command from Internet Explorer's <i>File </i>menu.&nbsp;
+  <p>You may cancel this operation within the event handler simply by returning, or you may call <i><a
+  href="#PageSetup">PageSetup</a></i> to provide the expected behavior. In the latter case, once the user has made
+  changes on the <i>Page Setup</i> dialog an <a href="#onpagesetup"><i>onpagesetup</i></a> event will be fired to
+  update the page's user interface. <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> 
+  implements this behavior.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><b>onuserpagesetup</b> = <em>function_object</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a>
+  example.</p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+</blockquote>
+
+<blockquote>
+  <p> <a
+  href="#disableUI">disableUI</a>, <a href="#onafterprint">onafterprint</a>, <a href="#onpagesetup">onpagesetup</a>, <a href="#onuserprint">onuserprint</a>, <a
+  href="#onuserprintpreview">onuserprintpreview</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#PageSetup">PageSetup</a></p>
+</blockquote>
+
+<h3><a name="onuserprint"></a>onuserprint</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  Event handler to be called when a user invokes the <i>Print...</i> command from the Internet Explorer <i>File </i>menu,
+  or presses <i>Print </i>on the document's right-click context menu, or hits the printer button on the toolbar, or presses the <i>Ctrl-P</i> key combination, or when a script calls <i><a target="_blank" href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/print.asp">window.print()</a></i><span class="ext">�</span>.
+  <p>You may cancel this operation within the event handler simply by returning, or you may call <i><a
+  href="#Print">Print</a></i> to provide the expected behavior. <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> 
+  implements this behavior.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><b>onuserprint</b> = <em>function_object</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a>
+  example.</p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+</blockquote>
+
+<blockquote>
+  <p> <a
+  href="#disableUI">disableUI</a>, <a href="#onafterprint">onafterprint</a>, <a href="#onpagesetup">onpagesetup</a>,
+  <a href="#onuserpagesetup">onuserpagesetup</a>, <a
+  href="#onuserprintpreview">onuserprintpreview</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#PageSetup">PageSetup</a></p>
+</blockquote>
+
+<h3><a name="onuserprintpreview"></a>onuserprintpreview</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  Event handler to be called when a user invokes the <i>Preview...</i> command from the Internet Explorer <i>File </i>menu
+  or hits the print preview button on the toolbar.
+  <p>You may cancel this operation within the event handler simply by returning, or you may call <i><a
+  href="#Preview">Preview</a></i> to provide the expected behavior. <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> 
+  implements this behavior.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><b>onuserprintpreview</b> = <em>function_object</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a>
+  example.</p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+</blockquote>
+
+<blockquote>
+  <p> <a
+  href="#disableUI">disableUI</a>, <a href="#onafterprint">onafterprint</a>, <a href="#onpagesetup">onpagesetup</a>,
+  <a href="#onuserpagesetup">onuserpagesetup</a>, <a href="#onuserprint">onuserprint</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#PageSetup">PageSetup</a></p>
+</blockquote>
+
+<h3><a name="pageHeight"></a>pageHeight</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  Returns the physical height of the current printer paper selection.
+  <p>ScriptX uses the default units of measure of the user's system.
+  In a broad network environment default units are certain to vary (they could be either inches or millimeters) so you may wish to specify a fixed unit of measure with the licensed function
+<i><a href="#SetMarginMeasure">SetMarginMeasure</a></i>.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>height = printing.</i><b>pageHeight</b></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read-only property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a>
+  example.</p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a href="#leftMargin">leftMargin</a>, <a
+  href="#pageWidth">pageWidth</a>, <a href="#paperSize">paperSize</a>,
+  <a href="#portrait">portrait</a>, <a href="#rightMargin">rightMargin</a>, <a href="#topMargin">topMargin</a>, <a href="#unprintableBottom">unprintableBottom</a>,
+  <a href="#unprintableLeft">unprintableLeft</a>, <a href="#unprintableRight">unprintableRight</a>, <a
+  href="#unprintableTop">unprintableTop</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#PageSetup">PageSetup</a>, <a
+  href="#SetMarginMeasure">SetMarginMeasure</a></p>
+</blockquote>
+
+<h3><a name="pageWidth"></a>pageWidth</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  Returns the physical width of the current printer paper selection.
+  <p>ScriptX uses the default units of measure of the user's system.
+  In a broad network environment default units are certain to vary (they could be either inches or millimeters) so you may wish to specify a fixed unit of measure with the licensed function <i><a href="#SetMarginMeasure">SetMarginMeasure</a></i>.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>width = printing.</i><b>pageWidth</b></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read-only property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a>
+  example.</p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a href="#leftMargin">leftMargin</a>, <a href="#pageHeight">pageHeight</a>, <a href="#paperSize">paperSize</a>,
+  <a href="#portrait">portrait</a>, <a href="#rightMargin">rightMargin</a>, <a href="#topMargin">topMargin</a>, <a href="#unprintableBottom">unprintableBottom</a>,
+  <a href="#unprintableLeft">unprintableLeft</a>, <a href="#unprintableRight">unprintableRight</a>, <a
+  href="#unprintableTop">unprintableTop</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#PageSetup">PageSetup</a>, <a
+  href="#SetMarginMeasure">SetMarginMeasure</a></p>
+</blockquote>
+
+<h3><a name="paperSize"></a>paperSize</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Specifies the paper size for HTML print-outs by its string name. ScriptX tries to find the longest string
+  match amongst the list of available paper size names for the current printer. Read back the <i>paperSize</i>
+  value to see the actual result.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><strong>paperSize</strong> = <em>sPaperSize</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a>
+  example.</p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a href="#pageHeight">pageHeight</a>, <a
+  href="#pageWidth">pageWidth</a>, <a href="#paperSource">paperSource</a>,
+  <a href="#portrait">portrait</a>, <a href="#unprintableBottom">unprintableBottom</a>,
+  <a href="#unprintableLeft">unprintableLeft</a>, <a href="#unprintableRight">unprintableRight</a>, <a
+  href="#unprintableTop">unprintableTop</a></p>
+  <p> <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>, <a href="#PrintSetup">PrintSetup</a>&nbsp;</p>
+</blockquote>
+
+<h3><a name="paperSource"></a>paperSource</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Specifies the paper source (tray) for HTML print-outs by its string name. ScriptX tries to find the longest string
+  match amongst the list of available paper source names for the current printer. Read back the <i>paperSource</i>
+  value to see the actual result.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><b>paperSource</b> = <em>s</em><i>PaperSource</i></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a>
+  example.</p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a href="#paperSize">paperSize</a></p>
+  <p> <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>, <a href="#PrintSetup">PrintSetup</a></p>
+</blockquote>
+
+<h3><a name="portrait"></a>portrait<span class="ext"><sup>basic</sup></span></h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Specifies the page orientation for HTML print-outs.</p>
+  <p>The portrait property is part of the <a href="#basic">basic </a>freely-distributable printing subset.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><strong>portrait</strong> = <em>true</em><i>|</i><em>false</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property. Use <em>true</em> to specify portrait and <em>false</em> for landscape.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a>
+  example.</p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a href="#leftMargin">leftMargin</a>, <a href="#pageHeight">pageHeight</a>, <a
+  href="#pageWidth">pageWidth</a>, <a href="#paperSize">paperSize</a>, <a href="#templateURL">templateURL</a>, <a href="#topMargin">topMargin</a>, <a href="#unprintableBottom">unprintableBottom</a>,
+  <a href="#unprintableLeft">unprintableLeft</a>, <a href="#unprintableRight">unprintableRight</a>, <a
+  href="#unprintableTop">unprintableTop</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>, <a href="#PrintSetup">PrintSetup</a></p>
+</blockquote>
+
+<h3><a name="printBackground"></a>printBackground</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Specifies whether or not to print a page's background colors and images.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><b>printBackground</b> = <em>true</em><i>|</i><em>false</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a write-only property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a>
+  example.</p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p>
+  <a href="#Preview">Preview</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a></p>
+</blockquote>
+
+<h3><a name="printer"></a>printer</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Specifies the printer to print to. Only the exact printer name strings as they appear on Internet Explorer's <i>Print</i> dialog can be specified. If the 
+  printer specified does not exist or is written incorrectly, printing will be directed to the default printer.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><strong>printer</strong> = <em>sPrinterName</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This a write-only property. With JScript, take care to double a backslash if one appears in the printer
+  name, as in the example below.</p>
+  <p>Please note that providing an invalid name will not raise an error - the 
+  request will be ignored and the printer to use remain unchanged. To trap 
+  errors specifying the printer to use, use the <a href="#CurrentPrinter">
+  currentPrinter</a> property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+
+  <pre class="clsCode">factory.printing.printer = &quot;\\\\FS-LYS-01\\HP5n-759&quot; // print to \\FS-LYS-01\HP5n-759</pre>
+
+</blockquote>
+<blockquote>
+  <p>Also check out the source code of the <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a>
+  example.</p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a href="#collate">collate</a>, <a href="#copies">copies</a>,
+  <a href="#CurrentPrinter">currentPrinter</a>, <a href="#duplex">duplex</a>, <a href="#footer">footer</a>, <a
+  href="#header">header</a>, <a href="#leftMargin">leftMargin</a>, <a href="#paperSize">paperSize</a>, <a href="#paperSource">paperSource</a>,
+  <a href="#portrait">portrait</a>, <a href="#printBackground">printBackground</a>,
+  <a href="#printToFileName">printToFileName</a>, <a href="#rightMargin">rightMargin</a>, <a
+  href="#templateURL">templateURL</a>, <a href="#topMargin">topMargin</a></p>
+  <p> <a href="#DefaultPrinter">DefaultPrinter</a>, <a
+  href="#EnumJobs">EnumJobs</a>, <a href="#EnumPrinters">EnumPrinters</a>, <a href="#GetJobsCount">GetJobsCount</a>, <a href="#IsSpooling">IsSpooling</a>, <a
+  href="#IsTemplateSupported">IsTemplateSupported</a>, <a href="#PrintHTML">PrintHTML</a>, <a href="#PrintSetup">PrintSetup</a>, <a href="#SetPageRange">SetPageRange</a>, <a href="#WaitForSpoolingComplete">WaitForSpoolingComplete</a></p>
+</blockquote>
+
+<h3><a name="printToFileName"></a>printToFileName</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>The file name to print to. Use
+      the full path specification. The file created doesn't
+      accumulate subsequent print-outs and - for security reasons - <b> doesn't get overwritten if it already exists</b>. Specify a new filename for each new print-out.</p>
+  <p>Printing to file name is supported for Internet Explorer 5.0 and later.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><b>printToFileName</b> = <em>sPathFileName</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property. With JScript, take care to double a backslash if one appears in the file path, as in the example below. An empty string indicates that the print-out should go to the printer driver.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+
+  <pre class="clsCode">factory.printing.printToFileName = &quot;d:\\temp\\printout.prn&quot;</pre>
+
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a href="#printer">printer</a></p>
+  <p> <a href="#IsSpooling">IsSpooling</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>, <a href="#PrintSetup">PrintSetup</a>, <a href="#WaitForSpoolingComplete">WaitForSpoolingComplete</a></p>
+</blockquote>
+
+<h3><a name="rightMargin"></a>rightMargin<span class="ext"><sup>basic</sup></span></h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Specifies the right margin for HTML print-outs. Cannot be set to be less than the printer's physically unprintable
+  area (<a href="#unprintableRight"><i>unprintableRight</i></a>), in which case it will be automatically
+  corrected to the minimum allowed value.&nbsp;If left and right margins overlap, they will be corrected
+  to an arbitrary default value of 1/10 of page width.</p>
+  <p>ScriptX uses the default units of measure of the user's system.
+  In a broad network environment default units are certain to vary (they could be either inches or millimeters) so you may wish to specify a fixed unit of measure with the licensed function <i><a href="#SetMarginMeasure">SetMarginMeasure</a></i>.</p>
+  <p>The rightMargin property is part of the <a href="#basic">basic </a>freely-distributable printing subset.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><b>rightMargin </b>= <em>numMargin</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/advanced.htm')">ScriptX Advanced Printing</a>
+  and <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> examples.</p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#pageHeight">pageHeight</a>, <a href="#pageWidth">pageWidth</a>,
+  <a href="#portrait">portrait</a>, <a href="#leftMargin">leftMargin</a>, <a href="#topMargin">topMargin</a>,
+  <a href="#unprintableBottom">unprintableBottom</a>, <a href="#unprintableLeft">unprintableLeft</a>, <a
+  href="#unprintableRight">unprintableRight</a>, <a href="#unprintableTop">unprintableTop</a></p>
+</blockquote>
+<blockquote>
+  <p><a href="#GetMarginMeasure">GetMarginMeasure</a>, <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>,
+  <a href="#SetMarginMeasure">SetMarginMeasure</a></p>
+</blockquote>
+
+<h3><a name="templateURL"></a>templateURL</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  Specifies the URL of a custom <a href="http://www.meadroid.com/scriptx/template/">Print
+      Template</a><span class="ext">�</span> for Internet Explorer 5.5 or later. Internet Explorer will
+      use the specified template for all its printing operations.&nbsp;
+      <p>If you use your own templates with ScriptX, make sure that you
+      insert a <i>MeadCo's TriPrint Helper &lt;OBJECT&gt;</i> into the <i>&lt;HEAD&gt;</i>
+      section of the print template source:</p>
+
+  <pre class="clsCode">&lt;HTML XMLNS:IE&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace=&quot;ie&quot; implementation=&quot;#default&quot;&gt;
+
+<font color="#0000FF">&lt;!-- &lt;TriPrint&gt; (c) 2000, 2001 by Mead &amp; Co Limited &lt;triprint@meadroid.com&gt; --&gt;
+&lt;object classid=&quot;clsid:1663ed6a-23eb-11d2-b92f-008048fdd814&quot; viewastext&gt;
+  &lt;param name=&quot;__PX__template&quot; value=&quot;true&quot;&gt;
+&lt;/object&gt;
+&lt;!-- &lt;/TriPrint&gt; --&gt;
+</font>
+&lt;TITLE&gt;Print Preview&lt;/TITLE&gt;</pre>
+
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><b>templateURL </b>= <em>templateURL</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Read more about <a href="http://www.meadroid.com/scriptx/template/"> MeadCo's in-depth support for Print Templates</a><span class="ext">�</span>.</p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#IsTemplateSupported">IsTemplateSupported</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a></p>
+</blockquote>
+
+<h3><a name="topMargin"></a>topMargin<span class="ext"><sup>basic</sup></span></h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Specifies the top&nbsp; margin for HTML print-outs. Cannot be set to be less than the printer's physically unprintable
+  area (<a href="#unprintableTop"><i>unprintableTop</i></a>), in which case it will be automatically corrected
+  to the minimum allowed value. If top and bottom margins overlap, they will be corrected to default
+  value of 1/10 of page width.</p>
+  <p>ScriptX uses the default units of measure of the user's system.
+  In a broad network environment default units are certain to vary (they could be either inches or millimeters) so you may wish to specify a fixed unit of measure with the licensed function <i><a href="#SetMarginMeasure">SetMarginMeasure</a></i>.</p>
+  <p>The topMargin property is part of the <a href="#basic">basic </a>freely-distributable printing subset.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><i>printing.</i><strong>topMargin</strong> = <em>numMargin</em></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/write property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/advanced.htm')">ScriptX Advanced Printing</a>
+  and <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> examples.</p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#leftMargin">leftMargin</a>, <a href="#pageHeight">pageHeight</a>, <a href="#pageWidth">pageWidth</a>, <a href="#portrait">portrait</a>, <a href="#rightMargin">rightMargin</a>,
+  <a href="#bottomMargin">bottomMargin</a>, <a href="#unprintableBottom">unprintableBottom</a>, <a
+  href="#unprintableLeft">unprintableLeft</a>, <a href="#unprintableRight">unprintableRight</a>, <a
+  href="#unprintableTop">unprintableTop</a></p>
+</blockquote>
+<blockquote>
+  <p><a href="#GetMarginMeasure">GetMarginMeasure</a>, <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>,
+  <a href="#SetMarginMeasure">SetMarginMeasure</a></p>
+</blockquote>
+
+<h3><a name="unprintableBottom"></a>unprintableBottom</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Returns the bottom unprintable page area (in current system
+      measure units, inches or millimeters) for the current printer. It indicates the distance
+      from the bottom edge of the page where no printing may occur.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>numMargin = </em><i>printing.</i><b>unprintableBottom</b></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/only property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a href="#leftMargin">leftMargin</a>, <a href="#pageHeight">pageHeight</a>, <a
+  href="#pageWidth">pageWidth</a>, <a href="#paperSize">paperSize</a>, <a href="#topMargin">topMargin</a>, <a href="#unprintableLeft">unprintableLeft</a>, <a href="#unprintableRight">unprintableRight</a>, <a
+  href="#unprintableTop">unprintableTop</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#PrintSetup">PrintSetup</a></p>
+</blockquote>
+
+<h3><a name="unprintableLeft"></a>unprintableLeft</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Returns the left unprintable page area (in current system measure units, inches or millimeters) for the current printer. It indicates the distance
+      from the left edge of the page where no printing may occur.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>numMargin = </em><i>printing.</i><b>unprintableLeft</b></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/only property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a href="#leftMargin">leftMargin</a>, <a href="#pageHeight">pageHeight</a>, <a
+  href="#pageWidth">pageWidth</a>, <a href="#paperSize">paperSize</a>, <a href="#topMargin">topMargin</a>, <a href="#unprintableBottom">unprintableBottom</a>,
+  <a href="#unprintableRight">unprintableRight</a>, <a
+  href="#unprintableTop">unprintableTop</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#PrintSetup">PrintSetup</a></p>
+</blockquote>
+
+<h3><a name="unprintableRight"></a>unprintableRight</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Returns the right unprintable page area (in current system measure units, inches or millimeters) for the current printer. It indicates the distance
+      from the right edge of the page where no printing may occur.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>numMargin = </em><i>printing.</i><b>unprintableRight</b></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/only property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a href="#leftMargin">leftMargin</a>, <a href="#pageHeight">pageHeight</a>, <a
+  href="#pageWidth">pageWidth</a>, <a href="#paperSize">paperSize</a>, <a href="#topMargin">topMargin</a>, <a href="#unprintableBottom">unprintableBottom</a>,
+  <a href="#unprintableLeft">unprintableLeft</a>, <a
+  href="#unprintableTop">unprintableTop</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#PrintSetup">PrintSetup</a></p>
+</blockquote>
+
+<h3><a name="unprintableTop"></a>unprintableTop</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Returns the top unprintable page area (in current system measure units, inches or millimeters) for the current printer. It indicates the distance
+      from the top edge of the page where no printing may occur.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>numMargin = </em><i>printing.</i><b>unprintableTop</b></p>
+</blockquote>
+
+<h4>Settings</h4>
+<blockquote>
+  <p>This is a read/only property.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a href="#leftMargin">leftMargin</a>, <a href="#pageHeight">pageHeight</a>, <a
+  href="#pageWidth">pageWidth</a>, <a href="#paperSize">paperSize</a>, <a href="#topMargin">topMargin</a>, <a href="#unprintableBottom">unprintableBottom</a>,
+  <a href="#unprintableLeft">unprintableLeft</a>, <a href="#unprintableRight">unprintableRight</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#PrintSetup">PrintSetup</a></p>
+</blockquote>
+
+<h2><br><br>Methods and Functions</h2>
+
+<h3><a name="BatchPrintPDF"></a>BatchPrintPDF</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Downloads Adobe Acrobat<sup>tm</sup> or Microsoft Office<sup>tm</sup> files and prints them out in batch mode in the background. Any number of print-outs can be queued. As of the present release of ScriptX, <i> BatchPrintPDF </i> prints only on <b> the default printer using default settings</b>.<p>
+
+To print PDF files, the <b>Adobe Acrobat Reader<sup>tm</sup>  4.0</b> or later should be present on the client system. It can be freely downloaded from the <a target="_blank" href="http://www.adobe.com/products/acrobat/readstep.html">Adobe website</a><span class="ext">�</span>.<p>
+
+Use <a href="#IsSpooling"><i>IsSpooling</i></a> to check if there are any outstanding downloads in the queue created by <i> BatchPrintPDF</i>. Use <i><a href="#WaitForSpoolingComplete">WaitForSpoolingComplete</a> </i>to wait for all documents to be downloaded and spooled.</p>
+
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em> printing</em>.<b>BatchPrintPDF</b><b>(</b><i>url</i><b>)</b></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+
+<p>Here is a basic example of <i>BatchPrintPDF</i> use</p>
+  <pre class="clsCode">&lt;body&gt;
+
+&lt;!-- MeadCo Security Manager - using evaluation license --&gt;
+&lt;object viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:5445be81-b796-11d2-b931-002018654e2e&quot;
+codebase=&quot;smsx.cab#Version=6,1,432,1&quot;&gt;
+  &lt;param name=&quot;GUID&quot; value=&quot;{67533199-D16A-46D3-BA23-5AA77981F726}&quot;&gt;
+  &lt;param name=&quot;Path&quot; value=&quot;sxlic.mlf&quot;&gt;
+  &lt;param name=&quot;Revision&quot; value=&quot;0&quot;&gt;
+&lt;/object&gt;
+
+&lt;!-- MeadCo ScriptX --&gt;
+&lt;object id=&quot;factory&quot; viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:1663ed61-23eb-11d2-b92f-008048fdd814&quot;&gt;
+&lt;/object&gt;
+
+&lt;script defer&gt;
+function window.onload() {
+  idPrint.disabled = false;
+}
+
+function BatchPrintPDF(url) {
+  factory.printing.<b>BatchPrintPDF</b>(url);
+}
+&lt;/script&gt;
+
+&lt;input id=idPrint disabled type=&quot;button&quot; value=&quot;PrintHTML('info.htm')&quot;
+ onclick=&quot;BatchPrintPDF('report.pdf')&quot;&gt;
+
+&lt;/body&gt;</pre>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a href="#DefaultPrinter">DefaultPrinter</a>, <a
+  href="#EnumJobs">EnumJobs</a>, <a href="#EnumPrinters">EnumPrinters</a>, <a href="#GetJobsCount">GetJobsCount</a>, <a href="#IsSpooling">IsSpooling</a>, <a href="#PrintHTML">PrintHTML</a>, <a
+  href="#PrintPDF">PrintPDF</a>, <a href="#Sleep">Sleep</a>, <a href="#WaitForSpoolingComplete">WaitForSpoolingComplete</a></p>
+</blockquote>
+
+<h3><a name="DefaultPrinter"></a>DefaultPrinter</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Returns the name of the default printer (if any).</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>printerName = printing</em>.<b>DefaultPrinter()</b></p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a href="#printer">printer</a></p>
+</blockquote>
+<blockquote>
+  <p> <a
+  href="#EnumJobs">EnumJobs</a>, <a href="#EnumPrinters">EnumPrinters</a>, <a href="#GetJobsCount">GetJobsCount</a>, <a
+  href="#IsTemplateSupported">IsTemplateSupported</a>, <a href="#Print">Print</a></p>
+</blockquote>
+
+<h3><a name="DoPrint"></a>DoPrint</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>The alias for the <a href="#Print"><i>Print</i></a> method (retained for compatibility reasons).</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#factory">factory</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#printing">printing</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a></p>
+</blockquote>
+
+<h3><a name="EnumJobs"></a>EnumJobs</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Enumerates active jobs on the given printer.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>var jobName = {}<br>
+  status = printing</em>.<b>EnumJobs(</b><i>printerName, index, </i><em>jobName</em><b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><i>printerName</i></td>
+        <td>(String) printer name on which to enumerate the jobs</td>
+      </tr>
+      <tr>
+        <td><i>index</i></td>
+        <td>(Number) Zero-based index of the job. Increment this value for each new <i>EnumJobs</i><strong> </strong>call
+          for a given <i>printerName<br>
+        </i>An index of -1 will return the status of the printer, rather than a 
+        particular job.</td>
+      </tr>
+      <tr>
+        <td><em>jobName</em></td>
+        <td>(Object) obtains a name for the job (available as <i>jobName[0]</i>)</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns a numeric value indicating the current status of the job. The bits have the following meaning:</p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="429">
+    <tbody>
+      <tr>
+        <td width="317"><b>Meaning</b></td>
+        <td width="88"><b>Value</b></td>
+      </tr>
+      <tr>
+        <td width="317"><i>JOB_STATUS_PAUSED</i></td>
+        <td width="88"><i>0x00000001</i></td>
+      </tr>
+      <tr>
+        <td width="317"><i>JOB_STATUS_ERROR</i></td>
+        <td width="88"><i>0x00000002</i></td>
+      </tr>
+      <tr>
+        <td width="317"><i>JOB_STATUS_DELETING</i></td>
+        <td width="88"><i>0x00000004</i></td>
+      </tr>
+      <tr>
+        <td width="317"><i>JOB_STATUS_SPOOLING</i></td>
+        <td width="88"><i>0x00000008</i></td>
+      </tr>
+      <tr>
+        <td width="317"><i>JOB_STATUS_PRINTING</i></td>
+        <td width="88"><i>0x00000010</i></td>
+      </tr>
+      <tr>
+        <td width="317"><i>JOB_STATUS_OFFLINE</i></td>
+        <td width="88"><i>0x00000020</i></td>
+      </tr>
+      <tr>
+        <td width="317"><i>JOB_STATUS_PAPEROUT</i></td>
+        <td width="88"><i>0x00000040</i></td>
+      </tr>
+      <tr>
+        <td width="317"><i>JOB_STATUS_PRINTED</i></td>
+        <td width="88"><i>0x00000080</i></td>
+      </tr>
+      <tr>
+        <td width="317"><i>JOB_STATUS_DELETED</i></td>
+        <td width="88"><i>0x00000100</i></td>
+      </tr>
+      <tr>
+        <td width="317"><i>JOB_STATUS_BLOCKED_DEVQ</i></td>
+        <td width="88"><i>0x00000200</i></td>
+      </tr>
+      <tr>
+        <td width="317"><i>JOB_STATUS_USER_INTERVENTION</i></td>
+        <td width="88"><i>0x00000400</i></td>
+      </tr>
+      <tr>
+        <td width="317"><i>JOB_STATUS_RESTART</i></td>
+        <td width="88"><i>0x00000800</i></td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <pre class="clsCode">&lt;script defer&gt;
+function window.onload() {
+  for ( i = 0; printer = factory.printing.EnumPrinters(i); i++ ) {
+    alert(&quot;Printer name: &quot;+printer);
+    var job = {};
+    for ( j = 0; status = factory.printing.EnumJobs(printer, j, job); j++ )
+      alert(&quot;Job name: &quot;+job[0]+&quot;, status: &quot;+status);
+  }
+}
+&lt;/script&gt;</pre>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a href="#printer">printer</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#DefaultPrinter">DefaultPrinter</a>, <a href="#EnumPrinters">EnumPrinters</a>, <a href="#GetJobsCount">GetJobsCount</a>, <a href="#Print">Print</a></p>
+</blockquote>
+
+<h3><a name="EnumPrinters"></a>EnumPrinters</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Enumerates locally-available printers.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>printerName = printing</em>.<strong>EnumPrinters</strong><b>(</b><i>index</i><b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><i>index</i></td>
+        <td>(Number) Zero-based index of the printer. Increment this value for each new <i>EnumPrinters</i> <strong> </strong>call</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns the string name of the next printer. An empty value means that enumeration is over.</p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <pre class="clsCode">&lt;!-- MeadCo Security Manager - using evaluation license --&gt;
+&lt;object viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:5445be81-b796-11d2-b931-002018654e2e&quot;
+codebase=&quot;smsx.cab#Version=6,1,432,1&quot;&gt;
+  &lt;param name=&quot;GUID&quot; value=&quot;{67533199-D16A-46D3-BA23-5AA77981F726}&quot;&gt;
+  &lt;param name=&quot;Path&quot; value=&quot;sxlic.mlf&quot;&gt;
+  &lt;param name=&quot;Revision&quot; value=&quot;0&quot;&gt;
+&lt;/object&gt;
+
+&lt;!-- MeadCo ScriptX --&gt;
+&lt;object id=&quot;factory&quot; viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:1663ed61-23eb-11d2-b92f-008048fdd814&quot;&gt;
+&lt;/object&gt;
+
+&lt;p&gt;&lt;small id=idOutput&gt;&lt;/small&gt;
+
+&lt;script defer&gt;
+function OutputHtml(html) {
+  idOutput.insertAdjacentHTML(&quot;BeforeEnd&quot;, html)
+  idOutput.scrollIntoView(false)
+}
+
+function EnumAll() {
+  OutputHtml(&quot;Default printer: &lt;b&gt;&quot; + factory.printing.<b>DefaultPrinter</b>() + &quot;&lt;/b&gt;&lt;br&gt;&quot;)
+  for ( i = 0; name = factory.printing.<b>EnumPrinters</b>(i); i++ ) {
+    OutputHtml(&quot;Printer: &lt;b&gt;&quot; + name + &quot;&lt;/b&gt;&lt;br&gt;Job count: &quot; + factory.printing.<b>GetJobsCount</b>(name) + &quot;&lt;br&gt;&quot;)
+    var jobName = {}
+    for ( j = 0; status = factory.printing.<b>EnumJobs</b>(name, j, jobName); j++ )
+      OutputHtml(&quot;Job: &lt;b&gt;&quot; + jobName[0]+&quot;&lt;/b&gt;Status: &quot; + new Number(status).toString(16) + &quot;&lt;br&gt;&quot;)
+  }
+}
+
+function window.onload() {
+  EnumAll()
+}
+&lt;/script&gt;</pre>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a href="#printer">printer</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#DefaultPrinter">DefaultPrinter</a>, <a
+  href="#EnumJobs">EnumJobs</a>, <a href="#EnumPrinters">EnumPrinters</a>, <a href="#GetJobsCount">GetJobsCount</a>, <a href="#Print">Print</a>, <a href="#PrintSetup">PrintSetup</a></p>
+</blockquote>
+
+<h3><a name="GetJobsCount"></a>GetJobsCount</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Returns the number of printing jobs for the specified printer.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em> numJobs = printing</em>.<b>GetJobsCount</b><b>(</b><i>printer</i><b>)</b></p>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns a numeric value.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a href="#printer">printer</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#DefaultPrinter">DefaultPrinter</a>, <a
+  href="#EnumJobs">EnumJobs</a>, <a href="#EnumPrinters">EnumPrinters</a>, <a href="#Print">Print</a></p>
+</blockquote>
+
+<h3><a name="GetMarginMeasure"></a>GetMarginMeasure</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Returns current units of measure for print-out margins, either millimeters or inches. Use <i><a
+  href="#SetMarginMeasure">SetMarginMeasure</a> </i>to switch the default units.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>units = printing</em>.<b>GetMarginMeasure()</b></p>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns the currently-set units of measure. <em>1</em> stands for millimeters, <em>2</em> for inches.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/advanced.htm')">ScriptX Advanced Printing</a>
+  and <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> examples.</p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a href="#leftMargin">leftMargin</a>, <a href="#pageHeight">pageHeight</a>, <a
+  href="#pageWidth">pageWidth</a>, <a href="#rightMargin">rightMargin</a>, <a
+  href="#templateURL">templateURL</a>, <a href="#topMargin">topMargin</a>, <a href="#unprintableBottom">unprintableBottom</a>,
+  <a href="#unprintableLeft">unprintableLeft</a>, <a href="#unprintableRight">unprintableRight</a>, <a
+  href="#unprintableTop">unprintableTop</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#Print">Print</a><a href="#PrintSetup">PrintSetup</a>, <a
+  href="#SetMarginMeasure">SetMarginMeasure</a></p>
+</blockquote>
+
+<h3><a name="IsSpooling"></a>IsSpooling</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Checks if spooling is in progress as result of a <i><a href="#Print">Print</a></i> call, or for any downloads outstanding in the queue created by
+  <i> <a href="#PrintHTML">PrintHTML</a>,&nbsp;</i> <a href="#PrintXML"><i>PrintXML</i></a>  or <a
+  href="#BatchPrintPDF"><i>BatchPrintPDF</i></a> calls.
+
+<p>You can force the blocking wait state with <a href="#WaitForSpoolingComplete"><i>WaitForSpoolingComplete</i></a>
+  to make sure all downloads are complete and spooling is done at any point in your code.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>isSpooling = printing</em>.<strong>IsSpooling</strong><b>()</b></p>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns a boolean value indicating whether or not there are still outstanding unspooled downloads to be printed</p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+
+<p>The following example closes the window when the spooling is done:</p>
+  <pre class="clsCode">&lt;script defer&gt;
+
+function PrintAllDocs() {
+  factory.printing.PrintHTML(&quot;info.htm&quot;);
+  factory.printing.PrintXML(src1);
+  factory.printing.PrintXML(src2);
+  CheckSpooling();
+}
+
+function CheckSpooling() {
+  if ( !factory.printing.<b>IsSpooling</b>() ) window.close()
+  setTimeout(&quot;CheckSpooling()&quot;, 1000);
+}
+
+&lt;/script&gt;</pre>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a href="#onafterprint">onafterprint</a>, <a
+  href="#onbeforeunload">onbeforeunload</a></p>
+</blockquote>
+<blockquote>
+  <p><a href="#BatchPrintPDF">BatchPrintPDF</a>, <a href="#OwnQueue">OwnQueue</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>, <a href="#PrintXML">PrintXML</a>, <a href="#Sleep">Sleep</a>, <a href="#WaitForSpoolingComplete">WaitForSpoolingComplete</a></p>
+</blockquote>
+
+<h3><a name="IsTemplateSupported"></a>IsTemplateSupported</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Checks whether or not <a href="http://www.meadroid.com/scriptx/template/">Print
+      Template</a>s<span class="ext">�</span>  are supported on the end user's system (i.e. checks for Internet Explorer 5.5 or
+  later).</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>isTemplateSupported = printing</em>.<b>IsTemplateSupported</b><b>()</b></p>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns a boolean value indicating whether or not Print Templates are supported.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a
+  href="#templateURL">templateURL</a></p>
+</blockquote>
+<blockquote>
+  <p>
+  <a href="#Preview">Preview</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a></p>
+</blockquote>
+
+<h3><a name="OwnQueue"></a>OwnQueue</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>OwnQueue is used to organize a detached printing queue. Use this method to queue all <i><a
+  href="http://www.meadroid.com/scriptx/docs.htm#PrintHTML">PrintHTML</a> </i>calls in a separate process. The
+  process is disconnected from the current session (cookies, SSL context, etc) but the calling window can be
+  closed at any time without waiting for spooling to compete.&nbsp;<br>
+  <br>
+  <i>
+  OwnQueue</i> should be called before any <a href="#PrintHTML"><i>PrintHTML</i></a> or <i> <a href="#PrintXML">PrintXML</a>
+  </i>commands to take effect.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>printing</em>.<b>OwnQueue()</b></p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+<blockquote>
+  <p><a href="#PrintHTML">PrintHTML</a>, <a href="#PrintXML">PrintXML</a></p>
+</blockquote>
+
+<h3><a name="PageSetup"></a>PageSetup<span class="ext"><sup>basic</sup></span></h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Invokes the standard Internet Explorer <i>Page Setup...</i> dialog. If the user closes the dialog with the OK button,
+  current settings will be updated and an <i><a href="#onpagesetup">onpagesetup</a></i> event will be
+  fired.&nbsp;</p>
+  <p>The PageSetup method is part of the <a href="#basic">basic </a>freely-distributable printing subset.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em> result = printing</em>.<b>PageSetup()</b></p>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns a boolean value indicating whether or not a user has closed the dialog with the OK button.</p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/advanced.htm')">ScriptX Advanced Printing</a>
+  and <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> examples.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a
+  href="#disableUI">disableUI</a>, <a href="#footer">footer</a>, <a
+  href="#header">header</a>, <a href="#leftMargin">leftMargin</a>, <a href="#onpagesetup">onpagesetup</a>, <a
+  href="#onuserpagesetup">onuserpagesetup</a>, <a href="#paperSize">paperSize</a>, <a href="#paperSource">paperSource</a>,
+  <a href="#portrait">portrait</a>, <a href="#rightMargin">rightMargin</a>, <a href="#topMargin">topMargin</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>, <a href="#PrintSetup">PrintSetup</a></p>
+</blockquote>
+
+<h3><a name="Preview"></a>Preview<span class="ext"><sup>basic</sup></span></h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Invokes the <i>Print Preview...</i> pane in Internet Explorer 5.5 and later.</p>
+<p>The Preview method is part of the <a href="#basic">basic </a>freely-distributable printing subset.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em> printing</em>.<b>Preview()</b></p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/advanced.htm')">ScriptX Advanced Printing</a>
+  and <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> examples.</p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a
+  href="#onuserprintpreview">onuserprintpreview</a>, <a
+  href="#templateURL">templateURL</a></p>
+</blockquote>
+<blockquote>
+  <p> <a
+  href="#IsTemplateSupported">IsTemplateSupported</a>, <a href="#Print">Print</a></p>
+</blockquote>
+
+<h3><a name="Print"></a>Print<span class="ext"><sup>basic</sup></span></h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Prints the contents of the specified window or frame using the current printing settings. Please note these <a
+  href="#prompting"><b>important changes</b></a> regarding printing without a prompt.</p>
+  <p>This method is part of the <a href="#basic">basic </a>freely-distributable printing subset.
+
+<p>However, the acquisition of a <a
+  href="http://www.meadroid.com/scriptx/license/">MeadCo Publishing License</a><span class="ext">�</span> 
+  means that you can customize various printing properties such as <a href="#copies"><i>copies</i></a>, <a href="#duplex"><i>duplex</i></a>,
+  <a href="#paperSize"><i>paperSize</i></a>, <a href="#printBackground"><i>printBackground</i></a> etc.,
+  target specific <a href="#printer"><i>printer</i></a> or print externally-located documents with <i><a
+  href="#PrintHTML">PrintHTML</a></i>. See <a href="#extprint">HTML Printing with ScriptX</a> for more
+  info.&nbsp;</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>printing</em>.<strong>Print</strong><b>(</b>[<em>prompt</em>[<em>, frameOrWindow</em>]]<b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>prompt</em></td>
+        <td>(Bool) whether or not to prompt</td>
+      </tr>
+      <tr>
+        <td><em>frameOrWindow</em></td>
+        <td>(Object) optional HTML frame or <a target="_blank" 
+          href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/obj_window.asp"><i>window</i></a><span
+          class="ext">�</span> to print. By default, the containing page (that hosts the ScriptX object) will be printed</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns <em>false</em> if printing with a prompt and the user cancels the printing.</p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the ScriptX <a href="javascript:openWindow('samples/basic.htm')">Basic</a>, <a href="javascript:openWindow('samples/advanced.htm')">Advanced</a>
+  and <a href="javascript:openWindow('samples/techie.htm')">Techie</a> printing examples.</p>
+  <p>The following simple but complete example shows how to print the containing page:</p>
+  <pre class="clsCode">&lt;head&gt;
+&lt;title&gt;MeadCo's ScriptX: Print&lt;/title&gt;
+&lt;!-- special style sheet for printing --&gt;
+&lt;style media=&quot;print&quot;&gt;
+.noprint { display: none }
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body scroll=&quot;auto&quot;&gt;
+
+&lt;!-- MeadCo Security Manager - using evaluation license --&gt;
+&lt;object viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:5445be81-b796-11d2-b931-002018654e2e&quot;
+codebase=&quot;smsx.cab#Version=6,1,432,1&quot;&gt;
+  &lt;param name=&quot;GUID&quot; value=&quot;{67533199-D16A-46D3-BA23-5AA77981F726}&quot;&gt;
+  &lt;param name=&quot;Path&quot; value=&quot;sxlic.mlf&quot;&gt;
+  &lt;param name=&quot;Revision&quot; value=&quot;0&quot;&gt;
+&lt;/object&gt;
+
+&lt;!-- MeadCo ScriptX --&gt;
+&lt;object id=&quot;factory&quot; viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:1663ed61-23eb-11d2-b92f-008048fdd814&quot;&gt;
+&lt;/object&gt;
+
+&lt;script defer&gt;
+function window.onload() {
+  factory.printing.header = &quot;MeadCo's ScriptX: Print&quot;
+  factory.printing.footer = &quot;The de facto standard for advanced web-based printing&quot;
+  factory.printing.portrait = false
+  idPrint.disabled = false; // enable UI button
+}
+
+function Print() {
+  factory.printing.<b>Print</b>(false); // no prompt
+}
+&lt;/script&gt;
+
+&lt;p&gt;Hello, world!&lt;/p&gt;
+
+&lt;div class=noprint&gt;
+&lt;hr&gt;The button itself will not be printed:
+&lt;input id=idPrint disabled type=&quot;button&quot; value=&quot;Print w/o prompt&quot; onclick=&quot;Print()&quot;&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;</pre>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a href="#collate">collate</a>, <a href="#copies">copies</a>, <a href="#duplex">duplex</a>, <a href="#footer">footer</a>, <a
+  href="#header">header</a>, <a href="#leftMargin">leftMargin</a>, <a href="#onafterprint">onafterprint</a>, <a href="#onuserprint">onuserprint</a>, <a href="#paperSize">paperSize</a>, <a href="#paperSource">paperSource</a>,
+  <a href="#portrait">portrait</a>, <a href="#printBackground">printBackground</a>, <a href="#printer">printer</a>,
+  <a href="#printToFileName">printToFileName</a>, <a href="#rightMargin">rightMargin</a>, <a
+  href="#templateURL">templateURL</a>, <a href="#topMargin">topMargin</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#DefaultPrinter">DefaultPrinter</a>, <a
+  href="#EnumJobs">EnumJobs</a>, <a href="#EnumPrinters">EnumPrinters</a>, <a href="#GetJobsCount">GetJobsCount</a>,
+  <a href="#GetMarginMeasure">GetMarginMeasure</a>, <a href="#IsSpooling">IsSpooling</a>, <a
+  href="#IsTemplateSupported">IsTemplateSupported</a>, <a href="#OwnQueue">OwnQueue</a>, <a href="#PageSetup">PageSetup</a>,
+  <a href="#Preview">Preview</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>, <a
+  href="#PrintPDF">PrintPDF</a>, <a href="#PrintSetup">PrintSetup</a>, <a href="#PrintXML">PrintXML</a>, <a
+  href="#SetMarginMeasure">SetMarginMeasure</a>, <a href="#SetPageRange">SetPageRange</a>, <a href="#WaitForSpoolingComplete">WaitForSpoolingComplete</a></p>
+</blockquote>
+
+<h3><a name="PrintHTML"></a>PrintHTML</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Prints either specified HTML text or the HTML or XML document specified by
+  the URL using the current printing settings in the same session context. The
+  method is asynchronous. It returns before the document is downloaded and
+  printed.</p>
+  <p><i>PrintHTML </i>may be used to organize a printing queue in a separate
+  process, in which case the current window may be closed without waiting for
+  pending downloads to complete. See <a href="#OwnQueue">OwnQueue</a> for more
+  details.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>printing</em>.<strong>PrintHTML</strong><b>(</b><em>url[, prompt =
+  false]</em><b>)</b></p>
+  <table class="samp" cellSpacing="0" cellPadding="5" width="85%">
+    <tbody>
+      <tr>
+        <td valign="top"><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td valign="top"><em>url</em></td>
+        <td>(String) URL/html text to print:
+          <table class="clsTableParam" border="0" cellpadding="0" cellspacing="2">
+            <tr>
+              <th>Protocol</th>
+              <th>Prints</th>
+            </tr>
+            <tr>
+              <td valign="top">html://</td>
+              <td valign="top">The html is loaded and printed, e.g.
+                html://&lt;html&gt;&lt;head&gt;&lt;title&gt;Dynamic
+                Printing&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello
+                world!&lt;/body&gt;&lt;/html&gt;</td>
+            </tr>
+            <tr>
+              <td valign="top">any other, e.g. http://, https:// or if no
+                protocol specified.</td>
+              <td valign="top">The document is downloaded and printed. A
+                relative (to the current page) url may be given.</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top"><em>prompt</em></td>
+        <td>(Bool) Specifies whether or not the user should be prompted before
+          the download is queued</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns <em>false</em> if printing with a prompt and the user cancels the printing.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Examples</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/advanced.htm')">ScriptX Advanced Printing</a>
+  and <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> examples.</p>
+  <p>The following simple but complete example shows how to print an externally-located document:</p>
+  <pre class="clsCode">&lt;body&gt;
+
+&lt;!-- MeadCo Security Manager - using evaluation license --&gt;
+&lt;object viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:5445be81-b796-11d2-b931-002018654e2e&quot;
+codebase=&quot;smsx.cab#Version=6,1,432,1&quot;&gt;
+  &lt;param name=&quot;GUID&quot; value=&quot;{67533199-D16A-46D3-BA23-5AA77981F726}&quot;&gt;
+  &lt;param name=&quot;Path&quot; value=&quot;sxlic.mlf&quot;&gt;
+  &lt;param name=&quot;Revision&quot; value=&quot;0&quot;&gt;
+&lt;/object&gt;
+
+&lt;!-- MeadCo ScriptX --&gt;
+&lt;object id=&quot;factory&quot; viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:1663ed61-23eb-11d2-b92f-008048fdd814&quot;&gt;
+&lt;/object&gt;
+
+&lt;script defer&gt;
+function window.onload() {
+  idPrint.disabled = false;
+}
+
+function PrintHTML(url) {
+  factory.printing.<b>PrintHTML</b>(url);
+}
+&lt;/script&gt;
+
+&lt;input id=idPrint disabled type=&quot;button&quot; value=&quot;PrintHTML('info.htm')&quot;
+ onclick=&quot;PrintHTML('info.htm')&quot;&gt;
+
+&lt;/body&gt;</pre>
+  <p>The following example illustrates dynamic creation of the HTML to be
+  printed:</p>
+  <pre class="clsCode">&nbsp;&lt;!-- MeadCo Security Manager - using evaluation license --&gt;
+&lt;object viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:5445be81-b796-11d2-b931-002018654e2e&quot;
+codebase=&quot;smsx.cab#Version=6,1,432,1&quot;&gt;
+  &lt;param name=&quot;GUID&quot; value=&quot;{67533199-D16A-46D3-BA23-5AA77981F726}&quot;&gt;
+  &lt;param name=&quot;Path&quot; value=&quot;sxlic.mlf&quot;&gt;
+  &lt;param name=&quot;Revision&quot; value=&quot;0&quot;&gt;
+&lt;/object&gt;
+
+&lt;!-- MeadCo ScriptX --&gt;
+&lt;object id=&quot;factory&quot; viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:1663ed61-23eb-11d2-b92f-008048fdd814&quot;&gt;
+&lt;/object&gt;
+
+&lt;script&gt;
+function doPrintDemo() {
+
+	var n;
+	var str = &quot;&lt;html&gt;&lt;head&gt;&quot;;
+	str += &quot;&lt;link rel='stylesheet' type='text/css' href='http://www.meadroid.com/zeepe/resources/zp_content.css' /&gt;&quot;;
+	str += &quot;&lt;title&gt;ScriptX Dynamic Reports&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&quot;;
+
+	for (n=0; n&lt;10; n++) {
+		str += &quot;&lt;p&gt;Dynamically created line number: &quot; + (n+1) + &quot;&lt;/p&gt;&quot;;
+	}
+
+	str += &quot;&lt;hr/&gt;&lt;p&gt;Note that style sheets, scripts, images etc must be referenced by their full url&lt;/p&gt;&quot;);
+	str += &quot;&lt;/body&gt;&lt;/html&gt;&quot;;
+
+	factory.printing.header = &quot;ScriptX Dynamic Printing&quot;;
+	factory.printing.footer = &quot;&quot;;
+	factory.printing.printHTML(&quot;html://&quot;+str);
+}
+&lt;/script&gt;
+</pre>
+</blockquote>
+
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a href="#collate">collate</a>, <a href="#copies">copies</a>, <a href="#duplex">duplex</a>, <a href="#footer">footer</a>, <a
+  href="#header">header</a>, <a href="#leftMargin">leftMargin</a>, <a href="#onafterprint">onafterprint</a>, <a href="#onuserprint">onuserprint</a>, <a href="#paperSize">paperSize</a>, <a href="#paperSource">paperSource</a>,
+  <a href="#portrait">portrait</a>, <a href="#printBackground">printBackground</a>, <a href="#printer">printer</a>,
+  <a href="#printToFileName">printToFileName</a>, <a href="#rightMargin">rightMargin</a>, <a
+  href="#templateURL">templateURL</a>, <a href="#topMargin">topMargin</a></p>
+</blockquote>
+<blockquote>
+  <p><a href="#BatchPrintPDF">BatchPrintPDF</a>, <a href="#IsSpooling">IsSpooling</a>, <a href="#OwnQueue">OwnQueue</a>, <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#PrintSetup">PrintSetup</a>, <a href="#PrintXML">PrintXML</a>,
+  <a href="#WaitForSpoolingComplete">WaitForSpoolingComplete</a></p>
+</blockquote>
+
+<h3><a name="PrintPDF"></a>PrintPDF</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Prints a document's inline PDF content. The HTML page should host an instance of the <b>Adobe Acrobat Reader<sup>tm</sup></b> ActiveX
+  control that loads the PDF file. The control is a part Adobe Acrobat Reader<sup>tm</sup>  4.0 or
+  later which can be freely downloaded from the <a target="_blank"
+      href="http://www.adobe.com/products/acrobat/readstep.html">Adobe website</a><span class="ext">�.</span></p>
+  <p>As of the present release of ScriptX, <i>PrintPDF</i><i> </i>prints only on <b> the default printer using default
+  settings</b>.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em> printing</em>.<b>PrintPDF</b>(<i>idPDF[, prompt = true[, shrinkToFit = true [, from = -1[, to =
+  -1]]]</i>);</p>
+</blockquote>
+
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><i>idPDF</i></td>
+        <td>(Object) id of the Adobe Acrobat Reader control hosted on the same document or frame<br> as shown in the example below</td>
+      </tr>
+      <tr>
+        <td><em>prompt</em></td>
+        <td>(Bool) Indicates whether or not to prompt the user before printing</td>
+      </tr>
+      <tr>
+        <td><i>shrinkToFit</i></td>
+        <td>(Bool) Shrink the PDF page to fit the paper, optional, <i>true </i>by default</td>
+      </tr>
+      <tr>
+        <td><i>from</i></td>
+        <td>(Number) Print from the specified page, optional, all pages by default</td>
+      </tr>
+      <tr>
+        <td><i>to</i></td>
+        <td>(Number) Print to the specified page, optional, all pages by default</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns a boolean value indicating whether or not there are still outstanding downloads to be printed.</p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <pre class="clsCode">&lt;body&gt;
+
+&lt;!-- MeadCo Security Manager - using evaluation license --&gt;
+&lt;object viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:5445be81-b796-11d2-b931-002018654e2e&quot;
+codebase=&quot;smsx.cab#Version=6,1,432,1&quot;&gt;
+  &lt;param name=&quot;GUID&quot; value=&quot;{67533199-D16A-46D3-BA23-5AA77981F726}&quot;&gt;
+  &lt;param name=&quot;Path&quot; value=&quot;sxlic.mlf&quot;&gt;
+  &lt;param name=&quot;Revision&quot; value=&quot;0&quot;&gt;
+&lt;/object&gt;
+
+&lt;!-- MeadCo ScriptX --&gt;
+&lt;object id=&quot;factory&quot; viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:1663ed61-23eb-11d2-b92f-008048fdd814&quot;&gt;
+&lt;/object&gt;
+
+&lt;!-- <b>Adobe Acrobat Reader<sup>tm</sup> ActiveX Control</b> --&gt;
+&lt;object id=idPDF width=50% height=50%
+classid=&quot;clsid:CA8A9780-280D-11CF-A24D-444553540000&quot;&gt;
+  &lt;param name=&quot;src&quot; value=&quot;<b>ReadMe.pdf</b>&quot;&gt;
+&lt;/object&gt;
+
+&lt;script defer&gt;
+function window.onload() {
+  idPrint.disabled = false;
+}
+
+function PrintPDF(url) {
+  factory.printing.<b>PrintPDF</b>(idPDF);
+}
+&lt;/script&gt;
+
+&lt;input id=idPrint disabled type=&quot;button&quot; value=&quot;Print the PDF&quot;
+ onclick=&quot;PrintPDF()&quot;&gt;
+
+&lt;/body&gt;</pre>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#BatchPrintPDF">BatchPrintPDF</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a></p>
+</blockquote>
+
+<h3><a name="PrintSetup"></a>PrintSetup</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Invokes the standard Windows <i>Print Setup...</i> dialog, thus allowing a user to modify current print settings. If the user closes the dialog with the OK button, current settings will be updated and an <i><a
+  href="#onpagesetup">onpagesetup</a></i> event will be fired. No printing will occur in either case.&nbsp;</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em> result = printing</em>.<b>PrintSetup()</b></p>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns a boolean value indicating whether or not the user has closed the dialog with the OK button.</p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/advanced.htm')">ScriptX Advanced Printing</a>
+  and <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> examples.</p>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a href="#collate">collate</a>, <a href="#copies">copies</a>, <a
+  href="#disableUI">disableUI</a>, <a href="#duplex">duplex</a>, <a href="#printer">printer</a>,
+  <a href="#printToFileName">printToFileName</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#DefaultPrinter">DefaultPrinter</a>, <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a></p>
+</blockquote>
+
+<h3><a name="PrintXML"></a>PrintXML</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>This method is an alias for <i>PrintHTML</i>, preserved for compatibility reasons. You can print both XML (XSL-processed)
+  and HTML files with <i>PrintHTML</i>. See the <i><a href="#PrintHTML">PrintHTML</a> </i>method description for
+  more info.</p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>The following simple but complete example shows how to print an externally-located XML document:</p>
+  <pre class="clsCode">&lt;head&gt;
+&lt;title&gt;MeadCo's ScriptX: PrintXML&lt;/title&gt;
+&lt;!-- special style sheet for printing --&gt;
+&lt;style media=&quot;print&quot;&gt;
+.noprint     { display: none }
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;!-- MeadCo Security Manager - using evaluation license --&gt;
+&lt;object viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:5445be81-b796-11d2-b931-002018654e2e&quot;
+codebase=&quot;smsx.cab#Version=6,1,432,1&quot;&gt;
+  &lt;param name=&quot;GUID&quot; value=&quot;{67533199-D16A-46D3-BA23-5AA77981F726}&quot;&gt;
+  &lt;param name=&quot;Path&quot; value=&quot;sxlic.mlf&quot;&gt;
+  &lt;param name=&quot;Revision&quot; value=&quot;0&quot;&gt;
+&lt;/object&gt;
+
+&lt;!-- MeadCo ScriptX --&gt;
+&lt;object id=&quot;factory&quot; viewastext style=&quot;display:none&quot;
+classid=&quot;clsid:1663ed61-23eb-11d2-b92f-008048fdd814&quot;&gt;
+&lt;/object&gt;
+
+&lt;script defer&gt;
+function window.onload() {
+  idPrint.disabled = false;
+}
+
+function Print() {
+  // set footer  
+  factory.printing.footer = &quot;Printed with MeadCo's ScriptX&quot;;
+
+  // print this page
+  factory.printing.Print(false);
+
+  // print linked pages
+  var links = idLinks.all.tags(&quot;A&quot;);
+  for ( i = 0; i &lt; links.length; i++ )
+    factory.printing.<b>PrintXML</b>(links[i].href)
+}
+&lt;/script&gt;
+
+&lt;p&gt;&lt;input id=idPrint class=noprint disabled type=&quot;button&quot; value=&quot;Print the page and links&quot;
+ onclick=&quot;Print()&quot;&gt;
+
+&lt;p&gt;XML links:
+&lt;span id=idLinks&gt;
+&lt;a href=&quot;info1.xml&quot;&gt;Info 1&lt;/a&gt;
+&lt;a href=&quot;info2.xml&quot;&gt;Info 2&lt;/a&gt;
+&lt;a href=&quot;info3.xml&quot;&gt;Info 3&lt;/a&gt;
+&lt;/span&gt;
+
+&lt;/body&gt;</pre>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a href="#collate">collate</a>, <a href="#copies">copies</a>, <a href="#duplex">duplex</a>, <a href="#footer">footer</a>, <a
+  href="#header">header</a>, <a href="#leftMargin">leftMargin</a>, <a href="#onafterprint">onafterprint</a>, <a href="#onuserprint">onuserprint</a>, <a href="#paperSize">paperSize</a>, <a href="#paperSource">paperSource</a>,
+  <a href="#portrait">portrait</a>, <a href="#printBackground">printBackground</a>, <a href="#printer">printer</a>,
+  <a href="#printToFileName">printToFileName</a>, <a href="#rightMargin">rightMargin</a>, <a
+  href="#templateURL">templateURL</a>, <a href="#topMargin">topMargin</a></p>
+</blockquote>
+<blockquote>
+  <p><a href="#BatchPrintPDF">BatchPrintPDF</a>, <a href="#IsSpooling">IsSpooling</a>, <a href="#OwnQueue">OwnQueue</a>, <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>,
+  <a href="#PrintHTML">PrintHTML</a>, <a href="#PrintSetup">PrintSetup</a>, <a href="#WaitForSpoolingComplete">WaitForSpoolingComplete</a></p>
+</blockquote>
+
+<h3><a name="SetMarginMeasure"></a>SetMarginMeasure</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Sets the units of measure for print-out margins.</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>printing</em>.<strong>SetMarginMeasure</strong><b>(</b><em>units</em><b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>units</em></td>
+        <td>(Number) <em>1</em> stands for millimeters, <em>2</em> for inches.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+  <p>Check out the source code of the <a href="javascript:openWindow('samples/advanced.htm')">ScriptX Advanced Printing</a>
+  and <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> examples.</p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p><a href="#bottomMargin">bottomMargin</a>, <a href="#leftMargin">leftMargin</a>, <a href="#pageHeight">pageHeight</a>, <a
+  href="#pageWidth">pageWidth</a>, <a href="#paperSize">paperSize</a>, <a href="#rightMargin">rightMargin</a>, <a href="#topMargin">topMargin</a>, <a href="#unprintableBottom">unprintableBottom</a>,
+  <a href="#unprintableLeft">unprintableLeft</a>, <a href="#unprintableRight">unprintableRight</a>, <a
+  href="#unprintableTop">unprintableTop</a></p>
+</blockquote>
+<blockquote>
+  <p>
+  <a href="#GetMarginMeasure">GetMarginMeasure</a>, <a href="#PageSetup">PageSetup</a>, <a href="#Print">Print</a>, <a href="#Print">Print</a><a href="#PrintSetup">PrintSetup</a></p>
+</blockquote>
+
+<h3><a name="SetPageRange"></a>SetPageRange</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  <p>Sets the page selection to print.</p>
+  <p>It is <b>not possible </b>to know in advance the exact number of pages which will be printed unless you're using a custom <a href="http://www.meadroid.com/scriptx/template/">Print
+      Template</a><span class="ext">�</span>  (Internet Explorer 5.5 or later). MeadCo's <a href="http://www.meadroid.com/scriptx/template/">MaxiPT 1.0</a><span
+  class="ext">�</span>  custom Print Template allows you to specify arbitrary page ranges, as well as only odd, even or
+  both odd and even pages with different margin and header/footer settings.&nbsp;</p>
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>printing</em>.<strong>SetPageRange</strong><b>(</b><em>selectionOnly</em>[, <em>from</em>, <em>to</em>]<b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><em>selectionOnly</em></td>
+        <td>(Bool) print the highlighted HTML selection only</td>
+      </tr>
+      <tr>
+        <td><em>from</em></td>
+        <td>(Number) print from the page, <em>1</em>-based. Use <em>0</em> to print all pages</td>
+      </tr>
+      <tr>
+        <td><em>to</em></td>
+        <td>(Number) print to the page, <em>1</em>-based</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a href="#collate">collate</a>, <a href="#copies">copies</a>, <a href="#duplex">duplex</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#PageSetup">PageSetup</a>,
+  <a href="#Preview">Preview</a>, <a href="#Print">Print</a>, <a href="#PrintSetup">PrintSetup</a></p>
+</blockquote>
+
+<h3><a name="Sleep"></a>Sleep</h3>
+<hr>
+<h4>Description</h4>
+<blockquote>
+  <p>Suspends (sleeps) script execution for a specified timeout or until a passed <i>callback </i>function returns <i>true</i>.
+  This is an efficient way to wait for an event without burning CPU cycles.</p>
+</blockquote>
+<h4>Syntax</h4>
+<blockquote>
+  <p><em>printing</em>.<a name="Sleep"></a><b>Sleep(</b><i>timeout, [callback]</i><b>)</b></p>
+</blockquote>
+<blockquote>
+  <table class="samp" cellpadding="5" cellspacing="0" width="85%">
+    <tbody>
+      <tr>
+        <td><b>Parameter</b></td>
+        <td><b>Description</b></td>
+      </tr>
+      <tr>
+        <td><i>timeout</i></td>
+        <td>(Number) the timeout in milliseconds.</td>
+      </tr>
+      <tr>
+        <td><i>callback</i></td>
+        <td>(Function)&nbsp;the optional pointer to the function to be periodically called within the <i>Sleep</i>
+          method.<br>When the function returns <i>true</i>, the sleep is canceled.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns <em>true</em> if the sleep was canceled by a callback function.</p>
+</blockquote>
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+<h4>Example</h4>
+<blockquote>
+<p>The following code snippet navigates a frame to a file then prints its content:</p>
+  <pre class="clsCode">&lt;script defer&gt;
+function NavigatePrintFrame(url) {
+  idFrame.navigate(url);
+  factory.printing.Sleep(100) // let the navigation start
+  factory.printing.Sleep(1000*60, IsReady) // sleep for 1 minute or until the document is ready
+  factory.printing.Print(true, idFrame)
+}
+function IsReady() {
+  return idFrame.document.readyState == &quot;complete&quot;
+}
+&lt;/script&gt;</pre>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a href="#onafterprint">onafterprint</a></p>
+</blockquote>
+<blockquote>
+  <p> <a href="#IsSpooling">IsSpooling</a>, <a href="#Print">Print</a>, <a href="#WaitForSpoolingComplete">WaitForSpoolingComplete</a></p>
+</blockquote>
+
+<h3><a name="WaitForSpoolingComplete"></a>WaitForSpoolingComplete</h3>
+<hr>
+
+<h4>Description</h4>
+<blockquote>
+  Waits for all pending download and spooling operations originated with <i><a href="#Print">Print</a></i>,
+  <a href="#PrintHTML">PrintHTML</a>/<a href="#PrintXML">PrintXML</a> and <a href="#BatchPrintPDF">BatchPrintPDF</a>
+  calls to complete. <i>WaitForSpoolingComplete</i> provides visual feedback such as a modal window state and an hourglass
+  cursor.
+</blockquote>
+
+<h4>Syntax</h4>
+<blockquote>
+  <p><em> printing</em>.<b>WaitForSpoolingComplete()</b></p>
+</blockquote>
+
+<h4>Return Value</h4>
+<blockquote>
+  <p>Returns a boolean value indicating whether or not there are still outstanding unspooled downloads to be printed.</p>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote>
+
+<p>Check out the source code of the <a href="javascript:openWindow('samples/techie.htm')">ScriptX Techie Printing</a> 
+example.</p>
+  <pre class="clsCode">&lt;script defer&gt;
+function PrintAndGo() {
+  if ( factory.printing.Print() )
+    factory.printing.WaitForSpoolingComplete()
+  window.close()
+}
+&lt;/script&gt;</pre>
+</blockquote>
+
+<h4>Applies To</h4>
+<blockquote>
+  <p><a href="#printing">printing</a></p>
+</blockquote>
+
+<h4>See Also</h4>
+
+<blockquote>
+  <p><a href="#extprint">HTML Printing with ScriptX</a></p>
+  <p> <a href="#onafterprint">onafterprint</a>, <a
+  href="#onbeforeunload">onbeforeunload</a></p>
+</blockquote>
+<blockquote>
+  <p><a href="#BatchPrintPDF">BatchPrintPDF</a>, <a href="#IsSpooling">IsSpooling</a>, <a href="#OwnQueue">OwnQueue</a>, <a href="#Print">Print</a>, <a href="#PrintHTML">PrintHTML</a>,&nbsp;
+  <a href="#Sleep">Sleep</a></p>
+</blockquote>
+<hr>
+<p><i>MeadCo's ScriptX, MaxiPT and the MeadCo Security Manager are Copyright (c) Mead & Co Limited, 1998-2003.</i></p>
+<p><i>Microsoft, Windows, Internet Explorer are registered trademarks of Microsoft Corporation. All companies
+and product names mentioned are trademarks of the respective companies.</i></p>
+<center><b><a target="_top" href="http://www.meadroid.com/scriptx/">MeadCo ScriptX Control</a></b>
+</center>
+
+<span id="ptBut" onclick="top.printGen()" style="visibility:hidden">&nbsp;</span> 
+
+</body>
+
+</html>

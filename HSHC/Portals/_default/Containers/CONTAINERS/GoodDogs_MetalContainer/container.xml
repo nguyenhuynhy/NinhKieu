@@ -1,0 +1,24 @@
+<Objects>
+	<Object>
+		<Token>[ACTIONS]</Token>
+	</Object>
+	<Object>
+		<Token>[ICON]</Token>
+	</Object>
+	<Object>
+		<Token>[TITLE]</Token>
+	</Object>
+	<Object>
+		<Token>[VISIBILITY]</Token>
+		<Settings>
+			<Setting>
+				<Name>MinimizeIcon</Name>
+				<Value>minimize.gif</Value>
+			</Setting>
+			<Setting>
+				<Name>MaximizeIcon</Name>
+				<Value>maximize.gif</Value>
+			</Setting>
+		</Settings>
+	</Object>
+</Objects>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CPXD>
+<tabDanhMuc>
+	<tab1>DMLOAICAPPHEP</tab1><!-->Tab + tabid + itemcode-->
+	<tab2>DMHOSOSUDUNG</tab2>
+	<tab3>DMLOAINOIDUNGGOIY</tab3>
+	<tab4>DMNOIDUNGGOIY</tab4>
+	<tab5>DMCAPNHA</tab5>
+	<tab6>DMPHANLOAIXAYDUNG</tab6>
+	<tab7>DMTINHTRANGGIAYPHEP</tab7>
+	<tab8>PARAMS</tab8>
+	<tab9>DMLINHVUC</tab9>
+	<tab10>DMLOAIHOSO</tab10>
+	<tab11>DMHOSOKEMTHEO</tab11>
+	<tab12>DMLYDO</tab12>
+	<tab13>DMTINHTRANGHOSO</tab13>
+	<tab14>DMTINHTRANGXULY</tab14>
+</tabDanhMuc>
+<tab414>CAPMOIGPXD</tab414>
+<tab686>DIEUCHINHGPXD</tab686>
+<tab431>CAPPHOBANGPXD</tab431>
+<tab432>GIAHANGPXD</tab432>
+<tab433>SUACHUANGUYENTRANG</tab433>
+<tab434>HOSOKHONG</tab434>
+<tab435>HUYGPXD</tab435>
+<tab745>THAYDOINOIDUNG</tab745>
+<tab750>VAOSOCONGVAN</tab750>
+<tab757>VAOSOGIAYPHEP</tab757>
+<tab771>HENXACMINH</tab771>
+<tab774>INSOCONGVAN</tab774>
+<ReportPath>CPXDQH</ReportPath>
+<Variable>
+<SoNgayLoc>20</SoNgayLoc><!--NganTL created : So ngay loc ho so-->
+<SoDongHienThiDatagrid>10</SoDongHienThiDatagrid>
+<nguoiky>00001,00002</nguoiky>
+<TruongDiaBan>00009,00031</TruongDiaBan>
+<InPhieuChuyen>217</InPhieuChuyen>
+<TabCapDoi>686</TabCapDoi>
+<KyHieuThietKe>BVTKSB</KyHieuThietKe> <!--Truongtd create: muc dich tao gia tri mac dinh cho ky hieu thiet ke--> 
+<FileTemplate>C:\Temp\HSHC\BarCodeNet.bmp</FileTemplate>
+<FileExport>C:\Temp\HSHC\BarcodeInsert.bmp</FileExport>
+<FileYeuCauBoSungHoSo>PhieuBaoYeuCauBoSungHoSo.rtf</FileYeuCauBoSungHoSo>
+<FileHoSoKhong>ThuTraLoiKhongGiaiQuyet.rtf</FileHoSoKhong>
+<FileHoSoKhongQuaHan>ThuTraLoiKhongGiaiQuyet_GiaHan.rtf</FileHoSoKhongQuaHan>
+<FileDeXuat>BaoCaoKiemTraDeXuat.doc</FileDeXuat>
+<FileDieuChinhNoiDung>XacNhanDieuChinhNoiDung.rtf</FileDieuChinhNoiDung>
+<FileChuyenThamDinh>PhieuChuyenThamDinh.rtf</FileChuyenThamDinh>
+<FileGiayPhepXayDung>GiayPhepXayDung.doc</FileGiayPhepXayDung>
+<FileDeXuatGiaHan>BaoCaoDeXuatGiaHan.doc</FileDeXuatGiaHan>
+<FileDeXuatPhoBan>BaoCaoDeXuatPhoBan.doc</FileDeXuatPhoBan>
+<FileQuyetDinh>QuyetDinhCapPhoBan.doc</FileQuyetDinh>
+<FileDeXuatDieuChinhNoiDung>BaoCaoDeXuatDieuChinhNoiDung.doc</FileDeXuatDieuChinhNoiDung>
+</Variable>
+</CPXD>
